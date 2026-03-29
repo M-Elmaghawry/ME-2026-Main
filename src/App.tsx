@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
@@ -19,6 +19,10 @@ import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const isGitHubPages =
+  typeof window !== "undefined" &&
+  (window.location.hostname.endsWith("github.io") || import.meta.env.VITE_FORCE_HASH_ROUTER === "true");
+const Router = isGitHubPages ? HashRouter : BrowserRouter;
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -26,7 +30,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <Router basename={isGitHubPages ? undefined : import.meta.env.BASE_URL}>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -42,7 +46,7 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </Router>
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>

@@ -64,6 +64,32 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
+## GitHub Pages deployment
+
+This repository is configured to deploy automatically to GitHub Pages from the `main` branch using GitHub Actions.
+
+### One-time setup in GitHub
+
+1. Open the repository settings.
+2. Go to **Pages**.
+3. Set **Source** to **GitHub Actions**.
+
+### Local build for GitHub Pages
+
+If you want to test the GitHub Pages build locally, run:
+
+```sh
+npm install
+npm run build:gh-pages
+```
+
+The workflow builds the site with:
+
+- `VITE_BASE_PATH=/ME-2026-Main/`
+- `VITE_FORCE_HASH_ROUTER=true`
+
+This ensures assets load correctly from the repository subpath and client-side routes work on GitHub Pages.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
