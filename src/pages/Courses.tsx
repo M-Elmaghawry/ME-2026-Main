@@ -10,20 +10,20 @@ import { Clock, BarChart, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const courses = [
   {
-    id: 'revit-fundamentals',
-    title: { ar: 'أساسيات Revit Architecture', en: 'Revit Architecture Fundamentals' },
+    id: 'bim-fundamentals',
+    title: { ar: 'أساسيات Revit Architecture', en: 'BIM Fundamentals for Civil Engineers' },
     description: {
       ar: 'تعلم أساسيات التصميم المعماري باستخدام برنامج Revit من البداية',
-      en: 'Learn the fundamentals of architectural design using Revit from scratch',
+      en: 'Comprehensive introduction to Building Information Modeling',
     },
     fullDescription: {
       ar: 'دورة شاملة تأخذك من الصفر إلى الاحتراف في استخدام برنامج Revit للتصميم المعماري. ستتعلم إنشاء المشاريع، رسم الجدران والأبواب والنوافذ، إنشاء الأسقف والأرضيات، وإخراج اللوحات الهندسية.',
-      en: 'A comprehensive course that takes you from zero to proficiency in using Revit for architectural design. You will learn to create projects, draw walls, doors and windows, create roofs and floors, and produce engineering drawings.',
+      en: 'Comprehensive introduction to Building Information Modeling concepts, workflows, and best practices. Perfect for engineers transitioning to BIM.',
     },
     level: { ar: 'مبتدئ', en: 'Beginner' },
-    duration: { ar: '20 ساعة', en: '20 Hours' },
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80',
-    udemyLink: 'https://www.udemy.com/',
+    duration: { ar: '01 ساعة', en: '01 Hours' },
+    image: '/courses/BIM Fundamentals for Civil Engineers.webp',
+    udemyLink: 'https://www.udemy.com/course/bim-introduction-free/?referralCode=25EADC46D87F0DCA809A',
     syllabus: [
       { ar: 'مقدمة في برنامج Revit', en: 'Introduction to Revit' },
       { ar: 'إنشاء المشروع والإعدادات', en: 'Project Creation and Settings' },
@@ -33,20 +33,20 @@ export const courses = [
     ],
   },
   {
-    id: 'navisworks-coordination',
-    title: { ar: 'Navisworks للتنسيق وكشف التعارضات', en: 'Navisworks for Coordination & Clash Detection' },
+    id: 'revit-structure-professional-training',
+    title: { ar: 'Navisworks للتنسيق وكشف التعارضات', en: 'Revit Structure Professional Training' },
     description: {
       ar: 'احترف استخدام Navisworks لتنسيق النماذج وكشف التعارضات بين التخصصات',
-      en: 'Master Navisworks for model coordination and clash detection between disciplines',
+      en: 'Comprehensive introduction to Building Information Modeling and Autodesk Revit for structural engineering. Learn modeling, documentation, and collaboration techniques for efficient project delivery.',
     },
     fullDescription: {
       ar: 'تعلم كيفية استخدام برنامج Navisworks لدمج النماذج من مختلف التخصصات، إجراء اختبارات كشف التعارضات، إنشاء التقارير، وإدارة عملية التنسيق بين الفرق.',
-      en: 'Learn how to use Navisworks to federate models from various disciplines, perform clash detection tests, generate reports, and manage the coordination process between teams.',
+      en: 'Comprehensive introduction to Building Information Modeling and Autodesk Revit for structural engineering. Learn modeling, documentation, and collaboration techniques for efficient project delivery.',
     },
-    level: { ar: 'متوسط', en: 'Intermediate' },
-    duration: { ar: '15 ساعة', en: '15 Hours' },
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80',
-    udemyLink: 'https://www.udemy.com/',
+    level: { ar: 'مبتدئ', en: 'Beginner' },
+    duration: { ar: '60 ساعة', en: '60 Hours' },
+    image: '/courses/Revit Structure Professional Training.webp',
+    udemyLink: 'https://www.behance.net/gallery/187155589/_',
     syllabus: [
       { ar: 'مقدمة في Navisworks', en: 'Introduction to Navisworks' },
       { ar: 'دمج النماذج', en: 'Federating Models' },
@@ -55,20 +55,64 @@ export const courses = [
     ],
   },
   {
-    id: 'bim-management',
-    title: { ar: 'BIM Management متقدم', en: 'Advanced BIM Management' },
+    id: 'bim-application',
+    title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 01' },
     description: {
       ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
-      en: 'Advanced course in BIM project management and implementing global best practices',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques',
     },
     fullDescription: {
       ar: 'دورة متقدمة تغطي جميع جوانب إدارة مشاريع BIM بما في ذلك وضع خطط التنفيذ، إدارة الفرق، ضمان الجودة، والتوافق مع المعايير الدولية مثل ISO 19650.',
-      en: 'An advanced course covering all aspects of BIM project management including execution planning, team management, quality assurance, and compliance with international standards like ISO 19650.',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques, on Practical Project from start to end',
+    },
+    level: { ar: 'متوسط', en: 'Intermediate' },
+    duration: { ar: '10 ساعة', en: '10 Hours' },
+    image: '/courses/Revit Structure Workshop - 01.webp',
+    udemyLink: 'https://www.behance.net/gallery/197545865/_',
+    syllabus: [
+      { ar: 'أساسيات إدارة BIM', en: 'BIM Management Fundamentals' },
+      { ar: 'خطة تنفيذ BIM', en: 'BIM Execution Plan' },
+      { ar: 'معايير ISO 19650', en: 'ISO 19650 Standards' },
+      { ar: 'إدارة الجودة', en: 'Quality Management' },
+    ],
+  },
+  {
+    id: 'bim-application',
+    title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 02' },
+    description: {
+      ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques',
+    },
+    fullDescription: {
+      ar: 'دورة متقدمة تغطي جميع جوانب إدارة مشاريع BIM بما في ذلك وضع خطط التنفيذ، إدارة الفرق، ضمان الجودة، والتوافق مع المعايير الدولية مثل ISO 19650.',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques, on Practical Project from start to end',
+    },
+    level: { ar: 'متوسط', en: 'Intermediate' },
+    duration: { ar: '10 ساعة', en: '10 Hours' },
+    image: '/courses/Revit Structure Workshop - 02.webp',
+    udemyLink: 'https://www.behance.net/gallery/186142533/_',
+    syllabus: [
+      { ar: 'أساسيات إدارة BIM', en: 'BIM Management Fundamentals' },
+      { ar: 'خطة تنفيذ BIM', en: 'BIM Execution Plan' },
+      { ar: 'معايير ISO 19650', en: 'ISO 19650 Standards' },
+      { ar: 'إدارة الجودة', en: 'Quality Management' },
+    ],
+  },
+   {
+    id: 'bim-application',
+    title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 03' },
+    description: {
+      ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques',
+    },
+    fullDescription: {
+      ar: 'دورة متقدمة تغطي جميع جوانب إدارة مشاريع BIM بما في ذلك وضع خطط التنفيذ، إدارة الفرق، ضمان الجودة، والتوافق مع المعايير الدولية مثل ISO 19650.',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques, on Practical Project from start to end',
     },
     level: { ar: 'متقدم', en: 'Advanced' },
-    duration: { ar: '25 ساعة', en: '25 Hours' },
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80',
-    udemyLink: 'https://www.udemy.com/',
+    duration: { ar: '12 ساعة', en: '12 Hours' },
+    image: '/courses/Revit Structure Workshop - 03.webp',
+    udemyLink: 'https://www.behance.net/gallery/186280023/_',
     syllabus: [
       { ar: 'أساسيات إدارة BIM', en: 'BIM Management Fundamentals' },
       { ar: 'خطة تنفيذ BIM', en: 'BIM Execution Plan' },
