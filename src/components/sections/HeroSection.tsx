@@ -116,7 +116,7 @@ const HeroSection = () => {
             <Button
               variant="whatsapp"
               size="xl"
-              className="group"
+              className="group btn-hover-effect btn-hover-blue-white"
               onClick={() => window.open('https://wa.me/201096189832', '_blank')}
             >
               <MessageCircle className="w-5 h-5" />
@@ -126,7 +126,7 @@ const HeroSection = () => {
             <Button 
               variant="hero" 
               size="xl" 
-              className="group"
+              className="group btn-hover-effect btn-hover-blue-white"
               onClick={() => window.location.href = '/contact'}
             >
               <Calendar className="w-5 h-5" />
@@ -136,7 +136,7 @@ const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="group"
+              className="group btn-hover-effect btn-hover-blue-white"
               onClick={() => window.location.href = '/services'}
             >
               {t('hero.cta.services')}

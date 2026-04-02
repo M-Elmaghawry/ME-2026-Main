@@ -6,6 +6,15 @@ import { testimonials } from '@/data/testimonials';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
 
+type LocalizedText = { ar: string; en: string } | string;
+
+const resolveLocalized = (value: LocalizedText, language: 'ar' | 'en') => {
+  if (typeof value === 'string') {
+    return value;
+  }
+  return language === 'ar' ? value.ar : value.en;
+};
+
 const TestimonialsSection = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
@@ -57,6 +66,19 @@ const TestimonialsSection = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {testimonials.map((testimonial) => (
+            (() => {
+              const rating = Number((testimonial as { rating?: number }).rating ?? 5);
+              const image = (testimonial as { image?: string }).image ?? '/placeholder.svg';
+              const content =
+                'content' in testimonial && testimonial.content
+                  ? resolveLocalized(testimonial.content as LocalizedText, language)
+                  : language === 'ar'
+                    ? (testimonial as { textAr?: string; text?: string }).textAr ?? (testimonial as { text?: string }).text ?? ''
+                    : (testimonial as { text?: string }).text ?? '';
+              const name = resolveLocalized(testimonial.name as LocalizedText, language);
+              const role = resolveLocalized(testimonial.role as LocalizedText, language);
+
+              return (
             <motion.div
               key={testimonial.id}
               variants={cardVariants}
@@ -73,7 +95,7 @@ const TestimonialsSection = () => {
                     <Star
                       key={i}
                       className={`w-5 h-5 ${
-                        i < testimonial.rating
+                        i < rating
                           ? 'fill-yellow-400 text-yellow-400'
                           : 'text-muted'
                       }`}
@@ -83,27 +105,29 @@ const TestimonialsSection = () => {
 
                 {/* Content */}
                 <p className="text-foreground leading-relaxed mb-6 relative z-10">
-                  "{language === 'ar' ? testimonial.content.ar : testimonial.content.en}"
+                  "{content}"
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center gap-4 mt-auto">
                   <img
-                    src={testimonial.image}
-                    alt={language === 'ar' ? testimonial.name.ar : testimonial.name.en}
+                    src={image}
+                    alt={name}
                     className="w-14 h-14 rounded-full object-cover ring-2 ring-baby-blue/30"
                   />
                   <div>
                     <h4 className="font-bold text-foreground">
-                      {language === 'ar' ? testimonial.name.ar : testimonial.name.en}
+                      {name}
                     </h4>
                     <p className="text-sm text-blue-grotto">
-                      {language === 'ar' ? testimonial.role.ar : testimonial.role.en}
+                      {role}
                     </p>
                   </div>
                 </div>
               </div>
             </motion.div>
+              );
+            })()
           ))}
         </motion.div>
       </div>
