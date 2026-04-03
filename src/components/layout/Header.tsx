@@ -49,15 +49,12 @@ const Header = () => {
       <div className="section-container">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img 
-              src="/placeholder.svg" 
-              alt="Logo" 
-              className="w-10 h-10 rounded-xl object-contain"
+          <Link to="/" className="flex items-center">
+            <img
+              src="/Mahmoud Elmekawy Logo.png"
+              alt="Mahmoud Elmekawy Logo"
+              className="h-12 w-auto object-contain"
             />
-            <span className="font-bold text-xl gradient-text hidden sm:block">
-              {language === 'ar' ? 'م. محمود المكاوى' : 'Eng. M. Elmekawy'}
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

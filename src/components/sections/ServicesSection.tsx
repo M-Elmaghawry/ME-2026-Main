@@ -1,6 +1,7 @@
 import { motion, type Easing } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 import { 
   Building2, 
   Layers, 
@@ -22,19 +23,19 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: 'bimConsulting',
+    id: 'bim-consulting',
     icon: Building2,
     titleKey: 'services.items.bimConsulting.title',
     descriptionKey: 'services.items.bimConsulting.description',
   },
   {
-    id: 'revitModeling',
+    id: 'revit-modeling',
     icon: Layers,
     titleKey: 'services.items.revitModeling.title',
     descriptionKey: 'services.items.revitModeling.description',
   },
   {
-    id: 'clashDetection',
+    id: 'clash-detection',
     icon: Search,
     titleKey: 'services.items.clashDetection.title',
     descriptionKey: 'services.items.clashDetection.description',
@@ -50,6 +51,7 @@ const services: Service[] = [
 const ServicesSection = () => {
   const { t } = useTranslation();
   const { direction } = useLanguage();
+  const navigate = useNavigate();
   const Arrow = direction === 'rtl' ? ArrowLeft : ArrowRight;
 
   const containerVariants = {
@@ -156,6 +158,7 @@ const ServicesSection = () => {
                   {/* Link */}
                   <Button
                     variant="ghost"
+                    onClick={() => navigate(`/services/${service.id}`)}
                     className="mt-4 text-blue-grotto group-hover:text-navy"
                   >
                     {t('common.viewDetails')}
@@ -178,7 +181,7 @@ const ServicesSection = () => {
           <Button 
             variant="hero" 
             size="lg"
-            onClick={() => window.location.href = '/services'}
+            onClick={() => navigate('/services')}
           >
             {t('services.viewAll')}
             <Arrow className="w-5 h-5 ms-2" />

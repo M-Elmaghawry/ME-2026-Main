@@ -10,22 +10,58 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { MessageCircle, Mail, Phone, MapPin, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { WHATSAPP_LINK } from '@/config/site';
+import { services } from '@/pages/Services';
 
 const Contact = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [countryCode, setCountryCode] = useState('+20');
+  const [selectedService, setSelectedService] = useState('');
+
+  const countries = [
+    { code: '+20',  ar: 'مصر',      en: 'Egypt' },
+    { code: '+966', ar: 'السعودية', en: 'Saudi Arabia' },
+    { code: '+971', ar: 'الإمارات', en: 'UAE' },
+    { code: '+965', ar: 'الكويت',   en: 'Kuwait' },
+    { code: '+974', ar: 'قطر',      en: 'Qatar' },
+    { code: '+973', ar: 'البحرين',  en: 'Bahrain' },
+    { code: '+964', ar: 'العراق',   en: 'Iraq' },
+    { code: '+90',  ar: 'تركيا',   en: 'Turkey' },
+    { code: '+34',  ar: 'أسبانيا', en: 'Spain' },
+    { code: '',     ar: 'أخرى',    en: 'Other' },
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success(language === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!');
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+
+    const formData = new FormData(e.currentTarget);
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.get('name') as string,
+          from_email: formData.get('email') as string,
+          phone: countryCode ? `${countryCode} ${formData.get('phone') as string}` : (formData.get('phone') as string),
+          company: formData.get('company') as string,
+          service: selectedService,
+          message: formData.get('message') as string,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      toast.success(language === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!');
+      (e.target as HTMLFormElement).reset();
+      setCountryCode('+20');
+      setSelectedService('');
+    } catch {
+      toast.error(language === 'ar' ? 'حدث خطأ، يرجى المحاولة مرة أخرى' : 'An error occurred, please try again');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -74,6 +110,7 @@ const Contact = () => {
                         {language === 'ar' ? 'الاسم' : 'Name'}
                       </label>
                       <Input
+                        name="name"
                         required
                         placeholder={language === 'ar' ? 'اسمك الكامل' : 'Your full name'}
                       />
@@ -83,6 +120,7 @@ const Contact = () => {
                         {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
                       </label>
                       <Input
+                        name="email"
                         type="email"
                         required
                         placeholder={language === 'ar' ? 'بريدك الإلكتروني' : 'Your email'}
@@ -91,17 +129,60 @@ const Contact = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">
+                      {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'}
+                    </label>
+                    <div className="flex gap-2">
+                      <select
+                        value={countryCode}
+                        onChange={e => setCountryCode(e.target.value)}
+                        className="flex h-9 rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 w-2/5 shrink-0"
+                      >
+                        {countries.map(c => (
+                          <option key={c.code + c.ar} value={c.code}>
+                            {language === 'ar' ? c.ar : c.en}{c.code ? ` (${c.code})` : ''}
+                          </option>
+                        ))}
+                      </select>
+                      <Input
+                        name="phone"
+                        type="tel"
+                        className="flex-1"
+                        placeholder={language === 'ar' ? 'رقم الهاتف' : 'Phone number'}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
                       {language === 'ar' ? 'الشركة' : 'Company'}
                     </label>
                     <Input
+                      name="company"
                       placeholder={language === 'ar' ? 'اسم الشركة (اختياري)' : 'Company name (optional)'}
                     />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      {language === 'ar' ? 'الخدمة المطلوبة' : 'Required Service'}
+                    </label>
+                    <select
+                      value={selectedService}
+                      onChange={e => setSelectedService(e.target.value)}
+                      className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      <option value="">{language === 'ar' ? '-- اختر الخدمة --' : '-- Select a service --'}</option>
+                      {services.map(s => (
+                        <option key={s.id} value={s.id}>
+                          {language === 'ar' ? s.title.ar : s.title.en}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">
                       {language === 'ar' ? 'الرسالة' : 'Message'}
                     </label>
                     <Textarea
+                      name="message"
                       required
                       rows={5}
                       placeholder={language === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
@@ -167,7 +248,7 @@ const Contact = () => {
                   variant="whatsapp"
                   size="lg"
                   className="w-full"
-                  onClick={() => window.open('https://wa.me/201096189832', '_blank')}
+                  onClick={() => window.open(WHATSAPP_LINK, '_blank')}
                 >
                   <MessageCircle className="w-5 h-5" />
                   {t('hero.cta.whatsapp')}

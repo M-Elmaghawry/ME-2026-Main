@@ -55,7 +55,7 @@ export const courses = [
     ],
   },
   {
-    id: 'bim-application',
+    id: 'revit-structure-workshop-01',
     title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 01' },
     description: {
       ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
@@ -77,7 +77,7 @@ export const courses = [
     ],
   },
   {
-    id: 'bim-application',
+    id: 'revit-structure-workshop-02',
     title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 02' },
     description: {
       ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
@@ -99,7 +99,7 @@ export const courses = [
     ],
   },
    {
-    id: 'bim-application',
+    id: 'revit-structure-workshop-03',
     title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 03' },
     description: {
       ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',

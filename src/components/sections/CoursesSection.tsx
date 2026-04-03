@@ -1,80 +1,12 @@
 import { motion, type Easing } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Clock, BarChart, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Clock, BarChart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { courses as allCourses } from '@/pages/Courses';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
-
-interface Course {
-  id: string;
-  title: {
-    ar: string;
-    en: string;
-  };
-  description: {
-    ar: string;
-    en: string;
-  };
-  level: {
-    ar: string;
-    en: string;
-  };
-  duration: {
-    ar: string;
-    en: string;
-  };
-  image: string;
-  udemyLink: string;
-}
-
-const courses: Course[] = [
-  {
-    id: '1',
-    title: {
-      ar: 'أساسيات Revit Architecture',
-      en: 'Revit Architecture Fundamentals',
-    },
-    description: {
-      ar: 'تعلم أساسيات التصميم المعماري باستخدام برنامج Revit من البداية',
-      en: 'Learn the fundamentals of architectural design using Revit from scratch',
-    },
-    level: { ar: 'مبتدئ', en: 'Beginner' },
-    duration: { ar: '20 ساعة', en: '20 Hours' },
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80',
-    udemyLink: 'https://www.udemy.com/',
-  },
-  {
-    id: '2',
-    title: {
-      ar: 'Navisworks للتنسيق وكشف التعارضات',
-      en: 'Navisworks for Coordination & Clash Detection',
-    },
-    description: {
-      ar: 'احترف استخدام Navisworks لتنسيق النماذج وكشف التعارضات بين التخصصات',
-      en: 'Master Navisworks for model coordination and clash detection between disciplines',
-    },
-    level: { ar: 'متوسط', en: 'Intermediate' },
-    duration: { ar: '15 ساعة', en: '15 Hours' },
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80',
-    udemyLink: 'https://www.udemy.com/',
-  },
-  {
-    id: '3',
-    title: {
-      ar: 'BIM Management متقدم',
-      en: 'Advanced BIM Management',
-    },
-    description: {
-      ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
-      en: 'Advanced course in BIM project management and implementing global best practices',
-    },
-    level: { ar: 'متقدم', en: 'Advanced' },
-    duration: { ar: '25 ساعة', en: '25 Hours' },
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80',
-    udemyLink: 'https://www.udemy.com/',
-  },
-];
 
 const getLevelColor = (level: string) => {
   if (level === 'مبتدئ' || level === 'Beginner') return 'bg-green-100 text-green-700';
@@ -82,9 +14,12 @@ const getLevelColor = (level: string) => {
   return 'bg-red-100 text-red-700';
 };
 
+const courses = allCourses.slice(0, 3);
+
 const CoursesSection = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const navigate = useNavigate();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -181,10 +116,10 @@ const CoursesSection = () => {
                   <Button
                     variant="accent"
                     className="w-full group"
-                    onClick={() => window.open(course.udemyLink, '_blank')}
+                    onClick={() => navigate(`/courses/${course.id}`)}
                   >
                     {t('courses.enroll')}
-                    <ExternalLink className="w-4 h-4 ms-2 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 ms-2 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
               </div>
@@ -203,7 +138,7 @@ const CoursesSection = () => {
           <Button 
             variant="outline" 
             size="lg"
-            onClick={() => window.location.href = '/courses'}
+            onClick={() => navigate('/courses')}
           >
             {t('courses.viewAll')}
           </Button>

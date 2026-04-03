@@ -15,8 +15,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const { i18n } = useTranslation();
-  const [language, setLanguageState] = useState<Language>('ar');
-  const [direction, setDirection] = useState<Direction>('rtl');
+  const [language, setLanguageState] = useState<Language>('en');
+  const [direction, setDirection] = useState<Direction>('ltr');
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
@@ -33,7 +33,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    setLanguage('ar');
+    setLanguage('en');
   }, []);
 
   return (

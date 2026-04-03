@@ -75,7 +75,7 @@ const PrivacyPolicy = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-hero pt-32 pb-16">
+      <section className="pt-32 pb-16" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f5f0e8 50%, hsl(var(--blue-grotto)) 100%)' }}>
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -84,12 +84,12 @@ const PrivacyPolicy = () => {
             className="text-center"
           >
             <div className="flex items-center justify-center gap-3 mb-4">
-              <Shield className="w-10 h-10 text-white" />
-              <h1 className="text-3xl md:text-4xl font-bold text-white">
+              <Shield className="w-10 h-10 text-navy" />
+              <h1 className="text-3xl md:text-4xl font-bold text-navy">
                 {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
               </h1>
             </div>
-            <p className="text-white/80 text-lg">
+            <p className="text-navy/70 text-lg">
               {language === 'ar' 
                 ? 'نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية'
                 : 'We respect your privacy and are committed to protecting your personal data'}

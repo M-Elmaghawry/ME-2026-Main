@@ -9,6 +9,7 @@ import ClientsSection from '@/components/sections/ClientsSection';
 import ExperienceTimeline from '@/components/sections/ExperienceTimeline';
 import { Award, Briefcase, GraduationCap, CheckCircle, Star, Quote, User } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { projects } from '@/data/projects';
 import { testimonials } from '@/data/testimonials';
 
 const About = () => {
@@ -18,33 +19,6 @@ const About = () => {
   const [currentCertImage, setCurrentCertImage] = useState(0);
   const [currentTrainingImage, setCurrentTrainingImage] = useState(0);
   const [currentProjectImage, setCurrentProjectImage] = useState(0);
-
-  const projects = [
-    {
-      name: { ar: 'برج الرياض السكني', en: 'Riyadh Residential Tower' },
-      location: { ar: 'الرياض، السعودية', en: 'Riyadh, Saudi Arabia' },
-      year: '2023',
-      image: '/placeholder.svg',
-    },
-    {
-      name: { ar: 'مجمع القاهرة التجاري', en: 'Cairo Commercial Complex' },
-      location: { ar: 'القاهرة، مصر', en: 'Cairo, Egypt' },
-      year: '2022',
-      image: '/placeholder.svg',
-    },
-    {
-      name: { ar: 'فندق دبي الفاخر', en: 'Dubai Luxury Hotel' },
-      location: { ar: 'دبي، الإمارات', en: 'Dubai, UAE' },
-      year: '2021',
-      image: '/placeholder.svg',
-    },
-    {
-      name: { ar: 'مستشفى جدة الطبي', en: 'Jeddah Medical Hospital' },
-      location: { ar: 'جدة، السعودية', en: 'Jeddah, Saudi Arabia' },
-      year: '2020',
-      image: '/placeholder.svg',
-    },
-  ];
 
   const trainingPrograms = [
     {
@@ -346,7 +320,7 @@ const About = () => {
                     className="p-8 md:p-10 h-full flex flex-col justify-center min-h-[350px] md:min-h-[450px]"
                   >
                     <h3 className="text-2xl font-bold mb-4 text-foreground">
-                      {language === 'ar' ? projects[currentProjectImage].name.ar : projects[currentProjectImage].name.en}
+                      {language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
                     </h3>
                     <div className="space-y-4">
                       <p className="text-muted-foreground flex items-center gap-2">
@@ -389,7 +363,7 @@ const About = () => {
                   >
                     <img
                       src={projects[currentProjectImage].image}
-                      alt={language === 'ar' ? projects[currentProjectImage].name.ar : projects[currentProjectImage].name.en}
+                      alt={language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
                       className="w-full h-[350px] md:h-[450px] object-cover"
                     />
                   </motion.div>
@@ -688,34 +662,26 @@ const About = () => {
                     
                     <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6">
                       "{language === 'ar' 
-                        ? testimonials[currentTestimonial].content.ar 
-                        : testimonials[currentTestimonial].content.en}"
+                        ? testimonials[currentTestimonial].textAr 
+                        : testimonials[currentTestimonial].text}"
                     </p>
 
                     <div className="flex items-center gap-2 mb-6">
-                      {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                      {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
 
                     <div className="flex items-center gap-4">
-                      <img
-                        src={testimonials[currentTestimonial].image}
-                        alt={language === 'ar' 
-                          ? testimonials[currentTestimonial].name.ar 
-                          : testimonials[currentTestimonial].name.en}
-                        className="w-16 h-16 rounded-full object-cover"
-                      />
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-navy to-blue-grotto flex items-center justify-center">
+                        <span className="text-white font-bold text-xl">{testimonials[currentTestimonial].name.charAt(0)}</span>
+                      </div>
                       <div>
                         <h4 className="font-bold text-lg text-foreground">
-                          {language === 'ar' 
-                            ? testimonials[currentTestimonial].name.ar 
-                            : testimonials[currentTestimonial].name.en}
+                          {testimonials[currentTestimonial].name}
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          {language === 'ar' 
-                            ? testimonials[currentTestimonial].role.ar 
-                            : testimonials[currentTestimonial].role.en}
+                          {testimonials[currentTestimonial].role} — {testimonials[currentTestimonial].company}
                         </p>
                       </div>
                     </div>

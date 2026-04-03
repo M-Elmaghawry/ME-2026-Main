@@ -3,10 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { MessageCircle, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useNavigate } from 'react-router-dom';
+import { WHATSAPP_LINK } from '@/config/site';
 
 const CTASection = () => {
   const { t } = useTranslation();
   const { direction } = useLanguage();
+  const navigate = useNavigate();
   const Arrow = direction === 'rtl' ? ArrowLeft : ArrowRight;
 
   return (
@@ -54,7 +57,7 @@ const CTASection = () => {
               variant="whatsapp"
               size="xl"
               className="group"
-              onClick={() => window.open('https://wa.me/201096189832', '_blank')}
+              onClick={() => window.open(WHATSAPP_LINK, '_blank')}
             >
               <MessageCircle className="w-5 h-5" />
               {t('hero.cta.whatsapp')}
@@ -64,7 +67,7 @@ const CTASection = () => {
               variant="hero-outline"
               size="xl"
               className="group border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => navigate('/contact')}
             >
               {t('cta.button')}
               <Arrow className="w-5 h-5 ms-2 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

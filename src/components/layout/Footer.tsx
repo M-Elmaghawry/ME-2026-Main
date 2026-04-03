@@ -38,14 +38,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-grotto to-baby-blue rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">M</span>
-              </div>
-              <span className="font-bold text-xl">
-                {language === 'ar' ? 'م. محمود المكاوى' : 'Eng. M. Elmekawy'}
-              </span>
-            </div>
+            <p className="font-bold text-xl mb-6">
+              {language === 'ar' ? 'المهندس محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
+            </p>
             <p className="text-white/70 text-sm leading-relaxed">
               {t('footer.description')}
             </p>
@@ -90,7 +85,7 @@ const Footer = () => {
           {/* Social */}
           <div>
             <h3 className="font-bold text-lg mb-6">{t('footer.followUs')}</h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-6">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -107,6 +102,11 @@ const Footer = () => {
                 );
               })}
             </div>
+            <img
+              src="/Mahmoud Elmekawy Logo-2.png"
+              alt="Mahmoud Elmekawy Logo"
+              className="w-3/4 mx-auto block object-contain opacity-90"
+            />
           </div>
         </div>
 

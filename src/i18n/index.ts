@@ -11,7 +11,6 @@ const resources = {
         services: 'الخدمات',
         courses: 'الدورات',
         portfolio: 'الأعمال',
-        blog: 'المدونة',
         clients: 'العملاء',
         testimonials: 'آراء العملاء',
         contact: 'تواصل معنا',
@@ -103,7 +102,6 @@ const resources = {
         services: 'Services',
         courses: 'Courses',
         portfolio: 'Portfolio',
-        blog: 'Blog',
         clients: 'Clients',
         testimonials: 'Testimonials',
         contact: 'Contact',
@@ -192,8 +190,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'ar',
-    fallbackLng: 'ar',
+    lng: 'en',
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
     },

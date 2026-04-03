@@ -5,58 +5,8 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { ExternalLink, Briefcase } from 'lucide-react';
-
-const projects = [
-  {
-    id: '1',
-    title: { ar: 'مشروع طرق وكباري', en: 'NEOM Shigri Project' },
-    category: { ar: 'بنية تحتية', en: 'infrastructure' },
-    image: '/projects/01-Shigri-Neom.jpg',
-  },
-  {
-    id: '2',
-    title: { ar: 'مجمع سكني متكامل', en: 'Swary Project - Egypt' },
-    category: { ar: 'سكني', en: 'Administrative' },
-    image: '/projects/02-Swary-Egypt.jpg',
-  },
-  {
-    id: '3',
-    title: { ar: 'برج سكني', en: 'Elseka Elgedida Project' },
-    category: { ar: 'سكني', en: 'Admin/Commercial' },
-    image: '/projects/03-Elseka-Elgedida.jpg',
-  },
-  {
-    id: '4',
-    title: { ar: 'مبنى إداري وتجاري', en: 'General Administration Building - Egypt' },
-    category: { ar: 'إداري/تجاري', en: 'Administrative' },
-    image: '/projects/04-Admin-Egypt.jpg',
-  },
-  {
-    id: '5',
-    title: { ar: 'أعمال حديد التسليح', en: 'Wastewater Treatment Plant' },
-    category: { ar: 'إنشائي', en: 'infrastructure' },
-    image: '/projects/05-Wastewater-Treatment-Plant.jpg',
-  },
-  {
-    id: '6',
-    title: { ar: 'مسجد ومئذنة', en: 'Mosque & Minaret' },
-    category: { ar: 'ديني', en: 'Religious' },
-    image: '/projects/06-Tanah-Mosque.jpg',
-  },
-  {
-    id: '7',
-    title: { ar: 'أعمال حديد التسليح', en: 'Wastewater Treatment Plant' },
-    category: { ar: 'إنشائي', en: 'Residential' },
-    image: '/projects/07-Multi-Residential.jpg',
-  },
-  {
-    id: '8',
-    title: { ar: 'أعمال حديد التسليح', en: 'Student Building' },
-    category: { ar: 'إنشائي', en: 'Residential' },
-    image: '/projects/08-Student-Building.jpg',
-  },
-];
+import { Briefcase, ExternalLink } from 'lucide-react';
+import { projects } from '@/data/projects';
 
 const Portfolio = () => {
   const { t } = useTranslation();
