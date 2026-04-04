@@ -1,4 +1,5 @@
-import { motion, type Easing } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView, type Easing } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { MessageCircle, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,47 @@ import TypewriterEffect from '@/components/TypewriterEffect';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
 const easeInOut: Easing = [0.4, 0, 0.6, 1];
+const outCubic: Easing = [0.215, 0.61, 0.355, 1];
+const CELL = '1.2em';
+
+// Each digit has its own inView ref — no external state dependency
+const RollingDigit = ({ digit, delay }: { digit: number; delay: number }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+  return (
+    <span
+      ref={ref}
+      style={{ display: 'inline-block', overflow: 'hidden', height: CELL, lineHeight: CELL, verticalAlign: 'middle' }}
+    >
+      <motion.span
+        style={{ display: 'block' }}
+        initial={{ y: 0 }}
+        animate={inView ? { y: `calc(-${digit} * ${CELL})` } : undefined}
+        transition={{ duration: 1.8, ease: outCubic, delay }}
+      >
+        {Array.from({ length: 10 }, (_, n) => (
+          <span key={n} style={{ display: 'block', height: CELL, lineHeight: CELL }}>{n}</span>
+        ))}
+      </motion.span>
+    </span>
+  );
+};
+
+// Parses "500+" → rolling digits + suffix
+const RollingNumber = ({ value }: { value: string }) => {
+  const match = value.match(/^(\d+)(.*)$/);
+  if (!match) return <span>{value}</span>;
+  const digits = match[1].split('').map(Number);
+  const suffix = match[2];
+  return (
+    <span className="inline-flex items-center">
+      {digits.map((d, i) => (
+        <RollingDigit key={i} digit={d} delay={i * 0.06} />
+      ))}
+      {suffix && <span style={{ lineHeight: CELL }}>{suffix}</span>}
+    </span>
+  );
+};
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -145,10 +187,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Stats */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: '10+', label: direction === 'rtl' ? 'سنوات خبرة' : 'Years Experience' },
               { value: '50+', label: direction === 'rtl' ? 'مشروع منجز' : 'Projects Completed' },
@@ -157,16 +196,20 @@ const HeroSection = () => {
             ].map((stat, index) => (
               <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '0px 0px -60px 0px' }}
+                transition={{ duration: 0.6, ease: outCubic, delay: index * 0.12 }}
                 whileHover={{ scale: 1.05 }}
                 className="neu-card p-6 text-center"
               >
                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {stat.value}
+                  <RollingNumber value={stat.value} />
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
       </div>
 

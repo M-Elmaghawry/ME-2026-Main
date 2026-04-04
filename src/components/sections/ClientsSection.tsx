@@ -2,21 +2,28 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 
 const clients = [
-  { name: 'Client 1', logo: '/placeholder.svg' },
-  { name: 'Client 2', logo: '/placeholder.svg' },
-  { name: 'Client 3', logo: '/placeholder.svg' },
-  { name: 'Client 4', logo: '/placeholder.svg' },
-  { name: 'Client 5', logo: '/placeholder.svg' },
-  { name: 'Client 6', logo: '/placeholder.svg' },
-  { name: 'Client 7', logo: '/placeholder.svg' },
-  { name: 'Client 8', logo: '/placeholder.svg' },
+  { name: 'دار وإعمار', logo: '/clients/01-شركة-دار-وإعمار.png' },
+  { name: 'شركة الصالح للمقاولات', logo: '/clients/02-شركة-الصالح-للمقاولات.png' },
+  { name: 'Gulf Consult', logo: '/clients/03-Gulf-Consult.png' },
+  { name: 'مكتب فارس الهندسي', logo: '/clients/04-مكتب-فارس-الهندسى.png' },
+  { name: 'Saudi Arabia Railways', logo: '/clients/05-خطوط-سكك-الحديد-السعودية-sar.png' },
+  { name: 'شركة مياه الشرب والصرف الصحي', logo: '/clients/06-شركة-مياة-الشرب-والصرف-الصحى.png' },
+  { name: 'نقابة المهندسين بالدقهلية', logo: '/clients/07-نقابة-المهندسين-بالدقهلية.png' },
+  { name: 'IDS Consulting', logo: '/clients/08-IDS-Consulting.png' },
+  { name: 'CAD Masters', logo: '/clients/09-Cad-Masters.png' },
+  { name: 'شركة الغانم للمقاولات', logo: '/clients/10-شركة-الغانم-للمقاولات.png' },
+  { name: 'Niqat', logo: '/clients/11-Niqat.png' },
+  { name: 'الأكاديمية الدولية للهندسة وعلوم الإعلام', logo: '/clients/12-الأكاديمية-الدولية-للهندسة-وعلوم-الإعلام.png' },
+  { name: 'Kayan Academy', logo: '/clients/13-Kayan-Academy.png' },
+  { name: 'Blue Ocean', logo: '/clients/14-Blue-Ocean.png' },
+  { name: 'UpSkill Center', logo: '/clients/15-Upskill-Center.png' },
+  { name: 'أكاديمية أوميجا للتدريب', logo: '/clients/16-أكاديمية-أوميجا-للتدريب.png' },
 ];
 
 const ClientsSection = () => {
   const { language } = useLanguage();
 
-  // Duplicate clients for infinite scroll effect
-  const duplicatedClients = [...clients, ...clients, ...clients];
+  // clients used directly (no duplication needed - handled in JSX)
 
   return (
     <section className="py-28 bg-background overflow-hidden">
@@ -40,23 +47,37 @@ const ClientsSection = () => {
         </motion.div>
       </div>
 
-      {/* Single Row - Right to Left */}
-      <div className="relative">
-        <div className="flex animate-scroll-rtl">
-          {duplicatedClients.map((client, index) => (
-            <div
-              key={`row-${index}`}
-              className="flex-shrink-0 mx-6"
-            >
-              <div className="w-44 h-28 neu-card rounded-xl p-4 flex items-center justify-center">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-w-full max-h-full object-contain opacity-70"
-                />
+      {/* Single Row - infinite marquee */}
+      <div className="relative overflow-hidden" dir="ltr">
+        <div className="marquee-track">
+          {/* Group 1 */}
+          <div className="marquee-group">
+            {clients.map((client, index) => (
+              <div key={`a-${index}`} className="flex-shrink-0 mx-6">
+                <div className="w-44 h-28 neu-card rounded-xl p-4 flex items-center justify-center">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain opacity-70"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          {/* Group 2 - identical copy for seamless loop */}
+          <div className="marquee-group" aria-hidden="true">
+            {clients.map((client, index) => (
+              <div key={`b-${index}`} className="flex-shrink-0 mx-6">
+                <div className="w-44 h-28 neu-card rounded-xl p-4 flex items-center justify-center">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain opacity-70"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
