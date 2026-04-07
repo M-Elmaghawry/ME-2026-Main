@@ -601,25 +601,7 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Skills Logo Slider - same style as clients */}
-              <div className="relative overflow-hidden">
-                <div className="flex animate-scroll-rtl">
-                  {duplicatedSkills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 mx-4"
-                    >
-                      <div className="neu-card p-6 w-32 h-32 flex items-center justify-center">
-                        <img
-                          src={skill.logo}
-                          alt={skill.name}
-                          className="w-20 h-20 object-contain"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* Skills Logo Slider - تم إلغاء عرض اللوجو */}
             </motion.div>
           </div>
         </section>

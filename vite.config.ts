@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    base: env.VITE_BASE_PATH || "/",
+    base: "/ME-2026-Main/",
     server: {
       host: "::",
       port: 8080,

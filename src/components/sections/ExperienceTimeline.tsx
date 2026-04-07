@@ -15,7 +15,7 @@ interface TimelineItem {
     en: string;
   };
   description: {
-    ar: string;
+    ar: string | string[];
     en: string | string[];
   };
 }

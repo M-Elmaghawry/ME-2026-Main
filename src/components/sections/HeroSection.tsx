@@ -43,7 +43,9 @@ const RollingNumber = ({ value }: { value: string }) => {
   return (
     <span className="inline-flex items-center">
       {digits.map((d, i) => (
-        <RollingDigit key={i} digit={d} delay={i * 0.06} />
+        <span key={i}>
+          <RollingDigit digit={d} delay={i * 0.06} />
+        </span>
       ))}
       {suffix && <span style={{ lineHeight: CELL }}>{suffix}</span>}
     </span>
