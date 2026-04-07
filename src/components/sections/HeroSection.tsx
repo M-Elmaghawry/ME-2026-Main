@@ -189,9 +189,9 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: '10+', label: direction === 'rtl' ? 'سنوات خبرة' : 'Years Experience' },
-              { value: '50+', label: direction === 'rtl' ? 'مشروع منجز' : 'Projects Completed' },
-              { value: '500+', label: direction === 'rtl' ? 'متدرب' : 'Students Trained' },
+              { value: '13+', label: direction === 'rtl' ? 'سنوات خبرة' : 'Years Experience' },
+              { value: '250+', label: direction === 'rtl' ? 'مشروع منجز' : 'Projects Completed' },
+              { value: '1500+', label: direction === 'rtl' ? 'متدرب' : 'Students Trained' },
               { value: '20+', label: direction === 'rtl' ? 'شركة' : 'Companies' },
             ].map((stat, index) => (
               <motion.div
@@ -204,7 +204,7 @@ const HeroSection = () => {
                 className="neu-card p-6 text-center"
               >
                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  <RollingNumber value={stat.value} />
+                  {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </motion.div>

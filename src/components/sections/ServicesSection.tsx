@@ -21,31 +21,13 @@ interface Service {
   descriptionKey: string;
 }
 
-const services: Service[] = [
-  {
-    id: 'bim-consulting',
-    icon: Building2,
-    titleKey: 'services.items.bimConsulting.title',
-    descriptionKey: 'services.items.bimConsulting.description',
-  },
-  {
-    id: 'revit-modeling',
-    icon: Layers,
-    titleKey: 'services.items.revitModeling.title',
-    descriptionKey: 'services.items.revitModeling.description',
-  },
-  {
-    id: 'clash-detection',
-    icon: Search,
-    titleKey: 'services.items.clashDetection.title',
-    descriptionKey: 'services.items.clashDetection.description',
-  },
-  {
-    id: 'training',
-    icon: GraduationCap,
-    titleKey: 'services.items.training.title',
-    descriptionKey: 'services.items.training.description',
-  },
+const services = [
+  { id: 'bim-training', name: 'Professional BIM Training (Individuals & Corporate)' },
+  { id: 'bim-coordination', name: 'BIM Coordination & Clash Detection' },
+  { id: 'autocad-revit', name: 'AutoCAD to Revit Conversion (Structural & Architectural)' },
+  { id: 'infra-bim', name: 'Infrastructure BIM Modeling (Roads & Utility Networks)' },
+  { id: 'shop-drawings', name: 'Structural Shop Drawings (Concrete & Rebar)' },
+  { id: 'boq', name: 'Structural Quantity Takeoffs & BOQs' },
 ];
 
 const ServicesSection = () => {
@@ -127,47 +109,20 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={service.id}
-                variants={cardVariants}
-                whileHover={{ y: -8 }}
-                className="group"
-              >
-                <div className="neu-card h-full p-8 flex flex-col items-center text-center transition-all duration-300 group-hover:shadow-glow">
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{ rotate: 5, scale: 1.1 }}
-                    className="w-16 h-16 bg-gradient-to-r from-navy to-blue rounded-2xl flex items-center justify-center mb-6 shadow-lg"
-                  >
-                    <Icon className="w-8 h-8 text-white" />
-                  </motion.div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-foreground mb-3">
-                    {t(service.titleKey)}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
-                    {t(service.descriptionKey)}
-                  </p>
-
-                  {/* Link */}
-                  <Button
-                    variant="ghost"
-                    onClick={() => navigate(`/services/${service.id}`)}
-                    className="mt-4 text-blue-grotto group-hover:text-navy"
-                  >
-                    {t('common.viewDetails')}
-                    <Arrow className="w-4 h-4 ms-1 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-                  </Button>
-                </div>
-              </motion.div>
-            );
-          })}
+          {services.map((service) => (
+            <motion.div
+              key={service.id}
+              variants={cardVariants}
+              whileHover={{ y: -8 }}
+              className="group"
+            >
+              <div className="neu-card h-full p-8 flex flex-col items-center text-center transition-all duration-300 group-hover:shadow-glow">
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {service.name}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* View All Button */}

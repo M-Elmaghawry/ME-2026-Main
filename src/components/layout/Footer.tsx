@@ -69,15 +69,40 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <Phone className="w-5 h-5 text-baby-blue" />
-                <span dir="ltr">+20 109 618 9832</span>
+                <a
+                  href="https://wa.me/201096189832"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  dir="ltr"
+                  className="transition-colors duration-200 group-hover:text-baby-blue hover:text-baby-blue"
+                  style={{ textDecoration: 'none' }}
+                >
+                  +20 109 618 9832
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-white/70 group">
+                <Phone className="w-5 h-5 text-baby-blue" />
+                <a
+                  href="https://wa.me/99531175199"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  dir="ltr"
+                  className="transition-colors duration-200 group-hover:text-baby-blue hover:text-baby-blue"
+                  style={{ textDecoration: 'none' }}
+                >
+                  +99 53 117 5199
+                </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <Mail className="w-5 h-5 text-baby-blue" />
-                <span>contact@elmekawy.com</span>
+                <span>contact@elmekawy-bim.com</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <MapPin className="w-5 h-5 text-baby-blue" />
-                <span>{language === 'ar' ? 'مصر' : 'Egypt'}</span>
+                <div className="flex flex-col">
+                  <span>{language === 'ar' ? 'المنصورة - مصر' : 'Mansoura - Egypt'}</span>
+                  <span>{language === 'ar' ? 'الرياض - السعودية' : 'Riyadh - KSA'}</span>
+                </div>
               </li>
             </ul>
           </div>

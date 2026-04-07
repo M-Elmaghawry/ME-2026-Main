@@ -47,37 +47,18 @@ const ClientsSection = () => {
         </motion.div>
       </div>
 
-      {/* Single Row - infinite marquee */}
-      <div className="relative overflow-hidden" dir="ltr">
-        <div className="marquee-track">
-          {/* Group 1 */}
-          <div className="marquee-group">
-            {clients.map((client, index) => (
-              <div key={`a-${index}`} className="flex-shrink-0 mx-6">
-                <div className="w-44 h-28 neu-card rounded-xl p-4 flex items-center justify-center">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="max-w-full max-h-full object-contain opacity-70"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Group 2 - identical copy for seamless loop */}
-          <div className="marquee-group" aria-hidden="true">
-            {clients.map((client, index) => (
-              <div key={`b-${index}`} className="flex-shrink-0 mx-6">
-                <div className="w-44 h-28 neu-card rounded-xl p-4 flex items-center justify-center">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="max-w-full max-h-full object-contain opacity-70"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Grid of clients */}
+      <div className="section-container">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+          {clients.map((client, index) => (
+            <div key={index} className="neu-card rounded-xl p-4 flex items-center justify-center w-full h-28">
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="max-w-full max-h-full object-contain opacity-70"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

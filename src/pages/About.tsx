@@ -42,43 +42,43 @@ const About = () => {
   ];
 
   const skills = [
-    { name: 'Autodesk Revit', logo: '/placeholder.svg' },
-    { name: 'Navisworks', logo: '/placeholder.svg' },
-    { name: 'AutoCAD', logo: '/placeholder.svg' },
-    { name: 'BIM 360', logo: '/placeholder.svg' },
-    { name: 'Dynamo', logo: '/placeholder.svg' },
-    { name: 'Microsoft Project', logo: '/placeholder.svg' },
+    'Revit Structure',
+    'AutoCAD',
+    'Civil 3D',
+    'Navisworks',
+    'ACC',
+    'Dynamo',
+    'Infraworks',
+    'Revit Architecture',
+    'Solibri',
+    'Power BI',
+    'Microsoft Project',
+    'Primavera P6',
   ];
 
   const certifications = [
     {
       title: { ar: 'مهندس مصنف محترف من الهيئة السعودية للمهندسين', en: 'Professional Classified Engineer - Saudi Council of Engineers' },
-      year: '2023',
-      image: '/placeholder.svg',
+      year: '2022',
+      image: '/certificates/01-ME-Saudi-Professional.jpg',
       featured: true,
     },
     {
       title: { ar: 'محاضر معتمد من شركة أتوديسك', en: 'Autodesk Certified Instructor' },
-      year: '2022',
-      image: '/placeholder.svg',
+      year: '2021',
+      image: '/certificates/02-ME-Autodesk-Certified-Instuctor.jpg',
       featured: true,
     },
     {
-      title: { ar: 'مهندس Revit معتمد من Autodesk', en: 'Autodesk Certified Revit Professional' },
+      title: { ar: 'محترف معتمد فى برنامج الريفيت الإنشائى', en: 'Revit Structure Certified Professional' },
+      year: '2017',
+      image: '/certificates/03-ME-Revit-Structure-Certified-Professional.jpg',
+      featured: false,
+    },
+    {
+      title: { ar: 'محترف معتمد فى برنامج الريفيت المعمارى', en: 'Revit Architecture Certified Professional' },
       year: '2020',
-      image: '/placeholder.svg',
-      featured: false,
-    },
-    {
-      title: { ar: 'شهادة إدارة مشاريع BIM', en: 'BIM Project Management Certificate' },
-      year: '2019',
-      image: '/placeholder.svg',
-      featured: false,
-    },
-    {
-      title: { ar: 'خبير Navisworks معتمد', en: 'Navisworks Expert Certification' },
-      year: '2021',
-      image: '/placeholder.svg',
+      image: '/certificates/04-ME-Revit-Architecture-Certified-Professional',
       featured: false,
     },
   ];
@@ -594,12 +594,9 @@ const About = () => {
 
               {/* Skill Names */}
               <div className="flex flex-wrap gap-3 justify-center mb-10">
-                {skills.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="px-4 py-2 bg-muted rounded-full text-sm font-medium"
-                  >
-                    {skill.name}
+                {skills.map((skill, idx) => (
+                  <span key={idx} className="neu-card px-4 py-2 text-base font-medium text-foreground">
+                    {skill}
                   </span>
                 ))}
               </div>

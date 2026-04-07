@@ -16,18 +16,26 @@ interface TimelineItem {
   };
   description: {
     ar: string;
-    en: string;
+    en: string | string[];
   };
 }
 
 const timelineData: TimelineItem[] = [
   {
-    year: '2024',
-    title: { ar: 'مدير BIM أول', en: 'Senior BIM Manager' },
-    company: { ar: 'شركة كبرى للمقاولات', en: 'Major Construction Company' },
-    description: { 
-      ar: 'قيادة فريق BIM وإدارة المشاريع الكبرى',
-      en: 'Leading BIM team and managing major projects'
+    year: '2025 - Present',
+    title: { ar: 'BIM Coordinator', en: 'BIM Coordinator' },
+    company: { ar: 'شركة كبرى للمقاولات', en: 'IDS Consulting' },
+    description: {
+      ar: [
+        'قيادة تطبيق وتسليم BIM باستخدام أدوات BIM لمشاريع حكومية وخاصة متنوعة (مشاريع نيوم).',
+        'تنسيق نماذج البنية التحتية متعددة التخصصات وفق معيار ISO 19650.',
+        'إعداد جداول الكميات والرسومات التصميمية التفصيلية بناءً على نمذجة LOD 300.'
+      ],
+      en: [
+        'Lead BIM Implementation and Delivery using BIM tools for various governmental and private sector projects. (NEOM Projects)',
+        'Coordinated Infrastructure multi-disciplinary models in line with ISO 19650 standards.',
+        'Deliver BOQs and detailed design drawings based on LOD 300 modeling.'
+      ]
     },
   },
   {
@@ -156,9 +164,23 @@ const ExperienceTimeline = () => {
                 <p className="text-blue-grotto font-medium mb-2">
                   {language === 'ar' ? item.company.ar : item.company.en}
                 </p>
-                <p className="text-muted-foreground text-sm">
-                  {language === 'ar' ? item.description.ar : item.description.en}
-                </p>
+                {Array.isArray(item.description.ar) && language === 'ar' ? (
+                  <ul className="text-muted-foreground text-sm list-disc ps-5 space-y-1">
+                    {item.description.ar.map((point: string, idx: number) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
+                ) : language === 'ar' ? (
+                  <p className="text-muted-foreground text-sm">{item.description.ar}</p>
+                ) : Array.isArray(item.description.en) ? (
+                  <ul className="text-muted-foreground text-sm list-disc ps-5 space-y-1">
+                    {item.description.en.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-muted-foreground text-sm">{item.description.en}</p>
+                )}
               </motion.div>
             </motion.div>
           ))}
