@@ -9,8 +9,13 @@ interface Title {
 
 const titles: Title[] = [
   { ar: 'مهندس BIM محترف', en: 'Senior BIM Engineer' },
-  { ar: 'استشاري هندسي', en: 'Engineering Consultant' },
-  { ar: 'مدرب معتمد', en: 'Certified Instructor' },
+  { ar: 'مهندس BIM إنشائى', en: 'Structural BIM Engineer' },
+  { ar: 'مهندس BIM بنية تحتية', en: 'Infrastructure BIM Engineer' },
+  { ar: 'منسق BIM محترف', en: 'BIM Coordinator' },
+  { ar: 'مهندس محترف - الهيئة السعودية للمهندسين', en: 'Certified Professional by Saudi Council of Engineers ' },
+  { ar: 'محاضر معتمد من شركة أتوديسك', en: 'Autodesk Certified Instructor' },
+  { ar: 'مصنف محترف فى برنامج الريفيت الإنشائى', en: 'Revit Structure Certified Professional' },
+  { ar: 'مصنف محترف فى برنامج الريفيت المعمارى', en: 'Revit Architecture Certified Professional' },
 ];
 
 const TypewriterEffect = () => {

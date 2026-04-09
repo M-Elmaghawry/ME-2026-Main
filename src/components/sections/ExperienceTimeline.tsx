@@ -24,7 +24,7 @@ const timelineData: TimelineItem[] = [
   {
     year: '2025 - Present',
     title: { ar: 'BIM Coordinator', en: 'BIM Coordinator' },
-    company: { ar: 'شركة كبرى للمقاولات', en: 'IDS Consulting' },
+    company: { ar: 'IDS Consulting', en: 'IDS Consulting' },
     description: {
       ar: [
         'قيادة تطبيق وتسليم BIM باستخدام أدوات BIM لمشاريع حكومية وخاصة متنوعة (مشاريع نيوم).',
@@ -39,30 +39,90 @@ const timelineData: TimelineItem[] = [
     },
   },
   {
-    year: '2022',
-    title: { ar: 'مهندس BIM', en: 'BIM Engineer' },
-    company: { ar: 'شركة استشارات هندسية', en: 'Engineering Consultancy Firm' },
+    year: '2022 - 2025',
+    title: { ar: 'مهندس BIM إنشائي', en: 'Structural BIM Engineer' },
+    company: { ar: 'مكتب طلال شاكر للاستشارات الهندسية', en: 'Talal Shaker Office for Engineering Consultation' },
     description: { 
-      ar: 'تطوير نماذج BIM وتنسيق التخصصات',
-      en: 'Developing BIM models and coordinating disciplines'
+      ar: [
+         "قيادة التصميم الإنشائي باستخدام أدوات BIM لمشاريع حكومية وخاصة متنوعة.",
+        "تنسيق النماذج متعددة التخصصات وفق معيار ISO 19650.",
+        "إعداد جداول الكميات والرسومات التفصيلية بناءً على نمذجة LOD 400."
+      ],
+      en: [
+        "Lead structural design using BIM tools for various governmental and private sector projects.",
+        "Coordinated multi-disciplinary models in line with ISO 19650 standards.",
+        "Delivered BOQs and detailed design drawings based on LOD 400 modeling."
+      ]
     },
   },
   {
-    year: '2020',
-    title: { ar: 'مهندس معماري', en: 'Architectural Engineer' },
-    company: { ar: 'مكتب تصميم معماري', en: 'Architectural Design Office' },
+    year: '2021 - 2022',
+    title: { ar: 'مدير BIM للمكتب الفني', en: 'Technical Office BIM Manager' },
+    company: { ar: 'شركة جلوري للمقاولات العامة', en: 'Glory General Construction Company' },
     description: { 
-      ar: 'تصميم المباني وإعداد الرسومات التنفيذية',
-      en: 'Building design and preparing construction drawings'
+      ar: [
+        "الإشراف على سير عمل BIM لمشروع بنية تحتية واسع النطاق ضمن مبادرة \"حياة كريمة\" الوطنية.",
+        "إدارة تنسيق BIM بين التخصصات المدنية والمعمارية والميكانيكية والكهربائية والسباكة لشبكات المياه والصرف والطرق ومحطات الضخ.",
+        "إعداد كشوف الكميات التفصيلية وإجراء اكتشاف التعارضات باستخدام Navisworks.",
+        "ضمان مطابقة النماذج لمعايير ISO 19650 ومخططات تنفيذ BIM."
+      ],
+      en: [
+         "Supervised BIM workflows for a large-scale infrastructure project under the national initiative \u201cHayat Karima.\u201d",
+        "Managed BIM coordination between civil, architectural, and MEP disciplines for water and sewage networks, roadworks, and pump stations.",
+        "Delivered detailed quantity takeoffs and conducted clash detection using Navisworks.",
+        "Ensured model compliance with ISO 19650 and BEP standards."
+      ]
     },
   },
   {
-    year: '2018',
-    title: { ar: 'بداية المسيرة', en: 'Career Start' },
+    year: '2015 - 2021',
+    title: { ar: 'مهندس تصميم إنشائي', en: 'Structural Design Engineer' },
     company: { ar: 'التخرج من كلية الهندسة', en: 'Engineering Faculty Graduation' },
     description: { 
-      ar: 'بكالوريوس هندسة معمارية',
-      en: 'Bachelor of Architectural Engineering'
+      ar: [
+        "تصميم المنشآت السكنية والتجارية باستخدام Revit وAutoCAD.",
+        "إعداد رسومات التنفيذ ونماذج BIM الإنشائية وفق مواصفات المشروع."
+      ],
+      en: [
+         "Designed residential and commercial structures using Revit and AutoCAD.",
+        "Created shop drawings and structural BIM models compliant with project specs."
+      ]
+    },
+  },
+  {
+    year: '2015 - 2021',
+    title: { ar: 'مهندس موقع مدني', en: 'Civil Site Engineer' },
+    company: { ar: 'شركة مياة الشرب والصرف الصحى بالدقهلية', en: 'Aldkhliya for Water and Sanitation Company' },
+    description: { 
+      ar: [
+         "إدارة التنفيذ الميداني لمشاريع البنية التحتية شاملةً: شبكات مياه الشرب، شبكات الصرف الصحي، محطات الضخ، أعمال الطرق.",
+        "مراجعة وتطبيق رسومات التنفيذ لضمان توافقها مع المواصفات التصميمية.",
+        "التنسيق بين فرق التصميم ومهندسي الموقع لحل الإشكاليات الفنية ميدانيًا.",
+        "المساهمة في رفع كفاءة التنفيذ من خلال الكشف المبكر عن التعارضات وحلها."
+      ],
+      en: [
+         "Managed on-site civil execution of infrastructure projects including:Water supply networks, Sewerage networks, Pump stations, Roadworks.",
+        "Reviewed and implemented shop drawings to ensure alignment with design specs.",
+        "Coordinated between design teams and site engineers to resolve technical issues on-site.",
+        "Contributed to improving execution efficiency through early clash identification and resolution."
+      ]
+    },
+  },
+   {
+    year: '2013 - 2015',
+    title: { ar: 'مهندس تصميم إنشائي / موقع', en: 'Structural Design / Site  Engineer' },
+    company: { ar: 'مكتب د. محمود الجمل للإستشارات الهندسية', en: 'Dr. Mahmoud Elgamal Consultant Office' },
+    description: { 
+      ar: [
+         "تصميم المنشآت السكنية والتجارية باستخدام Revit وAutoCAD.",
+        "إعداد رسومات التنفيذ ونماذج BIM الإنشائية وفق مواصفات المشروع.",
+        "الإشراف على أعمال التنفيذ الميداني وتنسيقها."
+      ],
+      en: [
+         "Designed residential and commercial structures using Revit and AutoCAD.",
+        "Created shop drawings and structural BIM models compliant with project specs.",
+        "Supervised and Coordinated Site Implementation Works."
+      ]
     },
   },
 ];
