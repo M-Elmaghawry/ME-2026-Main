@@ -6,7 +6,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
-import { services } from './Services';
+import { services } from '@/data/services';
 import { ArrowLeft, ArrowRight, MessageCircle, CheckCircle } from 'lucide-react';
 
 const ServiceDetail = () => {

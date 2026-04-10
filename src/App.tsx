@@ -19,10 +19,8 @@ import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-const isGitHubPages =
-  typeof window !== "undefined" &&
-  (window.location.hostname.endsWith("github.io") || import.meta.env.VITE_FORCE_HASH_ROUTER === "true");
-const Router = isGitHubPages ? HashRouter : BrowserRouter;
+
+const Router = BrowserRouter;
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,7 +28,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Router basename={isGitHubPages ? undefined : import.meta.env.BASE_URL}>
+        <Router basename={import.meta.env.BASE_URL || "/ME-2026-Main/"}>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />

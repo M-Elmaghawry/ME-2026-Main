@@ -1,4 +1,5 @@
 import { motion, type Easing } from 'framer-motion';
+import { services } from '@/data/services';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
@@ -21,18 +22,11 @@ interface Service {
   descriptionKey: string;
 }
 
-const services = [
-  { id: 'bim-training', name: 'Professional BIM Training (Individuals & Corporate)' },
-  { id: 'bim-coordination', name: 'BIM Coordination & Clash Detection' },
-  { id: 'autocad-revit', name: 'AutoCAD to Revit Conversion (Structural & Architectural)' },
-  { id: 'infra-bim', name: 'Infrastructure BIM Modeling (Roads & Utility Networks)' },
-  { id: 'shop-drawings', name: 'Structural Shop Drawings (Concrete & Rebar)' },
-  { id: 'boq', name: 'Structural Quantity Takeoffs & BOQs' },
-];
+
 
 const ServicesSection = () => {
   const { t } = useTranslation();
-  const { direction } = useLanguage();
+  const { language, direction } = useLanguage();
   const navigate = useNavigate();
   const Arrow = direction === 'rtl' ? ArrowLeft : ArrowRight;
 
@@ -109,20 +103,29 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {services.map((service) => (
-            <motion.div
-              key={service.id}
-              variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="group"
-            >
-              <div className="neu-card h-full p-8 flex flex-col items-center text-center transition-all duration-300 group-hover:shadow-glow">
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {service.name}
-                </h3>
-              </div>
-            </motion.div>
-          ))}
+          {services.slice(0, 4).map((service) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.id}
+                variants={cardVariants}
+                whileHover={{ y: -8 }}
+                className="group"
+              >
+                <div className="neu-card h-full p-8 flex flex-col items-center text-center transition-all duration-300 group-hover:shadow-glow">
+                  <div className="w-16 h-16 bg-gradient-to-r from-navy to-blue rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    {service.title ? (language === 'ar' ? service.title.ar : service.title.en) : ''}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {service.description ? (language === 'ar' ? service.description.ar : service.description.en) : ''}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* View All Button */}

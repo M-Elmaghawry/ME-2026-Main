@@ -184,7 +184,7 @@ const ExperienceTimeline = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`relative flex items-center mb-12 ${
+              className={`relative flex items-center mb-4 ${
                 index % 2 === 0 
                   ? 'md:flex-row' 
                   : 'md:flex-row-reverse'

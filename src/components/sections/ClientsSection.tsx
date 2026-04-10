@@ -55,7 +55,7 @@ const ClientsSection = () => {
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full object-contain opacity-70"
+                className="max-w-full max-h-full object-contain"
               />
             </div>
           ))}

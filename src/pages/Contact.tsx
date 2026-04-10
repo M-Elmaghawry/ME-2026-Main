@@ -12,7 +12,7 @@ import { toast } from 'sonner';
 import { MessageCircle, Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { WHATSAPP_LINK } from '@/config/site';
-import { services } from '@/pages/Services';
+import { services } from '@/data/services';
 
 const Contact = () => {
   const { t } = useTranslation();

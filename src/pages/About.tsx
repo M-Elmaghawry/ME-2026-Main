@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import CTASection from '@/components/sections/CTASection';
 import ClientsSection from '@/components/sections/ClientsSection';
+import MarqueeBar from '@/components/sections/MarqueeBar';
 import ExperienceTimeline from '@/components/sections/ExperienceTimeline';
 import { Award, Briefcase, GraduationCap, CheckCircle, Star, Quote, User } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -164,7 +165,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl neu-card p-2">
                   <img
-                    src="/placeholder.svg"
+                    src="/hero/Mahmoud Elmekawy.jpg"
                     alt={language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -195,6 +196,7 @@ const About = () => {
 
         {/* Clients Section */}
         <ClientsSection />
+        <MarqueeBar />
 
         {/* About Me Section - 3 Parts - Same background as Hero */}
         <section className="relative min-h-screen py-16 overflow-hidden bg-gradient-hero flex items-center">
