@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import { Clock, BarChart, ArrowLeft, ArrowRight } from 'lucide-react';
+import { assetUrl } from '@/lib/utils';
 
 export const courses = [
   {
@@ -168,7 +169,7 @@ const Courses = () => {
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={course.image}
+                        src={assetUrl(course.image)}
                         alt={language === 'ar' ? course.title.ar : course.title.en}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />

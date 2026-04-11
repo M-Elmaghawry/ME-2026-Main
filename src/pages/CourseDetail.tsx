@@ -8,6 +8,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import { courses } from './Courses';
 import { ArrowLeft, ArrowRight, Clock, BarChart, ExternalLink, CheckCircle } from 'lucide-react';
+import { assetUrl } from '@/lib/utils';
 
 const getLevelColor = (level: string) => {
   if (level === 'مبتدئ' || level === 'Beginner') return 'bg-green-100 text-green-700';
@@ -69,7 +70,7 @@ const CourseDetail = () => {
               {/* Course Image */}
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-8">
                 <img
-                  src={course.image}
+                  src={assetUrl(course.image)}
                   alt={language === 'ar' ? course.title.ar : course.title.en}
                   className="w-full h-full object-cover"
                 />

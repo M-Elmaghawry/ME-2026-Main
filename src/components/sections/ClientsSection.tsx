@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
+import { assetUrl } from '@/lib/utils';
 
 const clients = [
   { name: 'دار وإعمار', logo: '/clients/01-شركة-دار-وإعمار.png' },
@@ -53,7 +54,7 @@ const ClientsSection = () => {
           {clients.map((client, index) => (
             <div key={index} className="neu-card rounded-xl p-4 flex items-center justify-center w-full h-28">
               <img
-                src={client.logo}
+                src={assetUrl(client.logo)}
                 alt={client.name}
                 className="max-w-full max-h-full object-contain"
               />

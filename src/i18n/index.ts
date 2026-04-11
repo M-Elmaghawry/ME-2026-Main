@@ -37,24 +37,6 @@ const resources = {
         title: 'خدماتي',
         subtitle: 'حلول BIM متكاملة لمشاريعك',
         viewAll: 'عرض كل الخدمات',
-        items: {
-          bimConsulting: {
-            title: 'استشارات BIM',
-            description: 'تقديم استشارات متخصصة لتطبيق منهجية BIM في مشاريعك',
-          },
-          revitModeling: {
-            title: 'نمذجة Revit',
-            description: 'إنشاء نماذج ثلاثية الأبعاد دقيقة باستخدام Autodesk Revit',
-          },
-          clashDetection: {
-            title: 'كشف التعارضات',
-            description: 'تحليل وكشف التعارضات بين التخصصات المختلفة',
-          },
-          training: {
-            title: 'التدريب',
-            description: 'دورات تدريبية متخصصة في برامج BIM',
-          },
-        },
       },
       // Courses
       courses: {
@@ -128,24 +110,6 @@ const resources = {
         title: 'My Services',
         subtitle: 'Comprehensive BIM solutions for your projects',
         viewAll: 'View All Services',
-        items: {
-          bimConsulting: {
-            title: 'BIM Consulting',
-            description: 'Specialized consulting for implementing BIM methodology in your projects',
-          },
-          revitModeling: {
-            title: 'Revit Modeling',
-            description: 'Creating accurate 3D models using Autodesk Revit',
-          },
-          clashDetection: {
-            title: 'Clash Detection',
-            description: 'Analysis and detection of clashes between different disciplines',
-          },
-          training: {
-            title: 'Training',
-            description: 'Specialized training courses in BIM software',
-          },
-        },
       },
       // Courses
       courses: {

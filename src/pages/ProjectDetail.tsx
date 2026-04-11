@@ -7,7 +7,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Calendar, MapPin, Briefcase, Wrench, CheckCircle, Images, ChevronLeft, ChevronRight, X, ExternalLink } from 'lucide-react';
 import React, { useState } from 'react';
-
+import { assetUrl } from '@/lib/utils';
 import { projects } from '@/data/projects';
 
 
@@ -64,7 +64,7 @@ const ProjectDetail = () => {
             className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden mb-8"
           >
             <img
-              src={project.images[0]}
+              src={assetUrl(project.images[0])}
               alt={language === 'ar' ? project.title.ar : project.title.en}
               className="w-full h-full object-cover cursor-pointer"
               onClick={() => setSelectedImage(0)}
@@ -109,7 +109,7 @@ const ProjectDetail = () => {
                   onClick={() => setSelectedImage(index)}
                 >
                   <img
-                    src={image}
+                    src={assetUrl(image)}
                     alt={`${language === 'ar' ? project.title.ar : project.title.en} - ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />

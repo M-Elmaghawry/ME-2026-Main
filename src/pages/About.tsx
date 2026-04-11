@@ -12,6 +12,7 @@ import { Award, Briefcase, GraduationCap, CheckCircle, Star, Quote, User } from 
 import { useState, useEffect } from 'react';
 import { projects } from '@/data/projects';
 import { testimonials } from '@/data/testimonials';
+import { assetUrl } from '@/lib/utils';
 
 const About = () => {
   const { t } = useTranslation();
@@ -165,7 +166,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl neu-card p-2">
                   <img
-                    src="/hero/Mahmoud Elmekawy.jpg"
+                    src={assetUrl('/hero/Mahmoud Elmekawy.jpg')}
                     alt={language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -364,7 +365,7 @@ const About = () => {
                     className="h-full"
                   >
                     <img
-                      src={projects[currentProjectImage].image}
+                      src={assetUrl(projects[currentProjectImage].image)}
                       alt={language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
                       className="w-full h-[350px] md:h-[450px] object-cover"
                     />
@@ -475,7 +476,7 @@ const About = () => {
                     className="neu-card p-4"
                   >
                     <img
-                      src={certifications[currentCertImage].image}
+                      src={assetUrl(certifications[currentCertImage].image)}
                       alt={language === 'ar' ? certifications[currentCertImage].title.ar : certifications[currentCertImage].title.en}
                       className="w-full h-64 object-contain rounded-lg"
                     />
@@ -567,7 +568,7 @@ const About = () => {
                     className="h-full"
                   >
                     <img
-                      src={trainingPrograms[currentTrainingImage].image}
+                      src={assetUrl(trainingPrograms[currentTrainingImage].image)}
                       alt={language === 'ar' ? trainingPrograms[currentTrainingImage].name.ar : trainingPrograms[currentTrainingImage].name.en}
                       className="w-full h-[350px] md:h-[450px] object-cover"
                     />

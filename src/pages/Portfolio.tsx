@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Briefcase, ExternalLink } from 'lucide-react';
 import { projects } from '@/data/projects';
+import { assetUrl } from '@/lib/utils';
 
 const Portfolio = () => {
   const { t } = useTranslation();
@@ -56,7 +57,7 @@ const Portfolio = () => {
                 >
                   <div className="relative h-72 rounded-2xl overflow-hidden">
                     <img
-                      src={project.image}
+                      src={assetUrl(project.image)}
                       alt={language === 'ar' ? project.title.ar : project.title.en}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
