@@ -34,14 +34,16 @@ const RollingDigit = ({ digit, delay }: { digit: number; delay: number }) => {
   );
 };
 
-// Parses "500+" → rolling digits + suffix
+// Parses "+500" or "500+" → optional prefix + rolling digits + optional suffix
 const RollingNumber = ({ value }: { value: string }) => {
-  const match = value.match(/^(\d+)(.*)$/);
+  const match = value.match(/^([^\d]*)(\d+)([^\d]*)$/);
   if (!match) return <span>{value}</span>;
-  const digits = match[1].split('').map(Number);
-  const suffix = match[2];
+  const prefix = match[1];
+  const digits = match[2].split('').map(Number);
+  const suffix = match[3];
   return (
-    <span className="inline-flex items-center">
+    <span className="inline-flex items-center" dir="ltr">
+      {prefix && <span style={{ lineHeight: CELL }}>{prefix}</span>}
       {digits.map((d, i) => (
         <span key={i}>
           <RollingDigit digit={d} delay={i * 0.06} />
@@ -148,9 +150,8 @@ const HeroSection = () => {
           <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
-            {t('hero.subtitle')}
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }}
+          />
 
           {/* CTAs */}
           <motion.div
@@ -191,10 +192,10 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: '13+', label: direction === 'rtl' ? 'سنوات خبرة' : 'Years Experience' },
-              { value: '250+', label: direction === 'rtl' ? 'مشروع منجز' : 'Projects Completed' },
-              { value: '1500+', label: direction === 'rtl' ? 'متدرب' : 'Students Trained' },
-              { value: '20+', label: direction === 'rtl' ? 'شركة' : 'Companies' },
+              { value: '+13', label: direction === 'rtl' ? 'سنوات خبرة' : 'Years Experience' },
+              { value: '+250', label: direction === 'rtl' ? 'مشروع منجز' : 'Projects Completed' },
+              { value: '+1500', label: direction === 'rtl' ? 'متدرب' : 'Students Trained' },
+              { value: '+20', label: direction === 'rtl' ? 'شركة' : 'Companies' },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -206,7 +207,7 @@ const HeroSection = () => {
                 className="neu-card p-6 text-center"
               >
                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {stat.value}
+                  <RollingNumber value={stat.value} />
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </motion.div>

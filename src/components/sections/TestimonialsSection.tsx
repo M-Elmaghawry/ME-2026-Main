@@ -1,7 +1,7 @@
 import { motion, type Easing } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, UserCircle2 } from 'lucide-react';
 import { testimonials } from '@/data/testimonials';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
@@ -85,7 +85,7 @@ const TestimonialsSection = () => {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <div className="neu-card h-full p-8 relative">
+              <div className="neu-card h-full p-8 relative flex flex-col">
                 {/* Quote Icon */}
                 <Quote className="absolute top-6 end-6 w-10 h-10 text-baby-blue/30" />
 
@@ -104,17 +104,15 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Content */}
-                <p className="text-foreground leading-relaxed mb-6 relative z-10">
+                <p className="text-foreground leading-relaxed relative z-10 flex-1">
                   "{content}"
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 mt-auto">
-                  <img
-                    src={image}
-                    alt={name}
-                    className="w-14 h-14 rounded-full object-cover ring-2 ring-baby-blue/30"
-                  />
+                <div className="flex items-center gap-4 mt-6 pt-6 border-t border-border">
+                  <div className="w-14 h-14 rounded-full bg-baby-blue/20 flex items-center justify-center shrink-0 ring-2 ring-baby-blue/30">
+                    <UserCircle2 className="w-9 h-9 text-blue-grotto" />
+                  </div>
                   <div>
                     <h4 className="font-bold text-foreground">
                       {name}

@@ -77,7 +77,7 @@ const timelineData: TimelineItem[] = [
   {
     year: '2015 - 2021',
     title: { ar: 'مهندس تصميم إنشائي', en: 'Structural Design Engineer' },
-    company: { ar: 'التخرج من كلية الهندسة', en: 'Engineering Faculty Graduation' },
+    company: { ar: 'مكتب الحسن الهندسى', en: 'Al-Hassan Engineering Office ' },
     description: { 
       ar: [
         "تصميم المنشآت السكنية والتجارية باستخدام Revit وAutoCAD.",

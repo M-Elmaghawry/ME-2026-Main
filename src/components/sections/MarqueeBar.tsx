@@ -1,13 +1,12 @@
 import React from 'react';
 
-const marqueeText = `BIM Implementation • BIM Coordination • Digital Construction • ISO 19650 Standards • 4D/5D BIM • Clash Detection • Infrastructure Modeling • BIM Training & Support • BIM Execution Planning • Revit Structure • Revit Architecture • Civil 3D • Navisworks • AutoCAD • InfraWorks • Dynamo Scripting •  Autodesk Construction Cloud •`;
+const marqueeText = `• BIM Implementation • BIM Coordination • Digital Construction • ISO 19650 Standards • 4D/5D BIM • Clash Detection • Infrastructure Modeling • BIM Training & Support • BIM Execution Planning • Revit Structure • Revit Architecture • Civil 3D • Navisworks • AutoCAD • InfraWorks • Dynamo Scripting •  Autodesk Construction Cloud •  Autodesk Forma `;
 
 const MarqueeBar = () => {
   return (
     <div className="w-full overflow-hidden bg-navy py-2 mt-0">
       <div className="whitespace-nowrap animate-marquee text-white text-lg font-semibold tracking-wide">
         {marqueeText}
-        <span className="mx-8" />
         {marqueeText}
       </div>
       <style>{`
@@ -16,8 +15,8 @@ const MarqueeBar = () => {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          display: inline-block;
-          min-width: 200%;
+          display: inline-flex;
+          width: max-content;
           animation: marquee 60s linear infinite;
         }
       `}</style>

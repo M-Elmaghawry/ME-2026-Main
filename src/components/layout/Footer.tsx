@@ -34,37 +34,19 @@ const Footer = () => {
 
   return (
     <footer className="bg-navy text-white">
-      <div className="section-container section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="section-container pt-16 md:pt-24 pb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:[grid-template-columns:50%_25%_25%] gap-12">
+
           {/* Brand */}
-          <div>
+          <div className="px-4">
             <p className="font-bold text-xl mb-6">
               {language === 'ar' ? 'المهندس محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
             </p>
-            <p className="text-white/70 text-sm leading-relaxed">
-              {t('footer.description')}
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-6">{t('footer.quickLinks')}</h3>
-            <ul className="space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.key}>
-                  <a
-                    href={link.href}
-                    className="text-white/70 hover:text-baby-blue transition-colors text-sm"
-                  >
-                    {t(`nav.${link.key}`)}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <p className="text-white/70 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('footer.description') }} />
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="px-4">
             <h3 className="font-bold text-lg mb-6">{t('footer.contact')}</h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-sm text-white/70">
@@ -108,7 +90,7 @@ const Footer = () => {
           </div>
 
           {/* Social */}
-          <div>
+          <div className="px-4">
             <h3 className="font-bold text-lg mb-6">{t('footer.followUs')}</h3>
             <div className="flex flex-wrap gap-3 mb-6">
               {socialLinks.map((social) => {
@@ -136,21 +118,36 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/50">
-          <p>
-            © {new Date().getFullYear()}{' '}
-            {language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}.{' '}
-            {t('footer.rights')}.
-          </p>
-          <div className="flex items-center justify-center gap-4 mt-4">
-            <a href="/privacy-policy" className="hover:text-baby-blue transition-colors">
-              {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
-            </a>
-            <span>|</span>
-            <a href="/terms" className="hover:text-baby-blue transition-colors">
-              {language === 'ar' ? 'الشروط والأحكام' : 'Terms & Conditions'}
-            </a>
+        <div className="mt-12 pt-8 border-t border-white/10 text-sm text-white/50">
+          <div className="flex flex-col lg:flex-row items-center gap-4">
+            <div className="lg:w-1/2 text-center">
+              <p>
+                © {new Date().getFullYear()}{' '}
+                {language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}.{' '}
+                {t('footer.rights')}.
+              </p>
+            </div>
+            <div className="lg:w-1/2 flex items-center justify-center gap-4">
+              <a href="/privacy-policy" className="hover:text-baby-blue transition-colors">
+                {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
+              </a>
+              <span>|</span>
+              <a href="/terms" className="hover:text-baby-blue transition-colors">
+                {language === 'ar' ? 'الشروط والأحكام' : 'Terms & Conditions'}
+              </a>
+            </div>
           </div>
+          <p className="mt-4 text-white text-xs text-center">
+            {language === 'ar' ? 'تم التصميم والتطوير بواسطة' : 'Design and Development by'} ©{' '}
+            <a
+              href="https://www.facebook.com/khatwadesigns"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-baby-blue transition-colors"
+            >
+              {language === 'ar' ? 'خطوة للتصميمات' : 'Khatwa Designs'}
+            </a>
+          </p>
         </div>
       </div>
     </footer>
