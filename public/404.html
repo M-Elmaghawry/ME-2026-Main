@@ -5,7 +5,7 @@
     <script>
       // SPA redirect trick for GitHub Pages
       // Encodes the full path as a query param and redirects to the base URL
-      var pathSegmentsToKeep = 1; // number of segments in base path (/ME-2026-Main)
+      var pathSegmentsToKeep = 0; // 0 for root user/org sites (m-elmaghawry.github.io)
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +

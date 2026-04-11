@@ -64,12 +64,10 @@
           var decoded = search.slice(1)
             .split('&')
             .map(function(s) { return s.replace(/~and~/g, '&'); });
-          var path = '/' + decoded[0].slice(2);
+          var path = decoded[0].slice(2);
           var query = decoded.slice(1).join('&');
           query = query ? ('?' + query) : '';
-          window.history.replaceState(null, null,
-            location.pathname.split('/').slice(0, 2).join('/') + path + query + location.hash
-          );
+          window.history.replaceState(null, null, path + query + location.hash);
         }
       })();
     </script>
