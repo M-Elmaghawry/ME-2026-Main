@@ -8,7 +8,7 @@ import CTASection from '@/components/sections/CTASection';
 import ClientsSection from '@/components/sections/ClientsSection';
 import MarqueeBar from '@/components/sections/MarqueeBar';
 import ExperienceTimeline from '@/components/sections/ExperienceTimeline';
-import { Award, Briefcase, GraduationCap, CheckCircle, Star, Quote, User } from 'lucide-react';
+import { Award, Briefcase, GraduationCap, CheckCircle, Star, Quote, User, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { projects } from '@/data/projects';
 import { testimonials } from '@/data/testimonials';
@@ -24,22 +24,34 @@ const About = () => {
 
   const trainingPrograms = [
     {
-      name: { ar: 'دورة Revit المتقدمة', en: 'Advanced Revit Course' },
-      location: { ar: 'الرياض، السعودية', en: 'Riyadh, Saudi Arabia' },
-      year: '2023',
-      image: '/placeholder.svg',
+      name: { ar: 'تدريب شركة دار و إعمار', en: 'Dar Wa Emaar Training' },
+      subtitle: { ar: 'الرياض، السعودية — 2026', en: 'Riyadh, Saudi Arabia — 2026' },
+      description: { ar: 'دورة تدريبية متقدمة في استخدام برنامج Revit للتصميم المعماري والإنشائي، تشمل أحدث الأدوات والتقنيات.', en: 'Advanced training course in Revit for architectural and structural design, covering the latest tools and techniques.' },
+      image: '/training-courses/01-Dar-Wa-Emaar.jpg',
     },
     {
       name: { ar: 'ورشة عمل BIM 360', en: 'BIM 360 Workshop' },
-      location: { ar: 'القاهرة، مصر', en: 'Cairo, Egypt' },
-      year: '2022',
-    image: '/placeholder.svg',
+      subtitle: { ar: 'القاهرة، مصر — 2022', en: 'Cairo, Egypt — 2022' },
+      description: { ar: 'ورشة عمل متخصصة في منصة BIM 360 لإدارة المشاريع والتعاون بين الفرق الهندسية بشكل متكامل.', en: 'Specialized workshop on the BIM 360 platform for project management and integrated collaboration between engineering teams.' },
+      image: '/training-courses/02-SAR-Engineers.jpg',
     },
     {
       name: { ar: 'دورة Navisworks', en: 'Navisworks Training' },
-      location: { ar: 'دبي، الإمارات', en: 'Dubai, UAE' },
-      year: '2021',
-      image: '/placeholder.svg',
+      subtitle: { ar: 'دبي، الإمارات — 2021', en: 'Dubai, UAE — 2021' },
+      description: { ar: 'دورة تدريبية في برنامج Navisworks لكشف التعارضات وتنسيق النماذج ثلاثية الأبعاد بين مختلف التخصصات.', en: 'Training course in Navisworks for clash detection and 3D model coordination across different disciplines.' },
+      image: '/training-courses/03-Gulf-Consult-Alkhobar.jpg',
+    },
+    {
+      name: { ar: 'دورة Navisworks', en: 'Navisworks Training' },
+      subtitle: { ar: 'دبي، الإمارات — 2021', en: 'Dubai, UAE — 2021' },
+      description: { ar: 'دورة تدريبية في برنامج Navisworks لكشف التعارضات وتنسيق النماذج ثلاثية الأبعاد بين مختلف التخصصات.', en: 'Training course in Navisworks for clash detection and 3D model coordination across different disciplines.' },
+      image: '/training-courses/04-IAEMS-Cairo.jpg',
+    },
+    {
+      name: { ar: 'دورة Navisworks', en: 'Navisworks Training' },
+      subtitle: { ar: 'دبي، الإمارات — 2021', en: 'Dubai, UAE — 2021' },
+      description: { ar: 'دورة تدريبية في برنامج Navisworks لكشف التعارضات وتنسيق النماذج ثلاثية الأبعاد بين مختلف التخصصات.', en: 'Training course in Navisworks for clash detection and 3D model coordination across different disciplines.' },
+      image: '/training-courses/05-Site-Training.jpg',
     },
   ];
 
@@ -80,7 +92,7 @@ const About = () => {
     {
       title: { ar: 'محترف معتمد فى برنامج الريفيت المعمارى', en: 'Revit Architecture Certified Professional' },
       year: '2020',
-      image: '/certificates/04-ME-Revit-Architecture-Certified-Professional',
+      image: '/certificates/04-ME-Revit-Architecture-Certified-Professional.jpg',
       featured: false,
     },
   ];
@@ -182,13 +194,22 @@ const About = () => {
                   {language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
                 </h1>
                 <p className="text-xl md:text-2xl text-blue-grotto font-medium">
-                  {language === 'ar' ? 'مهندس BIM محترف' : 'Professional BIM Engineer'}
+                  {language === 'ar' ? 'مهندس أول في نمذجة معلومات المباني (BIM) | منسق نمذجة معلومات المباني (BIM) | محاضر معتمد من أوتوديسك | تدريب نمذجة معلومات المباني للشركات | مشاريع نيوم | ISO 19650' : 'Senior BIM Engineer | BIM Coordinator | Autodesk Certified Instructor | Corporate BIM Training | NEOM Projects | ISO 19650'}
                 </p>
                 <p className="text-muted-foreground">
-                  {language === 'ar' 
-                    ? 'خبير في نمذجة معلومات البناء | Revit | Navisworks | إدارة المشاريع'
-                    : 'BIM Expert | Revit | Navisworks | Project Management'
-                  }
+                  {language === 'ar' ? (
+                    <>
+                      أساعد الشركات والمهندسين على تحقيق أقصى استفادة من تقنيات ودقة BIM لتنفيذ مشاريع أكثر كفاءة وأقل أخطاء، مع فرق تعرف كيف تستخدم BIM بالطريقة الصحيحة.
+                      <br />
+                      <strong>بخبرة تزيد عن 13 عاماً</strong> في السعودية ومصر، و<strong>كمهندس محترف (PE)</strong> معتمد من الهيئة السعودية للمهندسين.
+                    </>
+                  ) : (
+                    <>
+                      I help engineering firms build better projects — faster, with fewer errors, and teams that actually know how to use BIM the right way.
+                      <br />
+                      <strong>With +13 years of experience</strong> across Saudi Arabia and Egypt, and <strong>as a Professional Engineer (PE)</strong> certified by the Saudi Council of Engineers.
+                    </>
+                  )}
                 </p>
               </div>
             </motion.div>
@@ -260,22 +281,32 @@ const About = () => {
                 </div>
                 <p className="text-muted-foreground leading-relaxed text-lg mb-6">
                   {language === 'ar' 
-                    ? 'مهندس BIM محترف بخبرة تزيد عن 10 سنوات في مجال التصميم والتنسيق المعماري. متخصص في تطبيق تقنيات نمذجة معلومات البناء لتحسين جودة المشاريع وتقليل التكاليف.'
-                    : 'Professional BIM Engineer with over 10 years of experience in architectural design and coordination. Specialized in implementing Building Information Modeling technologies to improve project quality and reduce costs.'
+                    ? 'مهندس BIM محترف بخبرة تزيد عن 13 سنوات في مجال التصميم والتنسيق الإنشائي والمعماري والبنية التحتية. متخصص في تطبيق تقنيات نمذجة معلومات البناء لتحسين جودة المشاريع وتقليل التكاليف.'
+                    : 'Professional BIM Engineer with over 13 years of experience in Structural, Architectural, and Infrastructural design and coordination. Specialized in implementing Building Information Modeling technologies to improve project quality and reduce costs.'
                   }
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-muted-foreground">
                     <CheckCircle className="w-5 h-5 text-blue-grotto" />
-                    <span>{language === 'ar' ? 'خبرة +10 سنوات' : '10+ Years Experience'}</span>
+                    <span>{language === 'ar' ? 'خبرة 13+ سنوات' : '+13 Years Experience'}</span>
                   </li>
                   <li className="flex items-center gap-3 text-muted-foreground">
                     <CheckCircle className="w-5 h-5 text-blue-grotto" />
-                    <span>{language === 'ar' ? '+100 مشروع منجز' : '100+ Projects Completed'}</span>
+                    <span>{language === 'ar' ? '250+ مشروع منجز' : '+250 Projects Completed'}</span>
                   </li>
                   <li className="flex items-center gap-3 text-muted-foreground">
                     <CheckCircle className="w-5 h-5 text-blue-grotto" />
-                    <span>{language === 'ar' ? 'شهادات معتمدة دولياً' : 'Internationally Certified'}</span>
+                    <span>{language === 'ar' ? <><strong>شهادات معتمدة دوليا</strong></> : <><strong>Internationally Certified</strong></>}</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-muted-foreground">
+                    <CheckCircle className="w-5 h-5 text-blue-grotto" />
+                    <span>
+                      {language === 'ar' ? (
+                        <><strong>مهندس محترف (PE)</strong> معتمد من الهيئة السعودية للمهندسين.</>
+                      ) : (
+                        <> <strong>Professional Engineer (PE)</strong> certified by the Saudi Council of Engineers.</>
+                      )}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -296,136 +327,157 @@ const About = () => {
             </motion.div>
 
             {/* Part 2: Experience Timeline */}
-            <div className="mb-16">
+            <div className="mb-10">
               <ExperienceTimeline />
             </div>
-          </div>
-        </section>
 
-        {/* Projects Gallery Section - Full Width - Same design as Training Programs */}
-        <section className="relative w-full min-h-screen flex items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-0 overflow-hidden">
-              {/* Small Column - Info */}
-              <div className="md:col-span-1 bg-white border-b md:border-b-0 md:border-e border-border/30">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentProjectImage}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.5 }}
-                    className="p-8 md:p-10 h-full flex flex-col justify-center min-h-[350px] md:min-h-[450px]"
-                  >
-                    <h3 className="text-2xl font-bold mb-4 text-foreground">
-                      {language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
-                    </h3>
-                    <div className="space-y-4">
-                      <p className="text-muted-foreground flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-blue-grotto"></span>
-                        {language === 'ar' ? projects[currentProjectImage].location.ar : projects[currentProjectImage].location.en}
-                      </p>
-                      <p className="text-blue-grotto font-bold text-xl">
-                        {projects[currentProjectImage].year}
-                      </p>
-                    </div>
-
-                    {/* Dots Indicator */}
-                    <div className="flex gap-2 mt-8">
-                      {projects.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentProjectImage(index)}
-                          className={`h-2 rounded-full transition-all duration-300 ${
-                            index === currentProjectImage 
-                              ? 'bg-blue-grotto w-8' 
-                              : 'bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Large Column - Full Image */}
-              <div className="md:col-span-3 relative">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentProjectImage}
-                    initial={{ opacity: 0, scale: 1.02 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-full"
-                  >
-                    <img
-                      src={assetUrl(projects[currentProjectImage].image)}
-                      alt={language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
-                      className="w-full h-[350px] md:h-[450px] object-cover"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Education Section - Moved here after Projects */}
-        <section className="relative py-16 overflow-hidden bg-gradient-hero">
-          {/* Background Decorations */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 6, repeat: Infinity, ease: [0.4, 0, 0.6, 1] }}
-              className="absolute top-20 start-10 w-72 h-72 bg-baby-blue/20 rounded-full blur-3xl"
-            />
-            <motion.div
-              animate={{ y: [10, -10, 10] }}
-              transition={{ duration: 8, repeat: Infinity, ease: [0.4, 0, 0.6, 1] }}
-              className="absolute bottom-20 end-10 w-96 h-96 bg-blue-grotto/15 rounded-full blur-3xl"
-            />
-            <div 
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage: `linear-gradient(hsl(var(--navy)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--navy)) 1px, transparent 1px)`,
-                backgroundSize: '60px 60px',
-              }}
-            />
-          </div>
-          <div className="section-container relative z-10">
+            {/* Education */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-2xl mx-auto"
+              className="max-w-2xl mx-auto mb-16"
             >
-              <div className="flex items-center gap-4 mb-8 justify-center">
+              <div className="flex items-center gap-4 mb-6 justify-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-navy to-blue rounded-xl flex items-center justify-center">
                   <GraduationCap className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-3xl font-bold">{language === 'ar' ? 'التعليم' : 'Education'}</h3>
               </div>
-
               <div className="neu-card p-8">
                 <div className="p-4 bg-muted rounded-xl">
                   <p className="font-medium text-lg">
-                    {language === 'ar' ? 'بكالوريوس هندسة معمارية' : 'Bachelor of Architecture'}
+                    {language === 'ar' ? 'بكالوريوس الهندسة المدنية' : 'Bachelor of Civil Engineering'}
                   </p>
                   <p className="text-muted-foreground">
-                    {language === 'ar' ? 'جامعة القاهرة - 2012' : 'Cairo University - 2012'}
+                    {language === 'ar' ? 'جامعة المنصورة - 2012' : 'Mansoura University - 2012'}
                   </p>
                 </div>
               </div>
             </motion.div>
           </div>
         </section>
+
+        {/* Projects Gallery Section - Full Width */}
+        <section className="relative w-full" style={{ height: 'calc(100vh - 80px)' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full h-full"
+          >
+            <div className="flex flex-col md:flex-row w-full h-full">
+              {/* Details Column - 35% */}
+              <div className="w-full md:w-[35%] flex-shrink-0 flex flex-col justify-between h-[350px] md:h-full"
+                style={{ background: 'linear-gradient(135deg, #0a2342 0%, #1a3a6e 100%)' }}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentProjectImage}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.4 }}
+                    className="p-8 md:p-10 flex flex-col justify-center flex-grow"
+                  >
+                    {/* Category Badge */}
+                    <div className="mb-6">
+                      <span className="inline-block px-4 py-1.5 rounded-md bg-blue-grotto text-white text-xs font-bold uppercase tracking-widest">
+                        {language === 'ar'
+                          ? projects[currentProjectImage].category.ar
+                          : projects[currentProjectImage].category.en}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-5">
+                      {language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-white/60 text-sm leading-relaxed mb-8">
+                      {language === 'ar'
+                        ? projects[currentProjectImage].description.ar
+                        : projects[currentProjectImage].description.en}
+                    </p>
+
+                    {/* Client + Year */}
+                    <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
+                      <div>
+                        <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                          {language === 'ar' ? 'العميل' : 'Client'}
+                        </p>
+                        <p className="text-white font-bold text-sm">
+                          {language === 'ar'
+                            ? projects[currentProjectImage].client.ar
+                            : projects[currentProjectImage].client.en}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                          {language === 'ar' ? 'السنة' : 'Year'}
+                        </p>
+                        <p className="text-white font-bold text-sm">
+                          {projects[currentProjectImage].year}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Dots + Arrows */}
+                <div className="px-8 md:px-10 pb-8 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {projects.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentProjectImage(index)}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          index === currentProjectImage
+                            ? 'bg-baby-blue w-8'
+                            : 'bg-white/30 hover:bg-white/50 w-2'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setCurrentProjectImage((prev) => (prev - 1 + projects.length) % projects.length)}
+                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                    >
+                      {language === 'ar' ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
+                    </button>
+                    <button
+                      onClick={() => setCurrentProjectImage((prev) => (prev + 1) % projects.length)}
+                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                    >
+                      {language === 'ar' ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Image Column - 65% */}
+              <div className="w-full md:w-[65%] relative bg-white overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentProjectImage}
+                    src={assetUrl(projects[currentProjectImage].image)}
+                    alt={language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
+                    className="w-full h-full object-contain"
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* Certifications Section */}
         <section className="py-16 bg-muted/30">
           <div className="section-container">
@@ -454,37 +506,34 @@ const About = () => {
                 ))}
                 
                 {/* Other Certifications - Grid layout */}
-                <div className="grid md:grid-cols-3 gap-4 w-full max-w-4xl">
+                <div className="flex flex-wrap justify-center gap-4 w-full max-w-4xl">
                   {certifications.filter(c => !c.featured).map((cert, index) => (
-                    <div key={index} className="neu-card p-4 flex items-center justify-between">
+                    <div key={index} className="neu-card p-4 flex items-center justify-between gap-4">
                       <span className="font-medium">{language === 'ar' ? cert.title.ar : cert.title.en}</span>
-                      <span className="text-blue-grotto font-bold">{cert.year}</span>
+                      <span className="text-blue-grotto font-bold whitespace-nowrap">{cert.year}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Certificate Images Slider */}
-              <div className="relative max-w-2xl mx-auto">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentCertImage}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.5 }}
-                    className="neu-card p-4"
-                  >
-                    <img
-                      src={assetUrl(certifications[currentCertImage].image)}
-                      alt={language === 'ar' ? certifications[currentCertImage].title.ar : certifications[currentCertImage].title.en}
-                      className="w-full h-64 object-contain rounded-lg"
-                    />
-                    <p className="text-center mt-4 font-medium text-muted-foreground">
-                      {language === 'ar' ? certifications[currentCertImage].title.ar : certifications[currentCertImage].title.en}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
+              <div className="relative max-w-[806px] mx-auto">
+                <div className="neu-card p-4">
+                  <div className="relative h-[400px]">
+                    <AnimatePresence initial={false}>
+                      <motion.img
+                        key={currentCertImage}
+                        src={assetUrl(certifications[currentCertImage].image)}
+                        alt={language === 'ar' ? certifications[currentCertImage].title.ar : certifications[currentCertImage].title.en}
+                        className="absolute inset-0 w-full h-full object-contain rounded-lg"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.4 }}
+                      />
+                    </AnimatePresence>
+                  </div>
+                </div>
 
                 {/* Dots Indicator */}
                 <div className="flex justify-center gap-2 mt-4">
@@ -506,73 +555,105 @@ const About = () => {
         </section>
 
         {/* Training Programs Section - Full Width */}
-        <section className="relative w-full">
+        <section className="relative w-full" style={{ height: 'calc(100vh - 80px)' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="w-full h-full"
           >
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-0 overflow-hidden">
-              {/* Small Column - Info */}
-              <div className="md:col-span-1 bg-white border-b md:border-b-0 md:border-e border-border/30">
-                <AnimatePresence mode="wait">
+            <div className="flex flex-col md:flex-row w-full h-full">
+              {/* Details Column - 35% */}
+              <div
+                className="w-full md:w-[35%] flex-shrink-0 flex flex-col justify-between h-[350px] md:h-full"
+                style={{ background: 'linear-gradient(135deg, #0a2342 0%, #1a3a6e 100%)' }}
+              >
+                <AnimatePresence initial={false}>
                   <motion.div
                     key={currentTrainingImage}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.5 }}
-                    className="p-8 md:p-10 h-full flex flex-col justify-center min-h-[350px] md:min-h-[450px]"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.4 }}
+                    className="p-8 md:p-10 flex flex-col justify-center flex-grow"
                   >
-                    <h3 className="text-2xl font-bold mb-4 text-foreground">
-                      {language === 'ar' ? trainingPrograms[currentTrainingImage].name.ar : trainingPrograms[currentTrainingImage].name.en}
-                    </h3>
-                    <div className="space-y-4">
-                      <p className="text-muted-foreground flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-blue-grotto"></span>
-                        {language === 'ar' ? trainingPrograms[currentTrainingImage].location.ar : trainingPrograms[currentTrainingImage].location.en}
-                      </p>
-                      <p className="text-blue-grotto font-bold text-xl">
-                        {trainingPrograms[currentTrainingImage].year}
-                      </p>
+                    {/* Category Badge */}
+                    <div className="mb-6">
+                      <span className="inline-block px-4 py-1.5 rounded-md bg-blue-grotto text-white text-xs font-bold uppercase tracking-widest">
+                        {language === 'ar' ? 'تدريب' : 'Training'}
+                      </span>
                     </div>
 
-                    {/* Dots Indicator */}
-                    <div className="flex gap-2 mt-8">
-                      {trainingPrograms.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentTrainingImage(index)}
-                          className={`h-2 rounded-full transition-all duration-300 ${
-                            index === currentTrainingImage 
-                              ? 'bg-blue-grotto w-8' 
-                              : 'bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2'
-                          }`}
-                        />
-                      ))}
+                    {/* Title */}
+                    <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-5">
+                      {language === 'ar' ? trainingPrograms[currentTrainingImage].name.ar : trainingPrograms[currentTrainingImage].name.en}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-white/60 text-sm leading-relaxed mb-8">
+                      {language === 'ar' ? trainingPrograms[currentTrainingImage].description.ar : trainingPrograms[currentTrainingImage].description.en}
+                    </p>
+
+                    {/* Subtitle + Year */}
+                    <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
+                      <div>
+                        <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                          {language === 'ar' ? 'الموقع' : 'Location'}
+                        </p>
+                        <p className="text-white font-bold text-sm">
+                          {language === 'ar' ? trainingPrograms[currentTrainingImage].subtitle.ar : trainingPrograms[currentTrainingImage].subtitle.en}
+                        </p>
+                      </div>
                     </div>
                   </motion.div>
                 </AnimatePresence>
+
+                {/* Dots + Arrows */}
+                <div className="px-8 md:px-10 pb-8 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {trainingPrograms.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentTrainingImage(index)}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          index === currentTrainingImage
+                            ? 'bg-baby-blue w-8'
+                            : 'bg-white/30 hover:bg-white/50 w-2'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setCurrentTrainingImage((prev) => (prev - 1 + trainingPrograms.length) % trainingPrograms.length)}
+                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                    >
+                      {language === 'ar' ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
+                    </button>
+                    <button
+                      onClick={() => setCurrentTrainingImage((prev) => (prev + 1) % trainingPrograms.length)}
+                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                    >
+                      {language === 'ar' ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              {/* Large Column - Images */}
-              <div className="md:col-span-3 relative">
-                <AnimatePresence mode="wait">
-                  <motion.div
+              {/* Image Column - 65% */}
+              <div className="w-full md:w-[65%] flex-1 relative bg-white overflow-hidden min-h-[300px]">
+                <AnimatePresence initial={false}>
+                  <motion.img
                     key={currentTrainingImage}
-                    initial={{ opacity: 0, scale: 1.02 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-full"
-                  >
-                    <img
-                      src={assetUrl(trainingPrograms[currentTrainingImage].image)}
-                      alt={language === 'ar' ? trainingPrograms[currentTrainingImage].name.ar : trainingPrograms[currentTrainingImage].name.en}
-                      className="w-full h-[350px] md:h-[450px] object-cover"
-                    />
-                  </motion.div>
+                    src={assetUrl(trainingPrograms[currentTrainingImage].image)}
+                    alt={language === 'ar' ? trainingPrograms[currentTrainingImage].name.ar : trainingPrograms[currentTrainingImage].name.en}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  />
                 </AnimatePresence>
               </div>
             </div>

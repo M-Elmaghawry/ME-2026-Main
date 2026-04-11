@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { assetUrl } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Youtube, 
@@ -110,7 +111,7 @@ const Footer = () => {
               })}
             </div>
             <img
-              src="/Mahmoud Elmekawy Logo-2.png"
+              src={assetUrl('/Mahmoud Elmekawy Logo-2.png')}
               alt="Mahmoud Elmekawy Logo"
               className="w-3/4 mx-auto block object-contain opacity-90"
             />

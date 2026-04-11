@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Globe, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { assetUrl } from '@/lib/utils';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -51,7 +52,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/Mahmoud Elmekawy Logo.png"
+              src={assetUrl('/Mahmoud Elmekawy Logo.png')}
               alt="Mahmoud Elmekawy Logo"
               className="h-12 w-auto object-contain"
             />

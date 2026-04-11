@@ -12,10 +12,10 @@ import { assetUrl } from '@/lib/utils';
 export const courses = [
   {
     id: 'bim-fundamentals',
-    title: { ar: 'أساسيات Revit Architecture', en: 'BIM Fundamentals for Civil Engineers' },
+    title: { ar: 'أساسيات BIM', en: 'BIM Fundamentals for Civil Engineers' },
     description: {
-      ar: 'تعلم أساسيات التصميم المعماري باستخدام برنامج Revit من البداية',
-      en: 'Comprehensive introduction to Building Information Modeling',
+      ar: 'مقدمة شاملة لمفاهيم نمذجة معلومات المباني، وسير العمل، وأفضل الممارسات. مثالية للمهندسين الذين ينتقلون إلى استخدام نمذجة معلومات المباني.',
+      en: 'Comprehensive introduction to Building Information Modeling concepts, workflows, and best practices. Perfect for engineers transitioning to BIM.',
     },
     fullDescription: {
       ar: 'دورة شاملة تأخذك من الصفر إلى الاحتراف في استخدام برنامج Revit للتصميم المعماري. ستتعلم إنشاء المشاريع، رسم الجدران والأبواب والنوافذ، إنشاء الأسقف والأرضيات، وإخراج اللوحات الهندسية.',
@@ -35,9 +35,9 @@ export const courses = [
   },
   {
     id: 'revit-structure-professional-training',
-    title: { ar: 'Navisworks للتنسيق وكشف التعارضات', en: 'Revit Structure Professional Training' },
+    title: { ar: 'التدريب الاحترافي على برنامج Revit Structure', en: 'Revit Structure Professional Training' },
     description: {
-      ar: 'احترف استخدام Navisworks لتنسيق النماذج وكشف التعارضات بين التخصصات',
+      ar: 'مقدمة شاملة لنمذجة معلومات المباني وبرنامج أوتوديسك ريفيت للهندسة الإنشائية. تعلم تقنيات النمذجة والتوثيق والتعاون لتحقيق إنجاز المشاريع بكفاءة.',
       en: 'Comprehensive introduction to Building Information Modeling and Autodesk Revit for structural engineering. Learn modeling, documentation, and collaboration techniques for efficient project delivery.',
     },
     fullDescription: {
@@ -57,10 +57,10 @@ export const courses = [
   },
   {
     id: 'revit-structure-workshop-01',
-    title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 01' },
+    title: { ar: 'ورشة عمل Revit Structure - 01', en: 'Revit Structure Workshop - 01' },
     description: {
-      ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
-      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques',
+      ar: 'أتقن برنامج Autodesk Revit للمشاريع الإنشائية. تعلّم تقنيات النمذجة المتقدمة، من خلال مشروع عملي متكامل من البداية إلى النهاية.',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques, on Practical Project from start to end',
     },
     fullDescription: {
       ar: 'دورة متقدمة تغطي جميع جوانب إدارة مشاريع BIM بما في ذلك وضع خطط التنفيذ، إدارة الفرق، ضمان الجودة، والتوافق مع المعايير الدولية مثل ISO 19650.',
@@ -79,10 +79,10 @@ export const courses = [
   },
   {
     id: 'revit-structure-workshop-02',
-    title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 02' },
+    title: { ar: 'ورشة عمل Revit Structure - 02', en: 'Revit Structure Workshop - 02' },
     description: {
-      ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
-      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques',
+       ar: 'أتقن برنامج Autodesk Revit للمشاريع الإنشائية. تعلّم تقنيات النمذجة المتقدمة، من خلال مشروع عملي متكامل من البداية إلى النهاية.',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques, on Practical Project from start to end',
     },
     fullDescription: {
       ar: 'دورة متقدمة تغطي جميع جوانب إدارة مشاريع BIM بما في ذلك وضع خطط التنفيذ، إدارة الفرق، ضمان الجودة، والتوافق مع المعايير الدولية مثل ISO 19650.',
@@ -101,10 +101,10 @@ export const courses = [
   },
    {
     id: 'revit-structure-workshop-03',
-    title: { ar: 'BIM Management متقدم', en: 'Revit Structure Workshop - 03' },
+    title: { ar: 'ورشة عمل Revit Structure - 03', en: 'Revit Structure Workshop - 03' },
     description: {
-      ar: 'دورة متقدمة في إدارة مشاريع BIM وتطبيق أفضل الممارسات العالمية',
-      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques',
+       ar: 'أتقن برنامج Autodesk Revit للمشاريع الإنشائية. تعلّم تقنيات النمذجة المتقدمة، من خلال مشروع عملي متكامل من البداية إلى النهاية.',
+      en: 'Master Autodesk Revit for Structural projects. Learn advanced modeling techniques, on Practical Project from start to end',
     },
     fullDescription: {
       ar: 'دورة متقدمة تغطي جميع جوانب إدارة مشاريع BIM بما في ذلك وضع خطط التنفيذ، إدارة الفرق، ضمان الجودة، والتوافق مع المعايير الدولية مثل ISO 19650.',

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Clock, BarChart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { courses as allCourses } from '@/pages/Courses';
+import { assetUrl } from '@/lib/utils';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
 
@@ -78,7 +79,7 @@ const CoursesSection = () => {
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={course.image}
+                    src={assetUrl(course.image)}
                     alt={language === 'ar' ? course.title.ar : course.title.en}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />

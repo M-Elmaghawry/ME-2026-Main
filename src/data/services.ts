@@ -1,13 +1,13 @@
-import { Building2, Layers, Search, GraduationCap } from 'lucide-react';
+import { Layers, Search, GraduationCap, Route, ReceiptText, FolderKanban } from 'lucide-react';
 
 export const services = [
   {
     id: 'bim-training',
-    icon: Building2,
-    title: { ar: 'استشارات BIM', en: 'Professional BIM Training (Individuals & Corporate)' },
+    icon: GraduationCap,
+    title: { ar: 'التدريب الاحترافي على نمذجة معلومات المباني (للأفراد والشركات)', en: 'Professional BIM Training (Individuals & Corporate)' },
     description: {
-      ar: 'تقديم استشارات متخصصة في تطبيق نظام BIM وتطوير خطط التنفيذ',
-      en: 'Providing specialized consulting in BIM implementation and execution plan development',
+      ar: 'برامج تدريبية مخصصة في مجال نمذجة معلومات المباني (BIM) مصممة للمهندسين والشركات وفرق المشاريع، مع التركيز على سير العمل الواقعي بدلاً من النظريات.',
+      en: 'Customized BIM training programs designed for engineers, companies, and project teams, focusing on real-world workflows rather than theory. ',
     },
     fullDescription: {
       ar: 'نقدم خدمات استشارية شاملة لتطبيق نظام نمذجة معلومات البناء BIM في مشاريعكم. نساعدكم في وضع خطط التنفيذ، واختيار البرمجيات المناسبة، وتدريب الفرق، وضمان التكامل السلس بين جميع التخصصات.',
@@ -16,11 +16,11 @@ export const services = [
   },
   {
     id: 'bim-coordination',
-    icon: Layers,
-    title: { ar: 'نمذجة Revit', en: 'BIM Coordination & Clash Detection' },
+    icon: Search,
+    title: { ar: 'تنسيق نمذجة معلومات المباني (BIM) والكشف عن التداخلات', en: 'BIM Coordination & Clash Detection' },
     description: {
-      ar: 'إنشاء نماذج ثلاثية الأبعاد دقيقة للمشاريع المعمارية والإنشائية',
-      en: 'Creating accurate 3D models for architectural and structural projects',
+      ar: 'خدمات تنسيق شاملة ومتعددة التخصصات لنمذجة معلومات المباني (BIM) لتحديد وحل التعارضات بين الأنظمة الهيكلية والمعمارية وأنظمة MEP باستخدام برنامج Navisworks.',
+      en: 'Comprehensive multidisciplinary BIM coordination services to identify and resolve clashes between structural, architectural, and MEP systems using Navisworks. ',
     },
     fullDescription: {
       ar: 'نقوم بإنشاء نماذج Revit عالية الجودة والدقة لجميع أنواع المشاريع. يشمل ذلك النمذجة المعمارية، الإنشائية، والميكانيكية والكهربائية. نضمن التوافق مع معايير LOD المطلوبة.',
@@ -29,11 +29,11 @@ export const services = [
   },
   {
     id: 'autoCAD-to-revit',
-    icon: Search,
-    title: { ar: 'كشف التعارضات', en: 'AutoCAD to Revit Conversion (Structural & Architectural)' },
+    icon: Layers,
+    title: { ar: 'تحويل ملفات AutoCAD إلى Revit ', en: 'AutoCAD to Revit Conversion (Structural & Architectural)' },
     description: {
-      ar: 'تحليل وكشف التعارضات بين الأنظمة المختلفة باستخدام Navisworks',
-      en: 'Analyzing and detecting clashes between different systems using Navisworks',
+      ar: 'تحويل دقيق لرسومات AutoCAD ثنائية الأبعاد إلى نماذج Revit BIM منسقة بالكامل، مما يضمن صحة الهندسة والمستويات والعائلات وهيكل النموذج.',
+      en: 'Accurate conversion of 2D AutoCAD drawings into fully coordinated Revit BIM models, ensuring correct geometry, levels, families, and model structure.',
     },
     fullDescription: {
       ar: 'نستخدم برنامج Navisworks لتحليل النماذج المدمجة وكشف التعارضات بين التخصصات المختلفة قبل البدء في التنفيذ. هذا يوفر الوقت والتكاليف ويضمن جودة التنفيذ.',
@@ -42,11 +42,11 @@ export const services = [
   },
   {
     id: 'infrastructure-bim',
-    icon: GraduationCap,
-    title: { ar: 'التدريب والتأهيل', en: 'Infrastructure BIM Modeling (Roads & Utility Networks)' },
+    icon: Route,
+    title: { ar: 'نمذجة معلومات المباني للبنية التحتية (الطرق وشبكات المرافق)', en: 'Infrastructure BIM Modeling (Roads & Utility Networks)' },
     description: {
-      ar: 'برامج تدريبية متخصصة في برامج BIM للأفراد والشركات',
-      en: 'Specialized training programs in BIM software for individuals and companies',
+      ar: 'تطوير نماذج BIM دقيقة ومنسقة لمشاريع البنية التحتية، بما في ذلك الطرق وشبكات إمدادات المياه وأنظمة الصرف الصحي ومياه الصرف الصحي ومحطات الرفع ومرافق المعالجة.',
+      en: 'Development of accurate and coordinated BIM models for infrastructure projects, including roads, water supply networks, sanitary and wastewater systems, lift stations, and treatment facilities.',
     },
     fullDescription: {
       ar: 'نقدم برامج تدريبية شاملة ومتخصصة في جميع برامج BIM. تشمل دوراتنا Revit، Navisworks، BIM 360، وغيرها. متاحة للأفراد والشركات، حضورياً وأونلاين.',
@@ -55,11 +55,11 @@ export const services = [
   },
   {
     id: 'structural-shop-drawings',
-    icon: GraduationCap,
-    title: { ar: 'التدريب والتأهيل', en: 'Structural Shop Drawings (Concrete & Rebar)' },
+    icon: FolderKanban,
+    title: { ar: 'الرسومات التنفيذية الإنشائية (الخرسانة وحديد التسليح)', en: 'Structural Shop Drawings (Concrete & Rebar)' },
     description: {
-      ar: 'برامج تدريبية متخصصة في برامج BIM للأفراد والشركات',
-      en: 'Specialized training programs in BIM software for individuals and companies',
+      ar: 'إعداد رسومات تفصيلية للهياكل الإنشائية لأعمال الخرسانة المسلحة وحديد التسليح، مستخرجة مباشرة من نماذج BIM الدقيقة.',
+      en: 'Preparation of detailed structural shop drawings for reinforced concrete and rebar works, extracted directly from accurate BIM models. ',
     },
     fullDescription: {
       ar: 'نقدم برامج تدريبية شاملة ومتخصصة في جميع برامج BIM. تشمل دوراتنا Revit، Navisworks، BIM 360، وغيرها. متاحة للأفراد والشركات، حضورياً وأونلاين.',
@@ -68,11 +68,11 @@ export const services = [
   },
   {
     id: 'structural-quantity-takeoffs',
-    icon: GraduationCap,
-    title: { ar: 'التدريب والتأهيل', en: 'Structural Quantity Takeoffs & BOQs' },
+    icon: ReceiptText,
+    title: { ar: 'جداول الكميات الإنشائية', en: 'Structural Quantity Takeoffs & BOQs' },
     description: {
-      ar: 'برامج تدريبية متخصصة في برامج BIM للأفراد والشركات',
-      en: 'Specialized training programs in BIM software for individuals and companies',
+      ar: 'يتم إنشاء جداول كميات هيكلية دقيقة من نماذج BIM لدعم تقدير التكاليف، والمناقصات، والتحكم في المشروع.',
+      en: 'Precise structural quantity takeoffs generated from BIM models to support cost estimation, tendering, and project control.',
     },
     fullDescription: {
       ar: 'نقدم برامج تدريبية شاملة ومتخصصة في جميع برامج BIM. تشمل دوراتنا Revit، Navisworks، BIM 360، وغيرها. متاحة للأفراد والشركات، حضورياً وأونلاين.',
