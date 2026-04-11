@@ -67,7 +67,8 @@
           var path = decoded[0].slice(2);
           var query = decoded.slice(1).join('&');
           query = query ? ('?' + query) : '';
-          window.history.replaceState(null, null, path + query + location.hash);
+          var base = location.pathname.split('/').slice(0, 2).join('/');
+          window.history.replaceState(null, null, base + path + query + location.hash);
         }
       })();
     </script>

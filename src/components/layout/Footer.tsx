@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { assetUrl } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -129,13 +130,13 @@ const Footer = () => {
               </p>
             </div>
             <div className="lg:w-1/2 flex items-center justify-center gap-4">
-              <a href="/privacy-policy" className="hover:text-baby-blue transition-colors">
+              <Link to="/privacy-policy" className="hover:text-baby-blue transition-colors">
                 {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
-              </a>
+              </Link>
               <span>|</span>
-              <a href="/terms" className="hover:text-baby-blue transition-colors">
+              <Link to="/terms" className="hover:text-baby-blue transition-colors">
                 {language === 'ar' ? 'الشروط والأحكام' : 'Terms & Conditions'}
-              </a>
+              </Link>
             </div>
           </div>
           <p className="mt-4 text-white text-xs text-center">
