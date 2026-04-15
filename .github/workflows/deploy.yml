@@ -35,6 +35,9 @@ jobs:
         env:
           VITE_BASE_PATH: /ME-2026-Main/
           VITE_FORCE_HASH_ROUTER: "true"
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
         run: npm run build:gh-pages
 
       - name: Setup Pages
