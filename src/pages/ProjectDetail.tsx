@@ -306,7 +306,7 @@ const ProjectDetail = () => {
               <Button
                 variant="outline"
                 className="gap-2"
-                onClick={() => window.open('https://www.behance.net/gallery/136557575', '_blank')}
+                onClick={() => window.open(project.behanceUrl || 'https://www.behance.net/M_Elmaghawry')}
               >
                 <ExternalLink className="w-4 h-4" />
                 {language === 'ar' ? 'فتح على Behance' : 'Open on Behance'}

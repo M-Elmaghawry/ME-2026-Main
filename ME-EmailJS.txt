@@ -3,3 +3,13 @@ Mahmoud Elemkawy
 melmekawy2020@gmail.com
 
 Mm@123456#
+
+====
+Service ID
+service_uvsxh05
+
+Template ID
+template_povivng
+
+Public Key
+pmve4ZxWliMqrn0g6

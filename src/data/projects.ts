@@ -1,11 +1,21 @@
 export const projects = [
   {
     id: '1',
-    title: { ar: 'مشروع طرق وكباري', en: 'NEOM Shigri Project' },
+    title: { ar: 'مشروع طرق وعبارات', en: 'NEOM Shigri Project' },
     category: { ar: 'بنية تحتية', en: 'infrastructure' },
     image: '/projects/01-Shigri-Neom.jpg',
     images: [
       '/projects/01-Shigri-Neom.jpg',
+      '/projects/Shigri-Neom-02.jpg',
+      '/projects/Shigri-Neom-03.jpg',
+      '/projects/Shigri-Neom-04.jpg',
+      '/projects/Shigri-Neom-05.jpg',
+      '/projects/Shigri-Neom-06.jpg',
+      '/projects/Shigri-Neom-07.jpg',
+      '/projects/Shigri-Neom-08.jpg',
+      '/projects/Shigri-Neom-09.jpg',
+      '/projects/Shigri-Neom-10.jpg',
+      '/projects/Shigri-Neom-11.jpg',
       // أضف صور إضافية إذا وجدت
     ],
     year: '2025',
@@ -16,39 +26,52 @@ export const projects = [
       en: 'BIM coordination for NEOM mega project infrastructure. Advanced digital construction and clash detection for this futuristic development.'
     },
     role: {
-      ar: 'مدير المشروع ومسؤول BIM',
-      en: 'Project Manager & BIM '
+      ar: 'منسق نمذجة معلومات المباني (BIM) ومهندس نمذجة معلومات المباني الإنشائي',
+      en: ' BIM Coordinator & BIM Structural Engineer '
     },
     tools: ['Autodesk Revit', 'Navisworks', 'AutoCAD'],
     deliverables: {
-      ar: ['نماذج BIM', 'رسومات تنفيذية', 'تقارير تقدم العمل'],
-      en: ['BIM Models', 'Shop Drawings', 'Progress Reports']
-    }
+      ar: ['نماذج BIM متعددة التخصصات', 'وثائق المشروع (BEP - MIDP)', 'تقارير التعارضات بين التخصصات المختلفة', 'رسومات التصميم الإنشائي'],
+      en: ['BIM Multidisciplinary Models', 'BIM Documents (BEP - MIDP)', 'Clash Reports', 'Structural  Design Drawings']
+    },
+    behanceUrl: 'https://www.behance.net/gallery/244804189/Shigri-Link-Road-NEOM-BIM-Coordination'
   },
   {
     id: '2',
-    title: { ar: 'مجمع سكني متكامل', en: 'Swary Project - Egypt' },
+    title: { ar: 'مجمع إدارى متكامل - صوارى', en: 'Swary Project - Egypt' },
     category: { ar: 'إدارى', en: 'Administrative' },
     image: '/projects/02-Swary-Egypt.jpg',
     images: [
       '/projects/02-Swary-Egypt.jpg',
+      '/projects/Swary-Egypt-02.jpg',
+      '/projects/Swary-Egypt-03.jpg',
+      '/projects/Swary-Egypt-04.jpg',
+      '/projects/Swary-Egypt-05.jpg',
+      '/projects/Swary-Egypt-06.jpg',
+      '/projects/Swary-Egypt-07.jpg',
+      '/projects/Swary-Egypt-08.jpg',
+      '/projects/Swary-Egypt-09.jpg',
+      '/projects/Swary-Egypt-10.jpg',
+      '/projects/Swary-Egypt-11.jpg',
+      '/projects/Swary-Egypt-12.jpg',
     ],
     year: '2022',
     location: { ar: 'الإسكندرية، مصر', en: 'Alexandria, Egypt' },
-    client: { ar: 'شركة سوارى', en: 'Swary Company' },
+    client: { ar: 'شركة صوارى', en: 'Swary Company' },
     description: {
       ar: 'مشروع إداري واسع النطاق في مصر. إدارة شاملة لنمذجة معلومات المباني (BIM) وتنسيق الهندسة الإنشائية.',
       en: 'Large-scale Administrative project in Egypt. Comprehensive BIM management and structural engineering coordination.'
     },
     role: {
-      ar: 'مهندس تصميم معماري',
-      en: 'Architectural Design Engineer'
+      ar: 'مهندس نمذجة معلومات المباني الإنشائي',
+      en: 'Structural BIM Engineer'
     },
-    tools: ['Revit', 'AutoCAD'],
+    tools: ['Autodesk Revit', 'AutoCAD'],
     deliverables: {
-      ar: ['نماذج معمارية', 'رسومات تنفيذية'],
-      en: ['Architectural Models', 'Shop Drawings']
-    }
+      ar: ['وثائق المشروع (BEP - MIDP)', 'تقارير التعارضات بين التخصصات المختلفة', 'رسومات التصميم الإنشائي', 'جداول حصر الكميات'],
+      en: ['BIM Documents (BEP - MIDP)', 'Clash Reports', 'Structural  Design Drawings', 'Quantity Take-off']
+    },
+    behanceUrl: 'https://www.behance.net/gallery/229866433/-Bim#'
   },
   {
     id: '3',
@@ -56,7 +79,17 @@ export const projects = [
     category: { ar: 'إدارى / سكنى', en: 'Admin/Commercial' },
     image: '/projects/03-Elseka-Elgedida.jpg',
     images: [
+      '/projects/Elseka-Elgedida-02.jpg',
       '/projects/03-Elseka-Elgedida.jpg',
+      '/projects/Elseka-Elgedida-03.jpg',
+      '/projects/Elseka-Elgedida-04.jpg',
+      '/projects/Elseka-Elgedida-05.jpg',
+      '/projects/Elseka-Elgedida-06.jpg',
+      '/projects/Elseka-Elgedida-07.jpg',
+      '/projects/Elseka-Elgedida-08.jpg',
+      '/projects/Elseka-Elgedida-09.jpg',
+      '/projects/Elseka-Elgedida-10.jpg',
+      '/projects/Elseka-Elgedida-11.jpg',
     ],
     year: '2021',
     location: { ar: 'المنصورة، مصر', en: 'Mansour, Egypt' },
@@ -66,21 +99,32 @@ export const projects = [
       en: 'Modern High Rise Administrative Building development with full BIM implementation. Complex track and coordination systems.'
     },
     role: {
-      ar: 'منسق نمذجة معلومات البناء',
-      en: 'BIM Coordinator'
+      ar: 'مهندس الـ BIM الإنشائي، مهندس موقع',
+      en: 'Structural BIM Engineer, Site Engineer'
     },
-    tools: ['Revit', 'Navisworks'],
+    tools: ['Autodesk Revit', 'AutoCAD', 'ETABS'],
     deliverables: {
-      ar: ['نماذج BIM', 'تقارير تنسيق'],
-      en: ['BIM Models', 'Coordination Reports']
-    }
+      ar: ['نماذج BIM', 'رسومات التصميم الإنشائي', 'جداول حصر الكميات'],
+      en: ['BIM Models', 'Structural  Design Drawings', 'Quantity Take-off']
+    },
+    behanceUrl: 'https://www.behance.net/gallery/161438451/-bim#'
   },
   {
     id: '4',
     title: { ar: 'مبنى إداري وتجاري', en: 'General Administration Building - Egypt' },
     category: { ar: 'إداري', en: 'Administrative' },
     image: '/projects/04-Admin-Egypt.jpg',
-    images: ['/projects/04-Admin-Egypt.jpg'],
+    images: [
+      '/projects/Admin-Egypt-02.jpg',
+      '/projects/Admin-Egypt-03.jpg',
+      '/projects/Admin-Egypt-04.jpg',
+      '/projects/Admin-Egypt-05.jpg',
+      '/projects/Admin-Egypt-06.jpg',
+      '/projects/Admin-Egypt-07.jpg',
+      '/projects/Admin-Egypt-08.jpg',
+      '/projects/Admin-Egypt-09.jpg',
+      '/projects/Admin-Egypt-10.jpg',
+    ],
     year: '2020',
     location: { ar: 'القاهرة، مصر', en: 'Cairo, Egypt' },
     client: { ar: 'شركة الإدارة', en: 'Admin Company' },
@@ -89,21 +133,27 @@ export const projects = [
       en: 'High-end administrative building development in Egypt. Complete structural design and BIM coordination for efficient operations.'
     },
     role: {
-      ar: 'مهندس تصميم',
-      en: 'Design Engineer'
+      ar: 'مهندس نمذجة معلومات المباني الإنشائي',
+      en: 'Structural BIM Engineer'
     },
-    tools: ['Revit', 'AutoCAD'],
+    tools: ['Autodesk Revit', 'AutoCAD'],
     deliverables: {
-      ar: ['رسومات تنفيذية', 'نماذج معمارية'],
-      en: ['Shop Drawings', 'Architectural Models']
-    }
+      ar: ['نماذج BIM', 'رسومات التصميم الإنشائي', 'جداول حصر الكميات'],
+      en: ['BIM Models', 'Structural  Design Drawings', 'Quantity Take-off']
+    },
+    behanceUrl: 'https://www.behance.net/gallery/162095939/-bim#'
   },
   {
     id: '5',
     title: { ar: 'محطة رفع مياه الصرف الصحي', en: 'Wastewater Treatment Plant' },
     category: { ar: 'إنشائي', en: 'infrastructure' },
     image: '/projects/05-Wastewater-Treatment-Plant.jpg',
-    images: ['/projects/05-Wastewater-Treatment-Plant.jpg'],
+    images: [
+      '/projects/05-Wastewater-Treatment-Plant.jpg',
+      '/projects/Wastewater-Treatment-Plant-02.jpg',
+      '/projects/Wastewater-Treatment-Plant-03.jpg',
+      '/projects/Wastewater-Treatment-Plant-04.jpg',
+    ],
     year: '2019',
     location: { ar: 'المنصورة، مصر', en: 'Mansoura, Egypt' },
     client: { ar: 'شركة المياه', en: 'Water Company' },
@@ -112,21 +162,33 @@ export const projects = [
       en: 'Advanced wastewater treatment facility with complete process engineering and BIM modeling. Complex piping and equipment coordination.'
     },
     role: {
-      ar: 'مهندس إنشائي',
-      en: 'Structural Engineer'
+      ar: 'مهندس إنشائي، مهندس موقع',
+      en: 'Structural Engineer, Site Engineer'
     },
-    tools: ['Revit', 'AutoCAD'],
+    tools: ['Autodesk Revit', 'AutoCAD'],
     deliverables: {
-      ar: ['نماذج إنشائية', 'تقارير هندسية'],
-      en: ['Structural Models', 'Engineering Reports']
-    }
+      ar: ['نماذج BIM', 'رسومات التصميم الإنشائي', 'جداول حصر الكميات'],
+      en: ['BIM Models', 'Structural  Design Drawings', 'Quantity Take-off']
+    },
+    behanceUrl: 'https://www.behance.net/gallery/149889053/-bim#'
   },
   {
     id: '6',
     title: { ar: 'مسجد ومئذنة', en: 'Mosque & Minaret' },
     category: { ar: 'ديني', en: 'Religious' },
     image: '/projects/06-Tanah-Mosque.jpg',
-    images: ['/projects/06-Tanah-Mosque.jpg'],
+    images: [
+      '/projects/Tanah-Mosque-02.jpg',
+      '/projects/Tanah-Mosque-03.jpg',
+      '/projects/Tanah-Mosque-04.jpg',
+      '/projects/Tanah-Mosque-05.jpg',
+      '/projects/Tanah-Mosque-06.jpg',
+      '/projects/Tanah-Mosque-07.jpg',
+      '/projects/Tanah-Mosque-08.jpg',
+      '/projects/Tanah-Mosque-09.jpg',
+      '/projects/Tanah-Mosque-10.jpg',
+      '/projects/Tanah-Mosque-11.jpg',
+    ],
     year: '2018',
     location: { ar: 'المنصورة، مصر', en: 'Mansoura, Egypt' },
     client: { ar: 'جمعية خيرية', en: 'Charity Association' },
@@ -135,21 +197,36 @@ export const projects = [
       en: 'Design of a modern mosque and minaret.'
     },
     role: {
-      ar: 'مهندس معماري',
-      en: 'Architectural Engineer'
+      ar: 'مهندس نمذجة معلومات المباني الإنشائي',
+      en: 'Structural BIM Engineer'
     },
-    tools: ['Revit', 'AutoCAD'],
+    tools: ['Autodesk Revit', 'AutoCAD'],
     deliverables: {
-      ar: ['رسومات معمارية', 'نماذج ثلاثية الأبعاد'],
-      en: ['Architectural Drawings', '3D Models']
-    }
+      ar: ['نماذج BIM', 'رسومات التصميم الإنشائي', 'جداول حصر الكميات'],
+      en: ['BIM Models', 'Structural  Design Drawings', 'Quantity Take-off']
+    },
+    behanceUrl: 'https://www.behance.net/gallery/161398431/-bim-Mosque-Project#'
   },
   {
     id: '7',
     title: { ar: '5 مباني سكنية', en: '5 Residential Buildings' },
     category: { ar: 'إنشائي', en: 'Residential' },
     image: '/projects/07-Multi-Residential.jpg',
-    images: ['/projects/07-Multi-Residential.jpg'],
+    images: [
+      '/projects/Multi-Residential-02.jpg',
+      '/projects/Multi-Residential-03.jpg', 
+      '/projects/Multi-Residential-04.jpg',
+      '/projects/Multi-Residential-05.jpg',
+      '/projects/Multi-Residential-06.jpg',
+      '/projects/Multi-Residential-07.jpg',
+      '/projects/Multi-Residential-06.jpg',
+      '/projects/Multi-Residential-07.jpg',
+      '/projects/Multi-Residential-08.jpg',
+      '/projects/Multi-Residential-09.jpg',
+      '/projects/Multi-Residential-10.jpg',
+      '/projects/Multi-Residential-11.jpg',
+      '/projects/Multi-Residential-12.jpg',
+    ],
     year: '2017',
     location: { ar: 'القاهرة، مصر', en: 'Cairo, Egypt' },
     client: { ar: 'شركة المقاولات', en: 'Contracting Company' },
@@ -158,36 +235,15 @@ export const projects = [
       en: 'Multi-unit residential project.'
     },
     role: {
-      ar: 'مهندس موقع',
-      en: 'Site Engineer'
+      ar: 'مهندس نمذجة معلومات المباني الإنشائي',
+      en: 'Structural BIM Engineer'
     },
-    tools: ['Revit', 'AutoCAD'],
+    tools: ['Autodesk Revit', 'AutoCAD'],
     deliverables: {
-      ar: ['نماذج تنفيذية', 'تقارير تقدم'],
-      en: ['Execution Models', 'Progress Reports']
-    }
+       ar: ['نماذج BIM', 'رسومات التصميم الإنشائي', 'جداول حصر الكميات'],
+      en: ['BIM Models', 'Structural  Design Drawings', 'Quantity Take-off']
+    },
+    behanceUrl: 'https://www.behance.net/gallery/229906841/-BIM#'
   },
-  {
-    id: '8',
-    title: { ar: 'مبنى طلابي', en: 'Student Building' },
-    category: { ar: 'إنشائي', en: 'Residential' },
-    image: '/projects/08-Student-Building.jpg',
-    images: ['/projects/08-Student-Building.jpg'],
-    year: '2016',
-    location: { ar: 'الإسكندرية، مصر', en: 'Alexandria, Egypt' },
-    client: { ar: 'جامعة الإسكندرية', en: 'Alexandria University' },
-    description: {
-      ar: 'مبنى طلابي حديث.',
-      en: 'Modern student building.'
-    },
-    role: {
-      ar: 'مهندس معماري',
-      en: 'Architectural Engineer'
-    },
-    tools: ['Revit', 'AutoCAD'],
-    deliverables: {
-      ar: ['رسومات تنفيذية', 'نماذج معمارية'],
-      en: ['Shop Drawings', 'Architectural Models']
-    }
-  }
+  
 ];

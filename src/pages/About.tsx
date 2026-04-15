@@ -315,7 +315,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl neu-card p-2">
                   <img
-                    src="/placeholder.svg"
+                    src="/training-courses/04-IAEMS-Cairo.jpg"
                     alt={language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
                     className="w-full h-full object-cover rounded-xl"
                   />
