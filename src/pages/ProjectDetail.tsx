@@ -145,7 +145,7 @@ const ProjectDetail = () => {
                 <ChevronRight className="w-10 h-10" />
               </button>
               <img
-                src={project.images[selectedImage]}
+                src={assetUrl(project.images[selectedImage])}
                 alt={`${language === 'ar' ? project.title.ar : project.title.en} - ${selectedImage + 1}`}
                 className="max-w-full max-h-[85vh] object-contain rounded-lg"
               />

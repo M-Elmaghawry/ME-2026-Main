@@ -26,31 +26,31 @@ const About = () => {
     {
       name: { ar: 'تدريب شركة دار و إعمار', en: 'Dar Wa Emaar Training' },
       subtitle: { ar: 'الرياض، السعودية — 2026', en: 'Riyadh, Saudi Arabia — 2026' },
-      description: { ar: 'دورة تدريبية متقدمة في استخدام برنامج Revit للتصميم المعماري والإنشائي، تشمل أحدث الأدوات والتقنيات.', en: 'Advanced training course in Revit for architectural and structural design, covering the latest tools and techniques.' },
+      description: { ar: 'دورة تدريبية متقدمة في تطبيق نمذجة معلومات المباني (BIM) في المشاريع باستخدام برنامج Revit للهندسة المعمارية والإنشائية، وفقًا لمعايير الصناعة وبما يتماشى مع أفضل ممارسات معيار ISO 19650', en: 'Advanced training course in Bim Applicationin in Projects using Revit architecture and structure, According to Industry Standards and in alignment with ISO 19650 best practices.' },
       image: '/training-courses/01-Dar-Wa-Emaar.jpg',
     },
     {
-      name: { ar: 'ورشة عمل BIM 360', en: 'BIM 360 Workshop' },
-      subtitle: { ar: 'القاهرة، مصر — 2022', en: 'Cairo, Egypt — 2022' },
-      description: { ar: 'ورشة عمل متخصصة في منصة BIM 360 لإدارة المشاريع والتعاون بين الفرق الهندسية بشكل متكامل.', en: 'Specialized workshop on the BIM 360 platform for project management and integrated collaboration between engineering teams.' },
+      name: { ar: 'تدريب شركة سكك الحديد السعودية SAR', en: 'Saudi Railways Company Training - SAR' },
+      subtitle: { ar: 'الرياض، السعودية — 2025', en: 'Riyadh, Saudi Arabia — 2025' },
+      description: { ar: 'دورة تدريبية متقدمة في تطبيقات BIM في المشاريع باستخدام Revit architecture و Revit and structure و Naviwoks وفقًا لمعايير الصناعة وبما يتماشى مع أفضل ممارسات ISO 19650 وباستخدام منصة ACC.', en: 'Advanced training course in Bim Applicationin Projects using Revit architecture , Revit and structure and Naviwoks According to Industry Standards and in alignment with ISO 19650 best practices and using ACC Platforom.' },
       image: '/training-courses/02-SAR-Engineers.jpg',
     },
     {
-      name: { ar: 'دورة Navisworks', en: 'Navisworks Training' },
-      subtitle: { ar: 'دبي، الإمارات — 2021', en: 'Dubai, UAE — 2021' },
-      description: { ar: 'دورة تدريبية في برنامج Navisworks لكشف التعارضات وتنسيق النماذج ثلاثية الأبعاد بين مختلف التخصصات.', en: 'Training course in Navisworks for clash detection and 3D model coordination across different disciplines.' },
+      name: { ar: 'دورة الريفيت الإنشائي', en: 'Revit Structure Training' },
+      subtitle: { ar: 'الخبر، السعودية — 2024', en: 'Alkhobar, KSA — 2024' },
+      description: { ar: 'دورة تدريبية في برنامج Revit Structure لفريق الهندسة الإنشائية في مكتب جلف كونسلت. — من الأساسيات إلى المستوى الاحترافي باللغة الإنجليزية', en: 'Training course in Revit Structure for the structural engineering team at Gulf Consult Office. — From fundamentals to professional delivery in English Language' },
       image: '/training-courses/03-Gulf-Consult-Alkhobar.jpg',
     },
     {
-      name: { ar: 'دورة Navisworks', en: 'Navisworks Training' },
-      subtitle: { ar: 'دبي، الإمارات — 2021', en: 'Dubai, UAE — 2021' },
-      description: { ar: 'دورة تدريبية في برنامج Navisworks لكشف التعارضات وتنسيق النماذج ثلاثية الأبعاد بين مختلف التخصصات.', en: 'Training course in Navisworks for clash detection and 3D model coordination across different disciplines.' },
+      name: { ar: 'دورة الريفيت الإنشائي', en: 'Revit Structure Training' },
+      subtitle: { ar: 'القاهرة، مصر — 2020', en: 'Cairo, Egypt — 2020' },
+      description: { ar: 'دورة تدريبية في برنامج Revit Structure لطلاب الهندسة الإنشائية في معهد IAEMS. — من الأساسيات إلى المستوى الاحترافي.', en: 'Training course in Revit Structure for the structural engineering ٍStudents at IAEMS. — From fundamentals to professional delivery.' },
       image: '/training-courses/04-IAEMS-Cairo.jpg',
     },
     {
-      name: { ar: 'دورة Navisworks', en: 'Navisworks Training' },
-      subtitle: { ar: 'دبي، الإمارات — 2021', en: 'Dubai, UAE — 2021' },
-      description: { ar: 'دورة تدريبية في برنامج Navisworks لكشف التعارضات وتنسيق النماذج ثلاثية الأبعاد بين مختلف التخصصات.', en: 'Training course in Navisworks for clash detection and 3D model coordination across different disciplines.' },
+      name: { ar: 'التدريب الصيفى للطلبة بالموقع', en: 'Summer Training for Students on Site' },
+      subtitle: { ar: 'المنصورة، مصر — 2019', en: 'Mansoura, Egypt — 2019' },
+      description: { ar: 'دورة تدريبية صيفية في الموقع لطلاب الهندسة الإنشائية. تشمل أنشطة ميدانية متنوعة وخبرة عملية في مشاريع المباني والبنية التحتية.', en: 'On Site Training Summer course for structural Engineering students. Including different site activities and practical experience for buildings and infrastructure projects' },
       image: '/training-courses/05-Site-Training.jpg',
     },
   ];
@@ -315,7 +315,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl neu-card p-2">
                   <img
-                    src="/training-courses/04-IAEMS-Cairo.jpg"
+                    src={assetUrl('/training-courses/04-IAEMS-Cairo.jpg')}
                     alt={language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
                     className="w-full h-full object-cover rounded-xl"
                   />
