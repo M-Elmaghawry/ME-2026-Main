@@ -13,6 +13,26 @@ import { MessageCircle, Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { WHATSAPP_LINK } from '@/config/site';
 import { services } from '@/data/services';
+import { assetUrl } from '@/lib/utils';
+
+const clientLogos = [
+  { name: 'دار وإعمار', logo: '/clients/01-شركة-دار-وإعمار.png' },
+  { name: 'شركة الصالح', logo: '/clients/02-شركة-الصالح-للمقاولات.png' },
+  { name: 'Gulf Consult', logo: '/clients/03-Gulf-Consult.png' },
+  { name: 'مكتب فارس', logo: '/clients/04-مكتب-فارس-الهندسى.png' },
+  { name: 'Saudi Railways', logo: '/clients/05-خطوط-سكك-الحديد-السعودية-sar.png' },
+  { name: 'مياه الشرب', logo: '/clients/06-شركة-مياة-الشرب-والصرف-الصحى.png' },
+  { name: 'نقابة المهندسين', logo: '/clients/07-نقابة-المهندسين-بالدقهلية.png' },
+  { name: 'IDS Consulting', logo: '/clients/08-IDS-Consulting.png' },
+  { name: 'CAD Masters', logo: '/clients/09-Cad-Masters.png' },
+  { name: 'الغانم للمقاولات', logo: '/clients/10-شركة-الغانم-للمقاولات.png' },
+  { name: 'Niqat', logo: '/clients/11-Niqat.png' },
+  { name: 'الأكاديمية الدولية', logo: '/clients/12-الأكاديمية-الدولية-للهندسة-وعلوم-الإعلام.png' },
+  { name: 'Kayan Academy', logo: '/clients/13-Kayan-Academy.png' },
+  { name: 'Blue Ocean', logo: '/clients/14-Blue-Ocean.png' },
+  { name: 'UpSkill Center', logo: '/clients/15-Upskill-Center.png' },
+  { name: 'أكاديمية أوميغا', logo: '/clients/16-أكاديمية-أوميغا-للتدريب.png' },
+];
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -331,6 +351,7 @@ const Contact = () => {
               </div>
             </div>
           </motion.div>
+
         </div>
       </main>
 
