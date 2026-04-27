@@ -31,19 +31,99 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mahmoud Elmekawy",
-      "alternateName": "محمود المكاوي",
-      "jobTitle": "BIM Coordinator & Consultant",
-      "description": "Expert in Building Information Modeling (BIM), Revit, and Navisworks",
-      "url": "https://elmekawy-bim.com",
-      "sameAs": [
-        "https://www.youtube.com/@Elmekawy-Bim",
-        "https://www.facebook.com/elmekawybim",
-        "https://www.linkedin.com/company/elmekawybim/",
-        "https://www.instagram.com/m.elmekawy20/",
-        "https://twitter.com/MElmekawy3",
-        "https://www.behance.net/gallery/136557575/-Mahmoud-Elmekawy-BIM-Engineer"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://elmekawy-bim.com/#person",
+          "name": "Mahmoud Elmekawy",
+          "alternateName": "محمود المكاوي",
+          "jobTitle": "BIM Coordinator & Consultant",
+          "description": "Expert in Building Information Modeling (BIM), Revit, and Navisworks. Providing BIM consulting and specialized training courses in Saudi Arabia and Egypt.",
+          "url": "https://elmekawy-bim.com",
+          "image": "https://elmekawy-bim.com/me-profile.jpg",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Elmekawy BIM",
+            "url": "https://elmekawy-bim.com"
+          },
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "addressLocality": "Riyadh",
+              "addressCountry": "SA"
+            },
+            {
+              "@type": "PostalAddress",
+              "addressLocality": "Mansoura",
+              "addressCountry": "EG"
+            }
+          ],
+          "knowsAbout": ["BIM", "Revit", "Navisworks", "Building Information Modeling", "Construction Management"],
+          "sameAs": [
+            "https://www.youtube.com/@Elmekawy-Bim",
+            "https://www.facebook.com/elmekawybim",
+            "https://www.linkedin.com/company/elmekawybim/",
+            "https://www.instagram.com/m.elmekawy20/",
+            "https://twitter.com/MElmekawy3",
+            "https://www.behance.net/gallery/136557575/-Mahmoud-Elmekawy-BIM-Engineer"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://elmekawy-bim.com/#business",
+          "name": "Elmekawy BIM",
+          "alternateName": "المكاوي BIM",
+          "description": "خدمات استشارات BIM والتدريب المتخصص على Revit وNavisworks في المملكة العربية السعودية ومصر",
+          "url": "https://elmekawy-bim.com",
+          "logo": "https://elmekawy-bim.com/Mahmoud%20Elmekawy%20Logo-2.png",
+          "image": "https://elmekawy-bim.com/me-profile.jpg",
+          "telephone": "+201096189832",
+          "email": "contact@elmekawy-bim.com",
+          "founder": { "@id": "https://elmekawy-bim.com/#person" },
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "addressLocality": "الرياض",
+              "addressRegion": "منطقة الرياض",
+              "addressCountry": "SA"
+            },
+            {
+              "@type": "PostalAddress",
+              "addressLocality": "المنصورة",
+              "addressRegion": "الدقهلية",
+              "addressCountry": "EG"
+            }
+          ],
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "24.7136",
+            "longitude": "46.6753"
+          },
+          "areaServed": ["SA", "EG", "AE", "KW", "QA"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "BIM Services & Training",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "BIM Consulting", "name@ar": "استشارات BIM" }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Revit Training", "name@ar": "دورات Revit التدريبية" }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": { "@type": "Service", "name": "Navisworks Training", "name@ar": "دورات Navisworks التدريبية" }
+              }
+            ]
+          },
+          "sameAs": [
+            "https://www.youtube.com/@Elmekawy-Bim",
+            "https://www.facebook.com/elmekawybim",
+            "https://www.linkedin.com/company/elmekawybim/"
+          ]
+        }
       ]
     }
     </script>

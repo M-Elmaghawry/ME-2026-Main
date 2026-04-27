@@ -11,19 +11,16 @@ const easeInOut: Easing = [0.4, 0, 0.6, 1];
 const outCubic: Easing = [0.215, 0.61, 0.355, 1];
 const CELL = '1.2em';
 
-// Each digit has its own inView ref — no external state dependency
-const RollingDigit = ({ digit, delay }: { digit: number; delay: number }) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
+// inView is passed from the parent StatCard — synced with card reveal
+const RollingDigit = ({ digit, delay, inView }: { digit: number; delay: number; inView: boolean }) => {
   return (
     <span
-      ref={ref}
       style={{ display: 'inline-block', overflow: 'hidden', height: CELL, lineHeight: CELL, verticalAlign: 'middle' }}
     >
       <motion.span
         style={{ display: 'block' }}
         initial={{ y: 0 }}
-        animate={inView ? { y: `calc(-${digit} * ${CELL})` } : undefined}
+        animate={{ y: inView ? `calc(-${digit} * ${CELL})` : '0px' }}
         transition={{ duration: 1.8, ease: outCubic, delay }}
       >
         {Array.from({ length: 10 }, (_, n) => (
@@ -35,7 +32,7 @@ const RollingDigit = ({ digit, delay }: { digit: number; delay: number }) => {
 };
 
 // Parses "+500" or "500+" → optional prefix + rolling digits + optional suffix
-const RollingNumber = ({ value }: { value: string }) => {
+const RollingNumber = ({ value, inView }: { value: string; inView: boolean }) => {
   const match = value.match(/^([^\d]*)(\d+)([^\d]*)$/);
   if (!match) return <span>{value}</span>;
   const prefix = match[1];
@@ -46,11 +43,32 @@ const RollingNumber = ({ value }: { value: string }) => {
       {prefix && <span style={{ lineHeight: CELL }}>{prefix}</span>}
       {digits.map((d, i) => (
         <span key={i}>
-          <RollingDigit digit={d} delay={i * 0.06} />
+          <RollingDigit digit={d} delay={i * 0.06} inView={inView} />
         </span>
       ))}
       {suffix && <span style={{ lineHeight: CELL }}>{suffix}</span>}
     </span>
+  );
+};
+
+// Single useInView per card — card reveal and counter rolling are in sync
+const StatCard = ({ stat, index }: { stat: { value: string; label: string }; index: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: '0px 0px -60px 0px' });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, ease: outCubic, delay: index * 0.12 }}
+      whileHover={{ scale: 1.05 }}
+      className="neu-card p-6 text-center"
+    >
+      <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
+        <RollingNumber value={stat.value} inView={inView} />
+      </div>
+      <div className="text-sm text-muted-foreground">{stat.label}</div>
+    </motion.div>
   );
 };
 
@@ -197,20 +215,7 @@ const HeroSection = () => {
               { value: '+1500', label: direction === 'rtl' ? 'متدرب' : 'Students Trained' },
               { value: '+20', label: direction === 'rtl' ? 'شركة' : 'Companies' },
             ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '0px 0px -60px 0px' }}
-                transition={{ duration: 0.6, ease: outCubic, delay: index * 0.12 }}
-                whileHover={{ scale: 1.05 }}
-                className="neu-card p-6 text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  <RollingNumber value={stat.value} />
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
+              <StatCard key={index} stat={stat} index={index} />
             ))}
           </div>
         </motion.div>
