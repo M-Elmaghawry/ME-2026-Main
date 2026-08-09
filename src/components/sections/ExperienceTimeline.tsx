@@ -5,7 +5,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const easeOut: Easing = [0.4, 0, 0.2, 1];
 
 interface TimelineItem {
-  year: string;
+  year: {
+    ar: string;
+    en: string;
+  };
   title: {
     ar: string;
     en: string;
@@ -22,7 +25,24 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    year: '2025 - Present',
+    year: { ar: '2026 - حتى الآن', en: '2026 - Present' },
+    title: { ar: 'Senior BIM Engineer / BIM Coordinator', en: 'Senior BIM Engineer | BIM Coordinator' },
+    company: { ar: 'MOBCO GROUP', en: 'MOBCO GROUP' },
+    description: {
+      ar: [
+        'قيادة مهام المكتب الفني لنمذجة معلومات المباني (BIM).',
+        'تنسيق نماذج BIM متعددة التخصصات وفقًا لمعايير ISO 19650.',
+        'مبنى المختبر المركزي بجامعة الملك فهد للبترول والمعادن - الخبر.'
+      ],
+      en: [
+        'Lead Technical Office BIM tasks.',
+        'Multi-disciplinary BIM models coordination in line with ISO 19650 standards.',
+        'KFUPM Central Laboratory Building - Alkhobar.'
+      ]
+    },
+  },
+  {
+    year: { ar: '2025 - 2026', en: '2025 - 2026' },
     title: { ar: 'BIM Coordinator', en: 'BIM Coordinator' },
     company: { ar: 'IDS Consulting', en: 'IDS Consulting' },
     description: {
@@ -39,7 +59,7 @@ const timelineData: TimelineItem[] = [
     },
   },
   {
-    year: '2022 - 2025',
+    year: { ar: '2022 - 2025', en: '2022 - 2025' },
     title: { ar: 'مهندس BIM إنشائي', en: 'Structural BIM Engineer' },
     company: { ar: 'مكتب طلال شاكر للاستشارات الهندسية', en: 'Talal Shaker Office for Engineering Consultation' },
     description: { 
@@ -56,7 +76,7 @@ const timelineData: TimelineItem[] = [
     },
   },
   {
-    year: '2021 - 2022',
+    year: { ar: '2021 - 2022', en: '2021 - 2022' },
     title: { ar: 'مدير BIM للمكتب الفني', en: 'Technical Office BIM Manager' },
     company: { ar: 'شركة جلوري للمقاولات العامة', en: 'Glory General Construction Company' },
     description: { 
@@ -75,7 +95,7 @@ const timelineData: TimelineItem[] = [
     },
   },
   {
-    year: '2015 - 2021',
+    year: { ar: '2015 - 2021', en: '2015 - 2021' },
     title: { ar: 'مهندس تصميم إنشائي', en: 'Structural Design Engineer' },
     company: { ar: 'مكتب الحسن الهندسى', en: 'Al-Hassan Engineering Office ' },
     description: { 
@@ -90,7 +110,7 @@ const timelineData: TimelineItem[] = [
     },
   },
   {
-    year: '2015 - 2021',
+    year: { ar: '2015 - 2021', en: '2015 - 2021' },
     title: { ar: 'مهندس موقع مدني', en: 'Civil Site Engineer' },
     company: { ar: 'شركة مياة الشرب والصرف الصحى بالدقهلية', en: 'Aldkhliya for Water and Sanitation Company' },
     description: { 
@@ -109,7 +129,7 @@ const timelineData: TimelineItem[] = [
     },
   },
    {
-    year: '2013 - 2015',
+    year: { ar: '2013 - 2015', en: '2013 - 2015' },
     title: { ar: 'مهندس تصميم إنشائي / موقع', en: 'Structural Design / Site  Engineer' },
     company: { ar: 'مكتب د. محمود الجمل للإستشارات الهندسية', en: 'Dr. Mahmoud Elgamal Consultant Office' },
     description: { 
@@ -215,7 +235,7 @@ const ExperienceTimeline = () => {
               >
                 {/* Year Badge */}
                 <span className="inline-block px-3 py-1 bg-blue-grotto/10 text-blue-grotto text-sm font-semibold rounded-full mb-3">
-                  {item.year}
+                  {language === 'ar' ? item.year.ar : item.year.en}
                 </span>
 
                 <h3 className="text-xl font-bold text-foreground mb-1">

@@ -7,7 +7,6 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import { services } from '@/data/services';
 import { testimonials } from '@/data/testimonials';
-import { projects } from '@/data/projects';
 import { assetUrl } from '@/lib/utils';
 import {
   ArrowLeft,
@@ -88,8 +87,6 @@ const ServiceDetail = () => {
 
   /* pick 3 testimonials */
   const proofTestimonials = testimonials.slice(0, 3);
-  /* pick 3 project images */
-  const proofProjects = projects.slice(0, 3);
 
   return (
     <div className="min-h-screen bg-background">
@@ -397,7 +394,7 @@ const ServiceDetail = () => {
         </section>
 
         {/* ══════════════════════════════════════
-            6. PROOF — testimonials + projects
+          6. PROOF — testimonials
         ══════════════════════════════════════ */}
         <section className="py-20 bg-muted/30">
           <div className="section-container">
@@ -448,46 +445,6 @@ const ServiceDetail = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
-
-            {/* project images */}
-            <div>
-              <h3 className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">
-                {isAr ? 'من مشاريعنا المنجزة' : 'From Our Completed Projects'}
-              </h3>
-              <div className="grid md:grid-cols-3 gap-5">
-                {proofProjects.map((proj, i) => (
-                  <motion.div
-                    key={proj.id}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={i}
-                  >
-                    <Link to={`/portfolio/${proj.id}`} className="group block neu-card overflow-hidden">
-                      <div className="relative overflow-hidden h-48">
-                        <img
-                          src={assetUrl(proj.image)}
-                          alt={isAr ? proj.title.ar : proj.title.en}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <span className="text-white text-sm font-semibold">
-                            {isAr ? 'عرض المشروع' : 'View Project'}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="p-4">
-                        <p className="font-semibold text-sm">{isAr ? proj.title.ar : proj.title.en}</p>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {isAr ? proj.location.ar : proj.location.en} · {proj.year}
-                        </p>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
