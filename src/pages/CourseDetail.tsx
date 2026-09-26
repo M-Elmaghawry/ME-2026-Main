@@ -292,6 +292,7 @@ interface EnrollmentCardProps {
   included: string[];
   isAr: boolean;
   whatsappUrl: string;
+  isFreeCourse: boolean;
 }
 
 const EnrollmentCard = ({
@@ -304,6 +305,7 @@ const EnrollmentCard = ({
   included,
   isAr,
   whatsappUrl,
+  isFreeCourse,
 }: EnrollmentCardProps) => (
   <div className="bg-white dark:bg-card rounded-2xl shadow-2xl overflow-hidden text-foreground border border-border/40">
     {/* Thumbnail + play button */}
@@ -353,7 +355,7 @@ const EnrollmentCard = ({
         onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
         className="w-full bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl text-lg transition-colors shadow-md"
       >
-        {isAr ? 'سجل الآن فوراً' : 'Enroll Now Instantly'}
+        {isFreeCourse ? (isAr ? 'ابدأ الآن مجانًا' : 'Start for Free') : (isAr ? 'سجل الآن فوراً' : 'Enroll Now Instantly')}
       </button>
 
       {/* WhatsApp consultation */}
@@ -420,13 +422,15 @@ const CourseDetail = () => {
     );
   }
 
+  const isFreeCourse = course.id === 'bim-fundamentals';
+
   // Derived values
   const title         = isAr ? course.title.ar        : course.title.en;
   const description   = isAr ? course.description.ar  : course.description.en;
   const level         = isAr ? course.level.ar         : course.level.en;
   const duration      = isAr ? course.duration.ar      : course.duration.en;
-  const price         = isAr ? extras.price.ar         : extras.price.en;
-  const originalPrice = isAr ? extras.originalPrice.ar : extras.originalPrice.en;
+  const price         = isFreeCourse ? (isAr ? 'مجاني' : 'Free') : (isAr ? extras.price.ar : extras.price.en);
+  const originalPrice = isFreeCourse ? '' : (isAr ? extras.originalPrice.ar : extras.originalPrice.en);
   const outcomes      = isAr ? extras.learningOutcomes.ar : extras.learningOutcomes.en;
   const requirements  = isAr ? extras.requirements.ar  : extras.requirements.en;
   const included      = isAr ? extras.whatIsIncluded.ar : extras.whatIsIncluded.en;
@@ -435,11 +439,11 @@ const CourseDetail = () => {
   const instructorTitle = isAr ? INSTRUCTOR.title.ar   : INSTRUCTOR.title.en;
   const instructorBio   = isAr ? INSTRUCTOR.bio.ar     : INSTRUCTOR.bio.en;
 
-  const whatsappUrl = `https://wa.me/201096189832?text=${encodeURIComponent(
-    isAr
-      ? `أريد التسجيل في كورس: ${title}`
-      : `I want to enroll in: ${title}`
-  )}`;
+  const whatsappUrl = isFreeCourse
+    ? course.udemyLink
+    : `https://wa.me/201096189832?text=${encodeURIComponent(
+        isAr ? `أريد التسجيل في كورس: ${title}` : `I want to enroll in: ${title}`
+      )}`;
 
   const courseTestimonials = testimonials.slice(0, 4);
 
@@ -457,21 +461,17 @@ const CourseDetail = () => {
       <main>
         {/*
          * Layout strategy:
-         *   A CSS linear-gradient on this wrapper provides the dark-navy hero
-         *   background for roughly the top 620 px, then transitions to the page
-         *   background colour. Both the hero info and the sidebar share ONE
-         *   grid, so the sidebar card is naturally sticky throughout the entire
-         *   content area.
+         *   Keep the same bounded gradient hero used on service details. The
+         *   content and sidebar share ONE grid, so the sidebar card remains
+         *   naturally sticky throughout the content area.
          */}
-        <div
-          className="relative"
-          style={{
-            background:
-              'linear-gradient(to bottom, hsl(209,100%,19%) 0px, hsl(209,100%,19%) 620px, hsl(210,20%,98%) 620px)',
-          }}
-        >
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[620px] bg-[linear-gradient(to_bottom,hsl(var(--background))_0%,hsl(var(--navy))_65%)]"
+          />
           {/* ── PAGE CONTAINER (hero + content share this grid) ─────────── */}
-          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24">
+          <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 lg:gap-10 items-start">
 
               {/* ══ MAIN CONTENT COLUMN ══════════════════════════════════ */}
@@ -809,6 +809,7 @@ const CourseDetail = () => {
                     included={included}
                     isAr={isAr}
                     whatsappUrl={whatsappUrl}
+                    isFreeCourse={isFreeCourse}
                   />
                 </div>
               </div>
@@ -859,7 +860,7 @@ const CourseDetail = () => {
                 onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
                 className="bg-amber-500 hover:bg-amber-400 text-white font-extrabold px-10 py-4 rounded-xl text-lg transition-colors shadow-lg inline-flex items-center gap-2"
               >
-                {isAr ? `سجل من ${price} فقط` : `Enroll for ${price} only`}
+                {isFreeCourse ? (isAr ? 'ابدأ الآن مجانًا' : 'Start for Free') : (isAr ? `سجل من ${price} فقط` : `Enroll for ${price} only`)}
                 <ArrowRight className="w-5 h-5 rtl:rotate-180" />
               </button>
               <p className="text-white/50 text-sm mt-4">
