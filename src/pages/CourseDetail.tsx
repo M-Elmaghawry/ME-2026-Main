@@ -31,14 +31,20 @@ import {
 } from 'lucide-react';
 
 // ─── Countdown hook ────────────────────────────────────────────────────────────
+interface CountdownParts {
+  days: string;
+  hours: string;
+  minutes: string;
+}
+
 function useCountdown() {
-  const KEY = 'course-offer-end';
+  const KEY = 'course-offer-end-weekly';
   const getEnd = () => {
     try {
       const stored = sessionStorage.getItem(KEY);
       if (stored) return parseInt(stored);
     } catch { /* noop */ }
-    const end = Date.now() + 24 * 3600 * 1000;
+    const end = Date.now() + 7 * 24 * 3600 * 1000;
     try { sessionStorage.setItem(KEY, end.toString()); } catch { /* noop */ }
     return end;
   };
@@ -51,10 +57,16 @@ function useCountdown() {
     return () => clearInterval(id);
   }, []);
 
-  const h = String(Math.floor(remaining / 3600)).padStart(2, '0');
-  const m = String(Math.floor((remaining % 3600) / 60)).padStart(2, '0');
-  const s = String(remaining % 60).padStart(2, '0');
-  return `${h}:${m}:${s}`;
+  const days = String(Math.floor(remaining / 86400)).padStart(2, '0');
+  const hours = String(Math.floor((remaining % 86400) / 3600)).padStart(2, '0');
+  const minutes = String(Math.floor((remaining % 3600) / 60)).padStart(2, '0');
+  return { days, hours, minutes };
+}
+
+function formatCountdown({ days, hours, minutes }: CountdownParts, isAr: boolean) {
+  return isAr
+    ? `${days} يوم : ${hours} ساعة : ${minutes} دقيقة`
+    : `${days}d : ${hours}h : ${minutes}m`;
 }
 
 // ─── Supplementary per-course data ────────────────────────────────────────────
@@ -75,30 +87,30 @@ interface CourseExtras {
 
 const COURSE_EXTRAS: Record<string, CourseExtras> = {
   'revit-structure-professional-training': {
-    price: { ar: '297 ر.س', en: 'SAR 297' },
-    originalPrice: { ar: '497 ر.س', en: 'SAR 497' },
-    discountLabel: '40%',
+    price: { ar: '99 دولار', en: '$99' },
+    originalPrice: { ar: '130 دولار', en: '$130' },
+    discountLabel: '24%',
     rating: 4.9,
     ratingCount: 1200,
     studentsCount: 1200,
-    hoursContent: 42,
-    tags: ['Rebar Modeling', 'Shop Drawings', 'IFC Export', 'ISO 19650', 'BIM LOD 200-400', 'Revit 2024-2025'],
+    hoursContent: 60,
+    tags: ['Structural Modeling', 'AutoCAD Integration', 'Steel Structures', 'Quantity Take-Off', 'Reinforcement', 'Documentation', 'Sheets & Printing', 'Revit Architecture'],
     learningOutcomes: {
       ar: [
-        'إنشاء نماذج Revit Structure من الصفر للمباني الإنشائية',
-        'إنتاج رسومات Shop Drawings بمعايير احترافية',
-        'تطبيق معيار ISO 19650 في بيئات العمل الكبرى',
-        'استخدام Dynamo لأتمتة المهام المتكررة وتوفير الوقت',
-        'ربط النماذج وكشف التعارضات عبر Navisworks Elem Detection',
-        'تصدير ملفات IFC للعمل التشاركي مع الفرق المتعددة',
+        'نمذجة العناصر الإنشائية من البلاطات والكمرات والأعمدة إلى الأساسات',
+        'استخدام ملفات AutoCAD ونمذجة السلالم والمنشآت المعدنية ووصلاتها',
+        'إعداد جداول حصر الكميات وتقدير تكاليف العناصر الإنشائية',
+        'إضافة حديد التسليح وتوثيق المشروع بالتفاصيل والقطاعات والفلاتر',
+        'إعداد اللوحات النهائية وطباعتها، وإنشاء عناصر معقدة باستخدام Model in Place',
+        'نمذجة العناصر المعمارية وربط ملفات التخصصات لإعداد عروض تقديمية متكاملة',
       ],
       en: [
-        'Create Revit Structure models from scratch for structural buildings',
-        'Produce professional Shop Drawings to industry standards',
-        'Apply ISO 19650 standards in large project environments',
-        'Use Dynamo to automate repetitive tasks and save time',
-        'Link models and detect clashes via Navisworks Elem Detection',
-        'Export IFC files for collaborative multi-discipline workflows',
+        'Model structural elements, from slabs, beams, and columns to foundations',
+        'Work with AutoCAD files and model stairs, steel structures, and connections',
+        'Prepare quantity take-off schedules and estimate structural element costs',
+        'Add reinforcement and document projects with details, sections, and filters',
+        'Prepare and print final sheets, and create complex elements with Model in Place',
+        'Model architectural elements and link discipline files for coordinated presentations',
       ],
     },
     requirements: {
@@ -117,20 +129,20 @@ const COURSE_EXTRAS: Record<string, CourseExtras> = {
     },
     whatIsIncluded: {
       ar: [
-        'مدة الدورة: 42+ ساعة فيديو',
+        'مدة الدورة: 60 ساعة فيديو',
         'وصول مدى الحياة لجميع المحتويات',
-        'التطبيق على مشاريع حقيقية متعددة',
-        'شهادة إتمام معتمدة',
-        'دخول محادثة Telegram خاصة',
-        'دعم متواصل من المدرب',
+        'تطبيق عملي على مشروعات واقعية متعددة',
+        'شهادة حضور معتمدة من Autodesk بعد تسليم التاسكات المطلوبة',
+        'الانضمام إلى جروب المتابعة على Facebook',
+        'إمكانية التواصل مباشرةً مع المحاضر عبر WhatsApp',
       ],
       en: [
-        'Course duration: 42+ hours of video',
+        'Course duration: 60 hours of video',
         'Lifetime access to all content',
-        'Application on multiple real-world projects',
-        'Accredited completion certificate',
-        'Private Telegram group access',
-        'Ongoing instructor support',
+        'Hands-on practice across multiple real-world projects',
+        'Autodesk-accredited attendance certificate after submitting the required assignments',
+        'Access to the course follow-up group on Facebook',
+        'Direct contact with the instructor via WhatsApp',
       ],
     },
     faq: {
@@ -145,15 +157,15 @@ const COURSE_EXTRAS: Record<string, CourseExtras> = {
         },
         {
           q: 'ما هو نوع الشهادة الممنوحة؟',
-          a: 'شهادة إتمام معتمدة من ACI (Autodesk Certified Instructor) تُمنح من أكاديمية مهندس مصر.',
+          a: 'يحصل المتدرب على شهادة حضور معتمدة من شركة Autodesk بعد تسليم التاسكات المطلوبة.',
         },
         {
           q: 'كيف أتواصل مع المدرب بعد التسجيل؟',
-          a: 'يتم إضافتك فور التسجيل إلى مجموعة Telegram خاصة حيث يمكنك التواصل مع المدرب وزملائك في أي وقت.',
+          a: 'يتم إضافة المتدرب إلى جروب المتابعة على Facebook، ويمكنه أيضًا التواصل مباشرةً مع المحاضر عبر WhatsApp.',
         },
         {
           q: 'هل يمكنني الوصول للمحتوى بعد انتهاء الكورس؟',
-          a: 'نعم، لديك وصول مدى الحياة لجميع محتويات الكورس والتحديثات المستقبلية دون أي رسوم إضافية.',
+          a: 'نعم، يمكنك الوصول إلى جميع محتويات الكورس مدى الحياة.',
         },
       ],
       en: [
@@ -167,15 +179,15 @@ const COURSE_EXTRAS: Record<string, CourseExtras> = {
         },
         {
           q: 'What type of certificate is granted?',
-          a: 'An accredited completion certificate from ACI (Autodesk Certified Instructor) issued by Muhandis Masr Academy.',
+          a: 'Trainees receive an attendance certificate accredited by Autodesk after submitting the required assignments.',
         },
         {
           q: 'How can I contact the instructor after enrolling?',
-          a: "Upon enrollment, you'll be added to a private Telegram group where you can reach the instructor and fellow students anytime.",
+          a: "You'll be added to the course follow-up group on Facebook, and you can also contact the instructor directly via WhatsApp.",
         },
         {
           q: 'Can I access content after the course ends?',
-          a: 'Yes, you have lifetime access to all course content and future updates at no extra cost.',
+          a: 'Yes, you have lifetime access to all course content.',
         },
       ],
     },
@@ -246,20 +258,20 @@ const DEFAULT_EXTRAS: CourseExtras = {
 
 // ─── Shared instructor data ────────────────────────────────────────────────────
 const INSTRUCTOR = {
-  initials: 'م.م',
-  name: { ar: 'م. محمود المكاوي', en: 'Eng. Mahmoud Elmakawy' },
+  initials: 'ME',
+  name: { ar: 'محمود المكاوى', en: 'Mahmoud Elmakawy' },
   title: {
-    ar: 'ACI Certified Instructor (NEOM) | مؤسس أكاديمية مهندس مصر',
-    en: 'ACI Certified Instructor (NEOM) | Founder of Muhandis Masr Academy',
+    ar: 'مهندس BIM أول | منسق BIM | مدرب معتمد من Autodesk | تدريب BIM للشركات | ISO 19650 | المكتب الفني',
+    en: 'Senior BIM Engineer | BIM Coordinator | Autodesk Certified Instructor | Corporate BIM Training | ISO 19650 | Technical Office',
   },
   certifications: ['ISO 19650', 'Revit Architecture Certified', 'Revit Structure of Certified', 'Saudi Council of Engineers'],
   bio: {
-    ar: 'مهندس خبرة +13 سنة في مجال البناء الإنشائي وتطبيقات BIM. حاصل على شهادة ACI Certified Instructor من Autodesk، ويعمل حاليًا BIM Coordinator في مشاريع NEOM السعودية. درّب أكثر من 1,200 مهندس من مصر والسعودية والإمارات وأكثر من 15 دولة.',
-    en: 'Engineer with 13+ years of experience in structural construction and BIM applications. Holds ACI Certified Instructor certification from Autodesk, currently working as BIM Coordinator on NEOM projects. Trained over 1,200 engineers from Egypt, Saudi Arabia, UAE, and 15+ countries.',
+    ar: 'مهندس خبرة +13 سنة في مجال البناء الإنشائي وتطبيقات BIM. حاصل على شهادة ACI Certified Instructor من Autodesk، وعمل كمنسق BIM في مشروعات كبرى في السعودية ومصر. درّب أكثر من 1,200 مهندس من مصر والسعودية والإمارات وأكثر من 15 دولة.',
+    en: 'Engineer with 13+ years of experience in structural construction and BIM applications. Holds ACI Certified Instructor certification from Autodesk and has worked as a BIM Coordinator on mega projects across Saudi Arabia and Egypt. Trained over 1,200 engineers from Egypt, Saudi Arabia, UAE, and 15+ countries.',
   },
   rating: 4.9,
   studentsCount: 1200,
-  coursesCount: 8,
+  coursesCount: 5,
 };
 
 // ─── Included icons order ──────────────────────────────────────────────────────
@@ -288,9 +300,10 @@ interface EnrollmentCardProps {
   price: string;
   originalPrice: string;
   discountLabel: string;
-  countdown: string;
+  countdown: CountdownParts;
   included: string[];
   isAr: boolean;
+  courseLink: string;
   whatsappUrl: string;
   isFreeCourse: boolean;
 }
@@ -304,12 +317,18 @@ const EnrollmentCard = ({
   countdown,
   included,
   isAr,
+  courseLink,
   whatsappUrl,
   isFreeCourse,
 }: EnrollmentCardProps) => (
   <div className="bg-white dark:bg-card rounded-2xl shadow-2xl overflow-hidden text-foreground border border-border/40">
     {/* Thumbnail + play button */}
-    <div className="relative aspect-video cursor-pointer group">
+    <button
+      type="button"
+      onClick={() => window.open(courseLink, '_blank', 'noopener,noreferrer')}
+      aria-label={isAr ? 'معاينة الكورس' : 'Preview course'}
+      className="relative block w-full aspect-video cursor-pointer group overflow-hidden text-start"
+    >
       <img
         src={assetUrl(courseImage)}
         alt={courseTitle}
@@ -323,7 +342,7 @@ const EnrollmentCard = ({
       <span className="absolute bottom-2 start-2 bg-black/60 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-lg font-medium">
         {isAr ? 'معاينة مجانية' : 'Free preview'}
       </span>
-    </div>
+    </button>
 
     {/* Card body */}
     <div className="p-5 space-y-4">
@@ -333,7 +352,7 @@ const EnrollmentCard = ({
         {originalPrice && (
           <span className="text-muted-foreground line-through text-base">{originalPrice}</span>
         )}
-        {discountLabel && (
+        {!isFreeCourse && discountLabel && (
           <span className="bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-xs font-bold px-2 py-0.5 rounded-full">
             {isAr ? `خصم ${discountLabel}` : `${discountLabel} OFF`}
           </span>
@@ -341,14 +360,16 @@ const EnrollmentCard = ({
       </div>
 
       {/* Countdown */}
-      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 rounded-xl p-3 text-center">
-        <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 mb-1">
-          {isAr ? '⏰ ينتهي العرض خلال' : '⏰ Offer ends in'}
-        </p>
-        <p className="text-2xl font-mono font-extrabold text-amber-600 dark:text-amber-400 tracking-widest">
-          {countdown}
-        </p>
-      </div>
+      {!isFreeCourse && (
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 rounded-xl p-3 text-center">
+          <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 mb-1">
+            {isAr ? '⏰ ينتهي العرض خلال' : '⏰ Offer ends in'}
+          </p>
+          <p className="text-2xl font-mono font-extrabold text-amber-600 dark:text-amber-400 tracking-widest">
+            {formatCountdown(countdown, isAr)}
+          </p>
+        </div>
+      )}
 
       {/* Enroll button */}
       <button
@@ -368,10 +389,12 @@ const EnrollmentCard = ({
       </button>
 
       {/* Guarantee */}
-      <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
-        <Shield className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
-        {isAr ? 'ضمان استعادة الأموال خلال 30 يوم' : '30-day money-back guarantee'}
-      </p>
+      {!isFreeCourse && (
+        <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+          <Shield className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+          {isAr ? 'ضمان استعادة الأموال خلال 30 يوم' : '30-day money-back guarantee'}
+        </p>
+      )}
 
       {/* Divider */}
       <div className="border-t border-border" />
@@ -450,7 +473,7 @@ const CourseDetail = () => {
   const STATS = [
     { value: '+1,200',                    label: isAr ? 'طالب'        : 'Students'        },
     { value: '★ 4.9',                     label: isAr ? 'تقييم'       : 'Rating'          },
-    { value: `${extras.hoursContent}h`,   label: isAr ? 'ساعة تدريب'  : 'Training Hours'  },
+    { value: `${isFreeCourse ? '01' : extras.hoursContent}h`, label: isAr ? 'ساعة تدريب' : 'Training Hours' },
     { value: isAr ? '13 سنة' : '13 yrs', label: isAr ? 'خبرة'        : 'Experience'      },
   ];
 
@@ -504,7 +527,9 @@ const CourseDetail = () => {
                     </span>
                     <span className="bg-white/10 border border-white/20 text-white/80 rounded-full px-3 py-1 text-xs font-medium flex items-center gap-1.5">
                       <Award className="w-3 h-3" />
-                      {isAr ? 'شهادة معتمدة' : 'Certified'}
+                      {course.id === 'revit-structure-professional-training'
+                        ? (isAr ? 'شهادة Autodesk' : 'Autodesk Certificate')
+                        : (isAr ? 'شهادة معتمدة' : 'Certified')}
                     </span>
                   </div>
 
@@ -558,8 +583,6 @@ const CourseDetail = () => {
                         {isAr ? 'المدرب:' : 'Instructor:'}
                       </span>
                       <span className="font-semibold text-white">{instructorName}</span>
-                      <span className="text-white/40 select-none">•</span>
-                      <span className="text-white/55 text-xs">ACI Certified (NEOM)</span>
                     </div>
                   </div>
                 </div>
@@ -620,7 +643,7 @@ const CourseDetail = () => {
                     <p className="text-muted-foreground text-sm mb-5">
                       {course.syllabus.length}{' '}
                       {isAr ? 'وحدات' : 'sections'} •{' '}
-                      {extras.hoursContent}{' '}
+                      {isFreeCourse ? 1 : extras.hoursContent}{' '}
                       {isAr ? 'ساعة إجمالي' : 'hours total'}
                     </p>
                     <Accordion type="single" collapsible className="space-y-2">
@@ -639,9 +662,11 @@ const CourseDetail = () => {
                             </div>
                           </AccordionTrigger>
                           <AccordionContent className="text-muted-foreground text-sm pb-3 ps-10">
-                            {isAr
-                              ? 'محاضرات تفاعلية مع تطبيق عملي مباشر على مشاريع حقيقية'
-                              : 'Interactive lectures with hands-on practice on real-world projects'}
+                            {item.description
+                              ? (isAr ? item.description.ar : item.description.en)
+                              : (isAr
+                                ? 'محاضرات تفاعلية مع تطبيق عملي مباشر على مشاريع حقيقية'
+                                : 'Interactive lectures with hands-on practice on real-world projects')}
                           </AccordionContent>
                         </AccordionItem>
                       ))}
@@ -808,6 +833,7 @@ const CourseDetail = () => {
                     countdown={countdown}
                     included={included}
                     isAr={isAr}
+                    courseLink={course.udemyLink}
                     whatsappUrl={whatsappUrl}
                     isFreeCourse={isFreeCourse}
                   />
@@ -831,7 +857,7 @@ const CourseDetail = () => {
               onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
               className="bg-amber-500 hover:bg-amber-400 text-white font-extrabold px-6 py-3 rounded-xl transition-colors text-sm flex-shrink-0"
             >
-              {isAr ? 'سجل الآن' : 'Enroll Now'}
+              {isFreeCourse ? (isAr ? 'ابدأ مجانًا' : 'Start for Free') : (isAr ? 'سجل الآن' : 'Enroll Now')}
             </button>
           </div>
         </div>
@@ -863,11 +889,13 @@ const CourseDetail = () => {
                 {isFreeCourse ? (isAr ? 'ابدأ الآن مجانًا' : 'Start for Free') : (isAr ? `سجل من ${price} فقط` : `Enroll for ${price} only`)}
                 <ArrowRight className="w-5 h-5 rtl:rotate-180" />
               </button>
-              <p className="text-white/50 text-sm mt-4">
-                ⏰{' '}
-                {isAr ? 'ينتهي العرض خلال ' : 'Offer ends in '}
-                <span className="font-mono font-bold text-white/70">{countdown}</span>
-              </p>
+              {!isFreeCourse && (
+                <p className="text-white/50 text-sm mt-4">
+                  ⏰{' '}
+                  {isAr ? 'ينتهي العرض خلال ' : 'Offer ends in '}
+                  <span className="font-mono font-bold text-white/70">{formatCountdown(countdown, isAr)}</span>
+                </p>
+              )}
             </motion.div>
           </div>
         </section>

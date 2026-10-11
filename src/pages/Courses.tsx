@@ -9,7 +9,23 @@ import { Button } from '@/components/ui/button';
 import { Clock, BarChart, ArrowLeft, ArrowRight } from 'lucide-react';
 import { assetUrl } from '@/lib/utils';
 
-export const courses = [
+interface Course {
+  id: string;
+  title: { ar: string; en: string };
+  description: { ar: string; en: string };
+  fullDescription: { ar: string; en: string };
+  level: { ar: string; en: string };
+  duration: { ar: string; en: string };
+  image: string;
+  udemyLink: string;
+  syllabus: {
+    ar: string;
+    en: string;
+    description?: { ar: string; en: string };
+  }[];
+}
+
+export const courses: Course[] = [
   {
     id: 'bim-fundamentals',
     title: { ar: 'أساسيات BIM', en: 'BIM Fundamentals for Civil Engineers' },
@@ -18,41 +34,152 @@ export const courses = [
       en: 'Comprehensive introduction to Building Information Modeling concepts, workflows, and best practices. Perfect for engineers transitioning to BIM.',
     },
     fullDescription: {
-      ar: 'دورة شاملة تأخذك من الصفر إلى الاحتراف في استخدام برنامج Revit للتصميم المعماري. ستتعلم إنشاء المشاريع، رسم الجدران والأبواب والنوافذ، إنشاء الأسقف والأرضيات، وإخراج اللوحات الهندسية.',
-      en: 'Comprehensive introduction to Building Information Modeling concepts, workflows, and best practices. Perfect for engineers transitioning to BIM.',
+      ar: 'تعرّف على أساسيات نمذجة معلومات البناء (BIM)، ومستوى التفاصيل وأبعاد البيم، ومستخدميه وبرامجه ومخرجاته.',
+      en: 'Learn the fundamentals of Building Information Modeling (BIM), including levels of development, BIM dimensions, users, software, and outputs.',
     },
     level: { ar: 'مبتدئ', en: 'Beginner' },
     duration: { ar: '01 ساعة', en: '01 Hours' },
     image: '/courses/BIM Fundamentals for Civil Engineers.webp',
     udemyLink: 'https://www.udemy.com/course/bim-introduction-free/?referralCode=25EADC46D87F0DCA809A',
     syllabus: [
-      { ar: 'مقدمة في برنامج Revit', en: 'Introduction to Revit' },
-      { ar: 'إنشاء المشروع والإعدادات', en: 'Project Creation and Settings' },
-      { ar: 'رسم الجدران والعناصر الأساسية', en: 'Drawing Walls and Basic Elements' },
-      { ar: 'إنشاء الأسقف والأرضيات', en: 'Creating Roofs and Floors' },
-      { ar: 'إخراج اللوحات الهندسية', en: 'Producing Engineering Drawings' },
+      {
+        ar: 'ما هي البيم',
+        en: 'What is BIM',
+        description: {
+          ar: 'تعرّف على مفهوم نمذجة معلومات البناء وكيفية إنشاء نموذج رقمي غني بالمعلومات يدعم التعاون وإدارة المشروع خلال مراحله المختلفة.',
+          en: 'Learn what Building Information Modeling is and how an information-rich digital model supports collaboration and project management throughout the project lifecycle.',
+        },
+      },
+      {
+        ar: 'مستوى التفاصيل في البيم (BIM LOD)',
+        en: 'BIM Level of Development (LOD)',
+        description: {
+          ar: 'افهم مستويات LOD وكيف يعبّر كل مستوى عن درجة تطور عناصر النموذج وموثوقية المعلومات المتاحة عنها في مراحل المشروع.',
+          en: 'Understand BIM LOD levels and how each level describes the development of model elements and the reliability of their information at different project stages.',
+        },
+      },
+      {
+        ar: 'أبعاد البيم',
+        en: 'BIM Dimensions',
+        description: {
+          ar: 'استكشف كيف ترتبط بيانات النموذج بأبعاد المشروع مثل الوقت والتكلفة والاستدامة والتشغيل، لدعم التخطيط واتخاذ القرار.',
+          en: 'Explore how model information connects to project dimensions such as time, cost, sustainability, and operations to support planning and decision-making.',
+        },
+      },
+      {
+        ar: 'مستخدمو البيم',
+        en: 'BIM Users',
+        description: {
+          ar: 'تعرّف على الأطراف التي تستخدم البيم، مثل المالك والمصممين والمقاولين ومديري المرافق، وكيف تتعاون من خلال معلومات النموذج.',
+          en: 'Meet the people who use BIM—including owners, designers, contractors, and facility managers—and learn how they collaborate through model information.',
+        },
+      },
+      {
+        ar: 'برامج البيم',
+        en: 'BIM Programs',
+        description: {
+          ar: 'تعرّف على فئات برامج البيم وأدوارها في النمذجة والتنسيق وإدارة المعلومات، وكيفية اختيار الأداة المناسبة لكل مهمة.',
+          en: 'Explore BIM software categories and their roles in modeling, coordination, and information management, and learn how tools support different tasks.',
+        },
+      },
+      {
+        ar: 'مخرجات البيم',
+        en: 'BIM Outputs',
+        description: {
+          ar: 'استكشف مخرجات عملية البيم، من النماذج والرسومات والجداول والكميات إلى تقارير التنسيق وكشف التعارضات.',
+          en: 'Explore BIM deliverables, from models, drawings, schedules, and quantities to coordination and clash detection reports.',
+        },
+      },
     ],
   },
   {
     id: 'revit-structure-professional-training',
-    title: { ar: 'التدريب الاحترافي على برنامج Revit Structure', en: 'Revit Structure Professional Training' },
+    title: { ar: 'كورس الريفيت الإنشائي والمعماري', en: 'Revit Structure & Architecture Course' },
     description: {
-      ar: 'مقدمة شاملة لنمذجة معلومات المباني وبرنامج أوتوديسك ريفيت للهندسة الإنشائية. تعلم تقنيات النمذجة والتوثيق والتعاون لتحقيق إنجاز المشاريع بكفاءة.',
-      en: 'Comprehensive introduction to Building Information Modeling and Autodesk Revit for structural engineering. Learn modeling, documentation, and collaboration techniques for efficient project delivery.',
+      ar: 'بدايتك الصح في مجال BIM: شرح شامل لبرنامج Revit من الصفر إلى الاحتراف للمهندسين من مختلف التخصصات، مع أمثلة عملية على مشروعات واقعية.',
+      en: 'A strong start in BIM: learn Autodesk Revit from beginner to advanced level across structural and architectural workflows, with practical examples from real projects.',
     },
     fullDescription: {
-      ar: 'تعلم كيفية استخدام برنامج Navisworks لدمج النماذج من مختلف التخصصات، إجراء اختبارات كشف التعارضات، إنشاء التقارير، وإدارة عملية التنسيق بين الفرق.',
-      en: 'Comprehensive introduction to Building Information Modeling and Autodesk Revit for structural engineering. Learn modeling, documentation, and collaboration techniques for efficient project delivery.',
+      ar: 'شرح كامل وشامل لبرنامج Revit من الصفر إلى الاحتراف، مناسب لمهندسي التنفيذ والتصميم والمكتب الفني. يتكون من 8 مراحل إنشائية ومرحلة معمارية، مع تطبيقات عملية على مبنى سكني من 5 أدوار، وبرج سكني من 11 دورًا بلبشة وخوازيق، ومسجد، وفيلا على الكود السعودي، وبرج سكني معماري من 11 دورًا.',
+      en: 'A comprehensive Revit course from beginner to advanced level for engineers in construction, design, and technical office roles. It covers eight structural stages plus an architectural stage, with hands-on work on a five-story residence, an 11-story tower with raft and piles, a mosque, a villa designed to Saudi code, and an 11-story architectural tower.',
     },
     level: { ar: 'مبتدئ', en: 'Beginner' },
     duration: { ar: '60 ساعة', en: '60 Hours' },
     image: '/courses/Revit Structure Professional Training.webp',
     udemyLink: 'https://www.behance.net/gallery/187155589/_',
     syllabus: [
-      { ar: 'مقدمة في Navisworks', en: 'Introduction to Navisworks' },
-      { ar: 'دمج النماذج', en: 'Federating Models' },
-      { ar: 'كشف التعارضات', en: 'Clash Detection' },
-      { ar: 'إنشاء التقارير', en: 'Report Generation' },
+      {
+        ar: 'المرحلة الأولى: النمذجة (Modeling)',
+        en: 'Stage 1: Modeling',
+        description: {
+          ar: 'مقدمة عن تقنية BIM واستخداماتها، والتعرف على Revit وطرق بدء المشروع وأدوات النمذجة الرئيسية. طبّق نمذجة البلاطات والكمرات والأعمدة والأساسات على مشروعات واقعية متعددة.',
+          en: 'Get introduced to BIM and its applications, Revit, project setup, and core modeling tools. Practice modeling slabs, beams, columns, and foundations across real-world projects.',
+        },
+      },
+      {
+        ar: 'المرحلة الثانية: استخدام ملفات أوتوكاد (Using AutoCAD Files)',
+        en: 'Stage 2: Using AutoCAD Files',
+        description: {
+          ar: 'تعلّم بدء النظام الإنشائي بالاعتماد على ملفات أوتوكاد المعمارية أو تحويل مشروع مرسوم بالكاد إلى Revit. تشمل المرحلة نمذجة السلالم وحل مشكلاتها، وورشة تطبيقية لمشروع كامل من البداية للنهاية.',
+          en: 'Learn to develop a structural model from architectural AutoCAD files or convert an existing CAD project to Revit. Model stairs, troubleshoot common issues, and complete an end-to-end project workshop.',
+        },
+      },
+      {
+        ar: 'المرحلة الثالثة: المنشآت المعدنية (Steel Structures)',
+        en: 'Stage 3: Steel Structures',
+        description: {
+          ar: 'تعلّم نمذجة المنشآت المعدنية، بما في ذلك الأعمدة والكمرات، وإنشاء تفاصيل الوصلات (Connections).',
+          en: 'Learn to model steel structures, including columns and beams, and create their connection details.',
+        },
+      },
+      {
+        ar: 'المرحلة الرابعة: حصر الكميات (Quantity Take-Off)',
+        en: 'Stage 4: Quantity Take-Off',
+        description: {
+          ar: 'أنشئ جداول حصر كميات الأساسات والأعمدة والكمرات والعناصر الإنشائية الأخرى، وتعلّم حساب تكاليفها من بيانات المشروع.',
+          en: 'Create quantity schedules for foundations, columns, beams, and other structural elements, and learn to calculate their costs from project data.',
+        },
+      },
+      {
+        ar: 'المرحلة الخامسة: التسليح (Reinforcement)',
+        en: 'Stage 5: Reinforcement',
+        description: {
+          ar: 'أضف حديد التسليح إلى العناصر الإنشائية يدويًا أو باستخدام إضافة خارجية، وتعرّف على إعدادات التسليح المختلفة.',
+          en: 'Add reinforcement to structural elements manually or with an external add-in, and explore the available reinforcement settings.',
+        },
+      },
+      {
+        ar: 'المرحلة السادسة: التوثيق (Documentation)',
+        en: 'Stage 6: Documentation',
+        description: {
+          ar: 'جهّز المشروع للتوثيق باستخدام الأبعاد والكتابات والقطاعات والتفاصيل. أنشئ بلانات المحاور والأعمدة والأساسات والكمرات الأرضية والأسقف، واستخدم الفلاتر لتنسيقها وفق معايير المكتب أو الشركة.',
+          en: 'Document the project with dimensions, annotations, sections, and details. Prepare grid and column, foundation, grade-beam, and floor plans, using filters to match office or company standards.',
+        },
+      },
+      {
+        ar: 'المرحلة السابعة: اللوحات والطباعة (Sheets & Printing)',
+        en: 'Stage 7: Sheets & Printing',
+        description: {
+          ar: 'جهّز اللوحات النهائية للمحاور والأعمدة والأساسات والبلاطات، وتعلّم إخراجها وطباعتها بشكل احترافي.',
+          en: 'Prepare final sheets for grids and columns, foundations, and slabs, then learn to present and print them professionally.',
+        },
+      },
+      {
+        ar: 'المرحلة الثامنة: النمذجة داخل المشروع (Model in Place)',
+        en: 'Stage 8: Model in Place',
+        description: {
+          ar: 'أنشئ أشكالًا وعناصر معقدة مثل الأعمدة غير المنتظمة والمشطورة، وكمرات السلالم المكسّرة، والقباب. تعلّم أيضًا ربط المشروع بملفات CAD وبرامج التحليل الإنشائي.',
+          en: 'Create complex elements such as irregular and split columns, sloped stair beams, and domes. Also learn to connect the project with CAD files and structural analysis software.',
+        },
+      },
+      {
+        ar: 'المرحلة التاسعة: الريفيت المعماري',
+        en: 'Stage 9: Revit Architecture',
+        description: {
+          ar: 'تعلّم نمذجة الحوائط والأبواب والشبابيك والأثاث، وربط الملف المعماري للاستفادة منه في المناسيب والمحاور والنظام الإنشائي. تشمل المرحلة حصر كميات الملف المعماري وإعداد عروض تقديمية احترافية معمارية وإنشائية.',
+          en: 'Model architectural walls, doors, windows, and furniture. Link architectural files to coordinate levels, grids, and structural systems, take off quantities, and prepare professional architectural and structural presentations.',
+        },
+      },
     ],
   },
   {
@@ -177,6 +304,11 @@ const Courses = () => {
                       <span className={`absolute top-4 start-4 px-3 py-1 rounded-full text-sm font-medium ${getLevelColor(language === 'ar' ? course.level.ar : course.level.en)}`}>
                         {language === 'ar' ? course.level.ar : course.level.en}
                       </span>
+                      {course.id === 'bim-fundamentals' && (
+                        <span className="absolute top-4 end-4 px-3 py-1 rounded-full bg-green-500 text-white text-sm font-bold shadow">
+                          {language === 'ar' ? 'مجاني' : 'Free'}
+                        </span>
+                      )}
                     </div>
 
                     {/* Content */}
