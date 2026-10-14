@@ -85,7 +85,252 @@ interface CourseExtras {
   faq: { ar: { q: string; a: string }[]; en: { q: string; a: string }[] };
 }
 
+const WORKSHOP_01_EXTRAS: CourseExtras = {
+    price: { ar: 'تواصل معنا', en: 'Contact Us' },
+    originalPrice: { ar: '', en: '' },
+    discountLabel: '',
+    rating: 4.8,
+    ratingCount: 300,
+    studentsCount: 300,
+    hoursContent: 8,
+    tags: ['BIM', 'Revit', 'Structural Modeling', 'Schedules', 'Sheets'],
+    learningOutcomes: {
+      ar: [
+        'تخطيط مشروع Revit وتقسيمه واختيار ترتيب عملي لنمذجة عناصره',
+        'نمذجة مبنى سكني من 5 أدوار وروف باستخدام أنواع مختلفة من البلاطات والأساسات',
+        'نمذجة السلالم وتفاصيلها والتعامل مع المشكلات المرتبطة بها',
+        'إعداد البلانات والجداول التصميمية والتحكم في الفلاتر والبارامترات',
+        'تجهيز اللوحات النهائية والطباعة والتصدير إلى AutoCAD وPDF',
+      ],
+      en: [
+        'Plan and break down a Revit project and choose a practical sequence for modeling its elements',
+        'Model a five-story residential building with a roof using different slab and foundation types',
+        'Model stairs and their details and work through related issues',
+        'Prepare plans and design schedules and control filters and parameters',
+        'Prepare final sheets, print, and export to AutoCAD and PDF',
+      ],
+    },
+    requirements: {
+      ar: ['معرفة أساسية ببرنامج Revit؛ الورشة تركز على التطبيق العملي على مشروع واقعي.'],
+      en: ['Basic Revit knowledge; this workshop focuses on practical work on a real-world project.'],
+    },
+    whatIsIncluded: {
+      ar: [
+        'ورشة تطبيقية مدتها 8 ساعات',
+        'وصول مدى الحياة لجميع المحتويات',
+        'تطبيق عملي على مبنى سكني من 5 أدوار وروف',
+        'شهادة حضور معتمدة من Autodesk بعد تسليم المهام المطلوبة',
+        'الانضمام إلى جروب المتابعة والدعم على Facebook',
+        'إمكانية التواصل مباشرةً مع المحاضر عبر WhatsApp',
+      ],
+      en: [
+        'An 8-hour practical workshop',
+        'Lifetime access to all content',
+        'Hands-on work on a five-story residential building with a roof',
+        'Autodesk-accredited attendance certificate after submitting the required assignments',
+        'Access to the course support and follow-up group on Facebook',
+        'Direct contact with the instructor via WhatsApp',
+      ],
+    },
+    faq: {
+      ar: [
+        {
+          q: 'هل الورشة مناسبة للمبتدئين؟',
+          a: 'الورشة مناسبة لمن لديه معرفة أساسية ببرنامج Revit ويريد تطبيق ما يعرفه على مشروع واقعي.',
+        },
+        {
+          q: 'ما المشروع الذي سنطبّق عليه؟',
+          a: 'مبنى سكني من 5 أدوار وروف، ويشمل التطبيق البلاطات والأساسات والسلالم والبلانات والجداول واللوحات.',
+        },
+      ],
+      en: [
+        {
+          q: 'Is this workshop suitable for beginners?',
+          a: 'It is designed for learners with basic Revit knowledge who want to apply it to a real-world project.',
+        },
+        {
+          q: 'What project will we work on?',
+          a: 'A five-story residential building with a roof, covering slabs, foundations, stairs, plans, schedules, and sheets.',
+        },
+      ],
+    },
+};
+
+const WORKSHOP_02_EXTRAS: CourseExtras = {
+  ...WORKSHOP_01_EXTRAS,
+  rating: 4.8,
+  ratingCount: 300,
+  studentsCount: 300,
+  hoursContent: 10,
+  tags: ['BIM', 'Revit', 'Saudi Building Code', 'Structural Modeling', 'Schedules', 'Sheets'],
+  learningOutcomes: {
+    ar: [
+      'تقسيم المشروع واختيار ترتيب عملي للنمذجة وتطبيق أفضل ممارسات العمل في Revit',
+      'نمذجة مبنى سكني من دورين وروف وفق الكود السعودي SBC 1101',
+      'نمذجة البلاطات المصمتة والمهبطة والهولو بلوك، والأساسات المنفصلة والميدات الرابطة وقواعد الجار',
+      'نمذجة السلالم وتفاصيلها ومعالجة المشكلات الشائعة وإعادة استخدام العناصر المنمذجة',
+      'إعداد بلانات المحاور والأعمدة والأساسات والميدات والأسقف والسور، وتنسيقها باستخدام الفلاتر',
+      'إنشاء الجداول التصميمية والتحكم في بارامترات الفاميلي والمشروع والبارامترات المشتركة',
+      'تجهيز اللوحات النهائية وطباعتها وتصديرها إلى AutoCAD وPDF',
+    ],
+    en: [
+      'Break down the project, plan an effective modeling sequence, and apply Revit best practices',
+      'Model a two-story residential building with a roof according to Saudi Building Code SBC 1101',
+      'Model solid, depressed, and hollow-block slabs; isolated foundations, tie beams, and boundary foundations',
+      'Model stairs and their details, resolve common issues, and reuse modeled elements',
+      'Prepare grid and column, foundation, ground beam, floor, roof, and boundary-wall plans, and coordinate them with filters',
+      'Build design schedules and manage family, project, and shared parameters',
+      'Prepare final sheets, print, and export them to AutoCAD and PDF',
+    ],
+  },
+  requirements: {
+    ar: ['معرفة أساسية ببرنامج Revit؛ تركز الورشة على التطبيق العملي على مشروع واقعي.'],
+    en: ['Basic Revit knowledge; this workshop focuses on applying it to a real-world project.'],
+  },
+  whatIsIncluded: {
+    ar: [
+      'مدة الورشة: 10 ساعات فيديو',
+      'وصول مدى الحياة لجميع المحتويات',
+      'تطبيق عملي كامل على مبنى سكني من دورين وروف وفق الكود السعودي SBC 1101',
+      'شهادة حضور معتمدة من Autodesk بعد تسليم المهام المطلوبة',
+      'الانضمام إلى جروب المتابعة والدعم على Facebook',
+      'إمكانية التواصل مباشرةً مع المحاضر عبر WhatsApp',
+    ],
+    en: [
+      'Workshop duration: 10 hours of video',
+      'Lifetime access to all content',
+      'Complete hands-on project: a two-story residential building with a roof, following SBC 1101',
+      'Autodesk-accredited attendance certificate after submitting the required assignments',
+      'Access to the course support and follow-up group on Facebook',
+      'Direct contact with the instructor via WhatsApp',
+    ],
+  },
+  faq: {
+    ar: [
+      {
+        q: 'هل الورشة مناسبة للمبتدئين؟',
+        a: 'الورشة مناسبة لمن لديه معرفة أساسية ببرنامج Revit ويريد تطبيقها على مشروع سكني متكامل.',
+      },
+      {
+        q: 'ما المشروع الذي سنطبّق عليه؟',
+        a: 'مبنى سكني من دورين وروف وفق الكود السعودي SBC 1101، ويشمل البلاطات والأساسات والسلالم والبلانات والجداول واللوحات.',
+      },
+      {
+        q: 'ما مخرجات الورشة؟',
+        a: 'ستجهز اللوحات النهائية للمشروع وتتعلم طباعتها وتصديرها إلى AutoCAD وPDF.',
+      },
+    ],
+    en: [
+      {
+        q: 'Is this workshop suitable for beginners?',
+        a: 'It is designed for learners with basic Revit knowledge who want to apply it to a complete residential project.',
+      },
+      {
+        q: 'What project will we work on?',
+        a: 'A two-story residential building with a roof, following SBC 1101, covering slabs, foundations, stairs, plans, schedules, and sheets.',
+      },
+      {
+        q: 'What will I produce during the workshop?',
+        a: 'You will prepare the project’s final sheets and learn how to print and export them to AutoCAD and PDF.',
+      },
+    ],
+  },
+};
+
+const WORKSHOP_03_EXTRAS: CourseExtras = {
+  ...WORKSHOP_02_EXTRAS,
+  hoursContent: 12,
+  tags: ['BIM', 'Revit', 'Collaboration', 'Saudi Building Code', 'Quantity Takeoff', 'Templates'],
+  learningOutcomes: {
+    ar: [
+      'تقسيم المشروع وتحديد ترتيب النمذجة وتطبيق أفضل ممارسات Revit',
+      'ربط ملف المعماري والاستفادة من المناسيب والمحاور وحدود البلاطات وبيانات التخصصات الأخرى',
+      'إنشاء قالب من مشروع سابق وإعادة استخدام تقسيم الملفات والفاميلي والبارامترات والفلاتر',
+      'نمذجة مبنى سكني من دورين وروف وفق الكود السعودي SBC 1101',
+      'نمذجة البلاطات المصمتة والفلات والمهبطة والهولو بلوك، والأساسات المنفصلة والمشتركة واللبشة والميدات الرابطة',
+      'إعداد البلانات والجداول والفلاتر واللوحات النهائية وتصديرها إلى AutoCAD وPDF',
+      'حصر كميات الأساسات والأعمدة والحوائط والكمرات والأسقف من نموذج Revit',
+    ],
+    en: [
+      'Break down the project, plan the modeling sequence, and apply Revit best practices',
+      'Link the architectural model and use levels, grids, slab boundaries, and data from other disciplines',
+      'Create a template from a previous project and reuse its file structure, families, parameters, and filters',
+      'Model a two-story residential building with a roof according to Saudi Building Code SBC 1101',
+      'Model solid, flat, depressed, and hollow-block slabs; isolated and combined foundations, raft foundations, and tie beams',
+      'Prepare plans, schedules, filters, and final sheets, and export them to AutoCAD and PDF',
+      'Take off quantities for foundations, columns and walls, beams, and slabs from the Revit model',
+    ],
+  },
+  requirements: {
+    ar: ['معرفة أساسية ببرنامج Revit؛ الورشة مخصصة للتطبيق العملي على مشروع واقعي.'],
+    en: ['Basic Revit knowledge; this workshop focuses on practical work on a real-world project.'],
+  },
+  whatIsIncluded: {
+    ar: [
+      'مدة الورشة: 12 ساعة فيديو',
+      'وصول مدى الحياة لجميع المحتويات',
+      'تطبيق عملي على مبنى سكني من دورين وروف وفق الكود السعودي SBC 1101',
+      'تطبيق التعاون وربط ملف المعماري وإعداد قالب للمشروع',
+      'حصر كميات العناصر الإنشائية وتجهيز اللوحات والتصدير إلى AutoCAD وPDF',
+      'شهادة حضور معتمدة من Autodesk بعد تسليم المهام المطلوبة',
+      'الانضمام إلى جروب المتابعة والدعم على Facebook',
+      'إمكانية التواصل مباشرةً مع المحاضر عبر WhatsApp',
+    ],
+    en: [
+      'Workshop duration: 12 hours of video',
+      'Lifetime access to all content',
+      'Hands-on project: a two-story residential building with a roof, following SBC 1101',
+      'Practice collaboration, link the architectural model, and create a project template',
+      'Take off structural quantities, prepare sheets, and export to AutoCAD and PDF',
+      'Autodesk-accredited attendance certificate after submitting the required assignments',
+      'Access to the course support and follow-up group on Facebook',
+      'Direct contact with the instructor via WhatsApp',
+    ],
+  },
+  faq: {
+    ar: [
+      {
+        q: 'هل الورشة مناسبة للمبتدئين؟',
+        a: 'الورشة مناسبة لمن لديه معرفة أساسية ببرنامج Revit ويريد تطبيقها عمليًا على مشروع إنشائي متكامل.',
+      },
+      {
+        q: 'ما المشروع الذي سنطبّق عليه؟',
+        a: 'مبنى سكني من دورين وروف وفق الكود السعودي SBC 1101، يشمل البلاطات والأساسات والسلالم والتعاون مع الملف المعماري.',
+      },
+      {
+        q: 'هل تشمل الورشة حصر الكميات؟',
+        a: 'نعم، تشمل حصر كميات الأساسات والأعمدة والحوائط والكمرات والأسقف من نموذج Revit.',
+      },
+      {
+        q: 'ما مخرجات الورشة؟',
+        a: 'ستتعلم تجهيز الجداول واللوحات النهائية وطباعتها وتصديرها إلى AutoCAD وPDF.',
+      },
+    ],
+    en: [
+      {
+        q: 'Is this workshop suitable for beginners?',
+        a: 'It is designed for learners with basic Revit knowledge who want hands-on practice on a complete structural project.',
+      },
+      {
+        q: 'What project will we work on?',
+        a: 'A two-story residential building with a roof according to SBC 1101, including slabs, foundations, stairs, and collaboration with the architectural model.',
+      },
+      {
+        q: 'Does the workshop include quantity takeoff?',
+        a: 'Yes. You will take off quantities for foundations, columns and walls, beams, and slabs from the Revit model.',
+      },
+      {
+        q: 'What will I produce during the workshop?',
+        a: 'You will prepare schedules and final sheets, then print and export them to AutoCAD and PDF.',
+      },
+    ],
+  },
+};
+
 const COURSE_EXTRAS: Record<string, CourseExtras> = {
+  'revit-structure-workshop-01': WORKSHOP_01_EXTRAS,
+  'revit-structure-workshop-02': WORKSHOP_02_EXTRAS,
+  'revit-structure-workshop-03': WORKSHOP_03_EXTRAS,
   'revit-structure-professional-training': {
     price: { ar: '99 دولار', en: '$99' },
     originalPrice: { ar: '130 دولار', en: '$130' },
@@ -229,8 +474,22 @@ const DEFAULT_EXTRAS: CourseExtras = {
     ],
   },
   whatIsIncluded: {
-    ar: ['ساعات فيديو', 'وصول مدى الحياة', 'شهادة إتمام', 'دعم من المدرب'],
-    en: ['Video hours', 'Lifetime access', 'Completion certificate', 'Instructor support'],
+    ar: [
+      'مدة الكورس: {duration}',
+      'وصول مدى الحياة لجميع المحتويات',
+      'تطبيق عملي على مشروعات واقعية',
+      'شهادة إتمام بعد استيفاء متطلبات الكورس',
+      'الانضمام إلى جروب المتابعة والدعم',
+      'إمكانية التواصل مباشرةً مع المحاضر عبر WhatsApp',
+    ],
+    en: [
+      'Course duration: {duration}',
+      'Lifetime access to all content',
+      'Hands-on practice on real-world projects',
+      'Course completion certificate after meeting the course requirements',
+      'Access to the course support and follow-up group',
+      'Direct contact with the instructor via WhatsApp',
+    ],
   },
   faq: {
     ar: [
@@ -456,7 +715,8 @@ const CourseDetail = () => {
   const originalPrice = isFreeCourse ? '' : (isAr ? extras.originalPrice.ar : extras.originalPrice.en);
   const outcomes      = isAr ? extras.learningOutcomes.ar : extras.learningOutcomes.en;
   const requirements  = isAr ? extras.requirements.ar  : extras.requirements.en;
-  const included      = isAr ? extras.whatIsIncluded.ar : extras.whatIsIncluded.en;
+  const included      = (isAr ? extras.whatIsIncluded.ar : extras.whatIsIncluded.en)
+    .map((item) => item.replace('{duration}', duration));
   const faqs          = isAr ? extras.faq.ar           : extras.faq.en;
   const instructorName  = isAr ? INSTRUCTOR.name.ar    : INSTRUCTOR.name.en;
   const instructorTitle = isAr ? INSTRUCTOR.title.ar   : INSTRUCTOR.title.en;
@@ -471,10 +731,9 @@ const CourseDetail = () => {
   const courseTestimonials = testimonials.slice(0, 4);
 
   const STATS = [
-    { value: '+1,200',                    label: isAr ? 'طالب'        : 'Students'        },
+    { value: `+${extras.studentsCount.toLocaleString()}`, label: isAr ? 'طالب' : 'Students' },
     { value: '★ 4.9',                     label: isAr ? 'تقييم'       : 'Rating'          },
     { value: `${isFreeCourse ? '01' : extras.hoursContent}h`, label: isAr ? 'ساعة تدريب' : 'Training Hours' },
-    { value: isAr ? '13 سنة' : '13 yrs', label: isAr ? 'خبرة'        : 'Experience'      },
   ];
 
   return (
@@ -596,7 +855,7 @@ const CourseDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[hsl(var(--navy))] rounded-2xl p-5 text-white"
+                    className="grid grid-cols-2 md:grid-cols-3 gap-4 bg-[hsl(var(--navy))] rounded-2xl p-5 text-white"
                   >
                     {STATS.map((stat, i) => (
                       <div key={i} className="text-center">
