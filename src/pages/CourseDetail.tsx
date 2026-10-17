@@ -479,7 +479,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       'وصول مدى الحياة لجميع المحتويات',
       'تطبيق عملي على مشروعات واقعية',
       'شهادة إتمام بعد استيفاء متطلبات الكورس',
-      'الانضمام إلى جروب المتابعة والدعم',
+      'الانضمام إلى جروب المتابعة والدعم على Facebook',
       'إمكانية التواصل مباشرةً مع المحاضر عبر WhatsApp',
     ],
     en: [
@@ -487,7 +487,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       'Lifetime access to all content',
       'Hands-on practice on real-world projects',
       'Course completion certificate after meeting the course requirements',
-      'Access to the course support and follow-up group',
+      'Access to the course support and follow-up group on Facebook',
       'Direct contact with the instructor via WhatsApp',
     ],
   },
@@ -499,7 +499,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       },
       {
         q: 'كيف أتواصل مع المدرب؟',
-        a: 'يتم إضافتك إلى مجموعة Telegram خاصة للتواصل والدعم.',
+        a: 'يتم إضافتك إلى جروب الدعم والمتابعة على Facebook للتواصل والدعم.',
       },
     ],
     en: [
@@ -509,7 +509,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       },
       {
         q: 'How can I contact the instructor?',
-        a: 'You will be added to a private Telegram group for communication and support.',
+        a: 'You will be added to the course support and follow-up group on Facebook for communication and support.',
       },
     ],
   },
