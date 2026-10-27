@@ -1,3 +1,6 @@
+import { WHATSAPP_LINK } from '@/config/site';
+import { serviceClients } from '@/data/clients';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -7,7 +10,6 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import { services } from '@/data/services';
 import { testimonials } from '@/data/testimonials';
-import { assetUrl } from '@/lib/utils';
 import {
   ArrowLeft,
   ArrowRight,
@@ -36,17 +38,8 @@ const certifications = [
   { ar: 'Navisworks Manage', en: 'Navisworks Manage' },
 ];
 
-/* ───────── client logos (first 8) ───────── */
-const clientLogos = [
-  { name: 'دار وإعمار', logo: '/clients/01-شركة-دار-وإعمار.png' },
-  { name: 'الصالح للمقاولات', logo: '/clients/02-شركة-الصالح-للمقاولات.png' },
-  { name: 'Gulf Consult', logo: '/clients/03-Gulf-Consult.png' },
-  { name: 'مكتب فارس', logo: '/clients/04-مكتب-فارس-الهندسى.png' },
-  { name: 'Saudi Railways', logo: '/clients/05-خطوط-سكك-الحديد-السعودية-sar.png' },
-  { name: 'الغانم للمقاولات', logo: '/clients/10-شركة-الغانم-للمقاولات.png' },
-  { name: 'IDS Consulting', logo: '/clients/08-IDS-Consulting.png' },
-  { name: 'Kayan Academy', logo: '/clients/13-Kayan-Academy.png' },
-];
+/* ───────── selected client logos ───────── */
+const clientLogos = serviceClients;
 
 /* ───────── fade-up variant ───────── */
 const fadeUp = {
@@ -156,7 +149,7 @@ const ServiceDetail = () => {
                 <Button
                   variant="whatsapp"
                   size="lg"
-                  onClick={() => window.open('https://wa.me/201096189832', '_blank')}
+                  onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
                 >
                   <MessageCircle className="w-5 h-5" />
                   {isAr ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
@@ -239,8 +232,8 @@ const ServiceDetail = () => {
                       className="neu-card flex-shrink-0 p-3 flex items-center justify-center"
                       style={{ width: '148px', height: '96px' }}
                     >
-                      <img
-                        src={assetUrl(client.logo)}
+                      <ResponsiveImage sizes="148px"
+                        src={client.logo}
                         alt={client.name}
                         className="max-w-full max-h-full object-contain"
                       />
@@ -475,7 +468,7 @@ const ServiceDetail = () => {
                 <Button
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-navy"
-                  onClick={() => window.open('https://wa.me/201096189832', '_blank')}
+                  onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
                 >
                   <MessageCircle className="w-4 h-4 me-2" />
                   {isAr ? 'ابدأ المحادثة' : 'Start Chat'}

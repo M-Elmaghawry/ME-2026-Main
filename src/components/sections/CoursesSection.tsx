@@ -1,11 +1,11 @@
+import ResponsiveImage from '@/components/ResponsiveImage';
 import { motion, type Easing } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 import { Clock, BarChart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { courses as allCourses } from '@/pages/Courses';
-import { assetUrl } from '@/lib/utils';
+import { courses as allCourses } from '@/data/courses';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
 
@@ -78,8 +78,8 @@ const CoursesSection = () => {
               <div className="neu-card h-full overflow-hidden flex flex-col">
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={assetUrl(course.image)}
+                  <ResponsiveImage sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 100vw"
+                    src={course.image}
                     alt={language === 'ar' ? course.title.ar : course.title.en}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />

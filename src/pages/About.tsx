@@ -1,4 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import ResponsiveImage from '@/components/ResponsiveImage';
+import MotionImage from '@/components/MotionImage';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/layout/Header';
@@ -12,7 +14,6 @@ import { Award, Briefcase, GraduationCap, CheckCircle, Star, Quote, User, Chevro
 import { useState, useEffect } from 'react';
 import { projects } from '@/data/projects';
 import { testimonials } from '@/data/testimonials';
-import { assetUrl } from '@/lib/utils';
 
 const About = () => {
   const { t } = useTranslation();
@@ -21,6 +22,8 @@ const About = () => {
   const [currentCertImage, setCurrentCertImage] = useState(0);
   const [currentTrainingImage, setCurrentTrainingImage] = useState(0);
   const [currentProjectImage, setCurrentProjectImage] = useState(0);
+  const [slidesPaused, setSlidesPaused] = useState(false);
+  const reducedMotion = useReducedMotion();
 
   const trainingPrograms = [
     {
@@ -102,35 +105,39 @@ const About = () => {
 
   // Auto-rotate testimonials every 5 seconds
   useEffect(() => {
+    if (slidesPaused || reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slidesPaused, reducedMotion]);
 
   // Auto-rotate certificate images every 4 seconds
   useEffect(() => {
+    if (slidesPaused || reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentCertImage((prev) => (prev + 1) % certifications.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slidesPaused, reducedMotion, certifications.length]);
 
   // Auto-rotate training images every 3 seconds
   useEffect(() => {
+    if (slidesPaused || reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentTrainingImage((prev) => (prev + 1) % trainingPrograms.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slidesPaused, reducedMotion, trainingPrograms.length]);
 
   // Auto-rotate project images every 3 seconds
   useEffect(() => {
+    if (slidesPaused || reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentProjectImage((prev) => (prev + 1) % projects.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slidesPaused, reducedMotion]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -168,6 +175,9 @@ const About = () => {
           </div>
 
           <div className="section-container relative z-10">
+            {!reducedMotion && <button type="button" aria-pressed={slidesPaused} onClick={() => setSlidesPaused((paused) => !paused)} className="mb-4 rounded-md border border-border bg-background px-3 py-2 text-sm">
+              {slidesPaused ? (language === 'ar' ? 'تشغيل تبديل الصور تلقائيًا' : 'Resume slideshows') : (language === 'ar' ? 'إيقاف تبديل الصور تلقائيًا' : 'Pause slideshows')}
+            </button>}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -177,8 +187,8 @@ const About = () => {
               {/* Image Column */}
               <div className="relative">
                 <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl neu-card p-2">
-                  <img
-                    src={assetUrl('/hero/Mahmoud Elmekawy.jpg')}
+                  <ResponsiveImage sizes="(min-width: 768px) 65vw, 100vw"
+                    priority src={'/hero/Mahmoud Elmekawy.jpg'}
                     alt={language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -314,8 +324,8 @@ const About = () => {
               {/* Photo Column - Same size as Hero */}
               <div className="relative">
                 <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl neu-card p-2">
-                  <img
-                    src={assetUrl('/training-courses/04-IAEMS-Cairo.jpg')}
+                  <ResponsiveImage sizes="(min-width: 768px) 65vw, 100vw"
+                    src={'/training-courses/04-IAEMS-Cairo.jpg'}
                     alt={language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -433,6 +443,7 @@ const About = () => {
                     {projects.map((_, index) => (
                       <button
                         key={index}
+                        aria-label={language === 'ar' ? `عرض العنصر ${index + 1}` : `Show project ${index + 1}`}
                         onClick={() => setCurrentProjectImage(index)}
                         className={`h-2 rounded-full transition-all duration-300 ${
                           index === currentProjectImage
@@ -444,12 +455,14 @@ const About = () => {
                   </div>
                   <div className="flex gap-2">
                     <button
+                      aria-label={language === 'ar' ? 'السابق' : 'Previous project'}
                       onClick={() => setCurrentProjectImage((prev) => (prev - 1 + projects.length) % projects.length)}
                       className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
                     >
                       {language === 'ar' ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
                     </button>
                     <button
+                      aria-label={language === 'ar' ? 'التالي' : 'Next project'}
                       onClick={() => setCurrentProjectImage((prev) => (prev + 1) % projects.length)}
                       className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
                     >
@@ -462,9 +475,9 @@ const About = () => {
               {/* Image Column - 65% */}
               <div className="w-full md:w-[65%] relative bg-white overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <MotionImage sizes="(min-width: 768px) 65vw, 100vw"
                     key={currentProjectImage}
-                    src={assetUrl(projects[currentProjectImage].image)}
+                    src={projects[currentProjectImage].image}
                     alt={language === 'ar' ? projects[currentProjectImage].title.ar : projects[currentProjectImage].title.en}
                     className="w-full h-full object-contain"
                     initial={{ opacity: 0, scale: 1.02 }}
@@ -521,9 +534,9 @@ const About = () => {
                 <div className="neu-card p-4">
                   <div className="relative h-[400px]">
                     <AnimatePresence initial={false}>
-                      <motion.img
+                      <MotionImage sizes="(min-width: 768px) 65vw, 100vw"
                         key={currentCertImage}
-                        src={assetUrl(certifications[currentCertImage].image)}
+                        src={certifications[currentCertImage].image}
                         alt={language === 'ar' ? certifications[currentCertImage].title.ar : certifications[currentCertImage].title.en}
                         className="absolute inset-0 w-full h-full object-contain rounded-lg"
                         initial={{ opacity: 0 }}
@@ -540,6 +553,7 @@ const About = () => {
                   {certifications.map((_, index) => (
                     <button
                       key={index}
+                      aria-label={language === 'ar' ? `عرض العنصر ${index + 1}` : `Show certificate ${index + 1}`}
                       onClick={() => setCurrentCertImage(index)}
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${
                         index === currentCertImage 
@@ -615,6 +629,7 @@ const About = () => {
                     {trainingPrograms.map((_, index) => (
                       <button
                         key={index}
+                        aria-label={language === 'ar' ? `عرض العنصر ${index + 1}` : `Show training ${index + 1}`}
                         onClick={() => setCurrentTrainingImage(index)}
                         className={`h-2 rounded-full transition-all duration-300 ${
                           index === currentTrainingImage
@@ -626,12 +641,14 @@ const About = () => {
                   </div>
                   <div className="flex gap-2">
                     <button
+                      aria-label={language === 'ar' ? 'السابق' : 'Previous training'}
                       onClick={() => setCurrentTrainingImage((prev) => (prev - 1 + trainingPrograms.length) % trainingPrograms.length)}
                       className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
                     >
                       {language === 'ar' ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
                     </button>
                     <button
+                      aria-label={language === 'ar' ? 'التالي' : 'Next training'}
                       onClick={() => setCurrentTrainingImage((prev) => (prev + 1) % trainingPrograms.length)}
                       className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
                     >
@@ -644,9 +661,9 @@ const About = () => {
               {/* Image Column - 65% */}
               <div className="w-full md:w-[65%] flex-1 relative bg-white overflow-hidden min-h-[300px]">
                 <AnimatePresence initial={false}>
-                  <motion.img
+                  <MotionImage sizes="(min-width: 768px) 65vw, 100vw"
                     key={currentTrainingImage}
-                    src={assetUrl(trainingPrograms[currentTrainingImage].image)}
+                    src={trainingPrograms[currentTrainingImage].image}
                     alt={language === 'ar' ? trainingPrograms[currentTrainingImage].name.ar : trainingPrograms[currentTrainingImage].name.en}
                     className="absolute inset-0 w-full h-full object-contain"
                     initial={{ opacity: 0 }}
@@ -756,6 +773,7 @@ const About = () => {
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
+                      aria-label={language === 'ar' ? `عرض العنصر ${index + 1}` : `Show testimonial ${index + 1}`}
                       onClick={() => setCurrentTestimonial(index)}
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${
                         index === currentTestimonial 

@@ -1,3 +1,4 @@
+import ResponsiveImage from '@/components/ResponsiveImage';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -7,7 +8,6 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Briefcase, ExternalLink } from 'lucide-react';
 import { projects } from '@/data/projects';
-import { assetUrl } from '@/lib/utils';
 
 const Portfolio = () => {
   const { t } = useTranslation();
@@ -56,8 +56,8 @@ const Portfolio = () => {
                   className="group cursor-pointer"
                 >
                   <div className="relative h-72 rounded-2xl overflow-hidden">
-                    <img
-                      src={assetUrl(project.image)}
+                    <ResponsiveImage sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 100vw"
+                      src={project.image}
                       alt={language === 'ar' ? project.title.ar : project.title.en}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />

@@ -1,12 +1,12 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-
-type Language = 'ar' | 'en';
-type Direction = 'rtl' | 'ltr';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { isLanguage, LANGUAGE_STORAGE_KEY, type Language } from '@/lib/language';
+import { browserLanguage } from '@/lib/browserLanguage';
 
 interface LanguageContextType {
   language: Language;
-  direction: Direction;
+  direction: 'rtl' | 'ltr';
   toggleLanguage: () => void;
   setLanguage: (lang: Language) => void;
 }
@@ -15,29 +15,33 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const { i18n } = useTranslation();
-  const [language, setLanguageState] = useState<Language>('en');
-  const [direction, setDirection] = useState<Direction>('ltr');
-
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    i18n.changeLanguage(lang);
-    const dir = lang === 'ar' ? 'rtl' : 'ltr';
-    setDirection(dir);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = dir;
-  };
-
-  const toggleLanguage = () => {
-    const newLang = language === 'ar' ? 'en' : 'ar';
-    setLanguage(newLang);
-  };
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [language, setLanguageState] = useState<Language>(browserLanguage);
+  const requested = new URLSearchParams(location.search).get('lang');
+  const activeLanguage = isLanguage(requested) ? requested : language;
+  const direction = activeLanguage === 'ar' ? 'rtl' : 'ltr';
 
   useEffect(() => {
-    setLanguage('en');
-  }, []);
+    setLanguageState(activeLanguage);
+    void i18n.changeLanguage(activeLanguage);
+    document.documentElement.lang = activeLanguage;
+    document.documentElement.dir = direction;
+    try { localStorage.setItem(LANGUAGE_STORAGE_KEY, activeLanguage); } catch { /* optional persistence */ }
+  }, [activeLanguage, direction, i18n]);
+
+  const setLanguage = useCallback((lang: Language) => {
+    setLanguageState(lang);
+    const search = new URLSearchParams(location.search);
+    search.set('lang', lang);
+    navigate({ pathname: location.pathname, search: `?${search}`, hash: location.hash }, { replace: true });
+  }, [location.pathname, location.search, location.hash, navigate]);
 
   return (
-    <LanguageContext.Provider value={{ language, direction, toggleLanguage, setLanguage }}>
+    <LanguageContext.Provider value={{
+      language: activeLanguage, direction, setLanguage,
+      toggleLanguage: () => setLanguage(activeLanguage === 'ar' ? 'en' : 'ar'),
+    }}>
       {children}
     </LanguageContext.Provider>
   );

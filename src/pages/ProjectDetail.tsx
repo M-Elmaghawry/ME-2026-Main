@@ -1,3 +1,5 @@
+import { WHATSAPP_LINK } from '@/config/site';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -6,7 +8,8 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Calendar, MapPin, Briefcase, Wrench, CheckCircle, Images, ChevronLeft, ChevronRight, X, ExternalLink } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
 import { assetUrl } from '@/lib/utils';
 import { projects } from '@/data/projects';
 
@@ -16,6 +19,12 @@ const ProjectDetail = () => {
   const { id } = useParams();
   const { language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const opener = useRef<HTMLButtonElement>(null);
+  useEffect(() => setSelectedImage(null), [id]);
+  const openImage = (index: number, button: HTMLButtonElement) => {
+    opener.current = button;
+    setSelectedImage(index);
+  };
 
   const project = projects.find((p) => p.id === id);
 
@@ -63,12 +72,15 @@ const ProjectDetail = () => {
             transition={{ duration: 0.6 }}
             className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden mb-8"
           >
-            <img
-              src={assetUrl(project.images[0])}
+            <button type="button" className="w-full h-full focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue"
+              aria-label={language === 'ar' ? 'فتح صورة المشروع' : 'Open project image'}
+              aria-haspopup="dialog" onClick={(event) => openImage(0, event.currentTarget)}>
+            <ResponsiveImage priority sizes="100vw"
+              src={project.images[0]}
               alt={language === 'ar' ? project.title.ar : project.title.en}
               className="w-full h-full object-cover cursor-pointer"
-              onClick={() => setSelectedImage(0)}
             />
+            </button>
             <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-0 left-0 right-0 p-8 pointer-events-none">
               <span className="inline-block px-4 py-2 bg-baby-blue/20 text-baby-blue rounded-full text-sm font-medium mb-4">
@@ -100,16 +112,19 @@ const ProjectDetail = () => {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {project.images.map((image, index) => (
-                <motion.div
+                <motion.button
+                  type="button"
+                  aria-haspopup="dialog"
+                  aria-label={language === 'ar' ? `فتح الصورة ${index + 1}` : `Open image ${index + 1}`}
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group"
-                  onClick={() => setSelectedImage(index)}
+                  onClick={(event) => openImage(index, event.currentTarget)}
                 >
-                  <img
-                    src={assetUrl(image)}
+                  <ResponsiveImage sizes="(min-width: 1024px) 20vw, (min-width: 640px) 25vw, 50vw"
+                    src={image}
                     alt={`${language === 'ar' ? project.title.ar : project.title.en} - ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
@@ -118,42 +133,56 @@ const ProjectDetail = () => {
                       {index + 1}
                     </span>
                   </div>
-                </motion.div>
+                </motion.button>
               ))}
             </div>
           </motion.div>
 
           {/* Lightbox */}
-          {selectedImage !== null && (
-            <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
-              <button
-                onClick={() => setSelectedImage(null)}
+          <Dialog.Root open={selectedImage !== null} onOpenChange={(open) => { if (!open) setSelectedImage(null); }}>
+            <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 z-[60] bg-black/95" />
+            <Dialog.Content aria-describedby={undefined}
+              onCloseAutoFocus={(event) => { event.preventDefault(); opener.current?.focus(); }}
+              onKeyDown={(event) => {
+                if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                  event.preventDefault();
+                  setSelectedImage((image) => ((image ?? 0) + (event.key === 'ArrowRight' ? 1 : project.images.length - 1)) % project.images.length);
+                }
+              }}
+              className="fixed inset-4 z-[60] flex items-center justify-center outline-none">
+              <Dialog.Title className="sr-only">{language === 'ar' ? project.title.ar : project.title.en}</Dialog.Title>
+              <Dialog.Close
+                aria-label={language === 'ar' ? 'إغلاق معرض الصور' : 'Close gallery'}
                 className="absolute top-4 right-4 p-2 text-white/80 hover:text-white transition-colors"
               >
                 <X className="w-8 h-8" />
-              </button>
+              </Dialog.Close>
               <button
-                onClick={() => setSelectedImage(selectedImage > 0 ? selectedImage - 1 : project.images.length - 1)}
+                type="button" aria-label={language === 'ar' ? 'الصورة السابقة' : 'Previous image'}
+                onClick={() => setSelectedImage((image) => ((image ?? 0) + project.images.length - 1) % project.images.length)}
                 className="absolute left-4 p-2 text-white/80 hover:text-white transition-colors"
               >
                 <ChevronLeft className="w-10 h-10" />
               </button>
               <button
-                onClick={() => setSelectedImage(selectedImage < project.images.length - 1 ? selectedImage + 1 : 0)}
+                type="button" aria-label={language === 'ar' ? 'الصورة التالية' : 'Next image'}
+                onClick={() => setSelectedImage((image) => ((image ?? 0) + 1) % project.images.length)}
                 className="absolute right-4 p-2 text-white/80 hover:text-white transition-colors"
               >
                 <ChevronRight className="w-10 h-10" />
               </button>
-              <img
-                src={assetUrl(project.images[selectedImage])}
-                alt={`${language === 'ar' ? project.title.ar : project.title.en} - ${selectedImage + 1}`}
+              <img decoding="async"
+                src={assetUrl(project.images[selectedImage ?? 0])}
+                alt={`${language === 'ar' ? project.title.ar : project.title.en} - ${(selectedImage ?? 0) + 1}`}
                 className="max-w-full max-h-[85vh] object-contain rounded-lg"
               />
-              <div className="absolute bottom-4 text-white/80 text-sm">
-                {selectedImage + 1} / {project.images.length}
+              <div aria-live="polite" aria-atomic="true" className="absolute bottom-4 text-white/80 text-sm">
+                {(selectedImage ?? 0) + 1} / {project.images.length}
               </div>
-            </div>
-          )}
+            </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Content */}
@@ -326,7 +355,7 @@ const ProjectDetail = () => {
               <Button
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-navy"
-                onClick={() => window.open('https://wa.me/201096189832', '_blank')}
+                onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
               >
                 {language === 'ar' ? 'تواصل الآن' : 'Contact Now'}
               </Button>

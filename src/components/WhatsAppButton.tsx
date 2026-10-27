@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { WHATSAPP_LINK } from '@/config/site';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const WhatsAppButton = () => {
+  const { language } = useLanguage();
   return (
     <motion.a
       href={WHATSAPP_LINK}
@@ -14,7 +16,7 @@ const WhatsAppButton = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       className="fixed bottom-6 end-6 z-50 w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center animate-pulse-glow"
-      aria-label="Contact via WhatsApp"
+      aria-label={language === 'ar' ? 'تواصل عبر واتساب' : 'Contact via WhatsApp'}
     >
       <MessageCircle className="w-7 h-7" />
       

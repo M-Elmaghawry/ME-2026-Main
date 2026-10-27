@@ -1,7 +1,8 @@
+import ResponsiveImage from '@/components/ResponsiveImage';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { assetUrl } from '@/lib/utils';
+import { Trans, useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { CONTACT_EMAIL, CONTACT_LOCATION, CONTACT_PHONE_DISPLAY, WHATSAPP_LINK } from '@/config/site';
 import { 
   Youtube, 
   Facebook, 
@@ -44,7 +45,9 @@ const Footer = () => {
             <p className="font-bold text-xl mb-6">
               {language === 'ar' ? 'المهندس محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}
             </p>
-            <p className="text-white/70 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t('footer.description') }} />
+            <div className="text-white/70 text-sm leading-relaxed">
+              <Trans i18nKey="footer.description" shouldUnescape components={{ br: <br />, strong: <strong />, ul: <ul className="mt-2 ps-4 list-disc" />, li: <li /> }} />
+            </div>
           </div>
 
           {/* Contact */}
@@ -54,14 +57,14 @@ const Footer = () => {
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <Phone className="w-5 h-5 text-baby-blue" />
                 <a
-                  href="https://wa.me/201096189832"
+                  href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   dir="ltr"
                   className="transition-colors duration-200 group-hover:text-baby-blue hover:text-baby-blue"
                   style={{ textDecoration: 'none' }}
                 >
-                  +20 109 618 9832
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70 group">
@@ -79,12 +82,12 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <Mail className="w-5 h-5 text-baby-blue" />
-                <span>contact@elmekawy-bim.com</span>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70">
                 <MapPin className="w-5 h-5 text-baby-blue" />
                 <div className="flex flex-col">
-                  <span>{language === 'ar' ? 'المنصورة - مصر' : 'Mansoura - Egypt'}</span>
+                  <span>{CONTACT_LOCATION[language]}</span>
                   <span>{language === 'ar' ? 'الرياض - السعودية' : 'Riyadh - KSA'}</span>
                 </div>
               </li>
@@ -111,8 +114,8 @@ const Footer = () => {
                 );
               })}
             </div>
-            <img
-              src={assetUrl('/Mahmoud%20Elmekawy%20Logo-2.png')}
+            <ResponsiveImage sizes="180px"
+              src={'/Mahmoud%20Elmekawy%20Logo-2.png'}
               alt="Mahmoud Elmekawy Logo"
               className="w-3/4 mx-auto block object-contain opacity-90"
             />

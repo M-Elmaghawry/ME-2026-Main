@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { browserLanguage } from '../lib/browserLanguage';
 
 const resources = {
   ar: {
@@ -60,7 +61,7 @@ const resources = {
       },
       // Footer
       footer: {
-        description: 'خبير في نمذجة معلومات البناء BIM، أساعد الشركات والمهندسين على تنفيذ مشاريع أكثر كفاءة ودقة.<br><br><strong>أتخصص في محورين:</strong><ul style="margin-top:8px;padding-inline-start:16px;list-style:disc"><li><strong>هندسة وتنسيق BIM</strong> — تسليم مشاريع البنية التحتية والإنشاءات باستخدام Revit وNavisworks وCivil 3D طبقا لمعايير الأيزو 19650</li><li><strong>التدريب الهندسى على BIM</strong> — بصفتى محاضر معتمد من شركة أتوديسك أعمل على تصميم وتقديم برامج تدريبية للشركات والمكاتب الهندسية</li></ul>',
+        description: 'خبير في نمذجة معلومات البناء BIM، أساعد الشركات والمهندسين على تنفيذ مشاريع أكثر كفاءة ودقة.<br><br><strong>أتخصص في محورين:</strong><ul><li><strong>هندسة وتنسيق BIM</strong> — تسليم مشاريع البنية التحتية والإنشاءات باستخدام Revit وNavisworks وCivil 3D طبقا لمعايير الأيزو 19650</li><li><strong>التدريب الهندسى على BIM</strong> — بصفتى محاضر معتمد من شركة أتوديسك أعمل على تصميم وتقديم برامج تدريبية للشركات والمكاتب الهندسية</li></ul>',
         quickLinks: 'روابط سريعة',
         contact: 'تواصل معنا',
         followUs: 'تابعنا',
@@ -133,7 +134,7 @@ const resources = {
       },
       // Footer
       footer: {
-        description: 'I help engineering firms build better projects — faster, with fewer errors, and teams that actually know how to use BIM the right way.<br><br><strong>I specialize in two areas:</strong><ul style="margin-top:8px;padding-inline-start:16px;list-style:disc"><li><strong>BIM Engineering &amp; Coordination</strong> —  Delivery for infrastructure &amp; structural projects. LOD 300/400, ISO 19650 compliance, clash detection &amp; BOQ .</li><li><strong>Corporate BIM Training</strong> (Autodesk Certified Instructor) — Designing &amp; delivering BIM training for engineering firms. </li></ul>',
+        description: 'I help engineering firms build better projects — faster, with fewer errors, and teams that actually know how to use BIM the right way.<br><br><strong>I specialize in two areas:</strong><ul><li><strong>BIM Engineering &amp; Coordination</strong> —  Delivery for infrastructure &amp; structural projects. LOD 300/400, ISO 19650 compliance, clash detection &amp; BOQ .</li><li><strong>Corporate BIM Training</strong> (Autodesk Certified Instructor) — Designing &amp; delivering BIM training for engineering firms. </li></ul>',
         quickLinks: 'Quick Links',
         contact: 'Contact Us',
         followUs: 'Follow Us',
@@ -154,7 +155,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en',
+    lng: browserLanguage(),
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,

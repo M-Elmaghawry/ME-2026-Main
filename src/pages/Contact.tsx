@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -6,102 +5,31 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
-import { MessageCircle, Mail, Phone, MapPin, Send } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import { WHATSAPP_LINK } from '@/config/site';
-import { services } from '@/data/services';
-import { assetUrl } from '@/lib/utils';
-
-const clientLogos = [
-  { name: 'دار وإعمار', logo: '/clients/01-شركة-دار-وإعمار.png' },
-  { name: 'شركة الصالح', logo: '/clients/02-شركة-الصالح-للمقاولات.png' },
-  { name: 'Gulf Consult', logo: '/clients/03-Gulf-Consult.png' },
-  { name: 'مكتب فارس', logo: '/clients/04-مكتب-فارس-الهندسى.png' },
-  { name: 'Saudi Railways', logo: '/clients/05-خطوط-سكك-الحديد-السعودية-sar.png' },
-  { name: 'مياه الشرب', logo: '/clients/06-شركة-مياة-الشرب-والصرف-الصحى.png' },
-  { name: 'نقابة المهندسين', logo: '/clients/07-نقابة-المهندسين-بالدقهلية.png' },
-  { name: 'IDS Consulting', logo: '/clients/08-IDS-Consulting.png' },
-  { name: 'CAD Masters', logo: '/clients/09-Cad-Masters.png' },
-  { name: 'الغانم للمقاولات', logo: '/clients/10-شركة-الغانم-للمقاولات.png' },
-  { name: 'Niqat', logo: '/clients/11-Niqat.png' },
-  { name: 'الأكاديمية الدولية', logo: '/clients/12-الأكاديمية-الدولية-للهندسة-وعلوم-الإعلام.png' },
-  { name: 'Kayan Academy', logo: '/clients/13-Kayan-Academy.png' },
-  { name: 'Blue Ocean', logo: '/clients/14-Blue-Ocean.png' },
-  { name: 'UpSkill Center', logo: '/clients/15-Upskill-Center.png' },
-  { name: 'أكاديمية أوميغا', logo: '/clients/16-أكاديمية-أوميغا-للتدريب.png' },
-];
+import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
+import { CONTACT_EMAIL, CONTACT_LOCATION, CONTACT_PHONE, CONTACT_PHONE_DISPLAY, WHATSAPP_LINK } from '@/config/site';
 
 const Contact = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [countryCode, setCountryCode] = useState('+20');
-  const [selectedService, setSelectedService] = useState('');
-
-  const countries = [
-    { code: '+20',  ar: 'مصر',      en: 'Egypt' },
-    { code: '+966', ar: 'السعودية', en: 'Saudi Arabia' },
-    { code: '+971', ar: 'الإمارات', en: 'UAE' },
-    { code: '+965', ar: 'الكويت',   en: 'Kuwait' },
-    { code: '+974', ar: 'قطر',      en: 'Qatar' },
-    { code: '+973', ar: 'البحرين',  en: 'Bahrain' },
-    { code: '+964', ar: 'العراق',   en: 'Iraq' },
-    { code: '+90',  ar: 'تركيا',   en: 'Turkey' },
-    { code: '+34',  ar: 'أسبانيا', en: 'Spain' },
-    { code: '',     ar: 'أخرى',    en: 'Other' },
-  ];
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.get('name') as string,
-          from_email: formData.get('email') as string,
-          phone: countryCode ? `${countryCode} ${formData.get('phone') as string}` : (formData.get('phone') as string),
-          company: formData.get('company') as string,
-          service: selectedService,
-          message: formData.get('message') as string,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-      toast.success(language === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!');
-      (e.target as HTMLFormElement).reset();
-      setCountryCode('+20');
-      setSelectedService('');
-    } catch {
-      toast.error(language === 'ar' ? 'حدث خطأ، يرجى المحاولة مرة أخرى' : 'An error occurred, please try again');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const contactInfo = [
     {
       icon: Phone,
       label: { ar: 'الهاتف', en: 'Phone' },
-      value: '+20 109 618 9832',
-      href: 'tel:+201096189832',
+      value: CONTACT_PHONE_DISPLAY,
+      href: `tel:${CONTACT_PHONE}`,
     },
     {
       icon: Mail,
       label: { ar: 'البريد الإلكتروني', en: 'Email' },
-      value: 'info@elmekawy.com',
-      href: 'mailto:info@elmekawy.com',
+      value: CONTACT_EMAIL,
+      href: `mailto:${CONTACT_EMAIL}`,
     },
     {
       icon: MapPin,
       label: { ar: 'الموقع', en: 'Location' },
-      value: language === 'ar' ? 'القاهرة، مصر' : 'Cairo, Egypt',
-      href: '#',
+      value: CONTACT_LOCATION[language],
+      href: '#locations',
     },
   ];
 
@@ -111,6 +39,7 @@ const Contact = () => {
       
       <main className="pt-24 pb-16">
         <div className="section-container">
+          <h1 className="text-3xl md:text-4xl font-bold mb-8">{language === 'ar' ? 'تواصل معنا' : 'Contact Us'}</h1>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -123,99 +52,7 @@ const Contact = () => {
                 <h2 className="text-2xl font-bold mb-6">
                   {language === 'ar' ? 'أرسل رسالة' : 'Send a Message'}
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        {language === 'ar' ? 'الاسم' : 'Name'}
-                      </label>
-                      <Input
-                        name="name"
-                        required
-                        placeholder={language === 'ar' ? 'اسمك الكامل' : 'Your full name'}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        {language === 'ar' ? 'البريد الإلكتروني' : 'Email'}
-                      </label>
-                      <Input
-                        name="email"
-                        type="email"
-                        required
-                        placeholder={language === 'ar' ? 'بريدك الإلكتروني' : 'Your email'}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'}
-                    </label>
-                    <div className="flex gap-2">
-                      <select
-                        value={countryCode}
-                        onChange={e => setCountryCode(e.target.value)}
-                        className="flex h-9 rounded-md border border-input bg-transparent px-2 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 w-2/5 shrink-0"
-                      >
-                        {countries.map(c => (
-                          <option key={c.code + c.ar} value={c.code}>
-                            {language === 'ar' ? c.ar : c.en}{c.code ? ` (${c.code})` : ''}
-                          </option>
-                        ))}
-                      </select>
-                      <Input
-                        name="phone"
-                        type="tel"
-                        className="flex-1"
-                        placeholder={language === 'ar' ? 'رقم الهاتف' : 'Phone number'}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      {language === 'ar' ? 'الشركة' : 'Company'}
-                    </label>
-                    <Input
-                      name="company"
-                      placeholder={language === 'ar' ? 'اسم الشركة (اختياري)' : 'Company name (optional)'}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      {language === 'ar' ? 'الخدمة المطلوبة' : 'Required Service'}
-                    </label>
-                    <select
-                      value={selectedService}
-                      onChange={e => setSelectedService(e.target.value)}
-                      className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      <option value="">{language === 'ar' ? '-- اختر الخدمة --' : '-- Select a service --'}</option>
-                      {services.map(s => (
-                        <option key={s.id} value={s.id}>
-                          {language === 'ar' ? s.title.ar : s.title.en}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      {language === 'ar' ? 'الرسالة' : 'Message'}
-                    </label>
-                    <Textarea
-                      name="message"
-                      required
-                      rows={5}
-                      placeholder={language === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
-                    />
-                  </div>
-                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
-                    <Send className="w-5 h-5" />
-                    {isSubmitting 
-                      ? (language === 'ar' ? 'جاري الإرسال...' : 'Sending...') 
-                      : (language === 'ar' ? 'إرسال الرسالة' : 'Send Message')
-                    }
-                  </Button>
-                </form>
+                <ContactForm />
               </div>
             </motion.div>
 
@@ -268,7 +105,7 @@ const Contact = () => {
                   variant="whatsapp"
                   size="lg"
                   className="w-full"
-                  onClick={() => window.open(WHATSAPP_LINK, '_blank')}
+                  onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
                 >
                   <MessageCircle className="w-5 h-5" />
                   {t('hero.cta.whatsapp')}
@@ -282,7 +119,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-16"
+            id="locations" className="mt-16"
           >
             <h2 className="text-2xl font-bold text-center mb-8">
               {language === 'ar' ? 'مواقعنا' : 'Our Locations'}
