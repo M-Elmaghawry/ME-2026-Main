@@ -14,6 +14,7 @@ import CourseDetail from "./pages/CourseDetail";
 import Portfolio from "./pages/Portfolio";
 import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
+import ContactResult from "./pages/ContactResult";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/portfolio/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/thank-you" element={<ContactResult />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />

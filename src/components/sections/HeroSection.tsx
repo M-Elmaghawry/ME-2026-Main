@@ -19,12 +19,12 @@ const RollingDigit = ({ digit, delay, inView }: { digit: number; delay: number; 
     >
       <motion.span
         style={{ display: 'block' }}
-        initial={{ y: 0 }}
-        animate={{ y: inView ? `calc(-${digit} * ${CELL})` : '0px' }}
+        initial={{ y: '0%' }}
+        animate={{ y: inView ? `${-digit * 10}%` : '0%' }}
         transition={{ duration: 1.8, ease: outCubic, delay }}
       >
         {Array.from({ length: 10 }, (_, n) => (
-          <span key={n} style={{ display: 'block', height: CELL, lineHeight: CELL }}>{n}</span>
+          <span key={n} className="gradient-text" style={{ display: 'block', height: CELL, lineHeight: CELL }}>{n}</span>
         ))}
       </motion.span>
     </span>
@@ -34,19 +34,19 @@ const RollingDigit = ({ digit, delay, inView }: { digit: number; delay: number; 
 // Parses "+500" or "500+" → optional prefix + rolling digits + optional suffix
 const RollingNumber = ({ value, inView }: { value: string; inView: boolean }) => {
   const match = value.match(/^([^\d]*)(\d+)([^\d]*)$/);
-  if (!match) return <span>{value}</span>;
+  if (!match) return <span className="gradient-text">{value}</span>;
   const prefix = match[1];
   const digits = match[2].split('').map(Number);
   const suffix = match[3];
   return (
-    <span className="inline-flex items-center" dir="ltr">
-      {prefix && <span style={{ lineHeight: CELL }}>{prefix}</span>}
+    <span className="inline-flex items-center tabular-nums" dir="ltr">
+      {prefix && <span className="gradient-text" style={{ lineHeight: CELL }}>{prefix}</span>}
       {digits.map((d, i) => (
         <span key={i}>
           <RollingDigit digit={d} delay={i * 0.06} inView={inView} />
         </span>
       ))}
-      {suffix && <span style={{ lineHeight: CELL }}>{suffix}</span>}
+      {suffix && <span className="gradient-text" style={{ lineHeight: CELL }}>{suffix}</span>}
     </span>
   );
 };
@@ -64,7 +64,7 @@ const StatCard = ({ stat, index }: { stat: { value: string; label: string }; ind
       whileHover={{ scale: 1.05 }}
       className="neu-card p-6 text-center"
     >
-      <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
+      <div className="text-3xl md:text-4xl font-bold mb-2">
         <RollingNumber value={stat.value} inView={inView} />
       </div>
       <div className="text-sm text-muted-foreground">{stat.label}</div>

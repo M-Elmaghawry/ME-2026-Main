@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,12 +9,13 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
 import { MessageCircle, Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '@/config/emailjs';
 import { WHATSAPP_LINK } from '@/config/site';
 import { services } from '@/data/services';
 import { assetUrl } from '@/lib/utils';
+import type { ContactDraft, ContactResultState } from '@/types/contact';
 
 const clientLogos = [
   { name: 'دار وإعمار', logo: '/clients/01-شركة-دار-وإعمار.png' },
@@ -37,9 +39,12 @@ const clientLogos = [
 const Contact = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const draft = (state as { draft?: ContactDraft } | null)?.draft;
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [countryCode, setCountryCode] = useState('+20');
-  const [selectedService, setSelectedService] = useState('');
+  const [countryCode, setCountryCode] = useState(draft?.countryCode ?? '+20');
+  const [selectedService, setSelectedService] = useState(draft?.selectedService ?? '');
 
   const countries = [
     { code: '+20',  ar: 'مصر',      en: 'Egypt' },
@@ -56,29 +61,45 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get('name') ?? '').trim();
+    const email = String(formData.get('email') ?? '').trim();
+    const phone = String(formData.get('phone') ?? '').trim();
+    const company = String(formData.get('company') ?? '').trim();
+    const message = String(formData.get('message') ?? '').trim();
+    const service = services.find(service => service.id === selectedService);
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
         {
-          from_name: formData.get('name') as string,
-          from_email: formData.get('email') as string,
-          phone: countryCode ? `${countryCode} ${formData.get('phone') as string}` : (formData.get('phone') as string),
-          company: formData.get('company') as string,
-          service: selectedService,
-          message: formData.get('message') as string,
+          from_name: name,
+          from_email: email,
+          name,
+          email,
+          reply_to: email,
+          phone: phone && countryCode ? `${countryCode} ${phone}` : phone,
+          company,
+          service: service ? service.title[language] : selectedService,
+          message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        { publicKey: EMAILJS_CONFIG.publicKey }
       );
-      toast.success(language === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!');
-      (e.target as HTMLFormElement).reset();
+      form.reset();
       setCountryCode('+20');
       setSelectedService('');
+      navigate('/thank-you', { state: { status: 'success' } satisfies ContactResultState });
     } catch {
-      toast.error(language === 'ar' ? 'حدث خطأ، يرجى المحاولة مرة أخرى' : 'An error occurred, please try again');
+      navigate('/thank-you', {
+        state: {
+          status: 'error',
+          draft: { name, email, phone, company, message, countryCode, selectedService },
+        } satisfies ContactResultState,
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -131,6 +152,7 @@ const Contact = () => {
                       </label>
                       <Input
                         name="name"
+                        defaultValue={draft?.name}
                         required
                         placeholder={language === 'ar' ? 'اسمك الكامل' : 'Your full name'}
                       />
@@ -141,6 +163,7 @@ const Contact = () => {
                       </label>
                       <Input
                         name="email"
+                        defaultValue={draft?.email}
                         type="email"
                         required
                         placeholder={language === 'ar' ? 'بريدك الإلكتروني' : 'Your email'}
@@ -165,6 +188,7 @@ const Contact = () => {
                       </select>
                       <Input
                         name="phone"
+                        defaultValue={draft?.phone}
                         type="tel"
                         className="flex-1"
                         placeholder={language === 'ar' ? 'رقم الهاتف' : 'Phone number'}
@@ -177,6 +201,7 @@ const Contact = () => {
                     </label>
                     <Input
                       name="company"
+                      defaultValue={draft?.company}
                       placeholder={language === 'ar' ? 'اسم الشركة (اختياري)' : 'Company name (optional)'}
                     />
                   </div>
@@ -203,6 +228,7 @@ const Contact = () => {
                     </label>
                     <Textarea
                       name="message"
+                      defaultValue={draft?.message}
                       required
                       rows={5}
                       placeholder={language === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
