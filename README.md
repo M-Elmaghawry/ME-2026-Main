@@ -1,93 +1,80 @@
-# Welcome to your  project
+# موقع المهندس محمود المكاوي — BIM
 
-## Project info
+موقع تعريفي وتدريبي بالعربية والإنجليزية، لعرض خدمات BIM والدورات وسابقة الأعمال واستقبال طلبات التواصل.
 
-**URL**: https://elmekawy-bim.com
+الواجهة مبنية بـ React وTypeScript وVite وTailwind وRadix/shadcn، مع Framer Motion وi18next. البيانات داخل المستودع، وإرسال الرسائل عبر EmailJS. التسجيل في الدورات يتم عبر الروابط الخارجية أو واتساب.
 
-## How can I edit this code?
+## التشغيل المحلي
 
-There are several ways of editing your application.
-
-**Use GitHub**
-
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in GitHub.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+استخدم Node.js 22.12 أو أحدث وnpm. يستخدم مسار النشر Node.js 22.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+خادم التطوير: `http://localhost:8080`. عند الإعداد الأول، انسخ `.env.example` إلى `.env` وأضف إعدادات EmailJS. لا تضع مفاتيح خاصة في متغيرات `VITE_*` لأنها تصل إلى المتصفح.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## الأوامر
 
-**Use GitHub Codespaces**
+| الأمر | الوظيفة |
+|---|---|
+| `npm run dev` | تشغيل التطوير وتوليد الصور المحسّنة عند الحاجة |
+| `npm run images` | توليد نسخ WebP وتحديث بيان الصور |
+| `npm run lint` | فحص جودة الشيفرة |
+| `npm run typecheck` | فحص أنواع الواجهة وإعداد Vite |
+| `npm test` | اختبارات اللغة والتواصل والأسعار والصور والتوجيه وحدود حجم JavaScript |
+| `npm run build` | بناء الإنتاج داخل `dist/` مع الصور وSEO |
+| `npm run preview` | معاينة بناء الإنتاج محليًا |
+| `npm run check` | جميع الفحوص والاختبارات ثم بناء الإنتاج |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+استخدم `npm.cmd` بدل `npm` في PowerShell إذا كانت سياسة تنفيذ السكربتات تمنع تشغيل `npm.ps1`.
 
-## What technologies are used for this project?
+## خريطة الملفات
 
-This project is built with:
+| المسار | المسؤولية |
+|---|---|
+| `src/App.tsx` | المسارات وتحميل كل صفحة عند زيارتها |
+| `src/pages/` | صفحات الموقع وتفاصيل الخدمات والدورات والمشروعات |
+| `src/components/` | المكونات المشتركة والصور المتجاوبة ونموذج التواصل |
+| `src/data/` | الخدمات والدورات والأسعار والمشروعات والعملاء وبيان الصور |
+| `src/config/site.ts` | بيانات التواصل وروابط واتساب الأساسية |
+| `src/contexts/` و`src/i18n/` | اللغة والترجمة واتجاه العرض |
+| `src/lib/` | التحقق من المدخلات والأسعار وبيانات SEO والدوال المشتركة |
+| `public/` | الصور الأصلية والشعارات |
+| `scripts/optimize-images.mjs` | توليد الصور وذاكرة التخزين المؤقت |
+| `templates/404.html` | قالب معالجة الزيارات المباشرة على GitHub Pages |
+| `tests/` | اختبارات السلوك والبناء والصور |
+| `.github/workflows/deploy.yml` | الفحوص والبناء والنشر |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## الصور
 
-## How can I deploy this project?
+أضف الصور الأصلية داخل `public/` ثم شغّل `npm run images`. استخدم `ResponsiveImage` مع مسار الصورة الأصلي و`sizes` المناسب للتصميم. المكوّن يوفّر WebP بأحجام متعددة، وتحميلًا كسولًا، وأبعادًا تحدّ من تغير التخطيط. استخدم `priority` للصور المهمة الظاهرة فور فتح الصفحة.
 
+يُحفظ بيان الصور في `src/data/imageManifest.json`؛ أضفه إلى تغييراتك عند إضافة الصور أو استبدالها. ملفات `public/optimized/` مولّدة ومتجاهلة في Git وتُعاد تلقائيًا في التطوير والبناء. يعرض معرض الصور المكبّر الأصل للحفاظ على تفاصيل الرسومات الهندسية.
 
+## النشر إلى GitHub Pages
 
-## GitHub Pages deployment
+1. اختر **Settings > Pages > Source > GitHub Actions** في المستودع.
+2. أضف إعدادات EmailJS إلى GitHub Actions Secrets كما يوضح دليل P1.
+3. الدفع إلى `main` يشغّل الفحوص ثم البناء والنشر. يمكن تشغيل المسار يدويًا أيضًا.
+4. للنطاق المخصص، اضبط **Settings > Pages > Custom domain** وDNS.
 
-This repository is configured to deploy automatically to GitHub Pages from the `main` branch using GitHub Actions.
+يستخرج المسار عنوان الموقع ومساره الأساسي من إعدادات GitHub Pages، ويمرّرهما عبر `VITE_SITE_URL` و`VITE_BASE_PATH`. يستخدم التطبيق BrowserRouter بروابط نظيفة، ويولّد ملفات HTML ببيانات مشاركة لكل صفحة، وخريطة الموقع، و`robots.txt`، و`404.html`.
 
-### One-time setup in GitHub
+لتجربة بناء المستودع محليًا في PowerShell:
 
-1. Open the repository settings.
-2. Go to **Pages**.
-3. Set **Source** to **GitHub Actions**.
-
-### Local build for GitHub Pages
-
-If you want to test the GitHub Pages build locally, run:
-
-```sh
-npm install
+```powershell
+$env:VITE_BASE_PATH = "/ME-2026-Main/"
 npm run build:gh-pages
+Remove-Item Env:VITE_BASE_PATH
 ```
 
-The workflow builds the site with:
+معاينة Vite لا تحاكي سلوك 404 الخاص بـ GitHub Pages بالكامل؛ تغطي اختبارات التوجيه شيفرة التحويل والاستعادة في HTML الناتج، ويلزم التحقق على الاستضافة بعد النشر.
 
-- `VITE_BASE_PATH=/ME-2026-Main/`
-- `VITE_FORCE_HASH_ROUTER=true`
+## أدلة الصيانة
 
-This ensures assets load correctly from the repository subpath and client-side routes work on GitHub Pages.
-
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- [دليل P1](docs/P1-OPERATIONS.md): التواصل وEmailJS وCAPTCHA واللغة والأسعار والعروض بتاريخ نهاية.
+- [دليل P2 وقياسات الأداء](docs/P2-PERFORMANCE.md): تقسيم التحميل والصور والاعتماديات وحدود الاختبارات.
 
 

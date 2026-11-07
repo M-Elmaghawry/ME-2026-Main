@@ -1,0 +1,1918 @@
+{
+  "/Mahmoud Elmekawy Logo-2.png": {
+    "width": 1000,
+    "height": 263,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/81e0245346fbb5528279-160.webp"
+      },
+      {
+        "width": 320,
+        "src": "/optimized/81e0245346fbb5528279-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/81e0245346fbb5528279-640.webp"
+      }
+    ]
+  },
+  "/Mahmoud Elmekawy Logo.png": {
+    "width": 1000,
+    "height": 264,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/30b74a07cdc339830d8e-160.webp"
+      },
+      {
+        "width": 320,
+        "src": "/optimized/30b74a07cdc339830d8e-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/30b74a07cdc339830d8e-640.webp"
+      }
+    ]
+  },
+  "/certificates/01-ME-Saudi-Professional.jpg": {
+    "width": 600,
+    "height": 450,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/27ed99c23373302037bb-320.webp"
+      },
+      {
+        "width": 600,
+        "src": "/optimized/27ed99c23373302037bb-600.webp"
+      }
+    ]
+  },
+  "/certificates/02-ME-Autodesk-Certified-Instuctor.jpg": {
+    "width": 600,
+    "height": 450,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/e3d58928225f5cc24c13-320.webp"
+      },
+      {
+        "width": 600,
+        "src": "/optimized/e3d58928225f5cc24c13-600.webp"
+      }
+    ]
+  },
+  "/certificates/03-ME-Revit-Structure-Certified-Professional.jpg": {
+    "width": 600,
+    "height": 450,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/3f8ccfe190cf85e957d6-320.webp"
+      },
+      {
+        "width": 600,
+        "src": "/optimized/3f8ccfe190cf85e957d6-600.webp"
+      }
+    ]
+  },
+  "/certificates/04-ME-Revit-Architecture-Certified-Professional.jpg": {
+    "width": 600,
+    "height": 450,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/48e5e1627fe617985657-320.webp"
+      },
+      {
+        "width": 600,
+        "src": "/optimized/48e5e1627fe617985657-600.webp"
+      }
+    ]
+  },
+  "/clients/01-شركة-دار-وإعمار.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/48169637008f9ac3db23-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/48169637008f9ac3db23-250.webp"
+      }
+    ]
+  },
+  "/clients/02-شركة-الصالح-للمقاولات.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/1cc07d09bbd9bae4b974-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/1cc07d09bbd9bae4b974-250.webp"
+      }
+    ]
+  },
+  "/clients/03-Gulf-Consult.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/5481a12a440fa1c8461f-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/5481a12a440fa1c8461f-250.webp"
+      }
+    ]
+  },
+  "/clients/04-مكتب-فارس-الهندسى.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/1ae60302d25956905ffe-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/1ae60302d25956905ffe-250.webp"
+      }
+    ]
+  },
+  "/clients/05-خطوط-سكك-الحديد-السعودية-sar.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/5ee36b6f51717a669e73-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/5ee36b6f51717a669e73-250.webp"
+      }
+    ]
+  },
+  "/clients/06-شركة-مياة-الشرب-والصرف-الصحى.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/f2c1b346977b10f2415b-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/f2c1b346977b10f2415b-250.webp"
+      }
+    ]
+  },
+  "/clients/07-نقابة-المهندسين-بالدقهلية.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/5f58346120fcb8f26e8e-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/5f58346120fcb8f26e8e-250.webp"
+      }
+    ]
+  },
+  "/clients/08-IDS-Consulting.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/f9334e9e0be2da0354cd-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/f9334e9e0be2da0354cd-250.webp"
+      }
+    ]
+  },
+  "/clients/09-Cad-Masters.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/dc594d42faa4734bf83d-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/dc594d42faa4734bf83d-250.webp"
+      }
+    ]
+  },
+  "/clients/10-شركة-الغانم-للمقاولات.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/4c53be9cbd06521bb155-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/4c53be9cbd06521bb155-250.webp"
+      }
+    ]
+  },
+  "/clients/11-Niqat.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/9603048341f96f76d657-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/9603048341f96f76d657-250.webp"
+      }
+    ]
+  },
+  "/clients/12-الأكاديمية-الدولية-للهندسة-وعلوم-الإعلام.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/67feed3848aeb13b3e35-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/67feed3848aeb13b3e35-250.webp"
+      }
+    ]
+  },
+  "/clients/13-Kayan-Academy.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/f5e084f94c180f04e3b2-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/f5e084f94c180f04e3b2-250.webp"
+      }
+    ]
+  },
+  "/clients/14-Blue-Ocean.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/7997e11b966116d513dc-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/7997e11b966116d513dc-250.webp"
+      }
+    ]
+  },
+  "/clients/15-Upskill-Center.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/5b610f476c941f4e5f5a-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/5b610f476c941f4e5f5a-250.webp"
+      }
+    ]
+  },
+  "/clients/16-أكاديمية-أوميجا-للتدريب.png": {
+    "width": 250,
+    "height": 125,
+    "variants": [
+      {
+        "width": 160,
+        "src": "/optimized/c6f00e4c5d84cd5443e5-160.webp"
+      },
+      {
+        "width": 250,
+        "src": "/optimized/c6f00e4c5d84cd5443e5-250.webp"
+      }
+    ]
+  },
+  "/courses/BIM Fundamentals for Civil Engineers.webp": {
+    "width": 2000,
+    "height": 2000,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/6e949932aad82501df5c-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/6e949932aad82501df5c-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/6e949932aad82501df5c-1280.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/optimized/6e949932aad82501df5c-1920.webp"
+      }
+    ]
+  },
+  "/courses/Revit Structure Professional Training.webp": {
+    "width": 1200,
+    "height": 1200,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/7aec3b32ba23559f11ae-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/7aec3b32ba23559f11ae-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/optimized/7aec3b32ba23559f11ae-1200.webp"
+      }
+    ]
+  },
+  "/courses/Revit Structure Workshop - 01.webp": {
+    "width": 2250,
+    "height": 1266,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/0cd840f91921a8cc755c-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/0cd840f91921a8cc755c-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/0cd840f91921a8cc755c-1280.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/optimized/0cd840f91921a8cc755c-1920.webp"
+      }
+    ]
+  },
+  "/courses/Revit Structure Workshop - 02.webp": {
+    "width": 2250,
+    "height": 1266,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/f3db0b03ba73741ed68c-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/f3db0b03ba73741ed68c-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/f3db0b03ba73741ed68c-1280.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/optimized/f3db0b03ba73741ed68c-1920.webp"
+      }
+    ]
+  },
+  "/courses/Revit Structure Workshop - 03.webp": {
+    "width": 2250,
+    "height": 1266,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/d74ad9e060251ad99cad-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/d74ad9e060251ad99cad-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/d74ad9e060251ad99cad-1280.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/optimized/d74ad9e060251ad99cad-1920.webp"
+      }
+    ]
+  },
+  "/hero/Mahmoud Elmekawy.jpg": {
+    "width": 1000,
+    "height": 1000,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/4de8b446eaf4c4bdaf90-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/4de8b446eaf4c4bdaf90-640.webp"
+      },
+      {
+        "width": 1000,
+        "src": "/optimized/4de8b446eaf4c4bdaf90-1000.webp"
+      }
+    ]
+  },
+  "/projects/01-Shigri-Neom.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/1718812865cf8929f134-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/1718812865cf8929f134-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/1718812865cf8929f134-800.webp"
+      }
+    ]
+  },
+  "/projects/02-Swary-Egypt.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/bb46d51f92c256365c6f-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/bb46d51f92c256365c6f-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/bb46d51f92c256365c6f-800.webp"
+      }
+    ]
+  },
+  "/projects/03-Elseka-Elgedida.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/d77f82d2e5f794ea1da0-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/d77f82d2e5f794ea1da0-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/d77f82d2e5f794ea1da0-800.webp"
+      }
+    ]
+  },
+  "/projects/04-Admin-Egypt.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/8e39f9fd5d750071b1a6-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/8e39f9fd5d750071b1a6-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/8e39f9fd5d750071b1a6-800.webp"
+      }
+    ]
+  },
+  "/projects/05-Wastewater-Treatment-Plant.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/497217963897f6a3716f-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/497217963897f6a3716f-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/497217963897f6a3716f-800.webp"
+      }
+    ]
+  },
+  "/projects/06-Tanah-Mosque.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/0ae6025cb6d2c53cde2e-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/0ae6025cb6d2c53cde2e-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/0ae6025cb6d2c53cde2e-800.webp"
+      }
+    ]
+  },
+  "/projects/07-Multi-Residential.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/f5bceb57996278e43099-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/f5bceb57996278e43099-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/f5bceb57996278e43099-800.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-02.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/6eb923ae0e11f762eb85-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/6eb923ae0e11f762eb85-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/6eb923ae0e11f762eb85-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-03.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/57d4979ce6a060062595-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/57d4979ce6a060062595-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/57d4979ce6a060062595-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-04.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/0464f566d38517cc41af-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/0464f566d38517cc41af-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/0464f566d38517cc41af-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-05.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/d5fadb0da5142195a8bb-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/d5fadb0da5142195a8bb-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/d5fadb0da5142195a8bb-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-06.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/164def8402bdc4348cef-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/164def8402bdc4348cef-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/164def8402bdc4348cef-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-07.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/883f72bd1a84a012d84d-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/883f72bd1a84a012d84d-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/883f72bd1a84a012d84d-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-08.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/3d25a762083cc64eae1e-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/3d25a762083cc64eae1e-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/3d25a762083cc64eae1e-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-09.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/f7b078f2ea1dac3dc558-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/f7b078f2ea1dac3dc558-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/f7b078f2ea1dac3dc558-1080.webp"
+      }
+    ]
+  },
+  "/projects/Admin-Egypt-10.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/8cb5bf6327a8f0eabb6a-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/8cb5bf6327a8f0eabb6a-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/8cb5bf6327a8f0eabb6a-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-02.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/6d2449ee9e14bf58b570-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/6d2449ee9e14bf58b570-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/6d2449ee9e14bf58b570-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-03.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/28cee1190196e27ce08d-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/28cee1190196e27ce08d-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/28cee1190196e27ce08d-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-04.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/3a577d73ed7e36c7920b-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/3a577d73ed7e36c7920b-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/3a577d73ed7e36c7920b-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-05.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/e1b76def71cb2a7d5eb6-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/e1b76def71cb2a7d5eb6-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/e1b76def71cb2a7d5eb6-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-06.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/f4dde9b7016c92480aaf-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/f4dde9b7016c92480aaf-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/f4dde9b7016c92480aaf-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-07.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/55fce3a4c94f35881dac-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/55fce3a4c94f35881dac-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/55fce3a4c94f35881dac-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-08.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/10e81912f572b43f11e8-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/10e81912f572b43f11e8-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/10e81912f572b43f11e8-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-09.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/bb6de3ce8027db446eef-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/bb6de3ce8027db446eef-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/bb6de3ce8027db446eef-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-10.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/0eb1fc5cc28ea1a7a17e-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/0eb1fc5cc28ea1a7a17e-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/0eb1fc5cc28ea1a7a17e-1080.webp"
+      }
+    ]
+  },
+  "/projects/Elseka-Elgedida-11.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/b157d9841533fe488b2a-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/b157d9841533fe488b2a-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/b157d9841533fe488b2a-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-02.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/6dbaf7ac2424d9974dce-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/6dbaf7ac2424d9974dce-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/6dbaf7ac2424d9974dce-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-03.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/36cfdce96b8572dabbaf-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/36cfdce96b8572dabbaf-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/36cfdce96b8572dabbaf-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-04.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/58849ce96cb25ed72cf0-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/58849ce96cb25ed72cf0-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/58849ce96cb25ed72cf0-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-05.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/77618963671f6d0dd2d9-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/77618963671f6d0dd2d9-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/77618963671f6d0dd2d9-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-06.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/54f50a79ca51ac62661c-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/54f50a79ca51ac62661c-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/54f50a79ca51ac62661c-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-07.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/13994a34666437993ac2-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/13994a34666437993ac2-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/13994a34666437993ac2-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-08.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/5aa4aeb37b86310854b1-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/5aa4aeb37b86310854b1-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/5aa4aeb37b86310854b1-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-09.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/8bcccb1c2f5af2a188be-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/8bcccb1c2f5af2a188be-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/8bcccb1c2f5af2a188be-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-10.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/9a5b4a7b38d4252f6470-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/9a5b4a7b38d4252f6470-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/9a5b4a7b38d4252f6470-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-11.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/07984ae37e2c9e7a85fb-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/07984ae37e2c9e7a85fb-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/07984ae37e2c9e7a85fb-1080.webp"
+      }
+    ]
+  },
+  "/projects/Multi-Residential-12.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/816994342a9832336b2a-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/816994342a9832336b2a-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/816994342a9832336b2a-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-02.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/997d139542a104a82aa2-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/997d139542a104a82aa2-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/997d139542a104a82aa2-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-03.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/34b12abcbb1ce739385d-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/34b12abcbb1ce739385d-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/34b12abcbb1ce739385d-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-04.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/c79f1292b315352d26f5-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/c79f1292b315352d26f5-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/c79f1292b315352d26f5-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-05.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/1d979e4e4bb2986f6a59-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/1d979e4e4bb2986f6a59-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/1d979e4e4bb2986f6a59-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-06.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/276e06cd8cbdf22bf5d4-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/276e06cd8cbdf22bf5d4-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/276e06cd8cbdf22bf5d4-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-07.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/20a338fb670dd27504ce-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/20a338fb670dd27504ce-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/20a338fb670dd27504ce-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-08.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/937e677848a6b4259d7e-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/937e677848a6b4259d7e-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/937e677848a6b4259d7e-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-09.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/987d7f4d3c4561a5821b-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/987d7f4d3c4561a5821b-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/987d7f4d3c4561a5821b-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-10.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/34d93cc2742e92d44ab8-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/34d93cc2742e92d44ab8-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/34d93cc2742e92d44ab8-1080.webp"
+      }
+    ]
+  },
+  "/projects/Shigri-Neom-11.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/4ea579e80ce363089ff6-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/4ea579e80ce363089ff6-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/4ea579e80ce363089ff6-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-02.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/96eb7d70a613c103180e-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/96eb7d70a613c103180e-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/96eb7d70a613c103180e-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-03.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/3d4ae17f445098b6dce6-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/3d4ae17f445098b6dce6-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/3d4ae17f445098b6dce6-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-04.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/73c1c55bd1763e5f192f-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/73c1c55bd1763e5f192f-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/73c1c55bd1763e5f192f-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-05.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/e9cde8672e0b6760b767-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/e9cde8672e0b6760b767-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/e9cde8672e0b6760b767-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-06.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/8aa6421388aa8b35697e-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/8aa6421388aa8b35697e-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/8aa6421388aa8b35697e-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-07.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/8d20e92d8194b5db702b-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/8d20e92d8194b5db702b-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/8d20e92d8194b5db702b-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-08.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/753f9b692befbc7b315a-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/753f9b692befbc7b315a-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/753f9b692befbc7b315a-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-09.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/16550b4d7a069fa851ae-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/16550b4d7a069fa851ae-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/16550b4d7a069fa851ae-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-10.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/39a298f8bcb7c393593f-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/39a298f8bcb7c393593f-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/39a298f8bcb7c393593f-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-11.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/46fc9adca839daa27748-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/46fc9adca839daa27748-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/46fc9adca839daa27748-1080.webp"
+      }
+    ]
+  },
+  "/projects/Swary-Egypt-12.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/c4e3538944ec898f55ae-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/c4e3538944ec898f55ae-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/c4e3538944ec898f55ae-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-02.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/d0b815eee5bfc987e8c3-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/d0b815eee5bfc987e8c3-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/d0b815eee5bfc987e8c3-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-03.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/997948efecb79bb95539-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/997948efecb79bb95539-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/997948efecb79bb95539-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-04.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/f779938da2040831dbc7-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/f779938da2040831dbc7-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/f779938da2040831dbc7-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-05.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/b35bdc31566d7b8990fe-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/b35bdc31566d7b8990fe-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/b35bdc31566d7b8990fe-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-06.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/aa244276c62371fb7827-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/aa244276c62371fb7827-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/aa244276c62371fb7827-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-07.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/b7aef8f2e3050dc3eef7-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/b7aef8f2e3050dc3eef7-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/b7aef8f2e3050dc3eef7-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-08.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/49339894ab5cea7b4dc3-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/49339894ab5cea7b4dc3-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/49339894ab5cea7b4dc3-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-09.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/f34861d2717d988b9782-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/f34861d2717d988b9782-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/f34861d2717d988b9782-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-10.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/6d35a18d217cc02fe26a-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/6d35a18d217cc02fe26a-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/6d35a18d217cc02fe26a-1080.webp"
+      }
+    ]
+  },
+  "/projects/Tanah-Mosque-11.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/1932f379737e00d21e9a-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/1932f379737e00d21e9a-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/1932f379737e00d21e9a-1080.webp"
+      }
+    ]
+  },
+  "/projects/Wastewater-Treatment-Plant-02.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/655bbb38309360fcd2e1-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/655bbb38309360fcd2e1-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/655bbb38309360fcd2e1-1080.webp"
+      }
+    ]
+  },
+  "/projects/Wastewater-Treatment-Plant-03.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/8fa2056acab4a8bbf50d-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/8fa2056acab4a8bbf50d-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/8fa2056acab4a8bbf50d-1080.webp"
+      }
+    ]
+  },
+  "/projects/Wastewater-Treatment-Plant-04.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/54e0bab2af5dc56dd609-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/54e0bab2af5dc56dd609-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/optimized/54e0bab2af5dc56dd609-1080.webp"
+      }
+    ]
+  },
+  "/services/01-BIM-Training.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/4cf76a52bf3e47951413-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/4cf76a52bf3e47951413-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/4cf76a52bf3e47951413-800.webp"
+      }
+    ]
+  },
+  "/services/02-BIM-Coordination.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/d5e739f23276418dc61a-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/d5e739f23276418dc61a-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/d5e739f23276418dc61a-800.webp"
+      }
+    ]
+  },
+  "/services/03-Autocad-to-Revit.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/eb7f7d7465d2ec38c4e0-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/eb7f7d7465d2ec38c4e0-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/eb7f7d7465d2ec38c4e0-800.webp"
+      }
+    ]
+  },
+  "/services/04-Infrastructure.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/d2903a722ce7909cc4eb-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/d2903a722ce7909cc4eb-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/d2903a722ce7909cc4eb-800.webp"
+      }
+    ]
+  },
+  "/services/05-STR-ShopDrawing.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/3dbdf0485ae306d2bdba-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/3dbdf0485ae306d2bdba-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/3dbdf0485ae306d2bdba-800.webp"
+      }
+    ]
+  },
+  "/services/06-BOQ.jpg": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/e817795f0acd5b6a79f1-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/e817795f0acd5b6a79f1-640.webp"
+      },
+      {
+        "width": 800,
+        "src": "/optimized/e817795f0acd5b6a79f1-800.webp"
+      }
+    ]
+  },
+  "/training-courses/01-Dar-Wa-Emaar.jpg": {
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/45493c146af63bc16173-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/45493c146af63bc16173-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/45493c146af63bc16173-1280.webp"
+      }
+    ]
+  },
+  "/training-courses/02-SAR-Engineers.jpg": {
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/5f7221daee0e12836e91-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/5f7221daee0e12836e91-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/5f7221daee0e12836e91-1280.webp"
+      }
+    ]
+  },
+  "/training-courses/03-Gulf-Consult-Alkhobar.jpg": {
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/a631e7eba4814427d600-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/a631e7eba4814427d600-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/a631e7eba4814427d600-1280.webp"
+      }
+    ]
+  },
+  "/training-courses/04-IAEMS-Cairo.jpg": {
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/d44308caf2188bddea92-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/d44308caf2188bddea92-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/d44308caf2188bddea92-1280.webp"
+      }
+    ]
+  },
+  "/training-courses/05-Site-Training.jpg": {
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "width": 320,
+        "src": "/optimized/5ece572cbdcbb932ebc2-320.webp"
+      },
+      {
+        "width": 640,
+        "src": "/optimized/5ece572cbdcbb932ebc2-640.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/optimized/5ece572cbdcbb932ebc2-1280.webp"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // The build injects the same base path used by assets and BrowserRouter.
+      var base = __APP_BASE__;
+      var current = window.location;
+      current.replace(base + '?__spa=' + encodeURIComponent(
+        current.pathname + current.search + current.hash
+      ));
+    </script>
+  </head>
+  <body></body>
+</html>

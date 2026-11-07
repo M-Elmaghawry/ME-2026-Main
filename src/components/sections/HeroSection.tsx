@@ -1,6 +1,8 @@
+import { WHATSAPP_LINK } from '@/config/site';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useInView, type Easing } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { MessageCircle, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -73,6 +75,7 @@ const StatCard = ({ stat, index }: { stat: { value: string; label: string }; ind
 };
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { direction } = useLanguage();
   const Arrow = direction === 'rtl' ? ArrowLeft : ArrowRight;
@@ -168,8 +171,9 @@ const HeroSection = () => {
           <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }}
-          />
+          >
+            <Trans i18nKey="hero.subtitle" components={{ br: <br />, strong: <strong /> }} />
+          </motion.p>
 
           {/* CTAs */}
           <motion.div
@@ -180,7 +184,7 @@ const HeroSection = () => {
               variant="whatsapp"
               size="xl"
               className="group btn-hover-effect btn-hover-blue-white"
-              onClick={() => window.open('https://wa.me/201096189832', '_blank')}
+              onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
             >
               <MessageCircle className="w-5 h-5" />
               {t('hero.cta.whatsapp')}
@@ -190,7 +194,7 @@ const HeroSection = () => {
               variant="hero" 
               size="xl" 
               className="group btn-hover-effect btn-hover-blue-white"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => navigate('/contact')}
             >
               <Calendar className="w-5 h-5" />
               {t('hero.cta.consultation')}
@@ -200,7 +204,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               className="group btn-hover-effect btn-hover-blue-white"
-              onClick={() => window.location.href = '/services'}
+              onClick={() => navigate('/services')}
             >
               {t('hero.cta.services')}
               <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

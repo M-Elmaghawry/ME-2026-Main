@@ -1,11 +1,13 @@
+import { WHATSAPP_LINK } from '@/config/site';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, MessageCircle } from 'lucide-react';
+import { Menu, Globe, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { assetUrl } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -15,9 +17,17 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const closeOnDesktop = () => { if (desktop.matches) setIsOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -51,8 +61,8 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img
-              src={assetUrl('/Mahmoud Elmekawy Logo.png')}
+            <ResponsiveImage priority sizes="200px"
+              src={'/Mahmoud Elmekawy Logo.png'}
               alt="Mahmoud Elmekawy Logo"
               className="h-12 w-auto object-contain"
             />
@@ -64,6 +74,7 @@ const Header = () => {
               <Link
                 key={item.key}
                 to={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
                 className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-muted ${
                   isActive(item.href) 
                     ? 'text-foreground bg-muted' 
@@ -82,6 +93,7 @@ const Header = () => {
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
+              aria-label={language === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'}
               className="gap-2"
             >
               <Globe className="w-4 h-4" />
@@ -93,65 +105,35 @@ const Header = () => {
               variant="whatsapp"
               size="sm"
               className="hidden md:flex"
-              onClick={() => window.open('https://wa.me/201096189832', '_blank')}
+              aria-label={language === 'ar' ? 'تواصل عبر واتساب' : 'Contact via WhatsApp'}
+              onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
             >
               <MessageCircle className="w-4 h-4" />
               <span className="hidden lg:inline">{t('hero.cta.whatsapp')}</span>
             </Button>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="lg:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="lg:hidden" aria-label={language === 'ar' ? 'فتح قائمة التنقل' : 'Open navigation menu'}>
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side={language === 'ar' ? 'right' : 'left'} dir={language === 'ar' ? 'rtl' : 'ltr'}
+                closeLabel={language === 'ar' ? 'إغلاق القائمة' : 'Close menu'} aria-describedby={undefined} className="overflow-y-auto">
+                <SheetTitle>{language === 'ar' ? 'التنقل' : 'Navigation'}</SheetTitle>
+                <nav aria-label={language === 'ar' ? 'التنقل الرئيسي' : 'Main navigation'} className="flex flex-col gap-2 pt-6">
+                  {navItems.map((item) => <Link key={item.key} to={item.href} onClick={() => setIsOpen(false)}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                    className="px-4 py-4 rounded-lg hover:bg-muted focus-visible:outline focus-visible:outline-2">
+                    {t(`nav.${item.key}`)}
+                  </Link>)}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.nav
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden fixed inset-0 top-[60px] bg-background z-50 overflow-y-auto"
-            >
-              <div className="flex flex-col gap-2 p-4 pt-6">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.key}
-                    to={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`px-4 py-4 text-base font-medium transition-colors rounded-lg hover:bg-muted ${
-                      isActive(item.href) 
-                        ? 'text-foreground bg-muted' 
-                        : 'text-foreground/80 hover:text-foreground'
-                    }`}
-                  >
-                    {t(`nav.${item.key}`)}
-                  </Link>
-                ))}
-                <Button
-                  variant="whatsapp"
-                  className="mt-4"
-                  size="lg"
-                  onClick={() => {
-                    window.open('https://wa.me/201096189832', '_blank');
-                    setIsOpen(false);
-                  }}
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  {t('hero.cta.whatsapp')}
-                </Button>
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+
       </div>
     </motion.header>
   );

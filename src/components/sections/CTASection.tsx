@@ -57,7 +57,7 @@ const CTASection = () => {
               variant="whatsapp"
               size="xl"
               className="group"
-              onClick={() => window.open(WHATSAPP_LINK, '_blank')}
+              onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
             >
               <MessageCircle className="w-5 h-5" />
               {t('hero.cta.whatsapp')}

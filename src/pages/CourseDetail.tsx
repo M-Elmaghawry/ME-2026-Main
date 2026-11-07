@@ -1,3 +1,5 @@
+import { WHATSAPP_LINK, whatsappLink } from '@/config/site';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -5,9 +7,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { courses } from './Courses';
+import { courses } from '@/data/courses';
 import { testimonials } from '@/data/testimonials';
-import { assetUrl } from '@/lib/utils';
+import { coursePricing } from '@/data/coursePricing';
+import { currentPrice, formatPrice, remainingTime } from '@/lib/pricing';
 import {
   Accordion,
   AccordionContent,
@@ -26,54 +29,11 @@ import {
   ChevronRight,
   BookOpen,
   Video,
-  Infinity,
+  Infinity as InfinityIcon,
   ArrowRight,
 } from 'lucide-react';
 
-// ─── Countdown hook ────────────────────────────────────────────────────────────
-interface CountdownParts {
-  days: string;
-  hours: string;
-  minutes: string;
-}
-
-function useCountdown() {
-  const KEY = 'course-offer-end-weekly';
-  const getEnd = () => {
-    try {
-      const stored = sessionStorage.getItem(KEY);
-      if (stored) return parseInt(stored);
-    } catch { /* noop */ }
-    const end = Date.now() + 7 * 24 * 3600 * 1000;
-    try { sessionStorage.setItem(KEY, end.toString()); } catch { /* noop */ }
-    return end;
-  };
-
-  const calcRemaining = () => Math.max(0, Math.floor((getEnd() - Date.now()) / 1000));
-  const [remaining, setRemaining] = useState(calcRemaining);
-
-  useEffect(() => {
-    const id = setInterval(() => setRemaining(calcRemaining()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  const days = String(Math.floor(remaining / 86400)).padStart(2, '0');
-  const hours = String(Math.floor((remaining % 86400) / 3600)).padStart(2, '0');
-  const minutes = String(Math.floor((remaining % 3600) / 60)).padStart(2, '0');
-  return { days, hours, minutes };
-}
-
-function formatCountdown({ days, hours, minutes }: CountdownParts, isAr: boolean) {
-  return isAr
-    ? `${days} يوم : ${hours} ساعة : ${minutes} دقيقة`
-    : `${days}d : ${hours}h : ${minutes}m`;
-}
-
-// ─── Supplementary per-course data ────────────────────────────────────────────
 interface CourseExtras {
-  price: { ar: string; en: string };
-  originalPrice: { ar: string; en: string };
-  discountLabel: string;
   rating: number;
   ratingCount: number;
   studentsCount: number;
@@ -85,11 +45,7 @@ interface CourseExtras {
   faq: { ar: { q: string; a: string }[]; en: { q: string; a: string }[] };
 }
 
-const WORKSHOP_01_EXTRAS: CourseExtras = {
-    price: { ar: 'تواصل معنا', en: 'Contact Us' },
-    originalPrice: { ar: '', en: '' },
-    discountLabel: '',
-    rating: 4.8,
+const WORKSHOP_01_EXTRAS: CourseExtras = {    rating: 4.8,
     ratingCount: 300,
     studentsCount: 300,
     hoursContent: 8,
@@ -331,11 +287,7 @@ const COURSE_EXTRAS: Record<string, CourseExtras> = {
   'revit-structure-workshop-01': WORKSHOP_01_EXTRAS,
   'revit-structure-workshop-02': WORKSHOP_02_EXTRAS,
   'revit-structure-workshop-03': WORKSHOP_03_EXTRAS,
-  'revit-structure-professional-training': {
-    price: { ar: '99 دولار', en: '$99' },
-    originalPrice: { ar: '130 دولار', en: '$130' },
-    discountLabel: '24%',
-    rating: 4.9,
+  'revit-structure-professional-training': {    rating: 4.9,
     ratingCount: 1200,
     studentsCount: 1200,
     hoursContent: 60,
@@ -440,11 +392,7 @@ const COURSE_EXTRAS: Record<string, CourseExtras> = {
 };
 
 // Defaults for courses without specific extras data
-const DEFAULT_EXTRAS: CourseExtras = {
-  price: { ar: 'تواصل معنا', en: 'Contact Us' },
-  originalPrice: { ar: '', en: '' },
-  discountLabel: '',
-  rating: 4.8,
+const DEFAULT_EXTRAS: CourseExtras = {  rating: 4.8,
   ratingCount: 300,
   studentsCount: 300,
   hoursContent: 10,
@@ -479,7 +427,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       'وصول مدى الحياة لجميع المحتويات',
       'تطبيق عملي على مشروعات واقعية',
       'شهادة إتمام بعد استيفاء متطلبات الكورس',
-      'الانضمام إلى جروب المتابعة والدعم',
+      'الانضمام إلى جروب المتابعة والدعم على Facebook',
       'إمكانية التواصل مباشرةً مع المحاضر عبر WhatsApp',
     ],
     en: [
@@ -487,7 +435,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       'Lifetime access to all content',
       'Hands-on practice on real-world projects',
       'Course completion certificate after meeting the course requirements',
-      'Access to the course support and follow-up group',
+      'Access to the course support and follow-up group on Facebook',
       'Direct contact with the instructor via WhatsApp',
     ],
   },
@@ -499,7 +447,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       },
       {
         q: 'كيف أتواصل مع المدرب؟',
-        a: 'يتم إضافتك إلى مجموعة Telegram خاصة للتواصل والدعم.',
+        a: 'يتم إضافتك إلى جروب الدعم والمتابعة على Facebook للتواصل والدعم.',
       },
     ],
     en: [
@@ -509,7 +457,7 @@ const DEFAULT_EXTRAS: CourseExtras = {
       },
       {
         q: 'How can I contact the instructor?',
-        a: 'You will be added to a private Telegram group for communication and support.',
+        a: 'You will be added to the course support and follow-up group on Facebook for communication and support.',
       },
     ],
   },
@@ -534,7 +482,7 @@ const INSTRUCTOR = {
 };
 
 // ─── Included icons order ──────────────────────────────────────────────────────
-const INCLUDED_ICONS = [Video, Infinity, BookOpen, Award, MessageCircle, Shield];
+const INCLUDED_ICONS = [Video, InfinityIcon, BookOpen, Award, MessageCircle, Shield];
 
 // ─── Star rating helper ────────────────────────────────────────────────────────
 const StarRating = ({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'md' }) => (
@@ -559,7 +507,8 @@ interface EnrollmentCardProps {
   price: string;
   originalPrice: string;
   discountLabel: string;
-  countdown: CountdownParts;
+  offerEndsAt: string | null;
+  now: number;
   included: string[];
   isAr: boolean;
   courseLink: string;
@@ -573,7 +522,8 @@ const EnrollmentCard = ({
   price,
   originalPrice,
   discountLabel,
-  countdown,
+  offerEndsAt,
+  now,
   included,
   isAr,
   courseLink,
@@ -588,8 +538,8 @@ const EnrollmentCard = ({
       aria-label={isAr ? 'معاينة الكورس' : 'Preview course'}
       className="relative block w-full aspect-video cursor-pointer group overflow-hidden text-start"
     >
-      <img
-        src={assetUrl(courseImage)}
+      <ResponsiveImage sizes="(min-width: 1024px) 380px, 100vw"
+        src={courseImage}
         alt={courseTitle}
         className="w-full h-full object-cover"
       />
@@ -618,14 +568,18 @@ const EnrollmentCard = ({
         )}
       </div>
 
-      {/* Countdown */}
-      {!isFreeCourse && (
+      {/* Scheduled offer */}
+      {offerEndsAt && (
         <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 rounded-xl p-3 text-center">
           <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 mb-1">
             {isAr ? '⏰ ينتهي العرض خلال' : '⏰ Offer ends in'}
           </p>
           <p className="text-2xl font-mono font-extrabold text-amber-600 dark:text-amber-400 tracking-widest">
-            {formatCountdown(countdown, isAr)}
+            {remainingTime(offerEndsAt!, now, isAr ? 'ar' : 'en')}
+          </p>
+          <p className="text-xs text-amber-700 dark:text-amber-400 mt-2">
+            <time dateTime={offerEndsAt}>{new Intl.DateTimeFormat(isAr ? 'ar-EG' : 'en-GB', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Riyadh' }).format(new Date(offerEndsAt))}</time>
+            {isAr ? ' — توقيت الرياض' : ' — Riyadh time'}
           </p>
         </div>
       )}
@@ -640,7 +594,7 @@ const EnrollmentCard = ({
 
       {/* WhatsApp consultation */}
       <button
-        onClick={() => window.open('https://wa.me/201096189832', '_blank', 'noopener,noreferrer')}
+        onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
         className="w-full flex items-center justify-center gap-2 border-2 border-green-500 text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 font-semibold py-3 rounded-xl transition-colors text-sm"
       >
         <MessageCircle className="w-4 h-4" />
@@ -681,7 +635,18 @@ const EnrollmentCard = ({
 const CourseDetail = () => {
   const { id } = useParams<{ id: string }>();
   const { language, direction } = useLanguage();
-  const countdown = useCountdown();
+  const [now, setNow] = useState(Date.now);
+  const offerEnd = id ? coursePricing[id]?.offer?.endsAt : undefined;
+  useEffect(() => {
+    setNow(Date.now());
+    if (!offerEnd || !Number.isFinite(Date.parse(offerEnd)) || Date.parse(offerEnd) <= Date.now()) return;
+    const timer = setInterval(() => {
+      const time = Date.now();
+      setNow(time);
+      if (time >= Date.parse(offerEnd)) clearInterval(timer);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [offerEnd]);
   const isAr = language === 'ar';
 
   const course = courses.find((c) => c.id === id);
@@ -711,8 +676,10 @@ const CourseDetail = () => {
   const description   = isAr ? course.description.ar  : course.description.en;
   const level         = isAr ? course.level.ar         : course.level.en;
   const duration      = isAr ? course.duration.ar      : course.duration.en;
-  const price         = isFreeCourse ? (isAr ? 'مجاني' : 'Free') : (isAr ? extras.price.ar : extras.price.en);
-  const originalPrice = isFreeCourse ? '' : (isAr ? extras.originalPrice.ar : extras.originalPrice.en);
+  const pricingConfig = coursePricing[course.id] ?? { officialPrice: null, currency: 'USD' };
+  const pricing = currentPrice(pricingConfig, now);
+  const price = formatPrice(pricing.price, pricingConfig.currency, language);
+  const originalPrice = pricing.originalPrice === null ? '' : formatPrice(pricing.originalPrice, pricingConfig.currency, language);
   const outcomes      = isAr ? extras.learningOutcomes.ar : extras.learningOutcomes.en;
   const requirements  = isAr ? extras.requirements.ar  : extras.requirements.en;
   const included      = (isAr ? extras.whatIsIncluded.ar : extras.whatIsIncluded.en)
@@ -724,9 +691,9 @@ const CourseDetail = () => {
 
   const whatsappUrl = isFreeCourse
     ? course.udemyLink
-    : `https://wa.me/201096189832?text=${encodeURIComponent(
+    : whatsappLink(
         isAr ? `أريد التسجيل في كورس: ${title}` : `I want to enroll in: ${title}`
-      )}`;
+      );
 
   const courseTestimonials = testimonials.slice(0, 4);
 
@@ -1088,8 +1055,9 @@ const CourseDetail = () => {
                     courseTitle={title}
                     price={price}
                     originalPrice={originalPrice}
-                    discountLabel={extras.discountLabel}
-                    countdown={countdown}
+                    discountLabel={pricing.discount === null ? '' : `${pricing.discount}%`}
+                    offerEndsAt={pricing.endsAt}
+                    now={now}
                     included={included}
                     isAr={isAr}
                     courseLink={course.udemyLink}
@@ -1145,14 +1113,13 @@ const CourseDetail = () => {
                 onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
                 className="bg-amber-500 hover:bg-amber-400 text-white font-extrabold px-10 py-4 rounded-xl text-lg transition-colors shadow-lg inline-flex items-center gap-2"
               >
-                {isFreeCourse ? (isAr ? 'ابدأ الآن مجانًا' : 'Start for Free') : (isAr ? `سجل من ${price} فقط` : `Enroll for ${price} only`)}
+                {isFreeCourse ? (isAr ? 'ابدأ الآن مجانًا' : 'Start for Free') : pricing.price === null ? (isAr ? 'تواصل لمعرفة السعر' : 'Contact for pricing') : (isAr ? `سجل بسعر ${price}` : `Enroll for ${price}`)}
                 <ArrowRight className="w-5 h-5 rtl:rotate-180" />
               </button>
-              {!isFreeCourse && (
+              {pricing.endsAt && (
                 <p className="text-white/50 text-sm mt-4">
-                  ⏰{' '}
                   {isAr ? 'ينتهي العرض خلال ' : 'Offer ends in '}
-                  <span className="font-mono font-bold text-white/70">{formatCountdown(countdown, isAr)}</span>
+                  {remainingTime(pricing.endsAt, now, language)}
                 </p>
               )}
             </motion.div>

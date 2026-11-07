@@ -1,4 +1,4 @@
-import { Layers, Search, GraduationCap, Route, ReceiptText, FolderKanban } from 'lucide-react';
+import { Layers, Search, GraduationCap, Route, ReceiptText, FolderKanban, type LucideIcon } from 'lucide-react';
 
 export interface BilingualText {
   ar: string;
@@ -12,7 +12,7 @@ export interface ProcessStep {
 
 export interface Service {
   id: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
   title: BilingualText;
   description: BilingualText;
   fullDescription: BilingualText;
@@ -21,10 +21,7 @@ export interface Service {
   process: ProcessStep[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type IconComponent = any;
-
-export const services: (Omit<Service, 'icon'> & { icon: IconComponent })[] = [
+export const services: Service[] = [
   {
     id: 'bim-training',
     icon: GraduationCap,

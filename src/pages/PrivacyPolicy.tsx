@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
   const sections = language === 'ar' ? [
     {
       title: 'جمع المعلومات',
-      content: 'نقوم بجمع المعلومات التي تقدمها لنا مباشرة عند استخدام خدماتنا، بما في ذلك الاسم والبريد الإلكتروني ورقم الهاتف عند التواصل معنا أو التسجيل في دوراتنا التدريبية.'
+      content: 'يرسل نموذج التواصل اسمك وبريدك الإلكتروني ورسالتك، ورقم الهاتف والشركة والخدمة إن أضفتها، عبر EmailJS للرد على طلبك. حقول الهاتف والشركة والخدمة اختيارية.'
     },
     {
       title: 'استخدام المعلومات',
@@ -25,11 +25,11 @@ const PrivacyPolicy = () => {
     },
     {
       title: 'مشاركة المعلومات',
-      content: 'لا نبيع أو نؤجر معلوماتك الشخصية لأطراف ثالثة. قد نشارك معلوماتك فقط مع مقدمي الخدمات الموثوقين الذين يساعدوننا في تشغيل موقعنا وتقديم خدماتنا.'
+      content: 'تُعالج بيانات نموذج التواصل عبر EmailJS ومزوّد البريد المرتبط به. تُحمّل خرائط Google في صفحة التواصل والخطوط من Google Fonts، وقد تتلقى هذه الخدمات معلومات المتصفح والاتصال. عند تفعيل reCAPTCHA، يُستخدم تحقق Google لمكافحة الرسائل الآلية. تنقلك روابط واتساب ومنصات الدورات إلى خدمات خارجية بسياساتها الخاصة.'
     },
     {
-      title: 'ملفات تعريف الارتباط',
-      content: 'نستخدم ملفات تعريف الارتباط لتحسين تجربتك على موقعنا. يمكنك التحكم في إعدادات ملفات تعريف الارتباط من خلال متصفحك.'
+      title: 'التخزين في المتصفح',
+      content: 'نحفظ اختيار اللغة وتوقيت آخر محاولة إرسال في التخزين المحلي للمتصفح. لا يُحفظ نص رسالتك أو بريدك في هذا التخزين. قد تستخدم خدمات Google المضمّنة تقنيات تخزين خاصة بها؛ ويمكن التحكم في التخزين من إعدادات المتصفح.'
     },
     {
       title: 'حقوقك',
@@ -42,7 +42,7 @@ const PrivacyPolicy = () => {
   ] : [
     {
       title: 'Information Collection',
-      content: 'We collect information you provide directly to us when using our services, including name, email, and phone number when contacting us or registering for our training courses.'
+      content: 'The contact form sends your name, email, and message, plus phone, company, and service if provided, through EmailJS so we can respond. Phone, company, and service are optional.'
     },
     {
       title: 'Use of Information',
@@ -54,11 +54,11 @@ const PrivacyPolicy = () => {
     },
     {
       title: 'Information Sharing',
-      content: 'We do not sell or rent your personal information to third parties. We may only share your information with trusted service providers who help us operate our website and deliver our services.'
+      content: 'Contact data is processed through EmailJS and its connected email provider. The contact page loads Google Maps, and fonts load from Google Fonts; these services may receive browser and connection information. When enabled, Google reCAPTCHA verifies submissions to reduce spam. WhatsApp and course links take you to external services governed by their own policies.'
     },
     {
-      title: 'Cookies',
-      content: 'We use cookies to improve your experience on our website. You can control cookie settings through your browser.'
+      title: 'Browser Storage',
+      content: 'We store your language preference and the last send-attempt timestamp in browser local storage. Your message and email address are not saved in that storage. Embedded Google services may use their own storage technologies. You can manage storage through browser settings.'
     },
     {
       title: 'Your Rights',

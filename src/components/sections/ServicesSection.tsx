@@ -3,26 +3,10 @@ import { services } from '@/data/services';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
-import { 
-  Building2, 
-  Layers, 
-  Search, 
-  GraduationCap,
-  ArrowLeft,
-  ArrowRight
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
-
-interface Service {
-  id: string;
-  icon: React.ElementType;
-  titleKey: string;
-  descriptionKey: string;
-}
-
-
 
 const ServicesSection = () => {
   const { t } = useTranslation();
