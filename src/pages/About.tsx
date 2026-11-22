@@ -22,7 +22,6 @@ const About = () => {
   const [currentCertImage, setCurrentCertImage] = useState(0);
   const [currentTrainingImage, setCurrentTrainingImage] = useState(0);
   const [currentProjectImage, setCurrentProjectImage] = useState(0);
-  const [slidesPaused, setSlidesPaused] = useState(false);
   const reducedMotion = useReducedMotion();
 
   const trainingPrograms = [
@@ -105,39 +104,39 @@ const About = () => {
 
   // Auto-rotate testimonials every 5 seconds
   useEffect(() => {
-    if (slidesPaused || reducedMotion) return;
+    if (reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [slidesPaused, reducedMotion]);
+  }, [reducedMotion]);
 
   // Auto-rotate certificate images every 4 seconds
   useEffect(() => {
-    if (slidesPaused || reducedMotion) return;
+    if (reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentCertImage((prev) => (prev + 1) % certifications.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [slidesPaused, reducedMotion, certifications.length]);
+  }, [reducedMotion, certifications.length]);
 
   // Auto-rotate training images every 3 seconds
   useEffect(() => {
-    if (slidesPaused || reducedMotion) return;
+    if (reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentTrainingImage((prev) => (prev + 1) % trainingPrograms.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [slidesPaused, reducedMotion, trainingPrograms.length]);
+  }, [reducedMotion, trainingPrograms.length]);
 
   // Auto-rotate project images every 3 seconds
   useEffect(() => {
-    if (slidesPaused || reducedMotion) return;
+    if (reducedMotion) return;
     const interval = setInterval(() => {
       setCurrentProjectImage((prev) => (prev + 1) % projects.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [slidesPaused, reducedMotion]);
+  }, [reducedMotion]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -175,9 +174,6 @@ const About = () => {
           </div>
 
           <div className="section-container relative z-10">
-            {!reducedMotion && <button type="button" aria-pressed={slidesPaused} onClick={() => setSlidesPaused((paused) => !paused)} className="mb-4 rounded-md border border-border bg-background px-3 py-2 text-sm">
-              {slidesPaused ? (language === 'ar' ? 'تشغيل تبديل الصور تلقائيًا' : 'Resume slideshows') : (language === 'ar' ? 'إيقاف تبديل الصور تلقائيًا' : 'Pause slideshows')}
-            </button>}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
