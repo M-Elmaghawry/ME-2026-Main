@@ -1,4 +1,4 @@
-import { WHATSAPP_LINK, whatsappLink } from '@/config/site';
+import { whatsappLink } from '@/config/site';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
@@ -512,7 +512,7 @@ interface EnrollmentCardProps {
   included: string[];
   isAr: boolean;
   courseLink: string;
-  whatsappUrl: string;
+  consultationUrl: string;
   isFreeCourse: boolean;
 }
 
@@ -527,7 +527,7 @@ const EnrollmentCard = ({
   included,
   isAr,
   courseLink,
-  whatsappUrl,
+  consultationUrl,
   isFreeCourse,
 }: EnrollmentCardProps) => (
   <div className="bg-white dark:bg-card rounded-2xl shadow-2xl overflow-hidden text-foreground border border-border/40">
@@ -586,7 +586,7 @@ const EnrollmentCard = ({
 
       {/* Enroll button */}
       <button
-        onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
+        onClick={() => window.open(courseLink, '_blank', 'noopener,noreferrer')}
         className="w-full bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl text-lg transition-colors shadow-md"
       >
         {isFreeCourse ? (isAr ? 'ابدأ الآن مجانًا' : 'Start for Free') : (isAr ? 'سجل الآن فوراً' : 'Enroll Now Instantly')}
@@ -594,7 +594,7 @@ const EnrollmentCard = ({
 
       {/* WhatsApp consultation */}
       <button
-        onClick={() => window.open(WHATSAPP_LINK, '_blank', 'noopener,noreferrer')}
+        onClick={() => window.open(consultationUrl, '_blank', 'noopener,noreferrer')}
         className="w-full flex items-center justify-center gap-2 border-2 border-green-500 text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 font-semibold py-3 rounded-xl transition-colors text-sm"
       >
         <MessageCircle className="w-4 h-4" />
@@ -689,11 +689,9 @@ const CourseDetail = () => {
   const instructorTitle = isAr ? INSTRUCTOR.title.ar   : INSTRUCTOR.title.en;
   const instructorBio   = isAr ? INSTRUCTOR.bio.ar     : INSTRUCTOR.bio.en;
 
-  const whatsappUrl = isFreeCourse
-    ? course.udemyLink
-    : whatsappLink(
-        isAr ? `أريد التسجيل في كورس: ${title}` : `I want to enroll in: ${title}`
-      );
+  const consultationUrl = whatsappLink(
+    isAr ? `محتاج استشارة بخصوص ${title}` : `I need a consultation about ${title}`
+  );
 
   const courseTestimonials = testimonials.slice(0, 4);
 
@@ -1061,7 +1059,7 @@ const CourseDetail = () => {
                     included={included}
                     isAr={isAr}
                     courseLink={course.udemyLink}
-                    whatsappUrl={whatsappUrl}
+                    consultationUrl={consultationUrl}
                     isFreeCourse={isFreeCourse}
                   />
                 </div>
@@ -1081,7 +1079,7 @@ const CourseDetail = () => {
               )}
             </div>
             <button
-              onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
+              onClick={() => window.open(course.udemyLink, '_blank', 'noopener,noreferrer')}
               className="bg-amber-500 hover:bg-amber-400 text-white font-extrabold px-6 py-3 rounded-xl transition-colors text-sm flex-shrink-0"
             >
               {isFreeCourse ? (isAr ? 'ابدأ مجانًا' : 'Start for Free') : (isAr ? 'سجل الآن' : 'Enroll Now')}
@@ -1110,7 +1108,7 @@ const CourseDetail = () => {
                   : `Join over ${extras.studentsCount.toLocaleString()} engineers from our academy`}
               </p>
               <button
-                onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
+                onClick={() => window.open(course.udemyLink, '_blank', 'noopener,noreferrer')}
                 className="bg-amber-500 hover:bg-amber-400 text-white font-extrabold px-10 py-4 rounded-xl text-lg transition-colors shadow-lg inline-flex items-center gap-2"
               >
                 {isFreeCourse ? (isAr ? 'ابدأ الآن مجانًا' : 'Start for Free') : pricing.price === null ? (isAr ? 'تواصل لمعرفة السعر' : 'Contact for pricing') : (isAr ? `سجل بسعر ${price}` : `Enroll for ${price}`)}

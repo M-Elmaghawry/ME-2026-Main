@@ -95,7 +95,7 @@ export const courses: Course[] = [
     level: { ar: 'مبتدئ', en: 'Beginner' },
     duration: { ar: '60 ساعة', en: '60 Hours' },
     image: '/courses/Revit Structure Professional Training.webp',
-    udemyLink: 'https://www.behance.net/gallery/187155589/_',
+    udemyLink: 'https://www.udemy.com/course/revitbim/?referralCode=2D0ABA89375E28494AFC',
     syllabus: [
       {
         ar: 'المرحلة الأولى: النمذجة (Modeling)',
@@ -185,7 +185,7 @@ export const courses: Course[] = [
     level: { ar: 'متوسط', en: 'Intermediate' },
     duration: { ar: '8 ساعات', en: '8 Hours' },
     image: '/courses/Revit Structure Workshop - 01.webp',
-    udemyLink: 'https://www.behance.net/gallery/197545865/_',
+    udemyLink: 'https://www.udemy.com/course/revitstrworkshop/?referralCode=9ED7685D5376AEA54861',
     syllabus: [
       {
         ar: 'تخطيط المشروع وأفضل ممارسات النمذجة',
@@ -259,7 +259,7 @@ export const courses: Course[] = [
     level: { ar: 'متوسط', en: 'Intermediate' },
     duration: { ar: '10 ساعة', en: '10 Hours' },
     image: '/courses/Revit Structure Workshop - 02.webp',
-    udemyLink: 'https://www.behance.net/gallery/186142533/_',
+    udemyLink: 'https://www.udemy.com/course/revitworkshop2/?referralCode=9A9CE0E00F07EB1838C9',
     syllabus: [
       {
         ar: 'تخطيط المشروع وأفضل ممارسات النمذجة',
@@ -333,7 +333,7 @@ export const courses: Course[] = [
     level: { ar: 'متقدم', en: 'Advanced' },
     duration: { ar: '12 ساعة', en: '12 Hours' },
     image: '/courses/Revit Structure Workshop - 03.webp',
-    udemyLink: 'https://www.behance.net/gallery/186280023/_',
+    udemyLink: 'https://www.udemy.com/course/rvtworkshop3/?referralCode=DAED579B525EFD286370',
     syllabus: [
       {
         ar: 'تخطيط المشروع وأفضل ممارسات النمذجة',
