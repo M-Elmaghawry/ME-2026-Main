@@ -5,6 +5,7 @@ import { createServer } from 'vite';
 const server = await createServer({ configFile: false, optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true, hmr: false }, appType: 'custom' });
 after(() => server.close());
 const { preferredLanguage } = await server.ssrLoadModule('/src/lib/language.ts');
+const { browserLanguage } = await server.ssrLoadModule('/src/lib/browserLanguage.ts');
 const { contactSchema, hasEmailConfiguration, normalizePhone, internationalPhone, emailStorage } = await server.ssrLoadModule('/src/lib/contact.ts');
 const { currentPrice, formatPrice } = await server.ssrLoadModule('/src/lib/pricing.ts');
 const { coursePricing } = await server.ssrLoadModule('/src/data/coursePricing.ts');
@@ -12,12 +13,33 @@ const { pageMetadata, seoPaths, metadataHtml, normalizeSiteUrl } = await server.
 const { clients } = await server.ssrLoadModule('/src/data/clients.ts');
 const { whatsappLink } = await server.ssrLoadModule('/src/config/site.ts');
 
-test('explicit language wins over saved preference; disabled storage falls back safely', () => {
-  assert.equal(preferredLanguage('?lang=ar', { getItem: () => 'en' }), 'ar');
-  assert.equal(preferredLanguage('?lang=en', { getItem: () => 'ar' }), 'en');
-  assert.equal(preferredLanguage('?lang=invalid', { getItem: () => 'ar' }), 'ar');
-  assert.equal(preferredLanguage('', { getItem: () => { throw new Error('Storage denied'); } }), 'en');
+test('new visits default to Arabic while explicit language links remain supported', () => {
+  assert.equal(preferredLanguage(''), 'ar');
+  assert.equal(preferredLanguage('?lang=ar'), 'ar');
+  assert.equal(preferredLanguage('?lang=en'), 'en');
+  assert.equal(preferredLanguage('?lang=invalid'), 'ar');
   assert.equal(preferredLanguage('?lang=ar&message=hello'), 'ar');
+  assert.equal(preferredLanguage('?message=hello'), 'ar');
+});
+
+test('browser startup ignores previously saved English and works without browser storage', () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'window');
+  try {
+    Object.defineProperty(globalThis, 'window', { configurable: true, value: {
+      location: { search: '' }, localStorage: { getItem: () => 'en' },
+    } });
+    assert.equal(browserLanguage(), 'ar');
+    globalThis.window.location.search = '?lang=en';
+    assert.equal(browserLanguage(), 'en');
+    Object.defineProperty(globalThis.window, 'localStorage', { get() { throw new Error('Storage denied'); } });
+    globalThis.window.location.search = '';
+    assert.equal(browserLanguage(), 'ar');
+    delete globalThis.window;
+    assert.equal(browserLanguage(), 'ar');
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'window', original);
+    else delete globalThis.window;
+  }
 });
 
 test('shared client logos exist and WhatsApp messages retain Arabic and special characters', async () => {

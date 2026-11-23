@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { isLanguage, LANGUAGE_STORAGE_KEY, type Language } from '@/lib/language';
+import { isLanguage, type Language } from '@/lib/language';
 import { browserLanguage } from '@/lib/browserLanguage';
 
 interface LanguageContextType {
@@ -27,7 +27,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     void i18n.changeLanguage(activeLanguage);
     document.documentElement.lang = activeLanguage;
     document.documentElement.dir = direction;
-    try { localStorage.setItem(LANGUAGE_STORAGE_KEY, activeLanguage); } catch { /* optional persistence */ }
   }, [activeLanguage, direction, i18n]);
 
   const setLanguage = useCallback((lang: Language) => {

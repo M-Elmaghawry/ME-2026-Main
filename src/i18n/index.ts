@@ -156,7 +156,7 @@ i18n
   .init({
     resources,
     lng: browserLanguage(),
-    fallbackLng: 'en',
+    fallbackLng: 'ar',
     interpolation: {
       escapeValue: false,
     },
