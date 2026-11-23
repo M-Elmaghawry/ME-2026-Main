@@ -19,7 +19,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
   let siteUrl = normalizeSiteUrl(env.VITE_SITE_URL || new URL(basePath, DEFAULT_SITE_URL).href);
   const withMetadata = (html: string, route: string) => html.replace(
     /<!-- PAGE_SEO_START -->[\s\S]*?<!-- PAGE_SEO_END -->/,
-    `<!-- PAGE_SEO_START -->\n${metadataHtml(pageMetadata(route, 'en', siteUrl))}\n<!-- PAGE_SEO_END -->`,
+    `<!-- PAGE_SEO_START -->\n${metadataHtml(pageMetadata(route, 'ar', siteUrl))}\n<!-- PAGE_SEO_END -->`,
   );
 
   return {

@@ -1,8 +1,8 @@
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useCallback, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { isLanguage, type Language } from '@/lib/language';
-import { browserLanguage } from '@/lib/browserLanguage';
+import { preferredLanguage, type Language } from '@/lib/language';
+import { localizedDestination } from '@/lib/navigation';
 
 interface LanguageContextType {
   language: Language;
@@ -17,24 +17,18 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const { i18n } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const [language, setLanguageState] = useState<Language>(browserLanguage);
-  const requested = new URLSearchParams(location.search).get('lang');
-  const activeLanguage = isLanguage(requested) ? requested : language;
+  const activeLanguage = preferredLanguage(location.search);
   const direction = activeLanguage === 'ar' ? 'rtl' : 'ltr';
 
   useEffect(() => {
-    setLanguageState(activeLanguage);
     void i18n.changeLanguage(activeLanguage);
     document.documentElement.lang = activeLanguage;
     document.documentElement.dir = direction;
   }, [activeLanguage, direction, i18n]);
 
   const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
-    const search = new URLSearchParams(location.search);
-    search.set('lang', lang);
-    navigate({ pathname: location.pathname, search: `?${search}`, hash: location.hash }, { replace: true, state: location.state });
-  }, [location.pathname, location.search, location.hash, location.state, navigate]);
+    navigate(localizedDestination(location, location, lang), { state: location.state });
+  }, [location, navigate]);
 
   return (
     <LanguageContext.Provider value={{

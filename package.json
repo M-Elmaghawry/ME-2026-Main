@@ -14,9 +14,13 @@
     "test:routing": "node --test tests/routing.test.mjs",
     "test:p1": "node --test tests/p1.test.mjs",
     "test:images": "node --test tests/images.test.mjs",
-    "test": "npm run test:p1 && npm run test:images && npm run test:routing",
+    "test:seo": "node --test tests/seo-language.test.mjs tests/navigation-language.test.mjs",
+    "test": "npm run test:p1 && npm run test:images && npm run test:routing && npm run test:seo",
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck:poc": "tsc --noEmit -p experiments/bilingual-ssr/tsconfig.json",
+    "build:ssr-poc": "node scripts/build-ssr-poc.mjs",
+    "test:ssr-poc": "node scripts/test-ssr-poc.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -84,6 +88,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
+    "jsdom": "^31.0.1",
+    "playwright-core": "^1.65.1",
     "postcss": "^8.5.6",
     "sharp": "^0.35.5",
     "tailwindcss": "^3.4.17",

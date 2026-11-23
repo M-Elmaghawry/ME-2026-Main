@@ -1,5 +1,5 @@
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/LanguageLink';
 import { Trans, useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CONTACT_EMAIL, CONTACT_LOCATION, CONTACT_PHONE_DISPLAY, WHATSAPP_LINK } from '@/config/site';

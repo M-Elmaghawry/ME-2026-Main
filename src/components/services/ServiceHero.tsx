@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/LanguageLink';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Check, MessageCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';

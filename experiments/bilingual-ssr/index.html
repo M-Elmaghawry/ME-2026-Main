@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head data-poc-page="__POC_PAGE__">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="%BASE_URL%favicon.png?v=2" />
+    <!--POC_HEAD-->
+    <style>.poc-static-stat { display: none; }
+      @media (prefers-reduced-motion: reduce) {
+        #root [style*="opacity:0"] { opacity: 1 !important; }
+        #root header[style*="transform:"] { transform: none !important; }
+      }
+    </style>
+    <noscript><style>
+      #root [style*="opacity:0"] { opacity: 1 !important; }
+      #root [style*="transform:"] { transform: none !important; }
+      #root .poc-animated-stat { visibility: hidden !important; }
+      #root .poc-static-stat { display: inline !important; position: absolute; inset: 0; }
+    </style></noscript>
+  </head>
+  <body>
+    <div id="root"><!--POC_BODY--></div>
+    <script id="poc-state" type="application/json">__POC_STATE__</script>
+    <script>
+      window.__POC_EVIDENCE__ = {
+        hydrated: false, recoverableErrors: [],
+        initialMain: document.querySelector('main'),
+        initialH1: document.querySelector('h1'),
+        initialIds: Array.from(document.querySelectorAll('#root [id]'), element => element.id),
+        layoutShifts: []
+      };
+      if ('PerformanceObserver' in window) {
+        new PerformanceObserver(list => {
+          for (const entry of list.getEntries()) window.__POC_EVIDENCE__.layoutShifts.push({value: entry.value, time: entry.startTime, recentInput: entry.hadRecentInput});
+        }).observe({type: 'layout-shift', buffered: true});
+      }
+    </script>
+    <script type="module" src="/entry-client.tsx"></script>
+  </body>
+</html>

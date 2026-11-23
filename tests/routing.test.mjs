@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import { runInNewContext } from 'node:vm';
 import { build } from 'vite';
 import { gzipSync } from 'node:zlib';
+import { JSDOM } from 'jsdom';
 
 const origin = 'https://example.com';
 const inlineScripts = (html) => [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)]
@@ -55,12 +56,40 @@ for (const base of ['/', '/ME-2026-Main/']) {
     assert.ok(index.includes(`src="${base}assets/`), 'entry assets must use the deployment base');
     assert.ok(!index.includes('%BASE_URL%'), 'base placeholders must be replaced');
     const sitemap = html('sitemap.xml');
-    for (const [route, expected] of [['contact', 'Contact Us'], ['courses/bim-fundamentals', 'BIM Fundamentals'], ['portfolio/1', 'NEOM Shigri']]) {
+    const indexableHtml = outputs.filter(item => item.type === 'asset' && (item.fileName === 'index.html' || item.fileName.endsWith('/index.html')));
+    assert.equal(indexableHtml.length, 26, 'all indexable pages must receive their own initial metadata');
+    for (const output of indexableHtml) {
+      const dom = new JSDOM(String(output.source));
+      const doc = dom.window.document;
+      const route = output.fileName === 'index.html' ? '' : output.fileName.replace(/index\.html$/, '');
+      const canonical = doc.querySelector('link[rel="canonical"]').href;
+      assert.equal(new URL(canonical).pathname, `${base}${route}`);
+      assert.equal(new URL(canonical).search, '');
+      assert.equal(doc.documentElement.lang, 'ar');
+      assert.equal(doc.documentElement.dir, 'rtl');
+      assert.match(doc.title, /[\u0600-\u06ff]/);
+      assert.match(doc.querySelector('meta[name="description"]').content, /[\u0600-\u06ff]/);
+      assert.equal(doc.querySelector('meta[property="og:locale"]').content, 'ar_EG');
+      assert.equal(doc.querySelectorAll('title').length, 1);
+      assert.equal(doc.querySelectorAll('meta[name="description"]').length, 1);
+      assert.equal(doc.querySelectorAll('link[rel="canonical"]').length, 1);
+      assert.equal(doc.querySelectorAll('link[hreflang]').length, 3);
+      assert.equal(doc.querySelector('link[hreflang="ar"]').href, canonical);
+      assert.equal(doc.querySelector('link[hreflang="en"]').href, `${canonical}?lang=en`);
+      assert.equal(doc.querySelector('link[hreflang="x-default"]').href, canonical);
+      assert.ok(sitemap.includes(`<loc>${canonical}</loc>`));
+      assert.ok(sitemap.includes(`<loc>${canonical}?lang=en</loc>`));
+      dom.window.close();
+    }
+    for (const [route, expected] of [['contact', 'تواصل معنا'], ['courses/bim-fundamentals', 'أساسيات BIM'], ['portfolio/1', 'مشروع طرق وعبارات']]) {
       const detail = html(`${route}/index.html`);
       assert.ok(detail.includes(expected), `${route} must have its own metadata before JavaScript runs`);
       assert.ok(detail.includes(`src="${base}assets/`));
       assert.ok(sitemap.includes(`${base}${route}`), `${route} must appear in the sitemap`);
       assert.equal((detail.match(/rel="canonical"/g) || []).length, 1);
+      assert.ok(detail.includes('<html lang="ar" dir="rtl">'));
+      assert.ok(detail.includes('property="og:locale" content="ar_EG"'));
+      assert.ok(detail.includes(`${base}${route}/`), 'SEO URLs must use the final trailing-slash path');
     }
 
     const restoreRoute = (search) => {
@@ -77,6 +106,9 @@ for (const base of ['/', '/ME-2026-Main/']) {
       'contact', 'thank-you', 'privacy-policy', 'terms', 'unknown-page',
       'contact?lang=ar&message=a%26b%3Dc#form',
       'courses?next=%2Fcontact&literal=~and~#details',
+      'services/bim-training/?lang=en&ref=guide#benefits',
+      'courses/bim-fundamentals/?lang=ar#content',
+      'portfolio/1/?lang=en#gallery',
     ]) {
       const location = new URL(`${base}${route}`, origin);
       let destination;

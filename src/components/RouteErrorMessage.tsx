@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/LanguageLink';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function RouteErrorMessage() {

@@ -1,6 +1,7 @@
 import { WHATSAPP_LINK } from '@/config/site';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link } from '@/components/LanguageLink';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/layout/Header';

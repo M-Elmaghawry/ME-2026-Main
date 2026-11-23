@@ -3,6 +3,8 @@ import { courses } from '../data/courses';
 import { projects } from '../data/projects';
 import { CONTACT_EMAIL, CONTACT_LOCATION, CONTACT_PHONE } from '../config/site';
 import type { Language } from './language';
+import { localizedUrl, normalizeSiteUrl } from './urls';
+export { localizedUrl, normalizeSiteUrl } from './urls';
 
 export const DEFAULT_SITE_URL = 'https://elmekawy-bim.com/';
 const brand = { ar: 'محمود المكاوي | BIM', en: 'Mahmoud Elmekawy | BIM' };
@@ -21,20 +23,6 @@ export const seoPaths = [
   ...Object.keys(pages), ...services.map((item) => `/services/${item.id}`),
   ...courses.map((item) => `/courses/${item.id}`), ...projects.map((item) => `/portfolio/${item.id}`),
 ];
-
-export function normalizeSiteUrl(value: string): string {
-  const url = new URL(value);
-  if (!['https:', 'http:'].includes(url.protocol) || url.search || url.hash || url.username || url.password) {
-    throw new Error('VITE_SITE_URL must be an HTTP(S) site URL without credentials, query or fragment.');
-  }
-  return url.href.endsWith('/') ? url.href : `${url.href}/`;
-}
-
-export function localizedUrl(siteUrl: string, path: string, language: Language): string {
-  const url = new URL(path.replace(/^\//, ''), normalizeSiteUrl(siteUrl));
-  if (language === 'ar') url.searchParams.set('lang', 'ar');
-  return url.href;
-}
 
 export function pageMetadata(pathname: string, language: Language, siteUrl = DEFAULT_SITE_URL) {
   const path = pathname.replace(/\/$/, '') || '/';
@@ -77,7 +65,7 @@ export function metadataHtml(meta: PageMetadata): string {
     tag('name', 'twitter:card', 'summary_large_image'), tag('name', 'twitter:title', meta.title),
     tag('name', 'twitter:description', meta.description), tag('name', 'twitter:image', meta.image),
     `<link ${attr} rel="canonical" href="${escapeHtml(meta.canonical)}" />`,
-    ...Object.entries({ ...meta.alternates, 'x-default': meta.alternates.en }).map(([lang, url]) => `<link ${attr} rel="alternate" hreflang="${lang}" href="${escapeHtml(url)}" />`),
+    ...Object.entries({ ...meta.alternates, 'x-default': meta.alternates.ar }).map(([lang, url]) => `<link ${attr} rel="alternate" hreflang="${lang}" href="${escapeHtml(url)}" />`),
     `<script ${attr} type="application/ld+json">${JSON.stringify(meta.schema).replace(/</g, '\\u003c')}</script>`,
   ].join('\n');
 }
@@ -86,7 +74,7 @@ export function sitemapXml(siteUrl: string): string {
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + seoPaths.map((path) => {
     const en = escapeHtml(localizedUrl(siteUrl, path, 'en'));
     const ar = escapeHtml(localizedUrl(siteUrl, path, 'ar'));
-    return `<url><loc>${en}</loc><xhtml:link rel="alternate" hreflang="en" href="${en}"/><xhtml:link rel="alternate" hreflang="ar" href="${ar}"/><xhtml:link rel="alternate" hreflang="x-default" href="${en}"/></url>\n` +
-      `<url><loc>${ar}</loc><xhtml:link rel="alternate" hreflang="en" href="${en}"/><xhtml:link rel="alternate" hreflang="ar" href="${ar}"/><xhtml:link rel="alternate" hreflang="x-default" href="${en}"/></url>`;
+    const alternates = `<xhtml:link rel="alternate" hreflang="ar" href="${ar}"/><xhtml:link rel="alternate" hreflang="en" href="${en}"/><xhtml:link rel="alternate" hreflang="x-default" href="${ar}"/>`;
+    return `<url><loc>${ar}</loc>${alternates}</url>\n<url><loc>${en}</loc>${alternates}</url>`;
   }).join('\n') + '\n</urlset>\n';
 }

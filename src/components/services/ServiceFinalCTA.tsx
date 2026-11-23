@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/LanguageLink';
 import { MessageCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { WHATSAPP_LINK } from '@/config/site';

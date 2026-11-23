@@ -1,6 +1,6 @@
 import { WHATSAPP_LINK } from '@/config/site';
 import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/hooks/useLocalizedNavigation';
 import { motion, useInView, type Easing } from 'framer-motion';
 import { Trans, useTranslation } from 'react-i18next';
 import { MessageCircle, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';

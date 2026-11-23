@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link } from '@/components/LanguageLink';
+import { useNavigate } from '@/hooks/useLocalizedNavigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import emailjs from '@emailjs/browser';

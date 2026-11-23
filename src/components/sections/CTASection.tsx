@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { MessageCircle, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/hooks/useLocalizedNavigation';
 import { WHATSAPP_LINK } from '@/config/site';
 
 const CTASection = () => {

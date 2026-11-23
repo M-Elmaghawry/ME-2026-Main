@@ -2,7 +2,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { motion, type Easing } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/hooks/useLocalizedNavigation';
 import { Clock, BarChart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { courses as allCourses } from '@/data/courses';

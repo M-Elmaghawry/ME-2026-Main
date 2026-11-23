@@ -1,7 +1,8 @@
 import { whatsappLink } from '@/config/site';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link } from '@/components/LanguageLink';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/layout/Header';

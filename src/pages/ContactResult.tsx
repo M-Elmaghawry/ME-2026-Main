@@ -1,4 +1,5 @@
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link, Navigate } from '@/components/LanguageLink';
 import { CheckCircle2, CircleX } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/layout/Header';
