@@ -1,4 +1,4 @@
-import { useReducedMotion } from 'framer-motion';
+import { useHydrationSafeReducedMotion as useReducedMotion } from '@/contexts/renderState';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { BilingualText, Service } from '@/data/services';
 import type { ServicePresentation } from '@/data/servicePresentation';
@@ -24,6 +24,10 @@ export function useServicePage() {
     reveal: {
       variants: fadeUp,
       initial: reducedMotion ? false as const : 'hidden',
+      // Hydration starts with the SSR hidden variant. Once the preference is
+      // known, explicitly resolve it; changing initial to false cannot reset
+      // an already-mounted motion value (notably its 30px entrance offset).
+      animate: reducedMotion ? 'visible' : undefined,
       whileInView: 'visible',
       viewport: { once: true, amount: 0.15 },
     },

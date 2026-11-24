@@ -1,4 +1,5 @@
-import { useLocation } from 'react-router-dom';
+import { useHydrationLocationState, useRenderState } from '@/contexts/renderState';
+import Contact from './Contact';
 import { Link, Navigate } from '@/components/LanguageLink';
 import { CheckCircle2, CircleX } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -9,8 +10,11 @@ import type { ContactResultState } from '@/types/contact';
 
 const ContactResult = () => {
   const { language, direction } = useLanguage();
-  const { state } = useLocation();
-  const result = state as ContactResultState | null;
+  const { hydrating } = useRenderState();
+  const result = useHydrationLocationState<ContactResultState>();
+
+  // Static visits have no send result. Never manufacture a success state.
+  if (hydrating) return <Contact />;
 
   if (!result || (result.status !== 'success' && result.status !== 'error')) {
     return <Navigate to="/contact" replace />;

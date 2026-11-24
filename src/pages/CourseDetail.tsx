@@ -1,3 +1,4 @@
+import { useRenderTime } from '@/contexts/renderState';
 import { whatsappLink } from '@/config/site';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import React, { useState, useEffect } from 'react';
@@ -636,7 +637,8 @@ const EnrollmentCard = ({
 const CourseDetail = () => {
   const { id } = useParams<{ id: string }>();
   const { language, direction } = useLanguage();
-  const [now, setNow] = useState(Date.now);
+  const renderTime = useRenderTime();
+  const [now, setNow] = useState(() => renderTime);
   const offerEnd = id ? coursePricing[id]?.offer?.endsAt : undefined;
   useEffect(() => {
     setNow(Date.now());

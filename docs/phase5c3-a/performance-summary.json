@@ -1,0 +1,351 @@
+{
+  "note": "Historical local lab results, not field CWV or INP. Invalid first replay excluded.",
+  "profiles": [
+    {
+      "source": "performance-report.json",
+      "browser": "158.0.8127.88",
+      "baseline": "Fresh output of existing build:gh-pages command from identical audited working-tree source; not a copy of the deployed commit.",
+      "policy": {
+        "runsPerPair": 3,
+        "cache": "new browser context per load; HTTP cache disabled",
+        "network": "100ms latency, 4Mbps download, 1Mbps upload",
+        "cpu": "4x slowdown",
+        "motion": "normal, real time, no hiding/animation disabling/clock mocking",
+        "textCompression": "identical local gzip server",
+        "externalIntegrations": "blocked in both builds",
+        "measurementWindow": "load + fonts.ready + 2000ms; no interactions"
+      },
+      "comparison": [
+        {
+          "name": "ar-home-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 3128,
+            "lcpRangeMs": [
+              3116,
+              3200
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 480399,
+            "requestCountMedian": 25
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 3404,
+            "lcpRangeMs": [
+              3340,
+              3540
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 522545,
+            "requestCountMedian": 24
+          }
+        },
+        {
+          "name": "en-training-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 2032,
+            "lcpRangeMs": [
+              2000,
+              2152
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 375449,
+            "requestCountMedian": 29
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 1544,
+            "lcpRangeMs": [
+              1492,
+              2040
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 569975,
+            "requestCountMedian": 28
+          }
+        },
+        {
+          "name": "ar-workshop3-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 1728,
+            "lcpRangeMs": [
+              1716,
+              1776
+            ],
+            "clsMaximum": 0.1288458699301511,
+            "transferMedianBytes": 482930,
+            "requestCountMedian": 24
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 1140,
+            "lcpRangeMs": [
+              1124,
+              1168
+            ],
+            "clsMaximum": 0.13587600023922736,
+            "transferMedianBytes": 513086,
+            "requestCountMedian": 21
+          }
+        },
+        {
+          "name": "ar-home-desktop",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 2724,
+            "lcpRangeMs": [
+              2708,
+              2744
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 480399,
+            "requestCountMedian": 25
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 2944,
+            "lcpRangeMs": [
+              2940,
+              3044
+            ],
+            "clsMaximum": 0.007043079517505787,
+            "transferMedianBytes": 571001,
+            "requestCountMedian": 25
+          }
+        }
+      ],
+      "failures": [],
+      "bundles": {
+        "csr": {
+          "jsBytes": 798791,
+          "jsGzipBytes": 254472,
+          "cssBytes": 135600,
+          "cssGzipBytes": 19975
+        },
+        "ssg": {
+          "jsBytes": 800887,
+          "jsGzipBytes": 255260,
+          "cssBytes": 135600,
+          "cssGzipBytes": 19975
+        }
+      }
+    },
+    {
+      "source": "performance-realistic-cache.json",
+      "browser": "158.0.8127.88",
+      "baseline": "Fresh output of existing build:gh-pages command from identical audited working-tree source; not a copy of the deployed commit.",
+      "policy": {
+        "runsPerPair": 3,
+        "cache": "New context per cold load; normal browser cache enabled within the load; max-age=600 matching observed Pages header",
+        "network": "100ms latency, 4Mbps download, 1Mbps upload",
+        "cpu": "4x slowdown",
+        "motion": "normal, real time, no hiding/animation disabling/clock mocking",
+        "textCompression": "identical local gzip server",
+        "externalIntegrations": "blocked in both builds",
+        "measurementWindow": "load + fonts.ready + 2000ms; no interactions"
+      },
+      "comparison": [
+        {
+          "name": "ar-home-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 3148,
+            "lcpRangeMs": [
+              3116,
+              3216
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 480474,
+            "requestCountMedian": 25
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 3196,
+            "lcpRangeMs": [
+              3192,
+              3208
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 490998,
+            "requestCountMedian": 23
+          }
+        },
+        {
+          "name": "en-training-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 2008,
+            "lcpRangeMs": [
+              1996,
+              2020
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 375536,
+            "requestCountMedian": 29
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 2028,
+            "lcpRangeMs": [
+              2012,
+              2068
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 570059,
+            "requestCountMedian": 28
+          }
+        },
+        {
+          "name": "ar-workshop3-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 1772,
+            "lcpRangeMs": [
+              1708,
+              1836
+            ],
+            "clsMaximum": 0.12885166006181759,
+            "transferMedianBytes": 483002,
+            "requestCountMedian": 24
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 1128,
+            "lcpRangeMs": [
+              1056,
+              1188
+            ],
+            "clsMaximum": 0.0013523732489176816,
+            "transferMedianBytes": 481530,
+            "requestCountMedian": 20
+          }
+        }
+      ],
+      "failures": [],
+      "bundles": {
+        "csr": {
+          "jsBytes": 798791,
+          "jsGzipBytes": 254472,
+          "cssBytes": 135600,
+          "cssGzipBytes": 19975
+        },
+        "ssg": {
+          "jsBytes": 800887,
+          "jsGzipBytes": 255260,
+          "cssBytes": 135600,
+          "cssGzipBytes": 19975
+        }
+      }
+    },
+    {
+      "source": "performance-production-commit.json",
+      "browser": "158.0.8127.88",
+      "baseline": "Reconstructed verified deployed commit 77ba313; original Google font responses replayed locally with unchanged faces/bytes. Private Actions variable values unavailable; source public defaults used. See production-baseline.json.",
+      "policy": {
+        "runsPerPair": 3,
+        "cache": "New context per cold load; normal browser cache enabled within the load; max-age=600 matching observed Pages header",
+        "network": "100ms latency, 4Mbps download, 1Mbps upload",
+        "cpu": "4x slowdown",
+        "motion": "normal, real time, no hiding/animation disabling/clock mocking",
+        "textCompression": "identical local gzip server",
+        "externalIntegrations": "blocked in both builds",
+        "measurementWindow": "load + fonts.ready + 2000ms; no interactions"
+      },
+      "comparison": [
+        {
+          "name": "ar-home-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 3176,
+            "lcpRangeMs": [
+              3104,
+              3212
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 479811,
+            "requestCountMedian": 27
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 3284,
+            "lcpRangeMs": [
+              3172,
+              3300
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 490998,
+            "requestCountMedian": 23
+          }
+        },
+        {
+          "name": "en-training-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 1992,
+            "lcpRangeMs": [
+              1988,
+              2024
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 375324,
+            "requestCountMedian": 32
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 2048,
+            "lcpRangeMs": [
+              2036,
+              2064
+            ],
+            "clsMaximum": 0,
+            "transferMedianBytes": 570059,
+            "requestCountMedian": 28
+          }
+        },
+        {
+          "name": "ar-workshop3-mobile",
+          "csr": {
+            "runs": 3,
+            "lcpMedianMs": 1744,
+            "lcpRangeMs": [
+              1732,
+              1868
+            ],
+            "clsMaximum": 0.1288632403251505,
+            "transferMedianBytes": 482365,
+            "requestCountMedian": 26
+          },
+          "ssg": {
+            "runs": 3,
+            "lcpMedianMs": 1088,
+            "lcpRangeMs": [
+              1076,
+              1096
+            ],
+            "clsMaximum": 0.0013523732489176816,
+            "transferMedianBytes": 481530,
+            "requestCountMedian": 20
+          }
+        }
+      ],
+      "failures": [],
+      "bundles": {
+        "csr": {
+          "jsBytes": 796118,
+          "jsGzipBytes": 253687,
+          "cssBytes": 140985,
+          "cssGzipBytes": 19838
+        },
+        "ssg": {
+          "jsBytes": 800887,
+          "jsGzipBytes": 255260,
+          "cssBytes": 135600,
+          "cssGzipBytes": 19975
+        }
+      }
+    }
+  ]
+}

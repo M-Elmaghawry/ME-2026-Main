@@ -20,7 +20,14 @@
     "preview": "vite preview",
     "typecheck:poc": "tsc --noEmit -p experiments/bilingual-ssr/tsconfig.json",
     "build:ssr-poc": "node scripts/build-ssr-poc.mjs",
-    "test:ssr-poc": "node scripts/test-ssr-poc.mjs"
+    "test:ssr-poc": "node scripts/test-ssr-poc.mjs",
+    "typecheck:ssg": "tsc --noEmit -p ssg/tsconfig.json",
+    "build:ssg-candidate": "node scripts/build-ssg.mjs",
+    "test:ssg": "node --test tests/ssg-*.test.mjs",
+    "compare:ssg-renderers": "node scripts/compare-ssg-renderers.mjs",
+    "test:ssg-browser": "node scripts/test-ssg-browser.mjs",
+    "test:contact-retry": "node scripts/test-contact-retry.mjs",
+    "test:layout": "node scripts/trace-ssg-layout.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

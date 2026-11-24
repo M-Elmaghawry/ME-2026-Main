@@ -3,6 +3,9 @@ import { courses } from '../data/courses';
 import { projects } from '../data/projects';
 import { CONTACT_EMAIL, CONTACT_LOCATION, CONTACT_PHONE } from '../config/site';
 import type { Language } from './language';
+import type { UrlMode } from './urls';
+export { seoPaths } from './routePaths';
+import { seoPaths } from './routePaths';
 import { localizedUrl, normalizeSiteUrl } from './urls';
 export { localizedUrl, normalizeSiteUrl } from './urls';
 
@@ -19,12 +22,7 @@ const pages = {
   '/terms': { title: { ar: 'الشروط والأحكام', en: 'Terms & Conditions' }, description: { ar: 'شروط استخدام الموقع والخدمات والدورات التدريبية.', en: 'Terms for using this website, consulting services, and training courses.' } },
 };
 
-export const seoPaths = [
-  ...Object.keys(pages), ...services.map((item) => `/services/${item.id}`),
-  ...courses.map((item) => `/courses/${item.id}`), ...projects.map((item) => `/portfolio/${item.id}`),
-];
-
-export function pageMetadata(pathname: string, language: Language, siteUrl = DEFAULT_SITE_URL) {
+export function pageMetadata(pathname: string, language: Language, siteUrl = DEFAULT_SITE_URL, mode: UrlMode = 'query') {
   const path = pathname.replace(/\/$/, '') || '/';
   const detail = services.find((item) => path === `/services/${item.id}`)
     ?? courses.find((item) => path === `/courses/${item.id}`)
@@ -39,9 +37,10 @@ export function pageMetadata(pathname: string, language: Language, siteUrl = DEF
   const imagePath = detail && 'image' in detail ? detail.image : '/hero/Mahmoud Elmekawy.jpg';
   return {
     title: `${title} | ${brand[language]}`, description, language, found,
-    canonical: localizedUrl(siteUrl, path, language),
+    canonical: localizedUrl(siteUrl, path, language, mode),
     image: new URL(imagePath.replace(/^\//, ''), normalizeSiteUrl(siteUrl)).href,
-    alternates: { ar: localizedUrl(siteUrl, path, 'ar'), en: localizedUrl(siteUrl, path, 'en') },
+    alternates: { ar: localizedUrl(siteUrl, path, 'ar', mode), en: localizedUrl(siteUrl, path, 'en', mode) },
+    indexable: found && (mode === 'query' || path !== '/thank-you'),
     schema: {
       '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'Elmekawy BIM',
       url: normalizeSiteUrl(siteUrl), email: CONTACT_EMAIL, telephone: CONTACT_PHONE,
@@ -60,7 +59,7 @@ export function metadataHtml(meta: PageMetadata): string {
   const tag = (key: 'name' | 'property', name: string, value: string) => `<meta ${attr} ${key}="${name}" content="${escapeHtml(value)}" />`;
   return [
     `<title ${attr}>${escapeHtml(meta.title)}</title>`,
-    tag('name', 'description', meta.description), tag('name', 'robots', meta.found ? 'index,follow' : 'noindex,follow'),
+    tag('name', 'description', meta.description), tag('name', 'robots', meta.indexable ? 'index,follow' : 'noindex,follow'),
     ...Object.entries({ title: meta.title, description: meta.description, type: 'website', url: meta.canonical, image: meta.image, locale: meta.language === 'ar' ? 'ar_EG' : 'en_US' }).map(([key, value]) => tag('property', `og:${key}`, value)),
     tag('name', 'twitter:card', 'summary_large_image'), tag('name', 'twitter:title', meta.title),
     tag('name', 'twitter:description', meta.description), tag('name', 'twitter:image', meta.image),
@@ -70,10 +69,10 @@ export function metadataHtml(meta: PageMetadata): string {
   ].join('\n');
 }
 
-export function sitemapXml(siteUrl: string): string {
+export function sitemapXml(siteUrl: string, mode: UrlMode = 'query'): string {
   return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + seoPaths.map((path) => {
-    const en = escapeHtml(localizedUrl(siteUrl, path, 'en'));
-    const ar = escapeHtml(localizedUrl(siteUrl, path, 'ar'));
+    const en = escapeHtml(localizedUrl(siteUrl, path, 'en', mode));
+    const ar = escapeHtml(localizedUrl(siteUrl, path, 'ar', mode));
     const alternates = `<xhtml:link rel="alternate" hreflang="ar" href="${ar}"/><xhtml:link rel="alternate" hreflang="en" href="${en}"/><xhtml:link rel="alternate" hreflang="x-default" href="${ar}"/>`;
     return `<url><loc>${ar}</loc>${alternates}</url>\n<url><loc>${en}</loc>${alternates}</url>`;
   }).join('\n') + '\n</urlset>\n';

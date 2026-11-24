@@ -1,3 +1,5 @@
+> Phase 5C.2 maintenance note: the five-page harness now uses the extracted shared i18n/rendering APIs; guarded source overlays have been removed. The original Phase 5C.1 findings below are historical. Current full-site results are documented in `../../docs/PHASE-5C2.md`.
+
 # Phase 5C.1 — isolated bilingual SSR/hydration proof
 
 This is an experiment, not a deployable replacement for the production build.

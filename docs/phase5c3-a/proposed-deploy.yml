@@ -1,0 +1,95 @@
+# REVIEW ONLY. This file is outside .github and has not been activated or tested in Actions.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'production' }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Verify runtime
+        run: |
+          node --version
+          npm --version
+          node -e "const [v,m,p]=process.versions.node.split('.').map(Number); if(v!==22 || m<22 || (m===22 && p<2)) throw new Error('Node 22.22.2 or newer within Node 22 is required by locked jsdom');"
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check TypeScript
+        run: |
+          npm run typecheck
+          npm run typecheck:ssg
+          npm run typecheck:poc
+
+      - name: Test contact, language, pricing, images, routing, and SEO
+        run: npm test
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build repository SSG candidate
+        env:
+          VITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          VITE_SITE_URL: ${{ steps.pages.outputs.origin }}${{ steps.pages.outputs.base_path }}/
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+          VITE_RECAPTCHA_SITE_KEY: ${{ vars.VITE_RECAPTCHA_SITE_KEY }}
+        run: npm run build:ssg-candidate -- --variant repo --base "$VITE_BASE_PATH" --site-url "$VITE_SITE_URL"
+
+      - name: Build root and custom-base contract fixtures
+        run: |
+          npm run build:ssg-candidate -- --variant root --base / --site-url https://example.com/
+          npm run build:ssg-candidate -- --variant custom --base /company/site/ --site-url https://custom.example/company/site/
+
+      - name: Test renderer integrity and every static document
+        run: npm run test:ssg
+
+      - name: Upload repository site only
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist-ssr/candidate/repo/site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

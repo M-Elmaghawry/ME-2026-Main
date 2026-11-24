@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useHydrationLocationState } from '@/contexts/renderState';
 import { Link } from '@/components/LanguageLink';
 import { useNavigate } from '@/hooks/useLocalizedNavigation';
 import { useForm } from 'react-hook-form';
@@ -27,8 +27,8 @@ const defaults: ContactValues = { name: '', email: '', countryCode: '+20', phone
 export default function ContactForm() {
   const { language } = useLanguage();
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const draft = (state as { draft?: ContactDraft } | null)?.draft;
+  const state = useHydrationLocationState<{ draft?: ContactDraft }>();
+  const draft = state?.draft;
   const isAr = language === 'ar';
   const text = (ar: string, en: string) => isAr ? ar : en;
   const [status, setStatus] = useState<{ kind: 'success' | 'error'; message: string } | null>(null);
@@ -36,14 +36,23 @@ export default function ContactForm() {
   const [captchaToken, setCaptchaToken] = useState('');
   const [captchaVersion, setCaptchaVersion] = useState(0);
   const captchaKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY?.trim();
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactValues>({
-    resolver: zodResolver(contactSchema(language, services.map((service) => service.id))),
-    defaultValues: draft ? {
+  const initialValues = useMemo(() => draft ? {
       ...defaults, name: draft.name, email: draft.email, phone: draft.phone,
       company: draft.company, message: draft.message, countryCode: draft.countryCode,
       service: draft.selectedService,
-    } : defaults,
+    } : defaults, [draft]);
+  const recoveredDraft = useRef(draft);
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting, dirtyFields } } = useForm<ContactValues>({
+    resolver: zodResolver(contactSchema(language, services.map((service) => service.id))),
+    defaultValues: initialValues,
   });
+  useEffect(() => {
+    // The SSR-matching render has no browser history state. RHF caches defaults
+    // at mount, so adopt an explicit retry draft once hydration releases it.
+    if (!draft || recoveredDraft.current === draft) return;
+    reset(initialValues, { keepDirtyValues: Object.keys(dirtyFields).length > 0 });
+    recoveredDraft.current = draft;
+  }, [draft, initialValues, dirtyFields, reset]);
   const configuration = [EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, EMAILJS_CONFIG.publicKey];
   const configured = hasEmailConfiguration(configuration);
 
@@ -69,7 +78,8 @@ export default function ContactForm() {
         limitRate: { id: 'elmekawy-contact', throttle: CONTACT_THROTTLE_MS }, storageProvider: emailStorage,
       });
       reset(defaults);
-      navigate('/thank-you', { state: { status: 'success' } satisfies ContactResultState });
+      // A successful retry no longer needs its temporary history draft.
+      navigate('/thank-you', { replace: !!draft, state: { status: 'success' } satisfies ContactResultState });
     } catch {
       navigate('/thank-you', {
         state: {

@@ -1,3 +1,4 @@
+import { useRenderDate } from '@/contexts/renderState';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/layout/Header';
@@ -9,6 +10,7 @@ import { FileText } from 'lucide-react';
 const Terms = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
+  const renderDate = useRenderDate(language);
 
   const sections = language === 'ar' ? [
     {
@@ -81,6 +83,7 @@ const Terms = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <main>
       
       {/* Hero Section */}
       <section className="pt-32 pb-16" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f5f0e8 50%, hsl(var(--blue-grotto)) 100%)' }}>
@@ -117,8 +120,8 @@ const Terms = () => {
           >
             <p className="text-muted-foreground mb-8">
               {language === 'ar'
-                ? `آخر تحديث: ${new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' })}`
-                : `Last updated: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`}
+                ? `آخر تحديث: ${renderDate}`
+                : `Last updated: ${renderDate}`}
             </p>
 
             <div className="space-y-8">
@@ -138,6 +141,7 @@ const Terms = () => {
         </div>
       </section>
 
+      </main>
       <Footer />
       <WhatsAppButton />
     </div>

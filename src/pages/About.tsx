@@ -1,6 +1,7 @@
+import { useHydrationSafeReducedMotion as useReducedMotion } from '@/contexts/renderState';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import MotionImage from '@/components/MotionImage';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Header from '@/components/layout/Header';

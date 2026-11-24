@@ -28,8 +28,9 @@ const { NavLink } = await server.ssrLoadModule('/src/components/NavLink.tsx');
 const { useNavigate } = await server.ssrLoadModule('/src/hooks/useLocalizedNavigation.ts');
 const { default: PageSeo } = await server.ssrLoadModule('/src/components/PageSeo.tsx');
 const { seoPaths, metadataHtml, pageMetadata } = await server.ssrLoadModule('/src/lib/seo.ts');
-// Read the unchanged route configuration so the test exercises its actual IDs.
-const routePatterns = [...readFileSync('src/App.tsx', 'utf8').matchAll(/<Route path="([^"]+)"/g)].map(match => match[1]);
+// Exercise the registry consumed by both application entry points.
+const { routeRegistry } = await server.ssrLoadModule('/src/lib/routes.ts');
+const routePatterns = routeRegistry.map(route => route.path);
 
 let root;
 let controls;

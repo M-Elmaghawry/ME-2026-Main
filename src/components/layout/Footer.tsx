@@ -1,3 +1,4 @@
+import { useRenderYear } from '@/contexts/renderState';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { Link } from '@/components/LanguageLink';
 import { Trans, useTranslation } from 'react-i18next';
@@ -23,6 +24,7 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const year = useRenderYear();
   const { t } = useTranslation();
   const { language } = useLanguage();
 
@@ -127,7 +129,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row items-center gap-4">
             <div className="lg:w-1/2 text-center">
               <p>
-                © {new Date().getFullYear()}{' '}
+                © {year}{' '}
                 {language === 'ar' ? 'م. محمود المكاوى' : 'Eng. Mahmoud Elmekawy'}.{' '}
                 {t('footer.rights')}.
               </p>

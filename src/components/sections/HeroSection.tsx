@@ -7,6 +7,7 @@ import { MessageCircle, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TypewriterEffect from '@/components/TypewriterEffect';
+import { useRenderState, useHydrationSafeReducedMotion } from '@/contexts/renderState';
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
 const easeInOut: Easing = [0.4, 0, 0.6, 1];
@@ -35,12 +36,13 @@ const RollingDigit = ({ digit, delay, inView }: { digit: number; delay: number; 
 
 // Parses "+500" or "500+" → optional prefix + rolling digits + optional suffix
 const RollingNumber = ({ value, inView }: { value: string; inView: boolean }) => {
+  const { snapshot } = useRenderState();
   const match = value.match(/^([^\d]*)(\d+)([^\d]*)$/);
   if (!match) return <span className="gradient-text">{value}</span>;
   const prefix = match[1];
   const digits = match[2].split('').map(Number);
   const suffix = match[3];
-  return (
+  const animated = (
     <span className="inline-flex items-center tabular-nums" dir="ltr">
       {prefix && <span className="gradient-text" style={{ lineHeight: CELL }}>{prefix}</span>}
       {digits.map((d, i) => (
@@ -51,23 +53,30 @@ const RollingNumber = ({ value, inView }: { value: string; inView: boolean }) =>
       {suffix && <span className="gradient-text" style={{ lineHeight: CELL }}>{suffix}</span>}
     </span>
   );
+  // Retain the animated element's exact layout while exposing final values
+  // without JavaScript. The ordinary production render remains unchanged.
+  return snapshot ? <span style={{ position: 'relative', display: 'inline-block' }}>
+    <span className="ssg-static-stat" dir="ltr">{value}</span>
+    <span className="ssg-animated-stat">{animated}</span>
+  </span> : animated;
 };
 
 // Single useInView per card — card reveal and counter rolling are in sync
 const StatCard = ({ stat, index }: { stat: { value: string; label: string }; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '0px 0px -60px 0px' });
+  const reducedMotion = useHydrationSafeReducedMotion();
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      initial={reducedMotion ? false : { opacity: 0, y: 30 }}
+      animate={inView || reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, ease: outCubic, delay: index * 0.12 }}
       whileHover={{ scale: 1.05 }}
       className="neu-card p-6 text-center"
     >
       <div className="text-3xl md:text-4xl font-bold mb-2">
-        <RollingNumber value={stat.value} inView={inView} />
+        <RollingNumber value={stat.value} inView={inView || !!reducedMotion} />
       </div>
       <div className="text-sm text-muted-foreground">{stat.label}</div>
     </motion.div>

@@ -1,0 +1,164 @@
+{
+  "completedAt": "2026-11-24T13:52:01.873Z",
+  "classification": "BLOCKED",
+  "readOnlyAuditCompleted": true,
+  "sourcePreservation": {
+    "tracked": 350,
+    "untracked": 60,
+    "changedFiles": [],
+    "gitStatusUnchanged": true,
+    "branch": "fix/seo-language-consistency",
+    "head": "616197ee00442cf90a38436a52f6f994b9b84e0a",
+    "activeWorkflowUnchanged": true
+  },
+  "production": {
+    "sha": "77ba313d8617a082d349f383e876ac34013eb551",
+    "verifiedSuccessfulRun": 45142045741
+  },
+  "node": {
+    "tested": "v24.19.0",
+    "npm": "11.17.0",
+    "node22Executed": false,
+    "node22RequiredMinimum": "22.22.2",
+    "npmCiExit": 0
+  },
+  "tests": {
+    "nodeTestsPassed": 39,
+    "ordinaryHostingCasesPassed": 151,
+    "freshVisual": [
+      {
+        "mode": "smoke",
+        "cases": 28,
+        "maxPixelDifference": 0.00027916666666666666,
+        "failures": 0
+      },
+      {
+        "mode": "tablet",
+        "cases": 14,
+        "maxPixelDifference": 0.00024159749348958334,
+        "failures": 0
+      }
+    ],
+    "interactionCasesPassed": 38,
+    "mockedContactCasesPassed": 10,
+    "galleryCasesPassed": 6,
+    "statefulCsrControlsPassed": 2,
+    "statefulCandidateDirectionsFailed": 2,
+    "completedDraftHistoricalRecoveryObserved": 2,
+    "realEmailRequests": 0
+  },
+  "integrity": [
+    {
+      "variant": "repo",
+      "documents": 56,
+      "indexable": 52,
+      "nulBytes": 0,
+      "replacementCharacters": 0,
+      "validUtf8": true
+    },
+    {
+      "variant": "root",
+      "documents": 56,
+      "indexable": 52,
+      "nulBytes": 0,
+      "replacementCharacters": 0,
+      "validUtf8": true
+    },
+    {
+      "variant": "custom",
+      "documents": 56,
+      "indexable": 52,
+      "nulBytes": 0,
+      "replacementCharacters": 0,
+      "validUtf8": true
+    }
+  ],
+  "performance": {
+    "validPairedLoads": 60,
+    "normalCacheCandidateClsMaximum": 0.0013523732489176816,
+    "cacheDisabledCandidateWorkshopCls": 0.13587600023922736,
+    "englishTransferWorkingTreeCsr": 375536,
+    "englishTransferProductionReconstruction": 375324,
+    "englishTransferCandidate": 570059,
+    "primaryFinding": "Unnecessary Arabic font preloads on English pages"
+  },
+  "dependencies": {
+    "info": 0,
+    "low": 1,
+    "moderate": 15,
+    "high": 8,
+    "critical": 0,
+    "total": 24,
+    "clientIncludedFlaggedPackages": [
+      "@remix-run/router",
+      "i18next",
+      "react-router",
+      "react-router-dom",
+      "zod"
+    ]
+  },
+  "releaseFindings": [
+    {
+      "kind": "ssg",
+      "language": "ar",
+      "severity": "release blocker",
+      "message": "Back after a state-preserving language switch retains the wrong document locale/basename, producing an empty page or an incorrect 404.",
+      "evidence": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 0,
+        "rootLength": 17,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      }
+    },
+    {
+      "kind": "ssg",
+      "language": "ar",
+      "severity": "cleanup scope requires review",
+      "message": "After a successful mocked retry in the other locale, Back then refresh recovers the older locale draft. Active-entry cleanup does not invalidate historical copies."
+    },
+    {
+      "kind": "ssg",
+      "language": "en",
+      "severity": "release blocker",
+      "message": "Back after a state-preserving language switch retains the wrong document locale/basename, producing an empty page or an incorrect 404.",
+      "evidence": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "404",
+        "rootLength": 332,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      }
+    },
+    {
+      "kind": "ssg",
+      "language": "en",
+      "severity": "cleanup scope requires review",
+      "message": "After a successful mocked retry in the other locale, Back then refresh recovers the older locale draft. Active-entry cleanup does not invalidate historical copies."
+    }
+  ],
+  "requiredNextSteps": [
+    "Separately approve and fix stateful cross-locale history/recovery",
+    "Define completed retry history cleanup semantics",
+    "Fix English font overfetch and remeasure",
+    "Execute Node22/Linux CI and review proposed workflow",
+    "Review or remediate dependency findings",
+    "Approve release only after all gates pass"
+  ],
+  "notExecuted": [
+    "Product source changes",
+    "Active workflow edits",
+    "Dependency upgrades",
+    "Commit",
+    "Push",
+    "Merge",
+    "Deploy"
+  ]
+}

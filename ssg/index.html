@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="%BASE_URL%favicon.png?v=2" />
+    <!--SSG_HEAD-->
+    <style>
+      .ssg-static-stat { display: none; }
+      @media (prefers-reduced-motion: reduce) {
+        #root [style*="opacity:0"] { opacity: 1 !important; }
+        #root header[style*="transform:"] { transform: none !important; }
+      }
+    </style>
+    <noscript><style>
+      #root [style*="opacity:0"] { opacity: 1 !important; }
+      #root [style*="transform:"] { transform: none !important; }
+      #root .ssg-animated-stat { visibility: hidden !important; }
+      #root .ssg-static-stat { display: inline !important; position: absolute; inset: 0; }
+    </style></noscript>
+  </head>
+  <body>
+    <div id="root"><!--SSG_BODY--></div>
+    <script id="ssg-state" type="application/json">__SSG_STATE__</script>
+    <script>
+      window.__SSG_EVIDENCE__ = {
+        hydrated: false, recoverableErrors: [], initialMain: document.querySelector('main'),
+        initialH1: document.querySelector('h1'), initialIds: Array.from(document.querySelectorAll('#root [id]'), element => element.id), layoutShifts: []
+      };
+      if ('PerformanceObserver' in window) new PerformanceObserver(list => {
+        for (const entry of list.getEntries()) window.__SSG_EVIDENCE__.layoutShifts.push({ value: entry.value, time: entry.startTime, recentInput: entry.hadRecentInput });
+      }).observe({ type: 'layout-shift', buffered: true });
+    </script>
+    <script type="module" src="/entry-client.tsx"></script>
+  </body>
+</html>

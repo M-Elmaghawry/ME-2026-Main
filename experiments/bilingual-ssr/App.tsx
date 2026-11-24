@@ -1,3 +1,5 @@
+import RenderProvider from '@/contexts/RenderProvider';
+import { useRenderState } from '@/contexts/renderState';
 import { lazy, Suspense, useEffect, useContext } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
@@ -13,7 +15,8 @@ const components = new Map(pages.map(page => [page.id, lazy(page.load)]));
 
 function HydrationComplete() {
   const { complete } = useContext(RenderPhase);
-  useEffect(complete, [complete]);
+  const { complete: sharedComplete } = useRenderState();
+  useEffect(() => { complete(); sharedComplete(); }, [complete, sharedComplete]);
   return null;
 }
 
@@ -32,7 +35,8 @@ function Head({ boot }: { boot: Bootstrap }) {
 }
 
 export default function PrototypeApp({ boot, i18n }: { boot: Bootstrap; i18n: i18n }) {
-  return <MotionConfig reducedMotion="user"><I18nextProvider i18n={i18n}><RenderPhaseProvider>
+  const snapshot = { renderedAt: boot.renderedAt, year: new Intl.DateTimeFormat('en-US', { year: 'numeric', timeZone: 'Asia/Riyadh' }).format(boot.renderedAt), dates: { ar: new Intl.DateTimeFormat('ar-EG', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Riyadh' }).format(boot.renderedAt), en: new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Riyadh' }).format(boot.renderedAt) } };
+  return <RenderProvider snapshot={snapshot}><MotionConfig reducedMotion="user"><I18nextProvider i18n={i18n}><RenderPhaseProvider>
     <LanguageProvider language={boot.language} base={boot.base}>
       <ScrollToTop /><Head boot={boot} />
       <Suspense fallback={<div data-poc-loading="true" role="status" />}>
@@ -42,5 +46,5 @@ export default function PrototypeApp({ boot, i18n }: { boot: Bootstrap; i18n: i1
         })}</Routes><HydrationComplete />
       </Suspense>
     </LanguageProvider>
-  </RenderPhaseProvider></I18nextProvider></MotionConfig>;
+  </RenderPhaseProvider></I18nextProvider></MotionConfig></RenderProvider>;
 }
