@@ -1,0 +1,315 @@
+{
+  "browser": "158.0.8127.88",
+  "policy": {
+    "runs": 1,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "network": "100ms latency; 4Mbps down/1Mbps up",
+    "cpu": "4x",
+    "cache": "fresh context and cleared cache per cold load; normal within-load cache; max-age=600; separate warm reload control",
+    "compression": "identical gzip for text, original WOFF2 bytes",
+    "motion": "normal real-time during performance measurement; clocks normalized only in separate visual checks",
+    "window": "load + fonts.ready + 4000ms",
+    "external": "HTTPS blocked via CDP; no request interception, external services or form submissions"
+  },
+  "route": "/en/courses/revit-structure-workshop-03/",
+  "status": "PRE-EXISTING CLS FAILURE REPRODUCED BEFORE AND AFTER",
+  "cases": [
+    {
+      "kind": "before",
+      "cls": 0.13139038172763043,
+      "lcp": {
+        "time": 1008,
+        "size": 32775,
+        "element": "P"
+      },
+      "fontEvents": [
+        {
+          "time": 1067.5999999996275,
+          "event": "loadingdone"
+        }
+      ],
+      "shifts": [
+        {
+          "time": 1048.4000000003725,
+          "value": 0.13139038172763043,
+          "recentInput": false,
+          "sources": [
+            {
+              "tag": "DIV",
+              "classes": "space-y-6 pb-20",
+              "text": "+300Students★ 4.9Rating12hTraining HoursWhat You'll Learn in This CourseBreak down the project, plan the modeling sequen",
+              "before": {
+                "x": 16,
+                "y": 589,
+                "width": 358,
+                "height": 255,
+                "top": 589,
+                "right": 374,
+                "bottom": 844,
+                "left": 16
+              },
+              "after": {
+                "x": 16,
+                "y": 623,
+                "width": 358,
+                "height": 221,
+                "top": 623,
+                "right": 374,
+                "bottom": 844,
+                "left": 16
+              }
+            },
+            {
+              "tag": "DIV",
+              "classes": "flex items-center gap-3 text-sm",
+              "text": "MEInstructor:Mahmoud Elmakawy",
+              "before": {
+                "x": 8,
+                "y": 517,
+                "width": 366,
+                "height": 52,
+                "top": 517,
+                "right": 374,
+                "bottom": 569,
+                "left": 8
+              },
+              "after": {
+                "x": 8,
+                "y": 551,
+                "width": 366,
+                "height": 52,
+                "top": 551,
+                "right": 374,
+                "bottom": 603,
+                "left": 8
+              }
+            },
+            {
+              "text": "Revit Structure Workshop - 03",
+              "before": {
+                "x": 15,
+                "y": 183,
+                "width": 359,
+                "height": 73.5,
+                "top": 183,
+                "right": 374,
+                "bottom": 256.5,
+                "left": 15
+              },
+              "after": {
+                "x": 16,
+                "y": 186,
+                "width": 358,
+                "height": 73.5,
+                "top": 186,
+                "right": 374,
+                "bottom": 259.5,
+                "left": 16
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white/85 hover:bg-white/20 transition-colors cursor-default",
+              "text": "Saudi Building Code",
+              "before": {
+                "x": 237.40625,
+                "y": 441,
+                "width": 134.75,
+                "height": 26,
+                "top": 441,
+                "right": 372.15625,
+                "bottom": 467,
+                "left": 237.40625
+              },
+              "after": {
+                "x": 16,
+                "y": 475,
+                "width": 141.390625,
+                "height": 26,
+                "top": 475,
+                "right": 157.390625,
+                "bottom": 501,
+                "left": 16
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white/85 hover:bg-white/20 transition-colors cursor-default",
+              "text": "Quantity Takeoff",
+              "before": {
+                "x": 16,
+                "y": 475,
+                "width": 112.28125,
+                "height": 26,
+                "top": 475,
+                "right": 128.28125,
+                "bottom": 501,
+                "left": 16
+              },
+              "after": {
+                "x": 165.390625,
+                "y": 475,
+                "width": 121.15625,
+                "height": 26,
+                "top": 475,
+                "right": 286.546875,
+                "bottom": 501,
+                "left": 165.390625
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "after",
+      "cls": 0.13139038172763043,
+      "lcp": {
+        "time": 924,
+        "size": 32775,
+        "element": "P"
+      },
+      "fontEvents": [
+        {
+          "time": 1071,
+          "event": "loadingdone"
+        }
+      ],
+      "shifts": [
+        {
+          "time": 1012.9000000003725,
+          "value": 0.13139038172763043,
+          "recentInput": false,
+          "sources": [
+            {
+              "tag": "DIV",
+              "classes": "space-y-6 pb-20",
+              "text": "+300Students★ 4.9Rating12hTraining HoursWhat You'll Learn in This CourseBreak down the project, plan the modeling sequen",
+              "before": {
+                "x": 16,
+                "y": 589,
+                "width": 358,
+                "height": 255,
+                "top": 589,
+                "right": 374,
+                "bottom": 844,
+                "left": 16
+              },
+              "after": {
+                "x": 16,
+                "y": 623,
+                "width": 358,
+                "height": 221,
+                "top": 623,
+                "right": 374,
+                "bottom": 844,
+                "left": 16
+              }
+            },
+            {
+              "tag": "DIV",
+              "classes": "flex items-center gap-3 text-sm",
+              "text": "MEInstructor:Mahmoud Elmakawy",
+              "before": {
+                "x": 8,
+                "y": 517,
+                "width": 366,
+                "height": 52,
+                "top": 517,
+                "right": 374,
+                "bottom": 569,
+                "left": 8
+              },
+              "after": {
+                "x": 8,
+                "y": 551,
+                "width": 366,
+                "height": 52,
+                "top": 551,
+                "right": 374,
+                "bottom": 603,
+                "left": 8
+              }
+            },
+            {
+              "text": "Revit Structure Workshop - 03",
+              "before": {
+                "x": 15,
+                "y": 183,
+                "width": 359,
+                "height": 73.5,
+                "top": 183,
+                "right": 374,
+                "bottom": 256.5,
+                "left": 15
+              },
+              "after": {
+                "x": 16,
+                "y": 186,
+                "width": 358,
+                "height": 73.5,
+                "top": 186,
+                "right": 374,
+                "bottom": 259.5,
+                "left": 16
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white/85 hover:bg-white/20 transition-colors cursor-default",
+              "text": "Saudi Building Code",
+              "before": {
+                "x": 237.40625,
+                "y": 441,
+                "width": 134.75,
+                "height": 26,
+                "top": 441,
+                "right": 372.15625,
+                "bottom": 467,
+                "left": 237.40625
+              },
+              "after": {
+                "x": 16,
+                "y": 475,
+                "width": 141.390625,
+                "height": 26,
+                "top": 475,
+                "right": 157.390625,
+                "bottom": 501,
+                "left": 16
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white/85 hover:bg-white/20 transition-colors cursor-default",
+              "text": "Quantity Takeoff",
+              "before": {
+                "x": 16,
+                "y": 475,
+                "width": 112.28125,
+                "height": 26,
+                "top": 475,
+                "right": 128.28125,
+                "bottom": 501,
+                "left": 16
+              },
+              "after": {
+                "x": 165.390625,
+                "y": 475,
+                "width": 121.15625,
+                "height": 26,
+                "top": 475,
+                "right": 286.546875,
+                "bottom": 501,
+                "left": 165.390625
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

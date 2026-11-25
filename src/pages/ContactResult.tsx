@@ -1,4 +1,5 @@
-import { useHydrationLocationState, useRenderState } from '@/contexts/renderState';
+import { useRenderState } from '@/contexts/renderState';
+import { useContactRetryState } from '@/hooks/useContactRetryState';
 import Contact from './Contact';
 import { Link, Navigate } from '@/components/LanguageLink';
 import { CheckCircle2, CircleX } from 'lucide-react';
@@ -11,7 +12,7 @@ import type { ContactResultState } from '@/types/contact';
 const ContactResult = () => {
   const { language, direction } = useLanguage();
   const { hydrating } = useRenderState();
-  const result = useHydrationLocationState<ContactResultState>();
+  const result = useContactRetryState<ContactResultState>();
 
   // Static visits have no send result. Never manufacture a success state.
   if (hydrating) return <Contact />;
@@ -53,7 +54,7 @@ const ContactResult = () => {
             <Link
               to={success ? '/' : '/contact'}
               replace
-              state={result.status === 'error' ? { draft: result.draft } : undefined}
+              state={result.status === 'error' ? { draft: result.draft, retryRevision: result.retryRevision } : undefined}
             >
               {copy.action}
             </Link>

@@ -1,0 +1,22 @@
+{
+  "release": "BLOCKED",
+  "sourceChanges": 0,
+  "existingWorkingTreePreserved": true,
+  "packages": 24,
+  "advisories": 40,
+  "allAdvisoriesClassified": true,
+  "packagesWithPaths": 24,
+  "browserPackages": [
+    "@remix-run/router",
+    "i18next",
+    "react-router",
+    "react-router-dom",
+    "zod"
+  ],
+  "proposedVersionsInstalled": false,
+  "confirmedProductionExploitDemonstrated": false,
+  "confirmedCIExploitDemonstrated": false,
+  "linuxResolved": false,
+  "indexAliasesResolved": false,
+  "reportLinkErrors": []
+}

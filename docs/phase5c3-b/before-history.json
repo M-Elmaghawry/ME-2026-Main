@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-11-25T06:11:08.425Z",
+  "observations": [
+    {
+      "kind": "ssg",
+      "language": "ar",
+      "draftSource": "Actual mocked failed submission and retry link",
+      "afterSwitch": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26514,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "backResponse": null,
+      "afterBack": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 0,
+        "rootLength": 17,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      },
+      "consoleMessages": [],
+      "afterRefresh": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26315,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "successCurrentEntryHasDraft": false,
+      "successBack": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 0,
+        "rootLength": 17,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      },
+      "successBackRefresh": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26314,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      }
+    },
+    {
+      "kind": "ssg",
+      "language": "en",
+      "draftSource": "Actual mocked failed submission and retry link",
+      "afterSwitch": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26315,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "backResponse": null,
+      "afterBack": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "404",
+        "rootLength": 332,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      },
+      "consoleMessages": [
+        "404 Error: User attempted to access non-existent route: /en/contact/"
+      ],
+      "afterRefresh": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26508,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "successCurrentEntryHasDraft": false,
+      "successBack": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "404",
+        "rootLength": 332,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      },
+      "successBackRefresh": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26514,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      }
+    }
+  ],
+  "findings": [
+    {
+      "kind": "ssg",
+      "language": "ar",
+      "severity": "release blocker",
+      "message": "Back after a state-preserving language switch retains the wrong document locale/basename, producing an empty page or an incorrect 404.",
+      "evidence": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 0,
+        "rootLength": 17,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      }
+    },
+    {
+      "kind": "ssg",
+      "language": "ar",
+      "severity": "cleanup scope requires review",
+      "message": "After a successful mocked retry in the other locale, Back then refresh recovers the older locale draft. Active-entry cleanup does not invalidate historical copies."
+    },
+    {
+      "kind": "ssg",
+      "language": "en",
+      "severity": "release blocker",
+      "message": "Back after a state-preserving language switch retains the wrong document locale/basename, producing an empty page or an incorrect 404.",
+      "evidence": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "404",
+        "rootLength": 332,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": false
+      }
+    },
+    {
+      "kind": "ssg",
+      "language": "en",
+      "severity": "cleanup scope requires review",
+      "message": "After a successful mocked retry in the other locale, Back then refresh recovers the older locale draft. Active-entry cleanup does not invalidate historical copies."
+    }
+  ],
+  "errors": []
+}

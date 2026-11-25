@@ -98,8 +98,10 @@ try {
       await page.waitForURL(fixture.origin + otherPrefix + 'contact/'); await ready(page);
       await page.waitForFunction(name => document.querySelector('#contact-name')?.value === name, draft.name);
       assert.deepEqual(await fields(page), expected); assert.ok(!page.url().includes(draft.name));
-      assert.equal(await page.evaluate(() => localStorage.length + sessionStorage.length), 0);
-      await ctx.close(); return { counterpartDocumentLoaded: true, allFieldsPreserved: true, noNewPersistence: true };
+      const storage = await page.evaluate(() => ({ local: JSON.stringify(localStorage), session: Object.entries(sessionStorage) }));
+      assert.equal(storage.local, '{}'); assert.equal(storage.session.length, 1);
+      assert.match(storage.session[0][0], /^elmekawy:contact-retry:/); assert.match(storage.session[0][1], /^[\da-f-]{36}$/);
+      await ctx.close(); return { counterpartDocumentLoaded: true, allFieldsPreserved: true, markerOnlyPersistence: true };
     });
   }
   assert.equal(report.realEmailRequests, 0);

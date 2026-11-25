@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useHydrationLocationState } from '@/contexts/renderState';
+import { useContactRetryState } from '@/hooks/useContactRetryState';
+import { completeContactRetry, contactRetryRevision } from '@/lib/contactRetry';
 import { Link } from '@/components/LanguageLink';
 import { useNavigate } from '@/hooks/useLocalizedNavigation';
 import { useForm } from 'react-hook-form';
@@ -27,7 +28,7 @@ const defaults: ContactValues = { name: '', email: '', countryCode: '+20', phone
 export default function ContactForm() {
   const { language } = useLanguage();
   const navigate = useNavigate();
-  const state = useHydrationLocationState<{ draft?: ContactDraft }>();
+  const state = useContactRetryState<{ draft?: ContactDraft }>();
   const draft = state?.draft;
   const isAr = language === 'ar';
   const text = (ar: string, en: string) => isAr ? ar : en;
@@ -49,7 +50,12 @@ export default function ContactForm() {
   useEffect(() => {
     // The SSR-matching render has no browser history state. RHF caches defaults
     // at mount, so adopt an explicit retry draft once hydration releases it.
-    if (!draft || recoveredDraft.current === draft) return;
+    if (!draft) {
+      if (recoveredDraft.current) reset(defaults);
+      recoveredDraft.current = undefined;
+      return;
+    }
+    if (recoveredDraft.current === draft) return;
     reset(initialValues, { keepDirtyValues: Object.keys(dirtyFields).length > 0 });
     recoveredDraft.current = draft;
   }, [draft, initialValues, dirtyFields, reset]);
@@ -77,6 +83,7 @@ export default function ContactForm() {
         publicKey: configuration[2], blockHeadless: true,
         limitRate: { id: 'elmekawy-contact', throttle: CONTACT_THROTTLE_MS }, storageProvider: emailStorage,
       });
+      completeContactRetry();
       reset(defaults);
       // A successful retry no longer needs its temporary history draft.
       navigate('/thank-you', { replace: !!draft, state: { status: 'success' } satisfies ContactResultState });
@@ -84,6 +91,7 @@ export default function ContactForm() {
       navigate('/thank-you', {
         state: {
           status: 'error',
+          retryRevision: contactRetryRevision(),
           draft: {
             name: values.name, email: values.email, phone: values.phone,
             company: values.company, message: values.message,

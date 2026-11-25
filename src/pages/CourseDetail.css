@@ -1,0 +1,16 @@
+/* The English Workshop 03 badges rewrap from two rows to three when Inter
+   replaces Arial. The measured aggregate text advances are 397 / 369.140625
+   at 12px/500, so match the local fallback's width (~107.55%) during loading.
+   Inter remains first and unchanged; the explicit 16px line height is retained. */
+@font-face {
+  font-family: 'Inter Workshop Fallback';
+  src: local('Arial'), local('Liberation Sans');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  size-adjust: 107.55%;
+}
+
+.course-detail[data-course-id='revit-structure-workshop-03'][dir='ltr'] .course-topic-tags {
+  font-family: 'Inter', 'Inter Workshop Fallback', sans-serif;
+}

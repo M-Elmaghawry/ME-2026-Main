@@ -1,0 +1,32 @@
+[
+  {
+    "name": "full",
+    "node": "22.23.5",
+    "npm": "10.9.9",
+    "command": "npm audit --json --package-lock-only --registry=https://registry.npmjs.org",
+    "status": 1,
+    "findings": {
+      "info": 0,
+      "low": 1,
+      "moderate": 15,
+      "high": 8,
+      "critical": 0,
+      "total": 24
+    }
+  },
+  {
+    "name": "production",
+    "node": "22.23.5",
+    "npm": "10.9.9",
+    "command": "npm audit --json --package-lock-only --registry=https://registry.npmjs.org --omit=dev",
+    "status": 1,
+    "findings": {
+      "info": 0,
+      "low": 0,
+      "moderate": 5,
+      "high": 4,
+      "critical": 0,
+      "total": 9
+    }
+  }
+]

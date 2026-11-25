@@ -1,0 +1,1690 @@
+{
+  "browser": "158.0.8127.88",
+  "policy": {
+    "runs": 1,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "network": "100ms, 4Mbps down, 1Mbps up",
+    "cpu": 4,
+    "coldCache": "fresh context, cleared HTTP cache, normal within-load cache",
+    "server": "same gzip/text and max-age=600 policy",
+    "order": "alternating order for two cohorts; rotated Latin-square order for three cohorts",
+    "trace": true,
+    "applicationJS": true,
+    "experimentalAdjustment": null,
+    "experimentalFallback": null,
+    "motion": "normal; no clock, hiding, animation suppression or preload removal",
+    "rasterization": "grayscale (--disable-lcd-text), same as Phase 5C.3-C",
+    "language": "en"
+  },
+  "hydrationMarker": "Completion, not hydration start",
+  "cases": [
+    {
+      "cohort": "optimized",
+      "name": "en-course",
+      "rawTrace": "dist-ssr/phase5c3-d-final-traces/optimized-en-course-1.trace.json",
+      "cls": 0.13139038172763043,
+      "hydrationCompleteMs": 1318.5999999977648,
+      "earlyRenderedFonts": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter-Medium",
+          "isCustomFont": true,
+          "glyphCount": 3
+        }
+      ],
+      "finalRenderedFonts": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter-Medium",
+          "isCustomFont": true,
+          "glyphCount": 3
+        }
+      ],
+      "fontEvents": [
+        {
+          "name": "loading",
+          "time": 852.8999999985099,
+          "interLoaded": false
+        },
+        {
+          "name": "loadingdone",
+          "time": 1047.0999999977648,
+          "interLoaded": true
+        }
+      ],
+      "shifts": [
+        {
+          "time": 977.7999999970198,
+          "value": 0.13139038172763043,
+          "recentInput": false,
+          "interLoaded": true,
+          "sources": [
+            {
+              "tag": "DIV",
+              "classes": "space-y-6 pb-20",
+              "text": "+300Students★ 4.9Rating12hTraining HoursWhat You'll Learn in This CourseBreak down the project, plan",
+              "before": {
+                "x": 16,
+                "y": 589,
+                "width": 358,
+                "height": 255,
+                "top": 589,
+                "right": 374,
+                "bottom": 844,
+                "left": 16
+              },
+              "after": {
+                "x": 16,
+                "y": 623,
+                "width": 358,
+                "height": 221,
+                "top": 623,
+                "right": 374,
+                "bottom": 844,
+                "left": 16
+              }
+            },
+            {
+              "tag": "DIV",
+              "classes": "flex items-center gap-3 text-sm",
+              "text": "MEInstructor:Mahmoud Elmakawy",
+              "before": {
+                "x": 8,
+                "y": 517,
+                "width": 366,
+                "height": 52,
+                "top": 517,
+                "right": 374,
+                "bottom": 569,
+                "left": 8
+              },
+              "after": {
+                "x": 8,
+                "y": 551,
+                "width": 366,
+                "height": 52,
+                "top": 551,
+                "right": 374,
+                "bottom": 603,
+                "left": 8
+              }
+            },
+            {
+              "text": "Revit Structure Workshop - 03",
+              "before": {
+                "x": 15,
+                "y": 183,
+                "width": 359,
+                "height": 73.5,
+                "top": 183,
+                "right": 374,
+                "bottom": 256.5,
+                "left": 15
+              },
+              "after": {
+                "x": 16,
+                "y": 186,
+                "width": 358,
+                "height": 73.5,
+                "top": 186,
+                "right": 374,
+                "bottom": 259.5,
+                "left": 16
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white/85 hover:bg-white/20 transition-colors cursor-default",
+              "text": "Saudi Building Code",
+              "before": {
+                "x": 237.40625,
+                "y": 441,
+                "width": 134.75,
+                "height": 26,
+                "top": 441,
+                "right": 372.15625,
+                "bottom": 467,
+                "left": 237.40625
+              },
+              "after": {
+                "x": 16,
+                "y": 475,
+                "width": 141.390625,
+                "height": 26,
+                "top": 475,
+                "right": 157.390625,
+                "bottom": 501,
+                "left": 16
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white/85 hover:bg-white/20 transition-colors cursor-default",
+              "text": "Quantity Takeoff",
+              "before": {
+                "x": 16,
+                "y": 475,
+                "width": 112.28125,
+                "height": 26,
+                "top": 475,
+                "right": 128.28125,
+                "bottom": 501,
+                "left": 16
+              },
+              "after": {
+                "x": 165.390625,
+                "y": 475,
+                "width": 121.15625,
+                "height": 26,
+                "top": 475,
+                "right": 286.546875,
+                "bottom": 501,
+                "left": 165.390625
+              }
+            }
+          ]
+        }
+      ],
+      "fallbackFrame": {
+        "time": 644.8999999985099,
+        "interLoaded": false,
+        "tags": [
+          {
+            "text": "BIM",
+            "rect": {
+              "x": 16,
+              "y": 441,
+              "width": 47.34375,
+              "height": 26,
+              "top": 441,
+              "right": 63.34375,
+              "bottom": 467,
+              "left": 16
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Revit",
+            "rect": {
+              "x": 71.34375,
+              "y": 441,
+              "width": 53.34375,
+              "height": 26,
+              "top": 441,
+              "right": 124.6875,
+              "bottom": 467,
+              "left": 71.34375
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Collaboration",
+            "rect": {
+              "x": 132.6875,
+              "y": 441,
+              "width": 96.71875,
+              "height": 26,
+              "top": 441,
+              "right": 229.40625,
+              "bottom": 467,
+              "left": 132.6875
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Saudi Building Code",
+            "rect": {
+              "x": 237.40625,
+              "y": 441,
+              "width": 134.75,
+              "height": 26,
+              "top": 441,
+              "right": 372.15625,
+              "bottom": 467,
+              "left": 237.40625
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Quantity Takeoff",
+            "rect": {
+              "x": 16,
+              "y": 475,
+              "width": 112.28125,
+              "height": 26,
+              "top": 475,
+              "right": 128.28125,
+              "bottom": 501,
+              "left": 16
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Templates",
+            "rect": {
+              "x": 136.28125,
+              "y": 475,
+              "width": 80.703125,
+              "height": 26,
+              "top": 475,
+              "right": 216.984375,
+              "bottom": 501,
+              "left": 136.28125
+            },
+            "font": "Inter, sans-serif"
+          }
+        ]
+      },
+      "loadedFrame": {
+        "time": 3006.199999999255,
+        "interLoaded": true,
+        "tags": [
+          {
+            "text": "BIM",
+            "rect": {
+              "x": 16,
+              "y": 441,
+              "width": 48.109375,
+              "height": 26,
+              "top": 441,
+              "right": 64.109375,
+              "bottom": 467,
+              "left": 16
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Revit",
+            "rect": {
+              "x": 72.109375,
+              "y": 441,
+              "width": 54.4375,
+              "height": 26,
+              "top": 441,
+              "right": 126.546875,
+              "bottom": 467,
+              "left": 72.109375
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Collaboration",
+            "rect": {
+              "x": 134.546875,
+              "y": 441,
+              "width": 102.5625,
+              "height": 26,
+              "top": 441,
+              "right": 237.109375,
+              "bottom": 467,
+              "left": 134.546875
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Saudi Building Code",
+            "rect": {
+              "x": 16,
+              "y": 475,
+              "width": 141.390625,
+              "height": 26,
+              "top": 475,
+              "right": 157.390625,
+              "bottom": 501,
+              "left": 16
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Quantity Takeoff",
+            "rect": {
+              "x": 165.390625,
+              "y": 475,
+              "width": 121.15625,
+              "height": 26,
+              "top": 475,
+              "right": 286.546875,
+              "bottom": 501,
+              "left": 165.390625
+            },
+            "font": "Inter, sans-serif"
+          },
+          {
+            "text": "Templates",
+            "rect": {
+              "x": 16,
+              "y": 509,
+              "width": 85.34375,
+              "height": 26,
+              "top": 509,
+              "right": 101.34375,
+              "bottom": 535,
+              "left": 16
+            },
+            "font": "Inter, sans-serif"
+          }
+        ]
+      },
+      "lcp": [
+        {
+          "time": 940,
+          "renderTime": 940,
+          "loadTime": 0,
+          "size": 32775,
+          "url": "",
+          "tag": "P",
+          "classes": "text-white/80 text-base md:text-lg leading-relaxed mb-5 max-w-2xl",
+          "text": "Model a two-story residential building with a roof to Saudi Building Code SBC 1101, covering collaboration, templates, structural modeling, quantity t"
+        }
+      ],
+      "breakdown": {
+        "ttfb": 101.29999999701977,
+        "resourceLoadDelay": 0,
+        "resourceLoadDuration": 0,
+        "elementRenderDelay": 838.7000000029802,
+        "basis": "Text LCP using font-display:swap; font and image timings recorded separately, not treated as a required LCP image resource"
+      },
+      "criticalResources": [
+        {
+          "url": "/ME-2026-Main/assets/inter-latin-3100e775e861-Dx4kXJAl.woff2",
+          "type": "link",
+          "start": 145,
+          "responseStart": 246.19999999925494,
+          "end": 659.2999999970198,
+          "bytes": 48556,
+          "size": 48256
+        },
+        {
+          "url": "/ME-2026-Main/assets/CourseDetail-L0dCnoBG.js",
+          "type": "other",
+          "start": 146.09999999776483,
+          "responseStart": 249.19999999925494,
+          "end": 392.69999999925494,
+          "bytes": 14915,
+          "size": 14615
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-C1hkLKUo.js",
+          "type": "other",
+          "start": 146.29999999701977,
+          "responseStart": 250,
+          "end": 785.0999999977648,
+          "bytes": 77737,
+          "size": 77437
+        },
+        {
+          "url": "/ME-2026-Main/assets/createLucideIcon-CB9DDjPU.js",
+          "type": "other",
+          "start": 146.59999999776483,
+          "responseStart": 250,
+          "end": 267.69999999925494,
+          "bytes": 1049,
+          "size": 749
+        },
+        {
+          "url": "/ME-2026-Main/assets/WhatsAppButton-DatKLEQ4.js",
+          "type": "other",
+          "start": 146.79999999701977,
+          "responseStart": 250,
+          "end": 768.7999999970198,
+          "bytes": 71713,
+          "size": 71413
+        },
+        {
+          "url": "/ME-2026-Main/assets/courses-CcVY5xMT.js",
+          "type": "other",
+          "start": 147,
+          "responseStart": 250.29999999701977,
+          "end": 344.8999999985099,
+          "bytes": 7706,
+          "size": 7406
+        },
+        {
+          "url": "/ME-2026-Main/assets/testimonials-CdYS0mE-.js",
+          "type": "other",
+          "start": 147.19999999925494,
+          "responseStart": 445.0999999977648,
+          "end": 470.69999999925494,
+          "bytes": 2768,
+          "size": 2468
+        },
+        {
+          "url": "/ME-2026-Main/assets/chevron-right-BhVGU8M2.js",
+          "type": "other",
+          "start": 147.39999999850988,
+          "responseStart": 493.0999999977648,
+          "end": 502,
+          "bytes": 448,
+          "size": 148
+        },
+        {
+          "url": "/ME-2026-Main/assets/clock-DgR8JOGg.js",
+          "type": "other",
+          "start": 147.59999999776483,
+          "responseStart": 570.7999999970198,
+          "end": 596.2999999970198,
+          "bytes": 477,
+          "size": 177
+        },
+        {
+          "url": "/ME-2026-Main/assets/award-C3sGF15J.js",
+          "type": "other",
+          "start": 147.79999999701977,
+          "responseStart": 602.1999999992549,
+          "end": 628.0999999977648,
+          "bytes": 535,
+          "size": 235
+        },
+        {
+          "url": "/ME-2026-Main/assets/circle-check-GRmoOn9i.js",
+          "type": "other",
+          "start": 148,
+          "responseStart": 634.2999999970198,
+          "end": 659.5,
+          "bytes": 474,
+          "size": 174
+        },
+        {
+          "url": "/ME-2026-Main/assets/arrow-right-BTsdViWM.js",
+          "type": "other",
+          "start": 148.19999999925494,
+          "responseStart": 696.5,
+          "end": 721,
+          "bytes": 469,
+          "size": 169
+        },
+        {
+          "url": "/ME-2026-Main/assets/shield-DKX3iUmO.js",
+          "type": "other",
+          "start": 148.39999999850988,
+          "responseStart": 728.2999999970198,
+          "end": 753.2999999970198,
+          "bytes": 532,
+          "size": 232
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-oKiVzBYm.css",
+          "type": "link",
+          "start": 148.59999999776483,
+          "responseStart": 367.79999999701977,
+          "end": 534.0999999977648,
+          "bytes": 17467,
+          "size": 17167
+        }
+      ],
+      "highPriorityImages": [
+        {
+          "src": "/ME-2026-Main/optimized/30b74a07cdc339830d8e-320.webp",
+          "width": 183,
+          "height": 48,
+          "intrinsicWidth": 200,
+          "intrinsicHeight": 52,
+          "priority": "high",
+          "loading": "eager",
+          "y": 20
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 643.5999999977648,
+          "duration": 205
+        },
+        {
+          "start": 862.8999999985099,
+          "duration": 120
+        }
+      ],
+      "traceCandidates": [
+        {
+          "timeMs": 939.019,
+          "candidateIndex": 1,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "40F9575E2E2D2123DB3E39429F88AF8F",
+          "nodeId": 20,
+          "nodeName": "P class='text-white/80 text-base md:text-lg leading-relaxed mb-5 max-w-2xl'",
+          "performanceTimelineNavigationId": 8506,
+          "size": 32775,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "cohort": "fixed",
+      "name": "en-course",
+      "rawTrace": "dist-ssr/phase5c3-d-final-traces/fixed-en-course-1.trace.json",
+      "cls": 0.0015651672806091506,
+      "hydrationCompleteMs": 1332.800000000745,
+      "earlyRenderedFonts": [
+        {
+          "familyName": "Times New Roman",
+          "postScriptName": "TimesNewRomanPSMT",
+          "isCustomFont": false,
+          "glyphCount": 3
+        }
+      ],
+      "finalRenderedFonts": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter-Medium",
+          "isCustomFont": true,
+          "glyphCount": 3
+        }
+      ],
+      "fontEvents": [
+        {
+          "name": "loading",
+          "time": 898.5,
+          "interLoaded": false
+        },
+        {
+          "name": "loadingdone",
+          "time": 1084.3999999985099,
+          "interLoaded": true
+        }
+      ],
+      "shifts": [
+        {
+          "time": 1010.6999999992549,
+          "value": 0.0015651672806091506,
+          "recentInput": false,
+          "interLoaded": true,
+          "sources": [
+            {
+              "text": "Revit Structure Workshop - 03",
+              "before": {
+                "x": 15,
+                "y": 183,
+                "width": 359,
+                "height": 73.5,
+                "top": 183,
+                "right": 374,
+                "bottom": 256.5,
+                "left": 15
+              },
+              "after": {
+                "x": 16,
+                "y": 186,
+                "width": 358,
+                "height": 73.5,
+                "top": 186,
+                "right": 374,
+                "bottom": 259.5,
+                "left": 16
+              }
+            },
+            {
+              "tag": "BUTTON",
+              "classes": "bg-amber-500 hover:bg-amber-400 text-white font-extrabold px-6 py-3 rounded-xl transition-colors text-sm flex-shrink-0",
+              "text": "Enroll Now",
+              "before": {
+                "x": 242.8125,
+                "y": 788,
+                "width": 131.1875,
+                "height": 44,
+                "top": 788,
+                "right": 374,
+                "bottom": 832,
+                "left": 242.8125
+              },
+              "after": {
+                "x": 252.109375,
+                "y": 788,
+                "width": 121.890625,
+                "height": 44,
+                "top": 788,
+                "right": 374,
+                "bottom": 832,
+                "left": 252.109375
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "text-white/85 truncate max-w-[180px] sm:max-w-none",
+              "text": "Revit Structure Workshop - 03",
+              "before": {
+                "x": 157.5,
+                "y": 104,
+                "width": 180,
+                "height": 20,
+                "top": 104,
+                "right": 337.5,
+                "bottom": 124,
+                "left": 157.5
+              },
+              "after": {
+                "x": 162.359375,
+                "y": 104,
+                "width": 180,
+                "height": 20,
+                "top": 104,
+                "right": 342.359375,
+                "bottom": 124,
+                "left": 162.359375
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "font-semibold text-white",
+              "text": "Mahmoud Elmakawy",
+              "before": {
+                "x": 134.25,
+                "y": 563,
+                "width": 138,
+                "height": 20,
+                "top": 563,
+                "right": 272.25,
+                "bottom": 583,
+                "left": 134.25
+              },
+              "after": {
+                "x": 139.703125,
+                "y": 563,
+                "width": 142,
+                "height": 20,
+                "top": 563,
+                "right": 281.703125,
+                "bottom": 583,
+                "left": 139.703125
+              }
+            },
+            {
+              "tag": "SPAN",
+              "classes": "text-white/75 flex items-center gap-1.5",
+              "text": "300+ students",
+              "before": {
+                "x": 236.203125,
+                "y": 403,
+                "width": 108.375,
+                "height": 20,
+                "top": 403,
+                "right": 344.578125,
+                "bottom": 423,
+                "left": 236.203125
+              },
+              "after": {
+                "x": 245.953125,
+                "y": 403,
+                "width": 116.609375,
+                "height": 20,
+                "top": 403,
+                "right": 362.5625,
+                "bottom": 423,
+                "left": 245.953125
+              }
+            }
+          ]
+        }
+      ],
+      "fallbackFrame": {
+        "time": 668.8999999985099,
+        "interLoaded": false,
+        "tags": [
+          {
+            "text": "BIM",
+            "rect": {
+              "x": 16,
+              "y": 441,
+              "width": 48.9375,
+              "height": 26,
+              "top": 441,
+              "right": 64.9375,
+              "bottom": 467,
+              "left": 16
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Revit",
+            "rect": {
+              "x": 72.9375,
+              "y": 441,
+              "width": 55.390625,
+              "height": 26,
+              "top": 441,
+              "right": 128.328125,
+              "bottom": 467,
+              "left": 72.9375
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Collaboration",
+            "rect": {
+              "x": 136.328125,
+              "y": 441,
+              "width": 102.015625,
+              "height": 26,
+              "top": 441,
+              "right": 238.34375,
+              "bottom": 467,
+              "left": 136.328125
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Saudi Building Code",
+            "rect": {
+              "x": 16,
+              "y": 475,
+              "width": 142.90625,
+              "height": 26,
+              "top": 475,
+              "right": 158.90625,
+              "bottom": 501,
+              "left": 16
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Quantity Takeoff",
+            "rect": {
+              "x": 166.90625,
+              "y": 475,
+              "width": 118.765625,
+              "height": 26,
+              "top": 475,
+              "right": 285.671875,
+              "bottom": 501,
+              "left": 166.90625
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Templates",
+            "rect": {
+              "x": 16,
+              "y": 509,
+              "width": 84.796875,
+              "height": 26,
+              "top": 509,
+              "right": 100.796875,
+              "bottom": 535,
+              "left": 16
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          }
+        ]
+      },
+      "loadedFrame": {
+        "time": 3001.800000000745,
+        "interLoaded": true,
+        "tags": [
+          {
+            "text": "BIM",
+            "rect": {
+              "x": 16,
+              "y": 441,
+              "width": 48.109375,
+              "height": 26,
+              "top": 441,
+              "right": 64.109375,
+              "bottom": 467,
+              "left": 16
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Revit",
+            "rect": {
+              "x": 72.109375,
+              "y": 441,
+              "width": 54.4375,
+              "height": 26,
+              "top": 441,
+              "right": 126.546875,
+              "bottom": 467,
+              "left": 72.109375
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Collaboration",
+            "rect": {
+              "x": 134.546875,
+              "y": 441,
+              "width": 102.5625,
+              "height": 26,
+              "top": 441,
+              "right": 237.109375,
+              "bottom": 467,
+              "left": 134.546875
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Saudi Building Code",
+            "rect": {
+              "x": 16,
+              "y": 475,
+              "width": 141.390625,
+              "height": 26,
+              "top": 475,
+              "right": 157.390625,
+              "bottom": 501,
+              "left": 16
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Quantity Takeoff",
+            "rect": {
+              "x": 165.390625,
+              "y": 475,
+              "width": 121.15625,
+              "height": 26,
+              "top": 475,
+              "right": 286.546875,
+              "bottom": 501,
+              "left": 165.390625
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          },
+          {
+            "text": "Templates",
+            "rect": {
+              "x": 16,
+              "y": 509,
+              "width": 85.34375,
+              "height": 26,
+              "top": 509,
+              "right": 101.34375,
+              "bottom": 535,
+              "left": 16
+            },
+            "font": "Inter, \"Inter Workshop Fallback\", sans-serif"
+          }
+        ]
+      },
+      "lcp": [
+        {
+          "time": 904,
+          "renderTime": 904,
+          "loadTime": 0,
+          "size": 32775,
+          "url": "",
+          "tag": "P",
+          "classes": "text-white/80 text-base md:text-lg leading-relaxed mb-5 max-w-2xl",
+          "text": "Model a two-story residential building with a roof to Saudi Building Code SBC 1101, covering collaboration, templates, structural modeling, quantity t"
+        }
+      ],
+      "breakdown": {
+        "ttfb": 101.59999999776483,
+        "resourceLoadDelay": 0,
+        "resourceLoadDuration": 0,
+        "elementRenderDelay": 802.4000000022352,
+        "basis": "Text LCP using font-display:swap; font and image timings recorded separately, not treated as a required LCP image resource"
+      },
+      "criticalResources": [
+        {
+          "url": "/ME-2026-Main/assets/inter-latin-3100e775e861-Dx4kXJAl.woff2",
+          "type": "link",
+          "start": 151.39999999850988,
+          "responseStart": 252.69999999925494,
+          "end": 666.8000000007451,
+          "bytes": 48556,
+          "size": 48256
+        },
+        {
+          "url": "/ME-2026-Main/assets/CourseDetail-zP6mNGiP.css",
+          "type": "link",
+          "start": 152.19999999925494,
+          "responseStart": 257.3999999985099,
+          "end": 275.3999999985099,
+          "bytes": 525,
+          "size": 225
+        },
+        {
+          "url": "/ME-2026-Main/assets/CourseDetail-mJhAY_C0.js",
+          "type": "other",
+          "start": 152.59999999776483,
+          "responseStart": 258.80000000074506,
+          "end": 385.5999999977648,
+          "bytes": 14945,
+          "size": 14645
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-CZut_KwN.js",
+          "type": "other",
+          "start": 152.80000000074506,
+          "responseStart": 258.8999999985099,
+          "end": 808,
+          "bytes": 77768,
+          "size": 77468
+        },
+        {
+          "url": "/ME-2026-Main/assets/createLucideIcon-JpkPXccA.js",
+          "type": "other",
+          "start": 153.09999999776483,
+          "responseStart": 258.8999999985099,
+          "end": 275.5,
+          "bytes": 1049,
+          "size": 749
+        },
+        {
+          "url": "/ME-2026-Main/assets/WhatsAppButton-BmUdhFMT.js",
+          "type": "other",
+          "start": 153.30000000074506,
+          "responseStart": 259.3999999985099,
+          "end": 776.8000000007451,
+          "bytes": 71712,
+          "size": 71412
+        },
+        {
+          "url": "/ME-2026-Main/assets/courses-CcVY5xMT.js",
+          "type": "other",
+          "start": 153.39999999850988,
+          "responseStart": 376.0999999977648,
+          "end": 470.8999999985099,
+          "bytes": 7706,
+          "size": 7406
+        },
+        {
+          "url": "/ME-2026-Main/assets/testimonials-CM48HQIJ.js",
+          "type": "other",
+          "start": 153.59999999776483,
+          "responseStart": 485.80000000074506,
+          "end": 511.30000000074506,
+          "bytes": 2768,
+          "size": 2468
+        },
+        {
+          "url": "/ME-2026-Main/assets/chevron-right-DDKr9OuC.js",
+          "type": "other",
+          "start": 153.80000000074506,
+          "responseStart": 571.5999999977648,
+          "end": 588.8000000007451,
+          "bytes": 448,
+          "size": 148
+        },
+        {
+          "url": "/ME-2026-Main/assets/clock-DD5VJEli.js",
+          "type": "other",
+          "start": 154,
+          "responseStart": 611.6999999992549,
+          "end": 635.8999999985099,
+          "bytes": 475,
+          "size": 175
+        },
+        {
+          "url": "/ME-2026-Main/assets/award-C0JJxDqf.js",
+          "type": "other",
+          "start": 154.19999999925494,
+          "responseStart": 657.8000000007451,
+          "end": 670.1999999992549,
+          "bytes": 533,
+          "size": 233
+        },
+        {
+          "url": "/ME-2026-Main/assets/circle-check-1xcYbGfi.js",
+          "type": "other",
+          "start": 154.39999999850988,
+          "responseStart": 689,
+          "end": 713.8000000007451,
+          "bytes": 472,
+          "size": 172
+        },
+        {
+          "url": "/ME-2026-Main/assets/arrow-right-CC6mmxrv.js",
+          "type": "other",
+          "start": 154.59999999776483,
+          "responseStart": 736.3000000007451,
+          "end": 761.3999999985099,
+          "bytes": 468,
+          "size": 168
+        },
+        {
+          "url": "/ME-2026-Main/assets/shield-Bvvyai0H.js",
+          "type": "other",
+          "start": 154.59999999776483,
+          "responseStart": 767.1999999992549,
+          "end": 778.0999999977648,
+          "bytes": 531,
+          "size": 231
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-oKiVzBYm.css",
+          "type": "link",
+          "start": 154.89999999850988,
+          "responseStart": 375.8999999985099,
+          "end": 557.3999999985099,
+          "bytes": 17467,
+          "size": 17167
+        }
+      ],
+      "highPriorityImages": [
+        {
+          "src": "/ME-2026-Main/optimized/30b74a07cdc339830d8e-320.webp",
+          "width": 183,
+          "height": 48,
+          "intrinsicWidth": 200,
+          "intrinsicHeight": 52,
+          "priority": "high",
+          "loading": "eager",
+          "y": 20
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 667.3999999985099,
+          "duration": 215
+        },
+        {
+          "start": 908.5999999977648,
+          "duration": 106
+        },
+        {
+          "start": 1018.8999999985099,
+          "duration": 58
+        }
+      ],
+      "traceCandidates": [
+        {
+          "timeMs": 900.91,
+          "candidateIndex": 1,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "716CDAFBD28450F2E0EC80BEA3741238",
+          "nodeId": 36,
+          "nodeName": "P class='text-white/80 text-base md:text-lg leading-relaxed mb-5 max-w-2xl'",
+          "performanceTimelineNavigationId": 6098,
+          "size": 32775,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "cohort": "optimized",
+      "name": "en-training",
+      "rawTrace": "dist-ssr/phase5c3-d-final-traces/optimized-en-training-1.trace.json",
+      "cls": 0,
+      "hydrationCompleteMs": 1076.8999999985099,
+      "earlyRenderedFonts": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 219
+        }
+      ],
+      "finalRenderedFonts": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 219
+        }
+      ],
+      "fontEvents": [
+        {
+          "name": "loading",
+          "time": 798.8999999985099,
+          "interLoaded": true
+        },
+        {
+          "name": "loadingdone",
+          "time": 809.2999999970198,
+          "interLoaded": true
+        }
+      ],
+      "shifts": [],
+      "fallbackFrame": null,
+      "loadedFrame": null,
+      "lcp": [
+        {
+          "time": 1528,
+          "renderTime": 1528,
+          "loadTime": 0,
+          "size": 1887,
+          "url": "",
+          "tag": "A",
+          "classes": "bt-back",
+          "text": "Back to Services"
+        },
+        {
+          "time": 1664,
+          "renderTime": 1664,
+          "loadTime": 0,
+          "size": 4641,
+          "url": "",
+          "tag": "P",
+          "classes": "bt-eyebrow",
+          "text": "Practical training for individuals & teams"
+        },
+        {
+          "time": 1748,
+          "renderTime": 1748,
+          "loadTime": 0,
+          "size": 14399,
+          "url": "",
+          "tag": "H1",
+          "classes": "",
+          "text": "Professional BIM Training (Individuals & Corporate)"
+        },
+        {
+          "time": 1828,
+          "renderTime": 1828,
+          "loadTime": 0,
+          "size": 63366,
+          "url": "",
+          "tag": "P",
+          "classes": "bt-intro",
+          "text": "We provide customized BIM training programs specifically designed for engineers, companies, and project teams. We focus on hands-on application using "
+        }
+      ],
+      "breakdown": {
+        "ttfb": 101,
+        "resourceLoadDelay": 0,
+        "resourceLoadDuration": 0,
+        "elementRenderDelay": 1727,
+        "basis": "Text LCP using font-display:swap; font and image timings recorded separately, not treated as a required LCP image resource"
+      },
+      "criticalResources": [
+        {
+          "url": "/ME-2026-Main/assets/inter-latin-3100e775e861-Dx4kXJAl.woff2",
+          "type": "link",
+          "start": 148.89999999850988,
+          "responseStart": 250.79999999701977,
+          "end": 599.2999999970198,
+          "bytes": 48556,
+          "size": 48256
+        },
+        {
+          "url": "/ME-2026-Main/assets/ServiceDetail-BfM4W0i9.css",
+          "type": "link",
+          "start": 150.69999999925494,
+          "responseStart": 255.79999999701977,
+          "end": 317.3999999985099,
+          "bytes": 3108,
+          "size": 2808
+        },
+        {
+          "url": "/ME-2026-Main/assets/ServiceDetail-BijRCrf6.js",
+          "type": "other",
+          "start": 151.19999999925494,
+          "responseStart": 257.29999999701977,
+          "end": 333.79999999701977,
+          "bytes": 5766,
+          "size": 5466
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-C1hkLKUo.js",
+          "type": "other",
+          "start": 151.5,
+          "responseStart": 257.29999999701977,
+          "end": 804.1999999992549,
+          "bytes": 77737,
+          "size": 77437
+        },
+        {
+          "url": "/ME-2026-Main/assets/WhatsAppButton-DatKLEQ4.js",
+          "type": "other",
+          "start": 152.09999999776483,
+          "responseStart": 257.5,
+          "end": 772.5999999977648,
+          "bytes": 71713,
+          "size": 71413
+        },
+        {
+          "url": "/ME-2026-Main/assets/createLucideIcon-CB9DDjPU.js",
+          "type": "other",
+          "start": 152.29999999701977,
+          "responseStart": 258.0999999977648,
+          "end": 287.19999999925494,
+          "bytes": 1049,
+          "size": 749
+        },
+        {
+          "url": "/ME-2026-Main/assets/arrow-right-BTsdViWM.js",
+          "type": "other",
+          "start": 152.69999999925494,
+          "responseStart": 417.8999999985099,
+          "end": 444.79999999701977,
+          "bytes": 469,
+          "size": 169
+        },
+        {
+          "url": "/ME-2026-Main/assets/arrow-left-BLHDbaSA.js",
+          "type": "other",
+          "start": 152.89999999850988,
+          "responseStart": 434.19999999925494,
+          "end": 447.69999999925494,
+          "bytes": 469,
+          "size": 169
+        },
+        {
+          "url": "/ME-2026-Main/assets/clients-C-EuUwSV.js",
+          "type": "other",
+          "start": 153.09999999776483,
+          "responseStart": 545.0999999977648,
+          "end": 555.5,
+          "bytes": 1187,
+          "size": 887
+        },
+        {
+          "url": "/ME-2026-Main/assets/testimonials-CdYS0mE-.js",
+          "type": "other",
+          "start": 153.19999999925494,
+          "responseStart": 547.8999999985099,
+          "end": 583.7999999970198,
+          "bytes": 2768,
+          "size": 2468
+        },
+        {
+          "url": "/ME-2026-Main/assets/award-C3sGF15J.js",
+          "type": "other",
+          "start": 153.29999999701977,
+          "responseStart": 652.8999999985099,
+          "end": 678.8999999985099,
+          "bytes": 535,
+          "size": 235
+        },
+        {
+          "url": "/ME-2026-Main/assets/services-DkAiMl2n.js",
+          "type": "other",
+          "start": 153.5,
+          "responseStart": 655.7999999970198,
+          "end": 725.0999999977648,
+          "bytes": 7558,
+          "size": 7258
+        },
+        {
+          "url": "/ME-2026-Main/assets/graduation-cap-CIe5UGcJ.js",
+          "type": "other",
+          "start": 153.69999999925494,
+          "responseStart": 684.0999999977648,
+          "end": 710,
+          "bytes": 554,
+          "size": 254
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-oKiVzBYm.css",
+          "type": "link",
+          "start": 153.89999999850988,
+          "responseStart": 387.5,
+          "end": 552.5999999977648,
+          "bytes": 17467,
+          "size": 17167
+        }
+      ],
+      "highPriorityImages": [
+        {
+          "src": "/ME-2026-Main/optimized/30b74a07cdc339830d8e-320.webp",
+          "width": 183,
+          "height": 48,
+          "intrinsicWidth": 200,
+          "intrinsicHeight": 52,
+          "priority": "high",
+          "loading": "eager",
+          "y": 20
+        },
+        {
+          "src": "/ME-2026-Main/optimized/4cf76a52bf3e47951413-640.webp",
+          "width": 332,
+          "height": 249,
+          "intrinsicWidth": 358,
+          "intrinsicHeight": 268,
+          "priority": "high",
+          "loading": "eager",
+          "y": 788
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 607,
+          "duration": 189
+        }
+      ],
+      "firstVisibleIntroMs": 1277.8999999985099,
+      "fullyVisibleIntroMs": 1761.3999999985099,
+      "traceCandidates": [
+        {
+          "timeMs": 1527.527,
+          "candidateIndex": 1,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "9A9C15905C7E5FAA5A5A8C736B000A84",
+          "nodeId": 89,
+          "nodeName": "A class='bt-back'",
+          "performanceTimelineNavigationId": 986,
+          "size": 1887,
+          "type": "text"
+        },
+        {
+          "timeMs": 1660.779,
+          "candidateIndex": 2,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "9A9C15905C7E5FAA5A5A8C736B000A84",
+          "nodeId": 25,
+          "nodeName": "P class='bt-eyebrow'",
+          "performanceTimelineNavigationId": 986,
+          "size": 4641,
+          "type": "text"
+        },
+        {
+          "timeMs": 1744.135,
+          "candidateIndex": 3,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "9A9C15905C7E5FAA5A5A8C736B000A84",
+          "nodeId": 79,
+          "nodeName": "H1 id='training-title'",
+          "performanceTimelineNavigationId": 986,
+          "size": 14399,
+          "type": "text"
+        },
+        {
+          "timeMs": 1827.41,
+          "candidateIndex": 4,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "9A9C15905C7E5FAA5A5A8C736B000A84",
+          "nodeId": 51,
+          "nodeName": "P class='bt-intro'",
+          "performanceTimelineNavigationId": 986,
+          "size": 63366,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "cohort": "fixed",
+      "name": "en-training",
+      "rawTrace": "dist-ssr/phase5c3-d-final-traces/fixed-en-training-1.trace.json",
+      "cls": 0,
+      "hydrationCompleteMs": 1115.5,
+      "earlyRenderedFonts": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 219
+        }
+      ],
+      "finalRenderedFonts": [
+        {
+          "familyName": "Inter",
+          "postScriptName": "Inter",
+          "isCustomFont": true,
+          "glyphCount": 219
+        }
+      ],
+      "fontEvents": [
+        {
+          "name": "loading",
+          "time": 824.4000000022352,
+          "interLoaded": true
+        },
+        {
+          "name": "loadingdone",
+          "time": 836.9000000022352,
+          "interLoaded": true
+        }
+      ],
+      "shifts": [],
+      "fallbackFrame": null,
+      "loadedFrame": null,
+      "lcp": [
+        {
+          "time": 1552,
+          "renderTime": 1552,
+          "loadTime": 0,
+          "size": 1887,
+          "url": "",
+          "tag": "A",
+          "classes": "bt-back",
+          "text": "Back to Services"
+        },
+        {
+          "time": 1704,
+          "renderTime": 1704,
+          "loadTime": 0,
+          "size": 4641,
+          "url": "",
+          "tag": "P",
+          "classes": "bt-eyebrow",
+          "text": "Practical training for individuals & teams"
+        },
+        {
+          "time": 1768,
+          "renderTime": 1768,
+          "loadTime": 0,
+          "size": 14399,
+          "url": "",
+          "tag": "H1",
+          "classes": "",
+          "text": "Professional BIM Training (Individuals & Corporate)"
+        },
+        {
+          "time": 1852,
+          "renderTime": 1852,
+          "loadTime": 0,
+          "size": 63366,
+          "url": "",
+          "tag": "P",
+          "classes": "bt-intro",
+          "text": "We provide customized BIM training programs specifically designed for engineers, companies, and project teams. We focus on hands-on application using "
+        }
+      ],
+      "breakdown": {
+        "ttfb": 101,
+        "resourceLoadDelay": 0,
+        "resourceLoadDuration": 0,
+        "elementRenderDelay": 1751,
+        "basis": "Text LCP using font-display:swap; font and image timings recorded separately, not treated as a required LCP image resource"
+      },
+      "criticalResources": [
+        {
+          "url": "/ME-2026-Main/assets/inter-latin-3100e775e861-Dx4kXJAl.woff2",
+          "type": "link",
+          "start": 136.69999999925494,
+          "responseStart": 238,
+          "end": 624.3000000007451,
+          "bytes": 48556,
+          "size": 48256
+        },
+        {
+          "url": "/ME-2026-Main/assets/ServiceDetail-BfM4W0i9.css",
+          "type": "link",
+          "start": 137.60000000149012,
+          "responseStart": 240.80000000074506,
+          "end": 291.4000000022352,
+          "bytes": 3108,
+          "size": 2808
+        },
+        {
+          "url": "/ME-2026-Main/assets/ServiceDetail-DuahPSgU.js",
+          "type": "other",
+          "start": 138,
+          "responseStart": 241.80000000074506,
+          "end": 307.1000000014901,
+          "bytes": 5768,
+          "size": 5468
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-CZut_KwN.js",
+          "type": "other",
+          "start": 138.19999999925494,
+          "responseStart": 241.90000000223517,
+          "end": 781.3000000007451,
+          "bytes": 77768,
+          "size": 77468
+        },
+        {
+          "url": "/ME-2026-Main/assets/WhatsAppButton-BmUdhFMT.js",
+          "type": "other",
+          "start": 138.80000000074506,
+          "responseStart": 241.90000000223517,
+          "end": 750.1999999992549,
+          "bytes": 71712,
+          "size": 71412
+        },
+        {
+          "url": "/ME-2026-Main/assets/createLucideIcon-JpkPXccA.js",
+          "type": "other",
+          "start": 139.5,
+          "responseStart": 242.30000000074506,
+          "end": 261.1000000014901,
+          "bytes": 1049,
+          "size": 749
+        },
+        {
+          "url": "/ME-2026-Main/assets/arrow-right-CC6mmxrv.js",
+          "type": "other",
+          "start": 140,
+          "responseStart": 391.69999999925494,
+          "end": 403.30000000074506,
+          "bytes": 468,
+          "size": 168
+        },
+        {
+          "url": "/ME-2026-Main/assets/arrow-left-DKk2JXd4.js",
+          "type": "other",
+          "start": 140.19999999925494,
+          "responseStart": 407.30000000074506,
+          "end": 434.9000000022352,
+          "bytes": 468,
+          "size": 168
+        },
+        {
+          "url": "/ME-2026-Main/assets/clients-DXyq-mSF.js",
+          "type": "other",
+          "start": 140.40000000223517,
+          "responseStart": 503.5,
+          "end": 513.5,
+          "bytes": 1187,
+          "size": 887
+        },
+        {
+          "url": "/ME-2026-Main/assets/testimonials-CM48HQIJ.js",
+          "type": "other",
+          "start": 140.60000000149012,
+          "responseStart": 535.1999999992549,
+          "end": 561.3000000007451,
+          "bytes": 2768,
+          "size": 2468
+        },
+        {
+          "url": "/ME-2026-Main/assets/award-C0JJxDqf.js",
+          "type": "other",
+          "start": 140.80000000074506,
+          "responseStart": 613.6999999992549,
+          "end": 624.9000000022352,
+          "bytes": 533,
+          "size": 233
+        },
+        {
+          "url": "/ME-2026-Main/assets/services-Cu8bmOhI.js",
+          "type": "other",
+          "start": 141,
+          "responseStart": 629,
+          "end": 687.6000000014901,
+          "bytes": 7558,
+          "size": 7258
+        },
+        {
+          "url": "/ME-2026-Main/assets/graduation-cap-CxyV-8J6.js",
+          "type": "other",
+          "start": 141.5,
+          "responseStart": 661.6999999992549,
+          "end": 687.6999999992549,
+          "bytes": 554,
+          "size": 254
+        },
+        {
+          "url": "/ME-2026-Main/assets/index-oKiVzBYm.css",
+          "type": "link",
+          "start": 142.10000000149012,
+          "responseStart": 361.4000000022352,
+          "end": 528.8000000007451,
+          "bytes": 17467,
+          "size": 17167
+        }
+      ],
+      "highPriorityImages": [
+        {
+          "src": "/ME-2026-Main/optimized/30b74a07cdc339830d8e-320.webp",
+          "width": 183,
+          "height": 48,
+          "intrinsicWidth": 200,
+          "intrinsicHeight": 52,
+          "priority": "high",
+          "loading": "eager",
+          "y": 20
+        },
+        {
+          "src": "/ME-2026-Main/optimized/4cf76a52bf3e47951413-640.webp",
+          "width": 332,
+          "height": 249,
+          "intrinsicWidth": 358,
+          "intrinsicHeight": 268,
+          "priority": "high",
+          "loading": "eager",
+          "y": 788
+        }
+      ],
+      "longTasks": [
+        {
+          "start": 633.8000000007451,
+          "duration": 186
+        }
+      ],
+      "firstVisibleIntroMs": 1317.6000000014901,
+      "fullyVisibleIntroMs": 1818.9000000022352,
+      "traceCandidates": [
+        {
+          "timeMs": 1550.278,
+          "candidateIndex": 1,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "4BB1A8DC48D2D3ADE94E8F0EE7A997EB",
+          "nodeId": 89,
+          "nodeName": "A class='bt-back'",
+          "performanceTimelineNavigationId": 1915,
+          "size": 1887,
+          "type": "text"
+        },
+        {
+          "timeMs": 1700.346,
+          "candidateIndex": 2,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "4BB1A8DC48D2D3ADE94E8F0EE7A997EB",
+          "nodeId": 25,
+          "nodeName": "P class='bt-eyebrow'",
+          "performanceTimelineNavigationId": 1915,
+          "size": 4641,
+          "type": "text"
+        },
+        {
+          "timeMs": 1767.049,
+          "candidateIndex": 3,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "4BB1A8DC48D2D3ADE94E8F0EE7A997EB",
+          "nodeId": 81,
+          "nodeName": "H1 id='training-title'",
+          "performanceTimelineNavigationId": 1915,
+          "size": 14399,
+          "type": "text"
+        },
+        {
+          "timeMs": 1850.364,
+          "candidateIndex": 4,
+          "isMainFrame": true,
+          "isOutermostMainFrame": true,
+          "navigationId": "4BB1A8DC48D2D3ADE94E8F0EE7A997EB",
+          "nodeId": 51,
+          "nodeName": "P class='bt-intro'",
+          "performanceTimelineNavigationId": 1915,
+          "size": 63366,
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}

@@ -36,7 +36,8 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       const target = `${localeBase(routing.base, lang)}${trailingSlash(location.pathname).replace(/^\//, '')}${localizedSearch(location.search, 'ar')}${location.hash}`;
       if (location.state != null) {
         // Fetch the counterpart SSR document while preserving the same history
-        // state as the legacy language switch. Never put drafts in the URL or storage.
+        // state as the legacy language switch. The client bootstrap reconciles
+        // document locale on history traversal. Draft fields stay in history.
         const previous = window.history.state;
         window.history.pushState({ ...previous, usr: location.state, key: Math.random().toString(36).slice(2, 10), idx: (previous?.idx ?? 0) + 1 }, '', target);
         window.location.reload();

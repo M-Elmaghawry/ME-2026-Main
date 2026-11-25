@@ -1,0 +1,1172 @@
+{
+  "date": "2026-11-25",
+  "timezone": "Asia/Riyadh",
+  "branch": "fix/seo-language-consistency",
+  "startingHead": "de485daffaf72be29a1a2118dcc01e1aa7823755",
+  "localPhaseStatus": "PASSED",
+  "productionRelease": "BLOCKED: Node 22/Linux validation and dependency risk gates remain",
+  "node": "v24.19.0",
+  "npm": "11.17.0",
+  "browser": "158.0.8127.88",
+  "policy": {
+    "runs": 9,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "network": "100ms, 4Mbps down, 1Mbps up",
+    "cpu": 4,
+    "coldCache": "fresh context, cleared HTTP cache, normal within-load cache",
+    "server": "same gzip/text and max-age=600 policy",
+    "order": "alternating order for two cohorts; rotated Latin-square order for three cohorts",
+    "trace": false,
+    "applicationJS": true,
+    "experimentalAdjustment": null,
+    "experimentalFallback": null,
+    "motion": "normal; no clock, hiding, animation suppression or preload removal",
+    "rasterization": "grayscale (--disable-lcd-text), same as Phase 5C.3-C"
+  },
+  "statistics": [
+    {
+      "cohort": "legacy",
+      "name": "en-course",
+      "runs": 9,
+      "lcpMedianMs": 948,
+      "lcpMeanMs": 953.7777777777778,
+      "lcpRangeMs": [
+        924,
+        1004
+      ],
+      "lcpIQRMs": [
+        940,
+        956
+      ],
+      "clsMaximum": 0.13139038172763043,
+      "transferredBytesMedian": 465716,
+      "ttfbMedianMs": 100.89999999850988,
+      "renderDelayMedianMs": 847.1000000014901,
+      "hydrationCompleteMedianMs": 1397.199999999255,
+      "interResponseEndMedianMs": 740.8999999985099,
+      "raw": [
+        {
+          "round": 1,
+          "lcpMs": 1004,
+          "cls": 0.13139038172763043,
+          "ttfb": 101.30000000074506,
+          "renderDelay": 902.6999999992549,
+          "hydratedAt": 1402.800000000745
+        },
+        {
+          "round": 2,
+          "lcpMs": 940,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 839.1000000014901,
+          "hydratedAt": 1374.5999999977648
+        },
+        {
+          "round": 3,
+          "lcpMs": 948,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 847.1000000014901,
+          "hydratedAt": 1402.5
+        },
+        {
+          "round": 4,
+          "lcpMs": 924,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 823.1000000014901,
+          "hydratedAt": 1367.0999999977648
+        },
+        {
+          "round": 5,
+          "lcpMs": 956,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 855.1000000014901,
+          "hydratedAt": 1411.8999999985099
+        },
+        {
+          "round": 6,
+          "lcpMs": 940,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 839.1999999992549,
+          "hydratedAt": 1372.9000000022352
+        },
+        {
+          "round": 7,
+          "lcpMs": 956,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 855.1999999992549,
+          "hydratedAt": 1397.199999999255
+        },
+        {
+          "round": 8,
+          "lcpMs": 992,
+          "cls": 0.13139038172763043,
+          "ttfb": 101.19999999925494,
+          "renderDelay": 890.8000000007451,
+          "hydratedAt": 1447.5
+        },
+        {
+          "round": 9,
+          "lcpMs": 924,
+          "cls": 0.13139038172763043,
+          "ttfb": 101.10000000149012,
+          "renderDelay": 822.8999999985099,
+          "hydratedAt": 1371.4000000022352
+        }
+      ]
+    },
+    {
+      "cohort": "legacy",
+      "name": "en-training",
+      "runs": 9,
+      "lcpMedianMs": 2064,
+      "lcpMeanMs": 1936.4444444444443,
+      "lcpRangeMs": [
+        1452,
+        2128
+      ],
+      "lcpIQRMs": [
+        2004,
+        2100
+      ],
+      "clsMaximum": 0,
+      "transferredBytesMedian": 569380,
+      "ttfbMedianMs": 101,
+      "renderDelayMedianMs": 1963.199999999255,
+      "hydrationCompleteMedianMs": 1312.199999999255,
+      "interResponseEndMedianMs": 723.3999999985099,
+      "raw": [
+        {
+          "round": 1,
+          "lcpMs": 2116,
+          "cls": 0,
+          "ttfb": 100.90000000223517,
+          "renderDelay": 2015.0999999977648,
+          "hydratedAt": 1378.199999999255
+        },
+        {
+          "round": 2,
+          "lcpMs": 2020,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1919,
+          "hydratedAt": 1283.0999999977648
+        },
+        {
+          "round": 3,
+          "lcpMs": 2100,
+          "cls": 0,
+          "ttfb": 101.10000000149012,
+          "renderDelay": 1998.8999999985099,
+          "hydratedAt": 1359.800000000745
+        },
+        {
+          "round": 4,
+          "lcpMs": 2004,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1903,
+          "hydratedAt": 1250.199999999255
+        },
+        {
+          "round": 5,
+          "lcpMs": 2064,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1963.199999999255,
+          "hydratedAt": 1312.199999999255
+        },
+        {
+          "round": 6,
+          "lcpMs": 1476,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1375.199999999255,
+          "hydratedAt": 1196
+        },
+        {
+          "round": 7,
+          "lcpMs": 2068,
+          "cls": 0,
+          "ttfb": 101.10000000149012,
+          "renderDelay": 1966.8999999985099,
+          "hydratedAt": 1324.6000000014901
+        },
+        {
+          "round": 8,
+          "lcpMs": 1452,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1351,
+          "hydratedAt": 1224.4000000022352
+        },
+        {
+          "round": 9,
+          "lcpMs": 2128,
+          "cls": 0,
+          "ttfb": 101.10000000149012,
+          "renderDelay": 2026.8999999985099,
+          "hydratedAt": 1383.3999999985099
+        }
+      ]
+    },
+    {
+      "cohort": "optimized",
+      "name": "en-course",
+      "runs": 9,
+      "lcpMedianMs": 932,
+      "lcpMeanMs": 931.5555555555555,
+      "lcpRangeMs": [
+        904,
+        952
+      ],
+      "lcpIQRMs": [
+        924,
+        940
+      ],
+      "clsMaximum": 0.13139038172763043,
+      "transferredBytesMedian": 267896,
+      "ttfbMedianMs": 100.89999999850988,
+      "renderDelayMedianMs": 831.1000000014901,
+      "hydrationCompleteMedianMs": 1338.199999999255,
+      "interResponseEndMedianMs": 661.5999999977648,
+      "raw": [
+        {
+          "round": 1,
+          "lcpMs": 904,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 803.1999999992549,
+          "hydratedAt": 1347.5
+        },
+        {
+          "round": 2,
+          "lcpMs": 932,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 831.1000000014901,
+          "hydratedAt": 1333.8999999985099
+        },
+        {
+          "round": 3,
+          "lcpMs": 952,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.90000000223517,
+          "renderDelay": 851.0999999977648,
+          "hydratedAt": 1358.4000000022352
+        },
+        {
+          "round": 4,
+          "lcpMs": 924,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.79999999701977,
+          "renderDelay": 823.2000000029802,
+          "hydratedAt": 1334.8999999985099
+        },
+        {
+          "round": 5,
+          "lcpMs": 916,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 815,
+          "hydratedAt": 1211.6000000014901
+        },
+        {
+          "round": 6,
+          "lcpMs": 932,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 831.1000000014901,
+          "hydratedAt": 1338.199999999255
+        },
+        {
+          "round": 7,
+          "lcpMs": 940,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 839.1999999992549,
+          "hydratedAt": 1339.8999999985099
+        },
+        {
+          "round": 8,
+          "lcpMs": 932,
+          "cls": 0.13139038172763043,
+          "ttfb": 100.90000000223517,
+          "renderDelay": 831.0999999977648,
+          "hydratedAt": 1371.1000000014901
+        },
+        {
+          "round": 9,
+          "lcpMs": 952,
+          "cls": 0,
+          "ttfb": 101.09999999776483,
+          "renderDelay": 850.9000000022352,
+          "hydratedAt": 1239.699999999255
+        }
+      ]
+    },
+    {
+      "cohort": "optimized",
+      "name": "en-training",
+      "runs": 9,
+      "lcpMedianMs": 2016,
+      "lcpMeanMs": 1997.3333333333333,
+      "lcpRangeMs": [
+        1860,
+        2056
+      ],
+      "lcpIQRMs": [
+        1984,
+        2044
+      ],
+      "clsMaximum": 0,
+      "transferredBytesMedian": 371560,
+      "ttfbMedianMs": 101,
+      "renderDelayMedianMs": 1914.5,
+      "hydrationCompleteMedianMs": 1277,
+      "interResponseEndMedianMs": 628.3999999985099,
+      "raw": [
+        {
+          "round": 1,
+          "lcpMs": 1928,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1827,
+          "hydratedAt": 1189.2999999970198
+        },
+        {
+          "round": 2,
+          "lcpMs": 1860,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1759,
+          "hydratedAt": 1132.1000000014901
+        },
+        {
+          "round": 3,
+          "lcpMs": 2016,
+          "cls": 0,
+          "ttfb": 101.5,
+          "renderDelay": 1914.5,
+          "hydratedAt": 1286.0999999977648
+        },
+        {
+          "round": 4,
+          "lcpMs": 2012,
+          "cls": 0,
+          "ttfb": 101.09999999776483,
+          "renderDelay": 1910.9000000022352,
+          "hydratedAt": 1269.199999999255
+        },
+        {
+          "round": 5,
+          "lcpMs": 2056,
+          "cls": 0,
+          "ttfb": 101.19999999925494,
+          "renderDelay": 1954.800000000745,
+          "hydratedAt": 1323.800000000745
+        },
+        {
+          "round": 6,
+          "lcpMs": 2044,
+          "cls": 0,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 1943.1000000014901,
+          "hydratedAt": 1289.5
+        },
+        {
+          "round": 7,
+          "lcpMs": 2032,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1931.199999999255,
+          "hydratedAt": 1277
+        },
+        {
+          "round": 8,
+          "lcpMs": 2044,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1943.199999999255,
+          "hydratedAt": 1301.2000000029802
+        },
+        {
+          "round": 9,
+          "lcpMs": 1984,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1883,
+          "hydratedAt": 1257.3999999985099
+        }
+      ]
+    },
+    {
+      "cohort": "fixed",
+      "name": "en-course",
+      "runs": 9,
+      "lcpMedianMs": 956,
+      "lcpMeanMs": 952.4444444444445,
+      "lcpRangeMs": [
+        928,
+        968
+      ],
+      "lcpIQRMs": [
+        948,
+        960
+      ],
+      "clsMaximum": 0.0015651672806091506,
+      "transferredBytesMedian": 268415,
+      "ttfbMedianMs": 100.90000000223517,
+      "renderDelayMedianMs": 855.1999999992549,
+      "hydrationCompleteMedianMs": 1356.800000000745,
+      "interResponseEndMedianMs": 663.4000000022352,
+      "raw": [
+        {
+          "round": 1,
+          "lcpMs": 956,
+          "cls": 0.0015651672806091506,
+          "ttfb": 101,
+          "renderDelay": 855,
+          "hydratedAt": 1360.199999999255
+        },
+        {
+          "round": 2,
+          "lcpMs": 968,
+          "cls": 0.0015651672806091506,
+          "ttfb": 100.69999999925494,
+          "renderDelay": 867.3000000007451,
+          "hydratedAt": 1356.6000000014901
+        },
+        {
+          "round": 3,
+          "lcpMs": 928,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 827,
+          "hydratedAt": 1225.800000000745
+        },
+        {
+          "round": 4,
+          "lcpMs": 960,
+          "cls": 0.0015651672806091506,
+          "ttfb": 100.90000000223517,
+          "renderDelay": 859.0999999977648,
+          "hydratedAt": 1362.6000000014901
+        },
+        {
+          "round": 5,
+          "lcpMs": 928,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 827.1999999992549,
+          "hydratedAt": 1217.5
+        },
+        {
+          "round": 6,
+          "lcpMs": 948,
+          "cls": 0.0015651672806091506,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 847.1999999992549,
+          "hydratedAt": 1344.3999999985099
+        },
+        {
+          "round": 7,
+          "lcpMs": 956,
+          "cls": 0.0015651672806091506,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 855.1999999992549,
+          "hydratedAt": 1390.1000000014901
+        },
+        {
+          "round": 8,
+          "lcpMs": 968,
+          "cls": 0.0015651672806091506,
+          "ttfb": 100.90000000223517,
+          "renderDelay": 867.0999999977648,
+          "hydratedAt": 1390
+        },
+        {
+          "round": 9,
+          "lcpMs": 960,
+          "cls": 0.0015651672806091506,
+          "ttfb": 101.5,
+          "renderDelay": 858.5,
+          "hydratedAt": 1356.800000000745
+        }
+      ]
+    },
+    {
+      "cohort": "fixed",
+      "name": "en-training",
+      "runs": 9,
+      "lcpMedianMs": 1924,
+      "lcpMeanMs": 1955.111111111111,
+      "lcpRangeMs": [
+        1840,
+        2064
+      ],
+      "lcpIQRMs": [
+        1896,
+        2028
+      ],
+      "clsMaximum": 0,
+      "transferredBytesMedian": 371591,
+      "ttfbMedianMs": 100.89999999850988,
+      "renderDelayMedianMs": 1823.199999999255,
+      "hydrationCompleteMedianMs": 1183.699999999255,
+      "interResponseEndMedianMs": 625.8999999985099,
+      "raw": [
+        {
+          "round": 1,
+          "lcpMs": 1840,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1739,
+          "hydratedAt": 1108.6000000014901
+        },
+        {
+          "round": 2,
+          "lcpMs": 2012,
+          "cls": 0,
+          "ttfb": 100.90000000223517,
+          "renderDelay": 1911.0999999977648,
+          "hydratedAt": 1282.4000000022352
+        },
+        {
+          "round": 3,
+          "lcpMs": 2044,
+          "cls": 0,
+          "ttfb": 101,
+          "renderDelay": 1943,
+          "hydratedAt": 1318
+        },
+        {
+          "round": 4,
+          "lcpMs": 2028,
+          "cls": 0,
+          "ttfb": 101.30000000074506,
+          "renderDelay": 1926.699999999255,
+          "hydratedAt": 1300.5
+        },
+        {
+          "round": 5,
+          "lcpMs": 2064,
+          "cls": 0,
+          "ttfb": 100.89999999850988,
+          "renderDelay": 1963.1000000014901,
+          "hydratedAt": 1306.2999999970198
+        },
+        {
+          "round": 6,
+          "lcpMs": 1924,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1823.199999999255,
+          "hydratedAt": 1183.699999999255
+        },
+        {
+          "round": 7,
+          "lcpMs": 1896,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1795.199999999255,
+          "hydratedAt": 1162.800000000745
+        },
+        {
+          "round": 8,
+          "lcpMs": 1896,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1795.199999999255,
+          "hydratedAt": 1170.3999999985099
+        },
+        {
+          "round": 9,
+          "lcpMs": 1892,
+          "cls": 0,
+          "ttfb": 100.80000000074506,
+          "renderDelay": 1791.199999999255,
+          "hydratedAt": 1152.3999999985099
+        }
+      ]
+    }
+  ],
+  "uncertainty": [
+    {
+      "comparison": "optimized minus legacy",
+      "pairedDifferencesMs": [
+        -188,
+        -160,
+        -84,
+        8,
+        -8,
+        568,
+        -36,
+        592,
+        -144
+      ],
+      "meanDifferenceMs": 60.888888888888886,
+      "pairedMedianDifferenceMs": -36,
+      "bootstrapMean95CI": [
+        -104.88888888888889,
+        276.8888888888889
+      ],
+      "bootstrapMedian95CI": [
+        -160,
+        568
+      ],
+      "resamples": 10000,
+      "seed": 20261125,
+      "note": "Exploratory paired bootstrap within one local profile; not proof of equivalence or population/field performance.",
+      "seedDescription": "Single RNG stream initially seeded at 20261125; comparisons evaluated in listed order."
+    },
+    {
+      "comparison": "fixed minus legacy",
+      "pairedDifferencesMs": [
+        -276,
+        -8,
+        -56,
+        24,
+        0,
+        448,
+        -172,
+        444,
+        -236
+      ],
+      "meanDifferenceMs": 18.666666666666668,
+      "pairedMedianDifferenceMs": -8,
+      "bootstrapMean95CI": [
+        -130.66666666666666,
+        197.33333333333334
+      ],
+      "bootstrapMedian95CI": [
+        -236,
+        444
+      ],
+      "resamples": 10000,
+      "seed": 20261125,
+      "note": "Exploratory paired bootstrap within one local profile; not proof of equivalence or population/field performance.",
+      "seedDescription": "Single RNG stream initially seeded at 20261125; comparisons evaluated in listed order."
+    }
+  ],
+  "budget": {
+    "cohort": "fixed",
+    "cases": 18,
+    "clsMaximum": 0.0015651672806091506,
+    "lcpMaximum": 2064,
+    "passed": true
+  },
+  "failures": [],
+  "checks": [
+    {
+      "command": "npm run typecheck",
+      "status": 0,
+      "log": "0-typecheck.txt"
+    },
+    {
+      "command": "npm run typecheck:ssg",
+      "status": 0,
+      "log": "1-typecheck-ssg.txt"
+    },
+    {
+      "command": "npm run typecheck:poc",
+      "status": 0,
+      "log": "2-typecheck-poc.txt"
+    },
+    {
+      "command": "npm run lint",
+      "status": 0,
+      "log": "3-lint.txt"
+    },
+    {
+      "command": "npm run test",
+      "status": 0,
+      "log": "4-test.txt"
+    },
+    {
+      "command": "npm run build",
+      "status": 0,
+      "log": "5-build.txt"
+    },
+    {
+      "command": "npm run build:ssg-candidate -- --variant repo --base /ME-2026-Main/ --site-url https://m-elmaghawry.github.io/ME-2026-Main/",
+      "status": 0,
+      "log": "6-build-ssg-candidate.txt"
+    },
+    {
+      "command": "npm run build:ssg-candidate -- --variant root --base / --site-url https://example.com/",
+      "status": 0,
+      "log": "7-build-ssg-candidate.txt"
+    },
+    {
+      "command": "npm run build:ssg-candidate -- --variant custom --base /company/site/ --site-url https://custom.example/company/site/",
+      "status": 0,
+      "log": "8-build-ssg-candidate.txt"
+    },
+    {
+      "command": "npm run test:ssg",
+      "status": 0,
+      "log": "9-test-ssg.txt"
+    },
+    {
+      "command": "npm run build:ssg-candidate -- --variant contact-fixture --config ssg/diagnostics/vite.contact.config.ts",
+      "status": 0,
+      "log": "10-build-ssg-candidate.txt"
+    }
+  ],
+  "automatedTests": {
+    "existing": 27,
+    "candidate": 23
+  },
+  "courseRegression": {
+    "passed": 20,
+    "failures": [],
+    "oldControlFailedAsExpected": true,
+    "oldControl": {
+      "name": "font-handoff-390",
+      "fallback": {
+        "family": "Inter, sans-serif",
+        "rows": 2,
+        "text": [
+          "BIM",
+          "Revit",
+          "Collaboration",
+          "Saudi Building Code",
+          "Quantity Takeoff",
+          "Templates"
+        ],
+        "sizes": [
+          {
+            "width": 47.34375,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 53.34375,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 96.71875,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 134.75,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 112.28125,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 80.703125,
+            "height": 26,
+            "clipped": false
+          }
+        ],
+        "interLoaded": false
+      },
+      "loaded": {
+        "family": "Inter, sans-serif",
+        "rows": 3,
+        "text": [
+          "BIM",
+          "Revit",
+          "Collaboration",
+          "Saudi Building Code",
+          "Quantity Takeoff",
+          "Templates"
+        ],
+        "sizes": [
+          {
+            "width": 48.109375,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 54.4375,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 102.5625,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 141.390625,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 121.15625,
+            "height": 26,
+            "clipped": false
+          },
+          {
+            "width": 85.34375,
+            "height": 26,
+            "clipped": false
+          }
+        ],
+        "interLoaded": true
+      }
+    },
+    "edge": {
+      "browser": "158.0.4370.33",
+      "passed": 20,
+      "failures": []
+    }
+  },
+  "visuals": [
+    {
+      "name": "mobile-ar-home",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "mobile-ar-training",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "mobile-ar-course",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "mobile-en-home",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "mobile-en-training",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "mobile-en-course",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "desktop-ar-home",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "desktop-ar-training",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "desktop-ar-course",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "desktop-en-home",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "desktop-en-training",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    },
+    {
+      "name": "desktop-en-course",
+      "pixelDifference": 0,
+      "geometryPx": 0,
+      "matchingRenderedFonts": true
+    }
+  ],
+  "languageSwitches": 6,
+  "mixedScriptChecks": 6,
+  "broadPerformanceCases": [
+    {
+      "cohort": "before",
+      "name": "ar-home",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 3332,
+      "transferredBytes": 490401,
+      "fontBytes": 260937
+    },
+    {
+      "cohort": "after",
+      "name": "ar-home",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 3308,
+      "transferredBytes": 490420,
+      "fontBytes": 260937
+    },
+    {
+      "cohort": "before",
+      "name": "ar-training",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 2404,
+      "transferredBytes": 584720,
+      "fontBytes": 260937
+    },
+    {
+      "cohort": "after",
+      "name": "ar-training",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 2404,
+      "transferredBytes": 584752,
+      "fontBytes": 260937
+    },
+    {
+      "cohort": "before",
+      "name": "ar-course",
+      "cache": "cold",
+      "cls": 0.0013523732489176816,
+      "lcpMs": 1080,
+      "transferredBytes": 481046,
+      "fontBytes": 260937
+    },
+    {
+      "cohort": "after",
+      "name": "ar-course",
+      "cache": "cold",
+      "cls": 0.0013523732489176816,
+      "lcpMs": 1092,
+      "transferredBytes": 481568,
+      "fontBytes": 260937
+    },
+    {
+      "cohort": "before",
+      "name": "en-home",
+      "cache": "cold",
+      "cls": 0.007443608072594955,
+      "lcpMs": 2796,
+      "transferredBytes": 291854,
+      "fontBytes": 63200
+    },
+    {
+      "cohort": "after",
+      "name": "en-home",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 2660,
+      "transferredBytes": 291876,
+      "fontBytes": 63200
+    },
+    {
+      "cohort": "before",
+      "name": "en-training",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 2040,
+      "transferredBytes": 371560,
+      "fontBytes": 48436
+    },
+    {
+      "cohort": "before",
+      "name": "en-training",
+      "cache": "warm",
+      "cls": 0,
+      "lcpMs": 1196,
+      "transferredBytes": 10509,
+      "fontBytes": 0
+    },
+    {
+      "cohort": "after",
+      "name": "en-training",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 1852,
+      "transferredBytes": 371591,
+      "fontBytes": 48436
+    },
+    {
+      "cohort": "after",
+      "name": "en-training",
+      "cache": "warm",
+      "cls": 0,
+      "lcpMs": 1192,
+      "transferredBytes": 10512,
+      "fontBytes": 0
+    },
+    {
+      "cohort": "before",
+      "name": "en-course",
+      "cache": "cold",
+      "cls": 0.13139038172763043,
+      "lcpMs": 916,
+      "transferredBytes": 267896,
+      "fontBytes": 48436
+    },
+    {
+      "cohort": "after",
+      "name": "en-course",
+      "cache": "cold",
+      "cls": 0,
+      "lcpMs": 912,
+      "transferredBytes": 268415,
+      "fontBytes": 48436
+    }
+  ],
+  "functionalBrowser": {
+    "contactCases": 40,
+    "contactHydrationChecks": 152,
+    "ssgInteractions": 38
+  },
+  "reducedMotion": [
+    {
+      "device": "mobile",
+      "cases": [
+        {
+          "name": "ar-course",
+          "cls": 0.0013523732489176816,
+          "lcpMs": 1244,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        },
+        {
+          "name": "ar-training",
+          "cls": 0.00022012084184991354,
+          "lcpMs": 1224,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        },
+        {
+          "name": "en-course",
+          "cls": 0,
+          "lcpMs": 916,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        },
+        {
+          "name": "en-training",
+          "cls": 0,
+          "lcpMs": 888,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "device": "desktop",
+      "cases": [
+        {
+          "name": "ar-course",
+          "cls": 0.0012984894929108798,
+          "lcpMs": 1592,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        },
+        {
+          "name": "ar-training",
+          "cls": 0.020825478440272955,
+          "lcpMs": 1612,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        },
+        {
+          "name": "en-course",
+          "cls": 0.002586528862847222,
+          "lcpMs": 1208,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        },
+        {
+          "name": "en-training",
+          "cls": 0.00013299759476273148,
+          "lcpMs": 1072,
+          "hydrated": true,
+          "errors": [],
+          "recoverableErrors": []
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "integrity": [
+    {
+      "variant": "repo",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    },
+    {
+      "variant": "root",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    },
+    {
+      "variant": "custom",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    },
+    {
+      "variant": "contact-fixture",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    }
+  ],
+  "remaining": [
+    "Node 22/Linux clean validation including local font fallback availability/metrics",
+    "Historical dependency audit 24 findings pending remediation or explicit risk acceptance",
+    "Separate final hosting/release approval; current CSR deployment workflow remains active"
+  ],
+  "noCommitPushMergeDeployment": true,
+  "preservation": {
+    "priorDirtyFiles": 26,
+    "unchangedPriorDirtyFiles": 23,
+    "expectedOverlappingFiles": [
+      "docs/DEVELOPMENT-HANDOVER.md",
+      "package.json",
+      "scripts/test-ssg-font-loading.mjs"
+    ],
+    "allOtherPriorDirtyFilesUnchanged": true
+  },
+  "git": {
+    "head": "de485daffaf72be29a1a2118dcc01e1aa7823755",
+    "main": "77ba313d8617a082d349f383e876ac34013eb551"
+  }
+}

@@ -12,4 +12,4 @@ export interface ContactDraft {
 
 export type ContactResultState =
   | { status: 'success' }
-  | { status: 'error'; draft: ContactDraft };
+  | { status: 'error'; draft: ContactDraft; retryRevision?: string };

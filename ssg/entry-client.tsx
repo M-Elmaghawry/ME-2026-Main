@@ -5,12 +5,15 @@ import CandidateApp from './App';
 import { createPageI18n } from '@/i18n/createPageI18n';
 import { localeBase } from '@/lib/urls';
 import { legacyDestination } from '@/lib/legacy';
+import { installLocaleHistory } from '@/lib/localeHistory';
 import type { Bootstrap } from './types';
 
 async function start() {
   const boot = JSON.parse(document.getElementById('ssg-state')!.textContent!) as Bootstrap;
   const redirect = legacyDestination(window.location.href, boot.base);
   if (redirect) { window.location.replace(redirect); return; }
+  // The shared bilingual 404 deliberately boots Arabic for unknown URLs.
+  if (!boot.fallback404) installLocaleHistory(boot.base, boot.language);
   const i18n = await createPageI18n(boot.language);
   hydrateRoot(document.getElementById('root')!,
     <BrowserRouter basename={localeBase(boot.base, boot.language)} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>

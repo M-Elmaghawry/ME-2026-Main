@@ -27,6 +27,9 @@
     "compare:ssg-renderers": "node scripts/compare-ssg-renderers.mjs",
     "test:ssg-browser": "node scripts/test-ssg-browser.mjs",
     "test:contact-retry": "node scripts/test-contact-retry.mjs",
+    "test:contact-history": "node scripts/test-contact-history.mjs",
+    "test:ssg-font-loading": "node scripts/test-ssg-font-loading.mjs",
+    "test:course-layout": "node scripts/test-course-layout.mjs",
     "test:layout": "node scripts/trace-ssg-layout.mjs"
   },
   "dependencies": {

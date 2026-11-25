@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-11-25T07:15:23.406Z",
+  "observations": [
+    {
+      "kind": "ssg",
+      "language": "ar",
+      "draftSource": "Actual mocked failed submission and retry link",
+      "afterSwitch": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26514,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "backResponse": null,
+      "afterBack": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26314,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "consoleMessages": [],
+      "afterRefresh": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26315,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "successCurrentEntryHasDraft": false,
+      "successBack": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26324,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": false,
+        "nameRecovered": false
+      },
+      "successBackRefresh": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26315,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": false,
+        "nameRecovered": false
+      }
+    },
+    {
+      "kind": "ssg",
+      "language": "en",
+      "draftSource": "Actual mocked failed submission and retry link",
+      "afterSwitch": {
+        "url": "/ME-2026-Main/contact/",
+        "lang": "ar",
+        "dir": "rtl",
+        "mainCount": 1,
+        "h1": "تواصل معنا",
+        "rootLength": 26315,
+        "bootLanguage": "ar",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "backResponse": null,
+      "afterBack": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26514,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "consoleMessages": [],
+      "afterRefresh": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26513,
+        "bootLanguage": "en",
+        "hasHistoryDraft": true,
+        "nameRecovered": true
+      },
+      "successCurrentEntryHasDraft": false,
+      "successBack": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26523,
+        "bootLanguage": "en",
+        "hasHistoryDraft": false,
+        "nameRecovered": false
+      },
+      "successBackRefresh": {
+        "url": "/ME-2026-Main/en/contact/",
+        "lang": "en",
+        "dir": "ltr",
+        "mainCount": 1,
+        "h1": "Contact Us",
+        "rootLength": 26514,
+        "bootLanguage": "en",
+        "hasHistoryDraft": false,
+        "nameRecovered": false
+      }
+    }
+  ],
+  "findings": [],
+  "errors": []
+}

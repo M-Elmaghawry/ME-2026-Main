@@ -61,7 +61,7 @@ try{
         await page.evaluate(()=>{window.__EMAILJS_TEST__.outcome='success';});await page.locator('form button[type="submit"]').click();await page.waitForURL(origin+base+(other==='en'?'en/':'')+'thank-you/');
         row.successCurrentEntryHasDraft=await page.evaluate(()=>!!history.state?.usr?.draft);
         await page.goBack({waitUntil:'load'});await page.waitForTimeout(300);row.successBack=await page.evaluate(state);
-        await page.reload({waitUntil:'load'});await ready(page,kind,language);await page.waitForFunction(name=>document.querySelector('#contact-name')?.value===name,draft.name);
+        await page.reload({waitUntil:'load'});await ready(page,kind,language);await page.locator('#contact-name').waitFor();
         row.successBackRefresh=await page.evaluate(state);
         if(row.successBackRefresh.nameRecovered)report.findings.push({kind,language,severity:'cleanup scope requires review',message:'After a successful mocked retry in the other locale, Back then refresh recovers the older locale draft. Active-entry cleanup does not invalidate historical copies.'});
       }
@@ -70,5 +70,5 @@ try{
   }
 }finally{await browser.close();await csr?.close();await ssg.close();await writeFile(path.join(audit,'stateful-history-report.json'),JSON.stringify(report,null,2));}
 console.log(JSON.stringify({ output: audit, observations: report.observations.map(row => ({ kind: row.kind, language: row.language, draftSource: row.draftSource, afterBack: row.afterBack, historicalDraftRecoveredAfterSuccess: row.successBackRefresh?.nameRecovered })), findings: report.findings, errors: report.errors }, null, 2));
-// Expected nonzero while the documented blocker remains. No fix is applied.
+// Nonzero means the documented blocker or a harness error remains.
 process.exitCode = report.errors.length ? 2 : report.findings.length ? 1 : 0;

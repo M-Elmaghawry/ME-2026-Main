@@ -31,10 +31,12 @@ for (const base of ['/', '/ME-2026-Main/']) {
     };
     const bootstrap = closure([entry.fileName]);
     assert.ok(bootstrap.every((chunk) => Object.keys(chunk.modules).every((id) => !/\/src\/pages\/.*\.tsx$/.test(id))), 'route implementations must remain outside the bootstrap');
-    const pageChunks = [...chunkMap.values()].filter((chunk) => /\/src\/pages\/[^/]+\.tsx$/.test(chunk.facadeModuleId || ''));
+    // A page sharing exports with ContactResult may be a named dynamic chunk
+    // without a facadeModuleId. It must still be independently lazy-loadable.
+    const pageChunks = [...chunkMap.values()].filter((chunk) => chunk.isDynamicEntry && Object.keys(chunk.modules).some(id => /\/src\/pages\/[^/]+\.tsx$/.test(id)));
     assert.equal(pageChunks.length, 13, 'all 13 routes must be independently loadable');
-    assert.ok(pageChunks.some((chunk) => chunk.facadeModuleId.endsWith('/ContactResult.tsx')), 'contact results must load independently');
-    const home = pageChunks.find((chunk) => chunk.facadeModuleId.endsWith('/Index.tsx'));
+    assert.ok(pageChunks.some((chunk) => chunk.facadeModuleId?.endsWith('/ContactResult.tsx')), 'contact results must load independently');
+    const home = pageChunks.find((chunk) => chunk.facadeModuleId?.endsWith('/Index.tsx'));
     const seo = [...chunkMap.values()].find((chunk) => chunk.facadeModuleId?.endsWith('/src/lib/seo.ts'));
     assert.ok(home && seo);
     const homeWithSeo = closure([entry.fileName, home.fileName, seo.fileName]);

@@ -1,0 +1,1043 @@
+[
+  {
+    "id": "GHSA-2883-xcg3-v3hh",
+    "cve": "CVE-2026-84375",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "js-yaml"
+    ],
+    "patched": [
+      {
+        "package": "js-yaml",
+        "range": ">= 4.0.0, < 4.3.2",
+        "first": "4.3.2"
+      },
+      {
+        "package": "js-yaml",
+        "range": ">= 3.0.0, < 3.15.2",
+        "first": "3.15.2"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-28wg-ghj8-5hjv",
+    "cve": "CVE-2026-67214",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Only reviewed PostCSS call uses non-secure nanoid(6); attacker-controlled negative/zero/overflow sizes are absent from this path. No browser module.",
+    "affectedLeaves": [
+      "nanoid"
+    ],
+    "patched": [
+      {
+        "package": "nanoid",
+        "range": "< 3.3.16",
+        "first": "3.3.16"
+      },
+      {
+        "package": "nanoid",
+        "range": ">= 4.0.0, < 5.1.16",
+        "first": "5.1.16"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-28wg-ghj8-5hjv",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-2j2x-hqr9-3h42",
+    "cve": "CVE-2026-40181",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Declarative BrowserRouter explicitly excluded; no data-router redirect/error hydration call path, and related client exports/code are removed.",
+    "affectedLeaves": [
+      "@remix-run/router",
+      "react-router"
+    ],
+    "patched": [
+      {
+        "package": "react-router",
+        "range": ">= 7.0.0, < 7.14.1",
+        "first": "7.14.1"
+      },
+      {
+        "package": "react-router",
+        "range": ">= 6.7.0, < 6.30.4",
+        "first": "6.30.4"
+      },
+      {
+        "package": "@remix-run/router",
+        "range": ">= 1.3.0, < 1.23.3",
+        "first": "1.23.3"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-2j2x-hqr9-3h42",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-2v37-7h3g-55p8",
+    "cve": "CVE-2026-67213",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Only reviewed PostCSS call uses non-secure nanoid(6); attacker-controlled negative/zero/overflow sizes are absent from this path. No browser module.",
+    "affectedLeaves": [
+      "nanoid"
+    ],
+    "patched": [
+      {
+        "package": "nanoid",
+        "range": ">= 4.0.0, < 5.1.6",
+        "first": "5.1.6"
+      },
+      {
+        "package": "nanoid",
+        "range": "< 3.3.18",
+        "first": "3.3.18"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-337j-9hxr-rhxg",
+    "cve": "CVE-2026-53666",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Declarative BrowserRouter explicitly excluded; no data-router redirect/error hydration call path, and related client exports/code are removed.",
+    "affectedLeaves": [
+      "react-router"
+    ],
+    "patched": [
+      {
+        "package": "react-router",
+        "range": ">= 6.4.0, < 7.18.0",
+        "first": "7.18.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-337j-9hxr-rhxg",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-3jxr-9vmj-r5cp",
+    "cve": "CVE-2026-13149",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "brace-expansion"
+    ],
+    "patched": [
+      {
+        "package": "brace-expansion",
+        "range": ">= 3.0.0, < 5.0.7",
+        "first": "5.0.7"
+      },
+      {
+        "package": "brace-expansion",
+        "range": "< 1.1.16",
+        "first": "1.1.16"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 2.0.0, < 2.1.2",
+        "first": "2.1.2"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-52cp-r559-cp3m",
+    "cve": "CVE-2026-59869",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "js-yaml"
+    ],
+    "patched": [
+      {
+        "package": "js-yaml",
+        "range": ">= 3.0.0, < 3.15.0",
+        "first": "3.15.0"
+      },
+      {
+        "package": "js-yaml",
+        "range": ">= 4.0.0, < 4.3.0",
+        "first": "4.3.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-52cp-r559-cp3m",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-587h-7wmj-h5pm",
+    "cve": "CVE-2026-112942",
+    "category": "Requires remediation before release",
+    "condition": "Conditional developer-server exposure; Windows host and :: configuration are real, but active editor/NTLM/malicious-file conditions were not reproduced. npm run build does not serve dev HTTP middleware.",
+    "affectedLeaves": [
+      "vite"
+    ],
+    "patched": [
+      {
+        "package": "launch-editor",
+        "range": "<= 2.14.1",
+        "first": "2.14.2"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.3.0, <= 8.3.2",
+        "first": "8.3.3"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.2.0, <= 8.2.3",
+        "first": "8.2.4"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.0.0, <= 8.1.5",
+        "first": "8.1.6"
+      },
+      {
+        "package": "vite",
+        "range": ">= 7.0.0, <= 7.3.6",
+        "first": "7.3.7"
+      },
+      {
+        "package": "vite",
+        "range": "<= 6.4.3",
+        "first": "6.4.4"
+      },
+      {
+        "package": "vite-plus",
+        "range": "<= 1.0.0",
+        "first": "1.1.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-587h-7wmj-h5pm",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-5p4m-2wfm-xmqj",
+    "cve": null,
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "js-yaml"
+    ],
+    "patched": [
+      {
+        "package": "js-yaml",
+        "range": ">= 4.0.0, < 4.3.1",
+        "first": "4.3.1"
+      },
+      {
+        "package": "js-yaml",
+        "range": ">= 3.0.0, < 3.15.1",
+        "first": "3.15.1"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-68fv-2mgg-jv7q",
+    "cve": "CVE-2026-93749",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "source-map-js"
+    ],
+    "patched": [
+      {
+        "package": "source-map-js",
+        "range": ">= 1.0.0, < 1.2.2",
+        "first": "1.2.2"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-698v-4r3x-3vcv",
+    "cve": "CVE-2026-112943",
+    "category": "Requires remediation before release",
+    "condition": "Conditional developer-server exposure; Windows host and :: configuration are real, but active editor/NTLM/malicious-file conditions were not reproduced. npm run build does not serve dev HTTP middleware.",
+    "affectedLeaves": [
+      "vite"
+    ],
+    "patched": [
+      {
+        "package": "launch-editor",
+        "range": "<= 2.14.1",
+        "first": "2.14.2"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.3.0, <= 8.3.2",
+        "first": "8.3.3"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.2.0, <= 8.2.3",
+        "first": "8.2.4"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.0.0, <= 8.1.5",
+        "first": "8.1.6"
+      },
+      {
+        "package": "vite",
+        "range": ">= 7.0.0, <= 7.3.6",
+        "first": "7.3.7"
+      },
+      {
+        "package": "vite",
+        "range": "<= 6.4.3",
+        "first": "6.4.4"
+      },
+      {
+        "package": "vite-plus",
+        "range": "<= 1.0.0",
+        "first": "1.1.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-698v-4r3x-3vcv",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-6g55-p6wh-862q",
+    "cve": "CVE-2026-45623",
+    "category": "Requires remediation before release",
+    "condition": "Malicious CSS source-map annotations may read host paths during build. Repository CSS is trusted today; package/dependency input is a conditional CI file boundary.",
+    "affectedLeaves": [
+      "postcss"
+    ],
+    "patched": [
+      {
+        "package": "postcss",
+        "range": "<= 8.5.11",
+        "first": "8.5.12"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-6g55-p6wh-862q",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-6j4f-fj2g-mc7p",
+    "cve": "CVE-2026-102276",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "brace-expansion"
+    ],
+    "patched": [
+      {
+        "package": "brace-expansion",
+        "range": ">= 4.0.0, < 5.0.10",
+        "first": "5.0.10"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 3.0.0, < 3.0.7",
+        "first": "3.0.7"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 2.0.0, < 2.1.5",
+        "first": "2.1.5"
+      },
+      {
+        "package": "brace-expansion",
+        "range": "< 1.1.19",
+        "first": "1.1.19"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-6jcc-5g8w-32mx",
+    "cve": "CVE-2026-63402",
+    "category": "Documented residual risk with justification",
+    "condition": "deepExtend is present, but all reviewed resources are checked in and no untrusted addResourceBundle call/backend exists. Accept only while this input boundary is maintained.",
+    "affectedLeaves": [
+      "i18next"
+    ],
+    "patched": [
+      {
+        "package": "i18next",
+        "range": "< 26.3.4",
+        "first": "26.3.4"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-6jcc-5g8w-32mx",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-73wf-gq98-2v4g",
+    "cve": "CVE-2026-73088",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "browserslist"
+    ],
+    "patched": [
+      {
+        "package": "browserslist",
+        "range": "<= 4.28.6",
+        "first": "4.28.7"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-73wf-gq98-2v4g",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-9jrq-w75r-8gcw",
+    "cve": "CVE-2026-112945",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Requires custom transformIndexHtml of an unchanged attacker request URL plus inline module and sensitive actions. No such listening custom middleware in current application.",
+    "affectedLeaves": [
+      "vite"
+    ],
+    "patched": [
+      {
+        "package": "vite",
+        "range": ">= 8.3.0, <= 8.3.2",
+        "first": "8.3.3"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.2.0, <= 8.2.3",
+        "first": "8.2.4"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.0.0, <= 8.1.5",
+        "first": "8.1.6"
+      },
+      {
+        "package": "vite",
+        "range": ">= 7.0.0, <= 7.3.6",
+        "first": "7.3.7"
+      },
+      {
+        "package": "vite",
+        "range": "<= 6.4.3",
+        "first": "6.4.4"
+      },
+      {
+        "package": "vite-plus",
+        "range": "<= 1.0.0",
+        "first": "1.1.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-9jrq-w75r-8gcw",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-c83g-rgw3-j3cx",
+    "cve": "CVE-2026-73089",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "browserslist"
+    ],
+    "patched": [
+      {
+        "package": "browserslist",
+        "range": "<= 4.28.6",
+        "first": "4.28.7"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-c83g-rgw3-j3cx",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-fx2h-pf6j-xcff",
+    "cve": "CVE-2026-53571",
+    "category": "Requires remediation before release",
+    "condition": "Conditional developer-server exposure; Windows host and :: configuration are real, but active editor/NTLM/malicious-file conditions were not reproduced. npm run build does not serve dev HTTP middleware.",
+    "affectedLeaves": [
+      "vite"
+    ],
+    "patched": [
+      {
+        "package": "vite",
+        "range": ">= 8.0.0, <= 8.0.15",
+        "first": "8.0.16"
+      },
+      {
+        "package": "vite",
+        "range": ">= 7.0.0, <= 7.3.4",
+        "first": "7.3.5"
+      },
+      {
+        "package": "vite",
+        "range": "<= 6.4.2",
+        "first": "6.4.3"
+      },
+      {
+        "package": "vite-plus",
+        "range": "<= 0.1.23",
+        "first": "0.1.24"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-fx2h-pf6j-xcff",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-fxqj-rqcc-2cmp",
+    "cve": "CVE-2026-69153",
+    "category": "Requires remediation before release",
+    "condition": "Malicious CSS source-map annotations may read host paths during build. Repository CSS is trusted today; package/dependency input is a conditional CI file boundary.",
+    "affectedLeaves": [
+      "postcss"
+    ],
+    "patched": [
+      {
+        "package": "postcss",
+        "range": "<= 8.5.22",
+        "first": "8.5.23"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-g3hv-75wg-m249",
+    "cve": "CVE-2026-118764",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "minimatch"
+    ],
+    "patched": [
+      {
+        "package": "minimatch",
+        "range": ">= 7.0.0, < 11.0.1",
+        "first": "11.0.1"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-g7r4-m6w7-qqqr",
+    "cve": null,
+    "category": "Not applicable, supported by evidence",
+    "condition": "Requires Windows esbuild serve() API. Vite uses build/transform APIs here; no esbuild dev server or browser module.",
+    "affectedLeaves": [
+      "esbuild"
+    ],
+    "patched": [
+      {
+        "package": "esbuild",
+        "range": ">= 0.27.3, < 0.28.1",
+        "first": "0.28.1"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-h67p-54hq-rp68",
+    "cve": "CVE-2026-53550",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "js-yaml"
+    ],
+    "patched": [
+      {
+        "package": "js-yaml",
+        "range": ">= 4.0.0, <= 4.1.1",
+        "first": "4.2.0"
+      },
+      {
+        "package": "js-yaml",
+        "range": "< 3.15.0",
+        "first": "3.15.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-h67p-54hq-rp68",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-jjmj-jmhj-qwj2",
+    "cve": "CVE-2026-53668",
+    "category": "Requires additional investigation",
+    "condition": "Navigation/redirect code and APIs: needs attacker-controlled destination/open redirect. No such app parameter was found; crafted input regression review is still required.",
+    "affectedLeaves": [
+      "react-router-dom"
+    ],
+    "patched": [
+      {
+        "package": "react-router",
+        "range": ">= 7.9.6, <= 7.12.0",
+        "first": "7.13.0"
+      },
+      {
+        "package": "react-router-dom",
+        "range": ">= 6.30.2, <= 6.30.5",
+        "first": "6.30.6"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-jjmj-jmhj-qwj2",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-jxxr-4gwj-5jf2",
+    "cve": "CVE-2026-45149",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "brace-expansion"
+    ],
+    "patched": [
+      {
+        "package": "brace-expansion",
+        "range": ">= 5.0.0, < 5.0.6",
+        "first": "5.0.6"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-jxxr-4gwj-5jf2",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-mh99-v99m-4gvg",
+    "cve": "CVE-2026-14257",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "brace-expansion"
+    ],
+    "patched": [
+      {
+        "package": "brace-expansion",
+        "range": ">= 4.0.0, < 5.0.8",
+        "first": "5.0.8"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 3.0.0, < 3.0.3",
+        "first": "3.0.3"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 2.0.0, < 2.1.3",
+        "first": "2.1.3"
+      },
+      {
+        "package": "brace-expansion",
+        "range": "< 1.1.17",
+        "first": "1.1.17"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-mrhx-c7xc-m3w5",
+    "cve": "CVE-2023-54404",
+    "category": "Requires additional investigation",
+    "condition": "Array parser code remains emitted; contact schema contains no arrays. Bounded injected arrays reject before element validation. Confirm v3 advisory precision; no universal safety or false-positive claim.",
+    "affectedLeaves": [
+      "zod"
+    ],
+    "patched": [
+      {
+        "package": "zod",
+        "range": "< 4.6.6",
+        "first": "4.6.6"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-mrhx-c7xc-m3w5",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-p498-v437-472g",
+    "cve": null,
+    "category": "Not applicable, supported by evidence",
+    "condition": "Requires copyAll() on a hostile symlinked source tree. No copyAll/copy call found in reviewed installed ESLint lib; no app/browser API.",
+    "affectedLeaves": [
+      "@humanfs/node"
+    ],
+    "patched": [
+      {
+        "package": "@humanfs/node",
+        "range": "< 0.16.8",
+        "first": "0.16.8"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-p498-v437-472g",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-q2hr-2g5m-vwhr",
+    "cve": "CVE-2026-102277",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "brace-expansion"
+    ],
+    "patched": [
+      {
+        "package": "brace-expansion",
+        "range": ">= 4.0.0, < 5.0.12",
+        "first": "5.0.12"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 3.0.0, < 3.0.9",
+        "first": "3.0.9"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 2.0.0, < 2.1.7",
+        "first": "2.1.7"
+      },
+      {
+        "package": "brace-expansion",
+        "range": "< 1.1.21",
+        "first": "1.1.21"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-qhr7-859c-m2p7",
+    "cve": "CVE-2026-102278",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "brace-expansion"
+    ],
+    "patched": [
+      {
+        "package": "brace-expansion",
+        "range": ">= 4.0.0, < 5.0.11",
+        "first": "5.0.11"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 3.0.0, < 3.0.8",
+        "first": "3.0.8"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 2.0.0, < 2.1.6",
+        "first": "2.1.6"
+      },
+      {
+        "package": "brace-expansion",
+        "range": "< 1.1.20",
+        "first": "1.1.20"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-qx2v-qp2m-jg93",
+    "cve": "CVE-2026-41305",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Requires attacker CSS stringified into an HTML style element. Current build emits external repository CSS and offers no visitor CSS input service.",
+    "affectedLeaves": [
+      "postcss"
+    ],
+    "patched": [
+      {
+        "package": "postcss",
+        "range": "< 8.5.10",
+        "first": "8.5.10"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-qx2v-qp2m-jg93",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-r28c-9q8g-f849",
+    "cve": "CVE-2026-73646",
+    "category": "Requires remediation before release",
+    "condition": "Malicious CSS source-map annotations may read host paths during build. Repository CSS is trusted today; package/dependency input is a conditional CI file boundary.",
+    "affectedLeaves": [
+      "postcss"
+    ],
+    "patched": [
+      {
+        "package": "postcss",
+        "range": "<= 8.5.17",
+        "first": "8.5.18"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-r28c-9q8g-f849",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-r825-w8mm-5pxw",
+    "cve": "CVE-2026-112944",
+    "category": "Requires remediation before release",
+    "condition": "Conditional developer-server exposure; Windows host and :: configuration are real, but active editor/NTLM/malicious-file conditions were not reproduced. npm run build does not serve dev HTTP middleware.",
+    "affectedLeaves": [
+      "vite"
+    ],
+    "patched": [
+      {
+        "package": "launch-editor",
+        "range": "<= 2.14.1",
+        "first": "2.14.2"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.3.0, <= 8.3.2",
+        "first": "8.3.3"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.2.0, <= 8.2.3",
+        "first": "8.2.4"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.0.0, <= 8.1.5",
+        "first": "8.1.6"
+      },
+      {
+        "package": "vite",
+        "range": ">= 7.0.0, <= 7.3.6",
+        "first": "7.3.7"
+      },
+      {
+        "package": "vite",
+        "range": "<= 6.4.3",
+        "first": "6.4.4"
+      },
+      {
+        "package": "vite-plus",
+        "range": "<= 1.0.0",
+        "first": "1.1.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-r825-w8mm-5pxw",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-rgw5-rvv9-x895",
+    "cve": "CVE-2026-69152",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "brace-expansion"
+    ],
+    "patched": [
+      {
+        "package": "brace-expansion",
+        "range": "< 1.1.18",
+        "first": "1.1.18"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 2.0.0, < 2.1.4",
+        "first": "2.1.4"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 3.0.0, < 3.0.6",
+        "first": "3.0.6"
+      },
+      {
+        "package": "brace-expansion",
+        "range": ">= 4.0.0, < 5.0.9",
+        "first": "5.0.9"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-rj75-hqrm-r3gf",
+    "cve": "CVE-2026-104844",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "postcss-selector-parser"
+    ],
+    "patched": [
+      {
+        "package": "postcss-selector-parser",
+        "range": ">= 7.0.0, < 7.1.6",
+        "first": "7.1.6"
+      },
+      {
+        "package": "postcss-selector-parser",
+        "range": "< 6.1.5",
+        "first": "6.1.5"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-rj75-hqrm-r3gf",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-rq7h-c2jc-7f22",
+    "cve": "CVE-2026-112946",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Non-Windows exposed dev server plus imported-path overlap required. Current developer host is Windows; Linux CI uses build, not an exposed Vite server.",
+    "affectedLeaves": [
+      "vite"
+    ],
+    "patched": [
+      {
+        "package": "vite",
+        "range": ">= 8.3.0, <= 8.3.2",
+        "first": "8.3.3"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.2.0, <= 8.2.3",
+        "first": "8.2.4"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.0.0, <= 8.1.5",
+        "first": "8.1.6"
+      },
+      {
+        "package": "vite",
+        "range": ">= 7.0.0, <= 7.3.6",
+        "first": "7.3.7"
+      },
+      {
+        "package": "vite",
+        "range": "<= 6.4.3",
+        "first": "6.4.4"
+      },
+      {
+        "package": "vite-plus",
+        "range": "<= 1.0.0",
+        "first": "1.1.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-rq7h-c2jc-7f22",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-v6wh-96g9-6wx3",
+    "cve": "CVE-2026-53632",
+    "category": "Requires remediation before release",
+    "condition": "Conditional developer-server exposure; Windows host and :: configuration are real, but active editor/NTLM/malicious-file conditions were not reproduced. npm run build does not serve dev HTTP middleware.",
+    "affectedLeaves": [
+      "vite"
+    ],
+    "patched": [
+      {
+        "package": "launch-editor",
+        "range": "<= 2.14.0",
+        "first": "2.14.1"
+      },
+      {
+        "package": "vite",
+        "range": ">= 8.0.0, <= 8.0.15",
+        "first": "8.0.16"
+      },
+      {
+        "package": "vite",
+        "range": ">= 7.0.0, <= 7.3.4",
+        "first": "7.3.5"
+      },
+      {
+        "package": "vite",
+        "range": "<= 6.4.2",
+        "first": "6.4.3"
+      },
+      {
+        "package": "vite-plus",
+        "range": "<= 0.1.23",
+        "first": "0.1.24"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-v6wh-96g9-6wx3",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-w5vr-8v7q-w6rv",
+    "cve": "CVE-2026-45819",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "baseline-browser-mapping"
+    ],
+    "patched": [
+      {
+        "package": "baseline-browser-mapping",
+        "range": ">= 2.0.0, < 2.11.0",
+        "first": "2.11.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-w5vr-8v7q-w6rv",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-w9m9-85wc-3x92",
+    "cve": "CVE-2026-9358",
+    "category": "Documented residual risk with justification",
+    "condition": "Tooling input condition; trusted build/lint configuration limits current exposure. No visitor endpoint; conditional resource risk if hostile input is introduced.",
+    "affectedLeaves": [
+      "postcss-selector-parser"
+    ],
+    "patched": [
+      {
+        "package": "postcss-selector-parser",
+        "range": ">= 6.1.0, < 6.1.3",
+        "first": "6.1.3"
+      },
+      {
+        "package": "postcss-selector-parser",
+        "range": ">= 7.1.0, < 7.1.3",
+        "first": "7.1.3"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-w9m9-85wc-3x92",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-wrjc-x8rr-h8h6",
+    "cve": "CVE-2026-53669",
+    "category": "Requires additional investigation",
+    "condition": "Navigation/redirect code and APIs: needs attacker-controlled destination/open redirect. No such app parameter was found; crafted input regression review is still required.",
+    "affectedLeaves": [
+      "react-router"
+    ],
+    "patched": [
+      {
+        "package": "react-router",
+        "range": ">= 6.0.0, < 7.18.0",
+        "first": "7.18.0"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-wrjc-x8rr-h8h6",
+    "residualAccepted": false
+  },
+  {
+    "id": "GHSA-xwg4-73v4-xw9w",
+    "cve": "CVE-2026-73086",
+    "category": "Not applicable, supported by evidence",
+    "condition": "Only reviewed PostCSS call uses non-secure nanoid(6); attacker-controlled negative/zero/overflow sizes are absent from this path. No browser module.",
+    "affectedLeaves": [
+      "nanoid"
+    ],
+    "patched": [
+      {
+        "package": "nanoid",
+        "range": "< 3.3.12",
+        "first": "3.3.12"
+      },
+      {
+        "package": "nanoid",
+        "range": ">= 4.0.0, < 5.1.11",
+        "first": "5.1.11"
+      }
+    ],
+    "url": "https://github.com/advisories/GHSA-xwg4-73v4-xw9w",
+    "residualAccepted": false
+  }
+]

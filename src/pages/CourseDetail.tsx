@@ -1,4 +1,5 @@
 import { useRenderTime } from '@/contexts/renderState';
+import './CourseDetail.css';
 import { whatsappLink } from '@/config/site';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import React, { useState, useEffect } from 'react';
@@ -705,7 +706,7 @@ const CourseDetail = () => {
   ];
 
   return (
-    <div dir={direction} className="min-h-screen bg-background">
+    <div dir={direction} data-course-id={course.id} className="course-detail min-h-screen bg-background">
       <Header />
 
       <main>
@@ -789,7 +790,7 @@ const CourseDetail = () => {
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-5">
+                  <div className="course-topic-tags flex flex-wrap gap-2 mb-5">
                     {extras.tags.map((tag) => (
                       <span
                         key={tag}

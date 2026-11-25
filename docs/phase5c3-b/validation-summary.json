@@ -1,0 +1,294 @@
+{
+  "date": "2026-11-25",
+  "timezone": "Asia/Riyadh",
+  "branch": "fix/seo-language-consistency",
+  "startingHead": "de485daffaf72be29a1a2118dcc01e1aa7823755",
+  "productionRelease": "BLOCKED",
+  "node": "v24.19.0",
+  "npm": "11.17.0",
+  "checks": [
+    {
+      "task": "typecheck",
+      "status": 0,
+      "log": "0-typecheck.txt"
+    },
+    {
+      "task": "typecheck:ssg",
+      "status": 0,
+      "log": "1-typecheck-ssg.txt"
+    },
+    {
+      "task": "typecheck:poc",
+      "status": 0,
+      "log": "2-typecheck-poc.txt"
+    },
+    {
+      "task": "lint",
+      "status": 0,
+      "log": "3-lint.txt"
+    },
+    {
+      "task": "test",
+      "status": 0,
+      "log": "4-test.txt"
+    },
+    {
+      "task": "build",
+      "status": 0,
+      "log": "5-build.txt"
+    },
+    {
+      "task": "build:ssg-candidate -- --variant repo --base /ME-2026-Main/ --site-url https://m-elmaghawry.github.io/ME-2026-Main/",
+      "status": 0,
+      "log": "6-build-ssg-candidate.txt"
+    },
+    {
+      "task": "build:ssg-candidate -- --variant root --base / --site-url https://example.com/",
+      "status": 0,
+      "log": "7-build-ssg-candidate.txt"
+    },
+    {
+      "task": "build:ssg-candidate -- --variant custom --base /company/site/ --site-url https://custom.example/company/site/",
+      "status": 0,
+      "log": "8-build-ssg-candidate.txt"
+    },
+    {
+      "task": "test:ssg",
+      "status": 0,
+      "log": "9-test-ssg.txt"
+    }
+  ],
+  "automatedTests": {
+    "existing": 27,
+    "candidate": 19,
+    "newWithinCandidate": 7
+  },
+  "browsers": [
+    {
+      "localEvidence": "dist-ssr/phase5c3-b-1795589879526/report.json",
+      "mode": "ssg",
+      "browser": "158.0.8127.88",
+      "cases": 40,
+      "failed": 0,
+      "hydrationChecks": 152,
+      "emailRequests": 0,
+      "localAssetFailures": [],
+      "observedBFCacheRestores": 0,
+      "coverage": [
+        "desktop-ar-direct-contact-and-result",
+        "desktop-ar-mocked-failure-result-switch-refresh-retry",
+        "desktop-ar-retry-query-hash-switch-back-forward-refresh",
+        "desktop-ar-success-back-refresh-invalidates-all-fields",
+        "desktop-ar-older-error-result-cannot-offer-completed-retry",
+        "desktop-ar-success-result-forward-switch-back-refresh",
+        "desktop-ar-fresh-retry-after-success",
+        "desktop-ar-unversioned-history-draft-stays-invalid-after-success",
+        "desktop-ar-storage-denied-same-document-retry-and-safe-refresh",
+        "desktop-ar-storage-readable-but-writes-denied",
+        "desktop-en-direct-contact-and-result",
+        "desktop-en-mocked-failure-result-switch-refresh-retry",
+        "desktop-en-retry-query-hash-switch-back-forward-refresh",
+        "desktop-en-success-back-refresh-invalidates-all-fields",
+        "desktop-en-older-error-result-cannot-offer-completed-retry",
+        "desktop-en-success-result-forward-switch-back-refresh",
+        "desktop-en-fresh-retry-after-success",
+        "desktop-en-unversioned-history-draft-stays-invalid-after-success",
+        "desktop-en-storage-denied-same-document-retry-and-safe-refresh",
+        "desktop-en-storage-readable-but-writes-denied",
+        "mobile-ar-direct-contact-and-result",
+        "mobile-ar-mocked-failure-result-switch-refresh-retry",
+        "mobile-ar-retry-query-hash-switch-back-forward-refresh",
+        "mobile-ar-success-back-refresh-invalidates-all-fields",
+        "mobile-ar-older-error-result-cannot-offer-completed-retry",
+        "mobile-ar-success-result-forward-switch-back-refresh",
+        "mobile-ar-fresh-retry-after-success",
+        "mobile-ar-unversioned-history-draft-stays-invalid-after-success",
+        "mobile-ar-storage-denied-same-document-retry-and-safe-refresh",
+        "mobile-ar-storage-readable-but-writes-denied",
+        "mobile-en-direct-contact-and-result",
+        "mobile-en-mocked-failure-result-switch-refresh-retry",
+        "mobile-en-retry-query-hash-switch-back-forward-refresh",
+        "mobile-en-success-back-refresh-invalidates-all-fields",
+        "mobile-en-older-error-result-cannot-offer-completed-retry",
+        "mobile-en-success-result-forward-switch-back-refresh",
+        "mobile-en-fresh-retry-after-success",
+        "mobile-en-unversioned-history-draft-stays-invalid-after-success",
+        "mobile-en-storage-denied-same-document-retry-and-safe-refresh",
+        "mobile-en-storage-readable-but-writes-denied"
+      ]
+    },
+    {
+      "localEvidence": "dist-ssr/phase5c3-b-1795590169459/report.json",
+      "mode": "ssg",
+      "browser": "158.0.4370.33",
+      "cases": 40,
+      "failed": 0,
+      "hydrationChecks": 152,
+      "emailRequests": 0,
+      "localAssetFailures": [],
+      "observedBFCacheRestores": 0,
+      "coverage": [
+        "desktop-ar-direct-contact-and-result",
+        "desktop-ar-mocked-failure-result-switch-refresh-retry",
+        "desktop-ar-retry-query-hash-switch-back-forward-refresh",
+        "desktop-ar-success-back-refresh-invalidates-all-fields",
+        "desktop-ar-older-error-result-cannot-offer-completed-retry",
+        "desktop-ar-success-result-forward-switch-back-refresh",
+        "desktop-ar-fresh-retry-after-success",
+        "desktop-ar-unversioned-history-draft-stays-invalid-after-success",
+        "desktop-ar-storage-denied-same-document-retry-and-safe-refresh",
+        "desktop-ar-storage-readable-but-writes-denied",
+        "desktop-en-direct-contact-and-result",
+        "desktop-en-mocked-failure-result-switch-refresh-retry",
+        "desktop-en-retry-query-hash-switch-back-forward-refresh",
+        "desktop-en-success-back-refresh-invalidates-all-fields",
+        "desktop-en-older-error-result-cannot-offer-completed-retry",
+        "desktop-en-success-result-forward-switch-back-refresh",
+        "desktop-en-fresh-retry-after-success",
+        "desktop-en-unversioned-history-draft-stays-invalid-after-success",
+        "desktop-en-storage-denied-same-document-retry-and-safe-refresh",
+        "desktop-en-storage-readable-but-writes-denied",
+        "mobile-ar-direct-contact-and-result",
+        "mobile-ar-mocked-failure-result-switch-refresh-retry",
+        "mobile-ar-retry-query-hash-switch-back-forward-refresh",
+        "mobile-ar-success-back-refresh-invalidates-all-fields",
+        "mobile-ar-older-error-result-cannot-offer-completed-retry",
+        "mobile-ar-success-result-forward-switch-back-refresh",
+        "mobile-ar-fresh-retry-after-success",
+        "mobile-ar-unversioned-history-draft-stays-invalid-after-success",
+        "mobile-ar-storage-denied-same-document-retry-and-safe-refresh",
+        "mobile-ar-storage-readable-but-writes-denied",
+        "mobile-en-direct-contact-and-result",
+        "mobile-en-mocked-failure-result-switch-refresh-retry",
+        "mobile-en-retry-query-hash-switch-back-forward-refresh",
+        "mobile-en-success-back-refresh-invalidates-all-fields",
+        "mobile-en-older-error-result-cannot-offer-completed-retry",
+        "mobile-en-success-result-forward-switch-back-refresh",
+        "mobile-en-fresh-retry-after-success",
+        "mobile-en-unversioned-history-draft-stays-invalid-after-success",
+        "mobile-en-storage-denied-same-document-retry-and-safe-refresh",
+        "mobile-en-storage-readable-but-writes-denied"
+      ]
+    },
+    {
+      "localEvidence": "dist-ssr/phase5c3-b-1795590168540/report.json",
+      "mode": "csr",
+      "browser": "158.0.8127.88",
+      "cases": 40,
+      "failed": 0,
+      "hydrationChecks": 0,
+      "emailRequests": 0,
+      "localAssetFailures": [],
+      "observedBFCacheRestores": 0,
+      "coverage": [
+        "desktop-ar-direct-contact-and-result",
+        "desktop-ar-mocked-failure-result-switch-refresh-retry",
+        "desktop-ar-retry-query-hash-switch-back-forward-refresh",
+        "desktop-ar-success-back-refresh-invalidates-all-fields",
+        "desktop-ar-older-error-result-cannot-offer-completed-retry",
+        "desktop-ar-success-result-forward-switch-back-refresh",
+        "desktop-ar-fresh-retry-after-success",
+        "desktop-ar-unversioned-history-draft-stays-invalid-after-success",
+        "desktop-ar-storage-denied-same-document-retry-and-safe-refresh",
+        "desktop-ar-storage-readable-but-writes-denied",
+        "desktop-en-direct-contact-and-result",
+        "desktop-en-mocked-failure-result-switch-refresh-retry",
+        "desktop-en-retry-query-hash-switch-back-forward-refresh",
+        "desktop-en-success-back-refresh-invalidates-all-fields",
+        "desktop-en-older-error-result-cannot-offer-completed-retry",
+        "desktop-en-success-result-forward-switch-back-refresh",
+        "desktop-en-fresh-retry-after-success",
+        "desktop-en-unversioned-history-draft-stays-invalid-after-success",
+        "desktop-en-storage-denied-same-document-retry-and-safe-refresh",
+        "desktop-en-storage-readable-but-writes-denied",
+        "mobile-ar-direct-contact-and-result",
+        "mobile-ar-mocked-failure-result-switch-refresh-retry",
+        "mobile-ar-retry-query-hash-switch-back-forward-refresh",
+        "mobile-ar-success-back-refresh-invalidates-all-fields",
+        "mobile-ar-older-error-result-cannot-offer-completed-retry",
+        "mobile-ar-success-result-forward-switch-back-refresh",
+        "mobile-ar-fresh-retry-after-success",
+        "mobile-ar-unversioned-history-draft-stays-invalid-after-success",
+        "mobile-ar-storage-denied-same-document-retry-and-safe-refresh",
+        "mobile-ar-storage-readable-but-writes-denied",
+        "mobile-en-direct-contact-and-result",
+        "mobile-en-mocked-failure-result-switch-refresh-retry",
+        "mobile-en-retry-query-hash-switch-back-forward-refresh",
+        "mobile-en-success-back-refresh-invalidates-all-fields",
+        "mobile-en-older-error-result-cannot-offer-completed-retry",
+        "mobile-en-success-result-forward-switch-back-refresh",
+        "mobile-en-fresh-retry-after-success",
+        "mobile-en-unversioned-history-draft-stays-invalid-after-success",
+        "mobile-en-storage-denied-same-document-retry-and-safe-refresh",
+        "mobile-en-storage-readable-but-writes-denied"
+      ]
+    }
+  ],
+  "integrity": [
+    {
+      "variant": "repo",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    },
+    {
+      "variant": "root",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    },
+    {
+      "variant": "custom",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    },
+    {
+      "variant": "contact-fixture",
+      "documents": 56,
+      "indexable": 52,
+      "validUtf8": true,
+      "nulBytes": 0,
+      "replacementCharacters": 0
+    }
+  ],
+  "contactDesign": {
+    "pages": [
+      {
+        "file": "contact/index.html",
+        "rootMarkupIdentical": true
+      },
+      {
+        "file": "en/contact/index.html",
+        "rootMarkupIdentical": true
+      }
+    ],
+    "cssIdentical": true
+  },
+  "existingContactRetryCases": 10,
+  "existingSSGInteractionCases": 38,
+  "remaining": [
+    "English Training font overfetch (~52%)",
+    "Node 22/Linux verification pending",
+    "Existing audit 24 dependency findings unresolved"
+  ],
+  "noCommitPushMergeOrDeployment": true,
+  "experimentalBrowserChecks": {
+    "cases": 20,
+    "interactions": 3,
+    "failures": 0,
+    "fontFailures": 0
+  },
+  "originalReproduction": {
+    "before": "before-history.json",
+    "after": "after-history.json",
+    "findingsAfter": 0,
+    "errorsAfter": 0
+  }
+}

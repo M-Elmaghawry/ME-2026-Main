@@ -7,6 +7,7 @@ import { build } from 'vite';
 import { prepareImages } from './optimize-images.mjs';
 import { validateHtml, validateSitemap } from './ssg-html.mjs';
 import { validateUtf8 } from './ssg-integrity.mjs';
+import { documentFontHints } from './ssg-fonts.mjs';
 
 const { values } = parseArgs({ options: { base: { type: 'string', default: '/ME-2026-Main/' }, 'site-url': { type: 'string' }, variant: { type: 'string', default: 'repo' }, config: { type: 'string', default: 'ssg/vite.config.ts' } } });
 assert.match(values.variant, /^[a-z0-9-]+$/);
@@ -34,23 +35,19 @@ const snapshot = { renderedAt, year: new Intl.DateTimeFormat('en-US', { year: 'n
 const template = await readFile(path.join(output, 'site/index.html'), 'utf8');
 const manifest = JSON.parse(await readFile(path.join(output, 'site/.vite/manifest.json'), 'utf8'));
 const fontSources = JSON.parse(await readFile('src/assets/fonts/sources.json', 'utf8'));
-const primaryFonts = fontSources.files.filter(font => font.preload).map(font => {
-  const entry = Object.values(manifest).find(entry => path.posix.basename(entry.file).startsWith(font.file.slice(0, -6)));
-  assert.ok(entry, `Missing primary font asset: ${font.file}`);
-  return { family: font.family, url: `${base}${entry.file}` };
-});
-const fontPreloads = primaryFonts.map(font => `<link rel="preload" as="font" type="font/woff2" crossorigin href="${font.url}" />`).join('\n');
-// Downloaded preloads may not be decoded until first text layout. Start decoding
-// the same files early, without waiting, hiding content, or changing font faces.
-const fontWarmup = `<script>if('FontFace' in window)for(const f of ${JSON.stringify(primaryFonts)})new FontFace(f.family,'url("'+f.url+'")',{weight:'300 800',display:'swap'}).load().catch(error=>console.error('Font decode failed:',error));</script>`;
 const report = { generatedAt: new Date().toISOString(), base, siteUrl, snapshot, documents: [], sitemapUrls: 0 };
 const pages = [...api.indexablePages, { id: 'ContactResult', path: '/thank-you' }, { id: 'NotFound', path: '/404', fallback404: true }];
 for (const language of ['ar', 'en']) for (const page of pages) {
+  const { preloads: fontPreloads, warmup: fontWarmup } = documentFontHints(fontSources, manifest, base, language);
   const route = page.path === '/' ? '/' : `${page.path}/`;
   const boot = { language, route, pageId: page.id, base, siteUrl, snapshot, identifierPrefix: `ssg-${language}-${page.id}-${report.documents.length}-`, fallback404: !!page.fallback404 };
   const body = await api.render(boot);
   const meta = api.pageMetadata(route, language, siteUrl, 'path');
-  const entry = Object.keys(manifest).find(key => key.endsWith(`/src/pages/${page.id}.tsx`));
+  // Rollup can merge a lazy page with helpers also imported by another page.
+  // Vite then records it as a named dynamic chunk rather than a source entry.
+  const entries = Object.keys(manifest).filter(key => key.endsWith(`/src/pages/${page.id}.tsx`) || (manifest[key].isDynamicEntry && manifest[key].name === page.id));
+  assert.equal(entries.length, 1, `ambiguous or missing manifest entry: ${page.id}`);
+  const entry = entries[0];
   assert.ok(entry, `missing manifest entry: ${page.id}`);
   const dependencies = new Set();
   function visit(key) { if (dependencies.has(key)) return; assert.ok(manifest[key]); dependencies.add(key); (manifest[key].imports || []).forEach(visit); }
