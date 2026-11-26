@@ -7,11 +7,13 @@ import { localeBase } from '@/lib/urls';
 import { legacyDestination } from '@/lib/legacy';
 import { installLocaleHistory } from '@/lib/localeHistory';
 import type { Bootstrap } from './types';
+import { installStaticRouteAliases } from './route-alias';
 
 async function start() {
   const boot = JSON.parse(document.getElementById('ssg-state')!.textContent!) as Bootstrap;
   const redirect = legacyDestination(window.location.href, boot.base);
   if (redirect) { window.location.replace(redirect); return; }
+  installStaticRouteAliases(boot.base);
   // The shared bilingual 404 deliberately boots Arabic for unknown URLs.
   if (!boot.fallback404) installLocaleHistory(boot.base, boot.language);
   const i18n = await createPageI18n(boot.language);

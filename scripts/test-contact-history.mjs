@@ -10,7 +10,9 @@ import { serve, metrics } from './ssg-browser-utils.mjs';
 const output = path.resolve(`dist-ssr/phase5c3-b-${Date.now()}`);
 await mkdir(output, { recursive: true });
 const csr = process.argv.includes('--csr');
-const base = csr ? '/' : '/ME-2026-Main/';
+const aliases = process.argv.includes('--alias') && !csr;
+const base = csr ? '/' : process.argv.includes('--base') ? process.argv[process.argv.indexOf('--base') + 1] : '/ME-2026-Main/';
+assert.ok(base.startsWith('/') && base.endsWith('/'));
 if (csr) {
   // Exercise the unchanged production build configuration with local mocks only.
   // This output is isolated from dist and from the SSG candidate.
@@ -29,7 +31,7 @@ const executablePath = process.env.CHROME_PATH || (process.argv.includes('--edge
   ? 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'
   : ['C:/Program Files/Google/Chrome/Application/chrome.exe', '/usr/bin/google-chrome', '/usr/bin/chromium', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'].find(existsSync));
 const browser = await chromium.launch({ executablePath, headless: true, chromiumSandbox: true, ignoreDefaultArgs: ['--disable-back-forward-cache'] });
-const report = { mode: csr ? 'csr' : 'ssg', browser: await browser.version(), cases: [], failures: [], observations: [], hydrationChecks: 0, emailRequests: 0, localAssetFailures: [] };
+const report = { mode: csr ? 'csr' : 'ssg', base, aliases, browser: await browser.version(), cases: [], failures: [], observations: [], hydrationChecks: 0, emailRequests: 0, localAssetFailures: [] };
 const values = { name: 'Synthetic contact history', email: 'history@example.invalid', phone: '501234567', company: 'Local test', message: 'Synthetic local mocked contact history check.', countryCode: '+966', service: 'bim-training' };
 const empty = { name: '', email: '', phone: '', company: '', message: '', countryCode: '+20', service: '' };
 const url = (lang, route = 'contact', suffix = '') => {
@@ -39,6 +41,13 @@ const url = (lang, route = 'contact', suffix = '') => {
 };
 const switchName = lang => lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية';
 const retryName = lang => lang === 'ar' ? 'حاول مرة أخرى' : 'Try again';
+async function refresh(page) {
+  if (aliases) await page.evaluate(() => {
+    const url = new URL(location.href); url.pathname += 'index.html';
+    history.replaceState(history.state, '', url);
+  });
+  return page.reload();
+}
 const snapshot = () => ({ url: location.pathname + location.search + location.hash, lang: document.documentElement.lang, dir: document.documentElement.dir, boot: JSON.parse(document.getElementById('ssg-state')?.textContent || 'null')?.language, main: document.querySelectorAll('main').length, h1: document.querySelector('h1')?.textContent, historyHasDraft: !!history.state?.usr?.draft, result: history.state?.usr?.status ?? null, restoredFromBFCache: window.__CONTACT_HISTORY_BFCACHE__ ?? false });
 async function check(name, run) {
   try { await run(); report.cases.push({ name, passed: true }); console.log('PASSED ' + name); }
@@ -95,11 +104,11 @@ try {
       page.on('response', response => { if (new URL(response.url()).hostname === '127.0.0.1' && response.status() >= 400) report.localAssetFailures.push(response.url()); });
       try {
         await check(`${label}-direct-contact-and-result`, async () => {
-          const response = await page.goto(url(lang)); await ready(page, lang); await fields(page, empty);
+          const response = await page.goto(url(lang) + (aliases ? 'index.html' : '')); await ready(page, lang); await fields(page, empty);
           const html = await response.text(); assert.ok(!html.includes(values.email)); assert.ok(!html.includes(values.name));
           if (!csr) {
             assert.equal((await metrics(page)).rootPreserved, true);
-            await page.goto(url(lang, 'thank-you')); await ready(page, lang); await fields(page, empty);
+            await page.goto(url(lang, 'thank-you') + (aliases ? 'index.html' : '')); await ready(page, lang); await fields(page, empty);
           }
         });
         await check(`${label}-mocked-failure-result-switch-refresh-retry`, async () => {
@@ -107,9 +116,9 @@ try {
           originalErrorIndex = await page.evaluate(() => history.state.idx);
           assert.equal(await page.evaluate(() => window.__EMAILJS_TEST__.calls.length), 1);
           await toggle(page, lang, 'thank-you');
-          if (!csr) { await page.reload(); await ready(page, other, 'thank-you'); }
+          if (!csr) { await refresh(page); await ready(page, other, 'thank-you'); }
           await page.getByRole('link', { name: retryName(other), exact: true }).click(); await ready(page, other); await fields(page, values);
-          await page.reload(); await ready(page, other); await fields(page, values);
+          await refresh(page); await ready(page, other); await fields(page, values);
           // Repeated errors belong to the same uncompleted revision.
           await submit(page, other, 'error'); await page.getByRole('link', { name: retryName(other), exact: true }).click();
           await ready(page, other); await fields(page, values);
@@ -117,13 +126,13 @@ try {
         const suffix = '?ref=contact-history&ref=second#contact-message';
         await check(`${label}-retry-query-hash-switch-back-forward-refresh`, async () => {
           await page.evaluate(target => { history.replaceState(history.state, '', target); }, url(other, 'contact', suffix));
-          await page.reload(); await ready(page, other, 'contact', suffix); await fields(page, values);
+          await refresh(page); await ready(page, other, 'contact', suffix); await fields(page, values);
           await toggle(page, other, 'contact', suffix); await fields(page, values);
           report.observations.push({ sequence: label + '-switch', ...await page.evaluate(snapshot) });
           await page.goBack(); await ready(page, other, 'contact', suffix); await fields(page, values);
           report.observations.push({ sequence: label + '-back', ...await page.evaluate(snapshot) });
           await page.goForward(); await ready(page, lang, 'contact', suffix); await fields(page, values);
-          await page.reload(); await ready(page, lang, 'contact', suffix); await fields(page, values);
+          await refresh(page); await ready(page, lang, 'contact', suffix); await fields(page, values);
         });
         await check(`${label}-success-back-refresh-invalidates-all-fields`, async () => {
           await submit(page, lang, 'success');
@@ -131,7 +140,7 @@ try {
           const stored = await page.evaluate(() => ({ session: JSON.stringify(sessionStorage), local: JSON.stringify(localStorage) }));
           for (const value of [values.email, values.message, values.name, values.phone]) { assert.ok(!stored.session.includes(value)); assert.ok(!stored.local.includes(value)); }
           await page.goBack(); await ready(page, other, 'contact', suffix); await fields(page, empty);
-          await page.reload(); await ready(page, other, 'contact', suffix); await fields(page, empty);
+          await refresh(page); await ready(page, other, 'contact', suffix); await fields(page, empty);
           await page.waitForFunction(() => !history.state?.usr?.draft);
           report.observations.push({ sequence: label + '-success-back-refresh', ...await page.evaluate(snapshot) });
         });
@@ -147,14 +156,14 @@ try {
           await page.goForward(); await ready(page, lang, 'thank-you');
           await toggle(page, lang, 'thank-you');
           await page.goBack(); await ready(page, lang, 'thank-you');
-          if (!csr) { await page.reload(); await ready(page, lang, 'thank-you'); }
+          if (!csr) { await refresh(page); await ready(page, lang, 'thank-you'); }
           assert.deepEqual(await page.evaluate(() => history.state.usr), { status: 'success' });
           await page.goBack(); await ready(page, other, 'contact', suffix); await fields(page, empty);
         });
         await check(`${label}-fresh-retry-after-success`, async () => {
           await fill(page); await submit(page, other, 'error');
           await page.getByRole('link', { name: retryName(other), exact: true }).click(); await ready(page, other); await fields(page, values);
-          await page.reload(); await ready(page, other); await fields(page, values);
+          await refresh(page); await ready(page, other); await fields(page, values);
           assert.deepEqual(errors, []);
         });
         await check(`${label}-unversioned-history-draft-stays-invalid-after-success`, async () => {
@@ -162,7 +171,7 @@ try {
             const { service, ...draft } = values;
             history.replaceState({ ...history.state, usr: { draft: { ...draft, selectedService: service } } }, '', location.href);
           }, values);
-          await page.reload(); await ready(page, other); await fields(page, empty);
+          await refresh(page); await ready(page, other); await fields(page, empty);
           await page.waitForFunction(() => !history.state?.usr?.draft);
           assert.deepEqual(errors, []);
         });
@@ -172,7 +181,7 @@ try {
         await check(`${label}-storage-denied-same-document-retry-and-safe-refresh`, async () => {
           await privatePage.goto(url(lang)); await ready(privatePage, lang); await fill(privatePage); await submit(privatePage, lang, 'error');
           await privatePage.getByRole('link', { name: retryName(lang), exact: true }).click(); await ready(privatePage, lang); await fields(privatePage, values);
-          await privatePage.reload(); await ready(privatePage, lang); await fields(privatePage, empty);
+          await refresh(privatePage); await ready(privatePage, lang); await fields(privatePage, empty);
           await privatePage.waitForFunction(() => !history.state?.usr?.draft);
         });
       } finally { await privateContext.close(); }
@@ -182,7 +191,7 @@ try {
           await readOnlyPage.goto(url(lang)); await ready(readOnlyPage, lang); await fill(readOnlyPage); await submit(readOnlyPage, lang, 'error');
           await readOnlyPage.getByRole('link', { name: retryName(lang), exact: true }).click(); await ready(readOnlyPage, lang); await fields(readOnlyPage, values);
           await submit(readOnlyPage, lang, 'success'); await readOnlyPage.goBack(); await ready(readOnlyPage, lang); await fields(readOnlyPage, empty);
-          await readOnlyPage.reload(); await ready(readOnlyPage, lang); await fields(readOnlyPage, empty);
+          await refresh(readOnlyPage); await ready(readOnlyPage, lang); await fields(readOnlyPage, empty);
         });
       } finally { await readOnlyContext.close(); }
     }

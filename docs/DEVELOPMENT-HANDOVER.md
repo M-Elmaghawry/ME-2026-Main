@@ -2,14 +2,35 @@
 
 **PRODUCTION RELEASE STATUS: BLOCKED. Development checkpoint only.**
 
-Updated: 26 November 2026, Asia/Riyadh. G1–G4.1 development checkpoint for device transfer.
+Updated: 26 November 2026, Asia/Riyadh. Phase 5C.4-A alias correction after the G1–G4.1 device-transfer checkpoint.
+
+Phase **5C.4-A** adds SSG-only literal `index.html` alias normalization before
+hydration and history traversal. See [the implementation, validation and hosting
+limitations](PHASE-5C4-A.md). Canonical URLs, SSR, SEO, fonts/design and the
+G1–G4.1 dependency manifest/lockfile/overrides remain unchanged. Production is
+still **BLOCKED**. After requesting the local correction, the user separately
+authorized committing/pushing the completed updates to the development branch;
+this does not authorize merging into main, deployment or production release.
+
+Local 5C.4-A evidence: **59 Node tests, 1,080 alias matrix checks, 240 Contact
+history cases, 38 wider interactions, 20 course-layout cases, 12 browser-locale
+checks and 32 visual pairs pass**. All three TS checks/lint/CSR and documented
+SSG build commands pass. The candidate/fixture's **224 HTML files are UTF-8/NUL
+clean**; CSS/fonts, metadata and sitemap remain unchanged. The independent
+`npm ls --all` check currently reports two extraneous optional packages and a
+Tailwind parser override diagnostic. The unchanged historical POC has ten NUL
+bytes in two HTML files despite its build exit 0; it is not the candidate and
+must not be published. Both findings are detailed in the current phase report.
 
 - Repository: https://github.com/M-Elmaghawry/ME-2026-Main
 - Development branch: `fix/seo-language-consistency`
 - Current checkpoint: the development commit containing this handover, with message
-  `checkpoint: preserve G1-G4.1 remediation for device transfer`.
+  `fix(ssg): normalize static index.html aliases before hydration`.
   After cloning, record its full SHA with `git rev-parse HEAD` and verify it matches
   `origin/fix/seo-language-consistency`. The final checkpoint report supplies the SHA.
+- Phase 5C.4-A starting/device-transfer checkpoint:
+  **`fd068038648373ac720883ab7084f90b09f9b8af`**, with message
+  `checkpoint: preserve G1-G4.1 remediation for device transfer`.
 - Previous checkpoint SHA: **`c2599aedf203a51f29382ae17370e5f23cc902c3`**. That implementation snapshot uses
   `checkpoint: preserve bilingual SSR development and release blockers`.
   A following documentation-only commit records this SHA without changing runtime code.
@@ -151,9 +172,11 @@ produce the existing CSR site. No SSG deployment switch has been activated.
    least Node **22.22.2** within Node 22. Windows success is not Linux validation.
    G4.1's npm-generated optional Linux libc metadata normalization also requires
    review in that clean Linux/native-dependency verification; no risk acceptance.
-2. **Literal `index.html` aliases have routing/hydration mismatches.** Canonical
-   generated trailing-slash routes passed. No alias normalization has been implemented;
-   a portable reproduction is provided below.
+2. **Live hosting alias policy still needs verification.** Phase 5C.4-A fixes
+   literal `index.html` routing/hydration locally for generated Arabic/English
+   pages on repository, root and custom bases. It uses `history.replaceState`,
+   not an HTTP 301 redirect. Live Pages responses and any separately desired
+   host/edge redirect remain unverified; see [the current alias report](PHASE-5C4-A.md).
 3. **Dependency security findings remain unresolved after G4.1:** 10 affected package
    names and **20 unique advisories**; package severity totals are 4 high and
    6 moderate. Four affected names ship browser code; six are tooling.
@@ -205,6 +228,7 @@ than introducing persistent private draft storage.
 
 ## Durable documentation and evidence
 
+- [Phase 5C.4-A static route aliases, history and hydration](PHASE-5C4-A.md)
 - [Phase 5C.3-F security triage](PHASE-5C3-F.md),
   [full classification](phase5c3-f/FULL-CLASSIFICATION.md),
   [remediation plan](phase5c3-f/REMEDIATION-PLAN.md),
@@ -372,7 +396,33 @@ Phase F repeated the lockfile audits, verified exact emitted chunks, assessed
 all 24 packages/40 advisories, and performed three bounded schema probes. It did
 not install or test any proposed upgrade or repeat all E test suites.
 
-## Portable unresolved alias reproduction
+## Portable alias regression and historical reproduction
+
+The mismatch below describes the **starting checkpoint** `fd06803`. Phase 5C.4-A
+now normalizes valid file aliases before hydration and on history traversal.
+Current direct/refresh tests, including desktop/mobile and three hosting bases:
+
+```text
+node scripts/test-static-route-aliases.mjs
+node scripts/test-contact-history.mjs --alias
+node scripts/test-contact-history.mjs --alias --edge
+```
+
+The first command requires normal repo/root/custom candidate builds; Contact
+commands require the separately built repo-base mocked fixture. `--base /` and
+`--base /company/site/` select other separately rebuilt mocked fixture bases.
+The history test's `--alias` mode opens Contact/result aliases and refreshes
+their literal forms while retaining retry/result state. It sends no real email.
+For current-machine visual comparisons, preserve the starting checkpoint's fresh
+repo build at `dist-ssr/phase5c4-a/baseline/site`, then run
+`node scripts/test-static-route-alias-visuals.mjs` after rebuilding the fix.
+Large raw reports/screenshots are ignored; the durable findings are in the report.
+
+To repeat the negative control on an isolated **checkpoint source**, run
+`node scripts/test-static-route-aliases.mjs --before` with that source's build.
+Its expected assertion is that valid aliases produce hydration errors; it is
+not a passing-mode command for the fixed source. Do not reset the working tree
+or main to reproduce it.
 
 After building the repo variant, start the existing local static helper:
 
@@ -384,8 +434,9 @@ It binds an ephemeral port on 127.0.0.1; stop with Ctrl+C. At the printed origin
 compare `/ME-2026-Main/about/` with `/ME-2026-Main/about/index.html`, and the
 equivalent English paths under `/ME-2026-Main/en/`. Inspect browser console and
 `window.__SSG_EVIDENCE__.recoverableErrors`. Phase E observed React #418/#422
-mismatches on literal file aliases while canonical URLs passed. No alias fix is
-included here. This helper emulates Pages locally; it does not verify live hosting.
+mismatches on literal file aliases while canonical URLs passed. Phase 5C.4-A
+supersedes that local defect; this helper still serves file aliases with HTTP 200
+and emulates Pages locally. It does not verify live hosting or issue alias 301s.
 
 ## Portable Contact regression checks
 
@@ -453,8 +504,8 @@ Inter, approved content/design and automatic motion when evaluating font hints.
    preserves separate i18next/Zod/resolver/router-major decisions.
 3. Separately validate Linux/Node 22, including platform font behavior and native
    dependencies. Do not dispatch the production workflow as a disposable test runner.
-4. Separately resolve/define literal index.html alias support, without folding it
-   into a dependency-only update without approval.
+4. Review Phase 5C.4-A's completed local alias correction; separately verify the
+   actual host response policy during the authorized hosting/readiness gate.
 5. Complete security remediation or explicit condition-based residual acceptance;
    then final Pages hosting/readiness verification and separate release approval.
 
