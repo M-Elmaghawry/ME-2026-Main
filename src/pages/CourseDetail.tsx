@@ -14,6 +14,7 @@ import { courses } from '@/data/courses';
 import { testimonials } from '@/data/testimonials';
 import { coursePricing } from '@/data/coursePricing';
 import { currentPrice, formatPrice, remainingTime } from '@/lib/pricing';
+import { formatCount } from '@/lib/formatting';
 import {
   Accordion,
   AccordionContent,
@@ -700,7 +701,7 @@ const CourseDetail = () => {
   const courseTestimonials = testimonials.slice(0, 4);
 
   const STATS = [
-    { value: `+${extras.studentsCount.toLocaleString()}`, label: isAr ? 'طالب' : 'Students' },
+    { value: `+${formatCount(extras.studentsCount)}`, label: isAr ? 'طالب' : 'Students' },
     { value: '★ 4.9',                     label: isAr ? 'تقييم'       : 'Rating'          },
     { value: `${isFreeCourse ? '01' : extras.hoursContent}h`, label: isAr ? 'ساعة تدريب' : 'Training Hours' },
   ];
@@ -778,13 +779,13 @@ const CourseDetail = () => {
                     </span>
                     <StarRating rating={extras.rating} size="sm" />
                     <span className="text-white/55">
-                      ({extras.ratingCount.toLocaleString()}{' '}
+                      ({formatCount(extras.ratingCount)}{' '}
                       {isAr ? 'تقييم' : 'ratings'})
                     </span>
                     <span className="text-white/40 select-none">•</span>
                     <span className="text-white/75 flex items-center gap-1.5">
                       <Users className="w-3.5 h-3.5" />
-                      {extras.studentsCount.toLocaleString()}+{' '}
+                      {formatCount(extras.studentsCount)}+{' '}
                       {isAr ? 'طالب' : 'students'}
                     </span>
                   </div>
@@ -968,7 +969,7 @@ const CourseDetail = () => {
                           <div className="flex items-center gap-1.5 text-muted-foreground">
                             <Users className="w-4 h-4" />
                             <span className="font-bold text-foreground">
-                              {INSTRUCTOR.studentsCount.toLocaleString()}+
+                              {formatCount(INSTRUCTOR.studentsCount)}+
                             </span>
                             <span>{isAr ? 'طالب' : 'Students'}</span>
                           </div>
@@ -1108,8 +1109,8 @@ const CourseDetail = () => {
               </h2>
               <p className="text-white/70 mt-2 mb-8 text-lg max-w-xl mx-auto">
                 {isAr
-                  ? `انضم لأكثر من ${extras.studentsCount.toLocaleString()} مهندس من خريجي الأكاديمية`
-                  : `Join over ${extras.studentsCount.toLocaleString()} engineers from our academy`}
+                  ? `انضم لأكثر من ${formatCount(extras.studentsCount)} مهندس من خريجي الأكاديمية`
+                  : `Join over ${formatCount(extras.studentsCount)} engineers from our academy`}
               </p>
               <button
                 onClick={() => window.open(course.udemyLink, '_blank', 'noopener,noreferrer')}
